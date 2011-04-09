@@ -11,6 +11,22 @@
 	.right {
 		text-align: right;
 	}
+	
+	.i {
+		font-style: italic;
+	}
+	
+	.imported {
+		color: black;	
+	}
+	
+	.no_episodes {
+		color: #5171ff;
+	}
+	
+	.update {
+		color: gray;
+	}
 
 </style>
 <style>

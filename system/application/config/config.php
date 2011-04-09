@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://localhost/mvcdvds/";
+$config['base_url']	= "http://charlie/~steve/mvcdvds/";
 
 /*
 |--------------------------------------------------------------------------

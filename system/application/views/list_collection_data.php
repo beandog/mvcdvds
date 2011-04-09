@@ -23,7 +23,7 @@
 		
 		$num_discs = 0;
 		
-		$a_title = anchor("series/index/$series_id", $title, array('class' => 'black'));
+		$a_title = anchor("series/dvds/$series_id", $title, array('class' => 'black'));
 		
 		$table_row = array(
 			$a_title,
@@ -44,3 +44,7 @@
 	$total = count($collections);
 	
 	echo "<p><b>Total Series:</b> $total</p>";
+	
+	$a_new_series = anchor("collections/new_series/$id", "Create New Series");
+	
+	echo "<p>$a_new_series</p>";

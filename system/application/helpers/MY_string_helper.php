@@ -7,22 +7,22 @@
 	*
 	* @param mixed $var
 	*/
-function pre($var, $header = false, $sort = true) {
-	if($header)
-		echo "<p><b>$header</b></p>\n";
-	echo "<pre>\n";
-	if($sort == true && is_array($var))
-		ksort($var);
-	if(is_array($var) || is_object($var))
-	{
-		print_r($var);
+	function pre($var, $header = false, $sort = true) {
+		if($header)
+			echo "<p><b>$header</b></p>\n";
+		echo "<pre>\n";
+		if($sort == true && is_array($var))
+			ksort($var);
+		if(is_array($var) || is_object($var))
+		{
+			print_r($var);
+		}
+		else {
+			$var = htmlentities($var);
+			print_r($var);
+		}	
+		echo "</pre>\n";
 	}
-	else {
-		$var = htmlentities($var);
-		print_r($var);
-	}	
-	echo "</pre>\n";
-}
 
 	function pg_bool($str) {
 	
@@ -39,5 +39,23 @@ function pre($var, $header = false, $sort = true) {
 			return 't';
 		else
 			return 'f';
+	
+	}
+	
+	function pg_null($str) {
+	
+		if(empty($str))
+			return null;
+		else
+			return $str;
+	
+	}
+	
+	function p($int = 1) {
+	
+		$str = "<p>\n";
+		$str = str_repeat($str, $int);
+		
+		return $str;
 	
 	}

@@ -18,5 +18,14 @@ class Collections extends Controller {
  		$this->load->view('list_collection_data', $data);
 	}
 	
+	function new_series($id) {
+	
+		$series_id = $this->series_model->create_new();
+		$this->series_model->set_collection_id($id);
+		
+		redirect("series/details/$series_id");
+	
+	}
+	
 	
 }

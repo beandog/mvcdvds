@@ -51,7 +51,7 @@ $autoload['libraries'] = array('database', 'table');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'file', 'html', 'string', 'number', 'date', 'form');
+$autoload['helper'] = array('url', 'file', 'html', 'string', 'number', 'date', 'form', 'dvd');
 
 
 /*
@@ -108,7 +108,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('database_table', 'tv_shows_model', 'collections_model', 'discs_model', 'series_model');
+$autoload['model'] = array('database_table', 'presets_model', 'tv_shows_model', 'collections_model', 'dvds_model', 'series_model', 'tracks_model', 'episodes_model', 'series_dvds_model');
 
 
 
