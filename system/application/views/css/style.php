@@ -1,5 +1,9 @@
 <style>
 
+	img: { border: 0 }
+	
+	a img { border: 0 }
+
 	.b {
 		font-weight: bold;
 	}
