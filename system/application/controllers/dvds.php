@@ -115,7 +115,7 @@
 			foreach($episodes as $episode_id => $arr) {
 			
 				extract($arr);
-			
+				
 				$this->episodes_model->load($episode_id);
 				$this->episodes_model->set('ix', pg_null($ix));
 				$this->episodes_model->set('title', $title);
