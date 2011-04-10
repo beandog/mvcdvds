@@ -6,6 +6,7 @@
 	
 	$heading = array(
 	
+		'',
 		'Title',
 		'Ssn.',
 		'Disc',
