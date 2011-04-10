@@ -116,6 +116,7 @@
 				$this->episodes_model->load($id);
 				$this->episodes_model->set('ix', pg_null($arr['ix']));
 				$this->episodes_model->set('title', $arr['title']);
+				$this->episodes_model->set('part', pg_null($arr['part']));
 				$this->episodes_model->set('starting_chapter', pg_null($arr['starting_chapter']));
 				$this->episodes_model->set('ending_chapter', pg_null($arr['ending_chapter']));
 // 				$this->episodes_model->set_season($arr['season']);
