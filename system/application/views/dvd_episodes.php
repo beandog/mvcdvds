@@ -16,6 +16,11 @@
 	
 	echo heading("Episodes", 4);
 	
+	echo anchor("", "Reindex Episodes", "onclick='reindex(); return false;'");
+	echo nbs();
+	echo anchor("", "Remove Indexes", "onclick='remove_indexes(); return false;'");
+	echo p();
+	
 	echo form_open("dvds/update_episodes/".$dvds['id'], "autocomplete='off' method='post'");
 	
 	$this->table->set_heading($tbl_heading);
