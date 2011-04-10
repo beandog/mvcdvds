@@ -16,15 +16,15 @@
 	
 	$i_series_id = form_dropdown('series_id', $select_series, $series_dvd['series_id']);
 	
-	if($longest_track)
-		$this->table->add_row(array("Longest Track:", $longest_track));
-	if(!empty($provider_id))
-		$this->table->add_row(array("Provider ID:", $provider_id));
 	if(!empty($title))
 		$this->table->add_row(array("Title:", $title));
-	$this->table->add_row(array("Uniq ID:", $uniq_id));
+	if(!empty($provider_id))
+		$this->table->add_row(array("Provider ID:", $provider_id));
 	if(!empty($vmg_id))
 		$this->table->add_row(array("VMG ID:", $vmg_id));
+	$this->table->add_row(array("Uniq ID:", $uniq_id));
+	if($longest_track)
+		$this->table->add_row(array("Longest Track:", $longest_track));
 	$this->table->add_row(array("Series:", $i_series_id));
 	
 	$submit = form_submit('submit', 'Update');
