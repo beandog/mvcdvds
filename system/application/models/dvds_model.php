@@ -29,7 +29,7 @@
 			$this->db->select('episodes.*, tracks.ix AS track_ix, tracks.id AS track_id, seasons.id AS season_id, seasons.season');
 			$this->db->join('tracks', 'tracks.dvd_id = dvds.id');
 			$this->db->join('episodes', 'episodes.track_id = tracks.id');
-			$this->db->join('seasons', 'seasons.episode_id = episodes.id');
+			$this->db->join('seasons', 'seasons.episode_id = episodes.id', 'left outer');
 			$this->db->where('dvds.id', $id);
 			
 			$this->db->order_by('seasons.season');

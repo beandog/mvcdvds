@@ -86,13 +86,6 @@
 		
 		}
 		
-		public function new_episode($id) {
-		
-			$episode_id = $this->episodes_model->create_new();
-			$this->episodes_model->set_track_id($id);
-		
-		}
-		
 		public function tracks($id) {
 		
 			$data['dvds'] = $this->dvds_model->get_data($id);
