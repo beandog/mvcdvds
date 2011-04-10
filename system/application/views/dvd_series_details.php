@@ -1,7 +1,5 @@
 <?
 	
-	$attr = array('id' => 'series_update', 'autocomplete' => 'off');
-	
 	$series_dvds_id = $series_dvd['id'];
 
 	/** Series Data **/
@@ -9,8 +7,6 @@
 	
 	echo "<blockquote>";
 
-	echo form_open("dvds/update_series/$series_dvds_id", $attr);
-	
 	extract($series_dvd);
 	$this->table->clear();
 	
@@ -31,12 +27,6 @@
 	$this->table->add_row(array("Disc:", "$i_ix $edit_ix"));
 	$this->table->add_row(array("Side:", "$i_side_none None &nbsp; $i_side_a A &nbsp; $i_side_b B"));
 	
-	$submit = form_submit('submit', 'Update');
-	
 	echo $this->table->generate();
-	
-	echo "<p>$submit</p>";
-	
-	echo form_close();
 	
 	echo "</blockquote>";

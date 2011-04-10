@@ -125,20 +125,6 @@
 		
 		}
 		
-		public function update_series($series_dvd_id) {
-		
-			$this->series_dvds_model->load($series_dvd_id);
-			
-			$data = $this->series_dvds_model->get_data($series_dvd_id);
-			
-			$this->series_dvds_model->set('season', pg_null(trim($this->input->post('season'))));
-			$this->series_dvds_model->set('ix', pg_null(trim($this->input->post('ix'))));
-			$this->series_dvds_model->set('side', $this->input->post('side'));
-			
-  			redirect("/dvds/details/".$data['dvd_id']);
-		
-		}
-		
 		public function update_series_dvd($dvd_id) {
 		
 			$this->series_dvds_model->delete_dvd($dvd_id);
