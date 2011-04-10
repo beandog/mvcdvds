@@ -7,8 +7,8 @@
 	extract($tracks);
 	
 	$tbl_heading = array(
+		'ix',
 		'Aspect',
-		'Track',
 		'Length',
 		'Chapters',
 		'Episodes',
@@ -53,9 +53,8 @@
 		
 		$tbl_row = array(
 		
-			$aspect,
 			$a_track,
-// 			$display_time,
+			$aspect,
 			$display_length,
 			$num_chapters,
 			$display_num_episodes

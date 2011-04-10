@@ -21,5 +21,5 @@
 	} else
 		$img = "";
 
- 	echo heading("$a_series | $a_dvds | $a_episodes | $a_tracks | $a_details &nbsp; $img", 4);
+ 	echo heading("$a_series | $a_dvds | $a_tracks | $a_episodes | $a_details &nbsp; $img", 4);
 
