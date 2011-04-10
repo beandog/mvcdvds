@@ -34,6 +34,9 @@
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
 			$data['episodes'] = $this->dvds_model->get_episodes($id);
 			
+			// Navigation
+			$data['dvd_id'] = key($data['dvds']);
+			
 			$data['select_series'] = $this->series_model->get_series_dropdown();
 			
 			foreach($data['tracks'] as $track_id => $row) {
@@ -45,7 +48,7 @@
 			$this->load->view('js/plus_minus');
 			$this->load->view('js/dvd_series_details');
 			
- 			$this->load->view('dvds_nav', $data);
+ 			$this->load->view('series_nav', $data);
  			$this->load->view('dvd_details', $data);
  			$this->load->view('dvd_series_details', $data);
 		
@@ -63,6 +66,9 @@
 			
 			$data['next_episode'] = $this->_estimate_next_episode($data);
 			
+			// Navigation
+			$data['dvd_id'] = $id;
+			
 			foreach($data['tracks'] as $track_id => $row) {
 				$data['chapters'][$track_id] = $this->tracks_model->get_chapters($track_id);
 			}
@@ -70,7 +76,7 @@
 			$this->load->view('css/style');
 			$this->load->view('jquery');
 			
- 			$this->load->view('dvds_nav', $data);
+			$this->load->view('series_nav', $data);
  			$this->load->view('js/dvd_episodes');
  			$this->load->view('js/tables');
  			$this->load->view('dvd_episodes', $data);
@@ -95,6 +101,9 @@
 			$data['series'] = $this->series_model->get_data($series_id);
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
 			
+			// Navigation
+			$data['dvd_id'] = $id;
+			
 			foreach($data['tracks'] as $track_id => $row) {
 				$data['chapters'][$track_id] = $this->tracks_model->get_chapters($track_id);
 			}
@@ -103,7 +112,7 @@
 			$this->load->view('jquery');
 			$this->load->view('js/dvd_tracks');
 			
- 			$this->load->view('dvds_nav', $data);
+ 			$this->load->view('series_nav', $data);
  			$this->load->view('dvd_tracks', $data);
 		
 		}

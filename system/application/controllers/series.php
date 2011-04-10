@@ -23,6 +23,7 @@
 			$data['series'] = $this->series_model->get_data($id);
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
+			$data['dvd_id'] = key($data['dvds']);
 			$data['new_dvds'] = $this->dvds_model->get_new_dvds();
 			
 			foreach($data['dvds'] as $dvd_id => $row) {
@@ -42,6 +43,8 @@
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
 			$data['presets'] = $this->presets_model->get_presets();
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
+			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
+			$data['dvd_id'] = key($data['dvds']);
 			
 // 			$data['discs'] = $this->discs_model->get_series($id, 'disc');
 			

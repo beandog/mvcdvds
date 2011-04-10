@@ -7,8 +7,11 @@
 	$a_series = anchor("series/dvds/".$series['id'], $series['title']);
 	echo heading("$a_home :: $a_collection :: $a_series", 4);
 
- 	$a_details = anchor("series/details/".$series['id'], "Details");
+ 	$a_series = anchor("series/details/".$series['id'], "Series");
  	$a_dvds = anchor("series/dvds/".$series['id'], "DVDs");
+ 	$a_episodes = anchor("dvds/episodes/$dvd_id", "Episodes");
+ 	$a_tracks = anchor("dvds/tracks/$dvd_id", "Tracks");
+ 	$a_details = anchor("dvds/details/$dvd_id", "Details");
 
- 	echo heading("$a_dvds | $a_details", 4);
+ 	echo heading("$a_series | $a_dvds | $a_episodes | $a_tracks | $a_details", 4);
 

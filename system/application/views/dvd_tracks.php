@@ -1,5 +1,7 @@
 <p><?
 
+	echo heading("Tracks", 4);
+
 	extract($tracks);
 	
 	$tbl_heading = array(

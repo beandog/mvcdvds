@@ -3,7 +3,7 @@
 	$attr = array('id' => 'series_update', 'autocomplete' => 'off');
 
 	/** DVD Deta **/
-	echo heading("DVD Details", 4);
+	echo heading("Details", 4);
 	
 	echo "<blockquote>";
 	
