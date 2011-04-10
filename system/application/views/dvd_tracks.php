@@ -10,7 +10,6 @@
 		'Aspect',
 		'Track',
 		'Length',
-// 		'Seconds',
 		'Chapters',
 		'Episodes',
 	);
@@ -41,7 +40,7 @@
 		$a_track = anchor("tracks/index/$track_id", "Track $ix");
 		$time = format_seconds($length, "m:s");
 		$display_time = "<span style='color: $color'>$time</span>";
-		$display_length = "<span style='color: $color'>".format_seconds($length, 'lsdvd')."</span>";
+		$display_length = "<span style='color: $color'>".format_seconds($length)."</span>";
 		$num_chapters = count($chapters[$track_id]);
 		
 		$display_num_episodes = "<span></span>";
