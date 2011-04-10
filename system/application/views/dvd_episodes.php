@@ -24,10 +24,8 @@
 	
 	foreach($episodes as $episode_id => $row) {
 	
-		$img_delete = img(array('src' => "images/icons/delete.png", 'class' => 'pointer', 'onclick' => 'remove_row(this); return false;'));
+		$img_delete = img(array('src' => "images/icons/delete.png", 'class' => 'pointer', 'onclick' => 'delete_episode('.$episode_id.', this); return false;'));
 		
-		// delete_episode('.$episode_id.'); 
-	
 		extract($row);
 		
 		$i_track_ix = form_input("episode[$episode_id][track_ix]", $track_ix, "size='2' track_id='$track_id' episode_id='$episode_id'");

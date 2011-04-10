@@ -20,14 +20,16 @@
 		});
 	});
 	
-	function delete_episode(episode_id) {
+	function delete_episode(episode_id, e) {
 	
 		var url = <?=anchor("ajax_tracks/delete_episode");?> + "/" + episode_id;
 		
 		console.log(url);
 		
-		if(confirm("Delete episode?"))
+		if(confirm("Delete episode?")) {
 			$.ajax(url);
+			remove_row(e);
+		}
 	
 	}
 	
