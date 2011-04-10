@@ -1,28 +1,31 @@
 <?
 	
 	$attr = array('id' => 'series_update', 'autocomplete' => 'off');
+	
+	$series_dvds_id = $series_dvd['id'];
 
 	/** Series Data **/
 	echo heading("Series + DVD Details", 4);
 	
 	echo "<blockquote>";
 
-	echo form_open("dvds/update_series/".$series_dvd['id'], $attr);
+	echo form_open("dvds/update_series/$series_dvds_id", $attr);
 	
 	extract($series_dvd);
 	$this->table->clear();
 	
-	$i_ix = form_input('ix', $ix, "size='3' id='ix'");
-	$i_season = form_input('season', $season, "size='3' id='season'");
+	$i_season = form_input('season', $season, "size='3' id='season' onkeyup=\"set_season($series_dvds_id, $('#season').val());\"");
+	$i_ix = form_input('ix', $ix, "size='3' id='ix' onkeyup=\"set_ix($series_dvds_id, $('#ix').val());\"");
+	
 	$i_side_none = form_radio('side', '', $side === ' ');
 	$i_side_a = form_radio('side', 'A', $side === 'A');
 	$i_side_b = form_radio('side', 'B', $side === 'B');
 	
-	$edit_season = "<input type='button' value='+' onclick=\"plus_one($('#season'));\">";
-	$edit_season .= "<input type='button' value='-' onclick=\"minus_one($('#season'));\">";
+	$edit_season = "<input type='button' value='+' onclick=\"plus_one($('#season')); set_season($series_dvds_id, $('#season').val());\">";
+	$edit_season .= "<input type='button' value='-' onclick=\"minus_one($('#season')); set_season($series_dvds_id, $('#season').val());\">";
 	
-	$edit_ix = "<input type='button' value='+' onclick=\"plus_one($('#ix'));\">";
-	$edit_ix .= "<input type='button' value='-' onclick=\"minus_one($('#ix'));\">";
+	$edit_ix = "<input type='button' value='+' onclick=\"plus_one($('#ix')); set_ix($series_dvds_id, $('#ix').val());\">";
+	$edit_ix .= "<input type='button' value='-' onclick=\"minus_one($('#ix')); set_ix($series_dvds_id, $('#ix').val());\">";
 	
 	$this->table->add_row(array("Season:", "$i_season $edit_season"));
 	$this->table->add_row(array("Disc:", "$i_ix $edit_ix"));

@@ -43,6 +43,7 @@
 			$this->load->view('css/style');
 			$this->load->view('jquery');
 			$this->load->view('js/plus_minus');
+			$this->load->view('js/dvd_series_details');
 			
  			$this->load->view('dvds_nav', $data);
  			$this->load->view('dvd_details', $data);
