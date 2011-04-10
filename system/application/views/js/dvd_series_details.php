@@ -48,4 +48,20 @@
 	
 	}
 	
+	function set_volume(series_dvds_id, volume) {
+		
+		var url = <?=anchor("ajax_series_dvds/set_volume");?>;
+		var obj = { series_dvds_id: series_dvds_id, volume: volume };
+		
+		$.ajax({
+		
+			url: url,
+			async: false,
+			data: obj,
+			type: "POST"
+		
+		});
+	
+	}
+	
 </script>

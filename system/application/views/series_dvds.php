@@ -9,6 +9,7 @@
 		'',
 		'Title',
 		'Ssn.',
+		'Vol.',
 		'Disc',
 		'Side',
 		'Eps.',
@@ -47,6 +48,7 @@
 		$img_dvd = img(array('src' => "images/icons/dvd.png"));
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
 		$display_season = "<span>$season</span>";
+		$display_volume = "<span>$volume</span>";
 		$display_ix = "<span>$ix</span>";
 		$display_side = "<span>$side</span>";
 		$display_num_episodes = "<span>$num_episodes</span>";
@@ -55,6 +57,7 @@
 			$a_dvd2,
 			$a_dvd,
 			$display_season,
+			$display_volume,
 			$display_ix,
 			$display_side,
 			$display_num_episodes,

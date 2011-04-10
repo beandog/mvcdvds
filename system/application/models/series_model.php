@@ -15,11 +15,12 @@
 		
 		public function get_dvds($id, $orderby = null) {
 		
-			$this->db->select('dvds.*, series_dvds.season, series_dvds.ix, series_dvds.side');
+			$this->db->select('dvds.*, series_dvds.season, series_dvds.volume, series_dvds.ix, series_dvds.side');
 			$this->db->join('series_dvds', 'series_dvds.dvd_id = dvds.id');
 			$this->db->where('series_dvds.series_id', $id);
 			
 			$this->db->order_by('series_dvds.season');
+			$this->db->order_by('series_dvds.volume');
 			$this->db->order_by('series_dvds.ix');
 			$this->db->order_by('series_dvds.side');
 			$this->db->order_by('dvds.title');
