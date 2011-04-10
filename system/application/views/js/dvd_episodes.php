@@ -10,12 +10,7 @@
 		$("#sort tbody").sortable({
  			handle: ".handle",
 			stop: function() {
-				var arr = $('input[ix]');
-				arr.each(function(i, e) {
-					var ix = (i + 1);
-					$(e).attr('ix', ix);
-					$(e).val(ix);
-				});
+				reindex();
 			}
 		});
 	});
@@ -31,6 +26,27 @@
 			remove_row(e);
 		}
 	
+	}
+	
+	function reindex() {
+	
+		var arr = $('input[ix]');
+		arr.each(function(i, e) {
+			var ix = (i + 1);
+			$(e).attr('ix', ix);
+			$(e).val(ix);
+		});
+	
+	}
+	
+	function remove_indexes() {
+	
+		var arr = $('input[ix]');
+		arr.each(function(i, e) {
+			var ix = (i + 1);
+			$(e).attr('ix', ix);
+			$(e).val("");
+		});
 	}
 	
 </script>
