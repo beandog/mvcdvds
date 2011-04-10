@@ -71,9 +71,8 @@
 			
  			$this->load->view('dvds_nav', $data);
  			$this->load->view('js/dvd_episodes');
+ 			$this->load->view('js/tables');
  			$this->load->view('dvd_episodes', $data);
- 			
- 			$this->load->view('dvd_add_episode', $data);
  			
 		}
 		

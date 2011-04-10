@@ -7,6 +7,12 @@
 			parent::Controller();
 		
 		}
+		
+		public function delete_episode($id) {
+		
+			$this->episodes_model->delete($id);
+		
+		}
 
 		public function new_episode($id) {
 		
