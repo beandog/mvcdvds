@@ -32,4 +32,20 @@
 	
 	}
 	
+	function set_side(series_dvds_id, side) {
+		
+		var url = <?=anchor("ajax_series_dvds/set_side");?>;
+		var obj = { series_dvds_id: series_dvds_id, side: side };
+		
+		$.ajax({
+		
+			url: url,
+			async: false,
+			data: obj,
+			type: "POST"
+		
+		});
+	
+	}
+	
 </script>

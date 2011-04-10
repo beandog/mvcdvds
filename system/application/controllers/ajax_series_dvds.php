@@ -34,10 +34,13 @@
 		
 		}
 		
-		public function set_side($dvd_id, $side) {
+		public function set_side() {
 		
-			$this->dvds_model->load($dvd_id);
-			$this->dvds_model->set_side($side);
+			$series_dvds_id = $this->input->get_post('series_dvds_id');
+			$side = $this->input->get_post('side');
+		
+			$this->series_dvds_model->load($series_dvds_id);
+			$this->series_dvds_model->set_side($side);
 		
 		}
 

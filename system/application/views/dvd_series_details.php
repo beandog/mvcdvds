@@ -17,9 +17,9 @@
 	$i_season = form_input('season', $season, "size='3' id='season' onkeyup=\"set_season($series_dvds_id, $('#season').val());\"");
 	$i_ix = form_input('ix', $ix, "size='3' id='ix' onkeyup=\"set_ix($series_dvds_id, $('#ix').val());\"");
 	
-	$i_side_none = form_radio('side', '', $side === ' ');
-	$i_side_a = form_radio('side', 'A', $side === 'A');
-	$i_side_b = form_radio('side', 'B', $side === 'B');
+	$i_side_none = form_radio(array('name' => 'side', 'value' => '', 'checked' => ($side === ' '), 'onclick' => "set_side($series_dvds_id, ' ');"));
+	$i_side_a = form_radio(array('name' => 'side', 'value' => 'A', 'checked' => ($side === 'A'), 'onclick' => "set_side($series_dvds_id, 'A');"));
+	$i_side_b = form_radio(array('name' => 'side', 'value' => 'B', 'checked' => ($side === 'B'), 'onclick' => "set_side($series_dvds_id, 'B');"));
 	
 	$edit_season = "<input type='button' value='+' onclick=\"plus_one($('#season')); set_season($series_dvds_id, $('#season').val());\">";
 	$edit_season .= "<input type='button' value='-' onclick=\"minus_one($('#season')); set_season($series_dvds_id, $('#season').val());\">";
