@@ -48,6 +48,7 @@
 			$this->load->view('jquery');
 			$this->load->view('js/plus_minus');
 			$this->load->view('js/dvd_series_details');
+			$this->load->view('html_title', $data['series']);
 			
  			$this->load->view('series_nav', $data);
  			$this->load->view('dvd_series_details', $data);
@@ -77,6 +78,7 @@
 			
 			$this->load->view('css/style');
 			$this->load->view('jquery');
+			$this->load->view('html_title', $data['series']);
 			
 			$this->load->view('series_nav', $data);
  			$this->load->view('js/dvd_episodes');
@@ -103,7 +105,6 @@
 			$data['series'] = $this->series_model->get_data($series_id);
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
 			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
-			
 			// Navigation
 			$data['dvd_id'] = $id;
 			
@@ -115,6 +116,7 @@
 			$this->load->view('jquery');
 			$this->load->view('js/dvd_tracks');
 			$this->load->view('js/plus_minus');
+			$this->load->view('html_title', $data['series']);
 			
  			$this->load->view('series_nav', $data);
  			$this->load->view('dvd_tracks', $data);

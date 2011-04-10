@@ -31,6 +31,7 @@
 			}
 			
 			$this->load->view('css/style');
+			$this->load->view('html_title', $data['series']);
 			
  			$this->load->view('series_nav', $data);
  			$this->load->view('series_dvds', $data);
@@ -51,6 +52,7 @@
 			$data['collections'] = $this->collections_model->get_collections();
 			
 			$this->load->view('css/style');
+			$this->load->view('html_title', $data['series']);
 			
 			$this->load->view('series_nav', $data);
 			$this->load->view('series_details', $data);
