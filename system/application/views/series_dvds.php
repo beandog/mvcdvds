@@ -23,10 +23,13 @@
 	
 		extract($row);
 		
-		if(is_null($longest_track))
+		if(is_null($longest_track)) {
 			$needs_import = true;
-		else
+			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
+		} else {
 			$needs_import = false;
+			$img_dvd = img(array('src' => "images/icons/dvd.png"));
+		}
 			
 		if($needs_import)
 			$class = 'update';
@@ -45,7 +48,7 @@
 		if(!$num_episodes)
 			$num_episodes = "";
 		
-		$img_dvd = img(array('src' => "images/icons/dvd.png"));
+		
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
 		$display_season = "<span>$season</span>";
 		$display_volume = "<span>$volume</span>";
