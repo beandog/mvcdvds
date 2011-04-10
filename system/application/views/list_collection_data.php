@@ -40,6 +40,7 @@
 	$this->table->set_template($tmpl);
 
 	echo $this->table->generate();
+	$this->table->clear();
 	
 	$total = count($collections);
 	

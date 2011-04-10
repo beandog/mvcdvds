@@ -49,8 +49,9 @@
 			$this->load->view('js/dvd_series_details');
 			
  			$this->load->view('series_nav', $data);
- 			$this->load->view('dvd_details', $data);
  			$this->load->view('dvd_series_details', $data);
+ 			$this->load->view('dvd_details', $data);
+ 			
 		
 		}
 		

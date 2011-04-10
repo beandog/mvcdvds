@@ -29,6 +29,7 @@
 	$submit = form_submit('submit', 'Update');
 	
 	echo $this->table->generate();
+	$this->table->clear();
 	
 	echo "<p>$submit</p>";
 	

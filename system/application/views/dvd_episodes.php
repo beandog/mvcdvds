@@ -81,6 +81,7 @@
 	$this->table->set_template($tmpl);
 	
 	echo $this->table->generate();
+	$this->table->clear();
 	
 	echo p().form_submit('submit', 'Update Episodes');
 	

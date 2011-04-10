@@ -8,7 +8,6 @@
 	echo "<blockquote>";
 
 	extract($series_dvd);
-	$this->table->clear();
 	
 	$i_season = form_input('season', $season, "size='3' id='season' onkeyup=\"set_season($series_dvds_id, $('#season').val());\"");
 	$i_volume = form_input('volume', $volume, "size='3' id='volume' onkeyup=\"set_volume($series_dvds_id, $('#volume').val());\"");
@@ -33,5 +32,6 @@
 	$this->table->add_row(array("Side:", "$i_side_none None &nbsp; $i_side_a A &nbsp; $i_side_b B"));
 	
 	echo $this->table->generate();
+	$this->table->clear();
 	
 	echo "</blockquote>";
