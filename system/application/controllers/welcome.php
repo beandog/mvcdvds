@@ -13,10 +13,12 @@ class Welcome extends Controller {
 		$data['collections'] = $this->collections_model->get_collections();
 		$data['presets'] = $this->presets_model->get_presets();
 		$data['dvds'] = $this->dvds_model->get_new_dvds();
+		$data['title'] = "DVDs Admin v3.0";
 		
 		$this->load->view('css/style');
 		$this->load->view('jquery');
 		$this->load->view('js/drives');
+		$this->load->view('html_title', $data);
 		
 		$this->load->view('header_collections');
 		$this->load->view('home_collections', $data);
