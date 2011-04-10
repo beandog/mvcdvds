@@ -35,7 +35,7 @@
 			$data['episodes'] = $this->dvds_model->get_episodes($id);
 			
 			// Navigation
-			$data['dvd_id'] = key($data['dvds']);
+			$data['dvd_id'] = $id;
 			
 			$data['select_series'] = $this->series_model->get_series_dropdown();
 			
