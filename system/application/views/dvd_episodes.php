@@ -16,7 +16,7 @@
 	
 	echo heading("Episodes", 4);
 	
-	echo form_open("dvds/update_episodes/".$dvds['id'], "autocomplete='off'");
+	echo form_open("dvds/update_episodes/".$dvds['id'], "autocomplete='off' method='post'");
 	
 	$this->table->set_heading($tbl_heading);
 	
@@ -36,7 +36,7 @@
 		$i_ix = "<input type='text' size='2' name='episode[$episode_id][ix]' value='$ix' ix='$ix' track_id='$track_id' episode_id='$episode_id'>\n";
 		$i_title = form_input("episode[$episode_id][title]", $title, "size='30' track_id='$track_id' episode_id='$episode_id'");
 		
-		$i_season = form_input("episode[$episode_id}][season]", $season, "size='2' track_id='$track_id' episode_id='$episode_id'");
+		$i_season = form_input("episode[$episode_id][season]", $season, "size='2' track_id='$track_id' episode_id='$episode_id'");
 		
 		// FIXME Only display chapters if prompted to
 		$i_starting_chapter = form_input("episode[$episode_id][starting_chapter]", $starting_chapter, "size='2' track_id='$track_id' episode_id='$episode_id'");
