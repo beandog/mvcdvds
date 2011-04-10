@@ -1,10 +1,11 @@
 <?
+	/** Series Data **/
+	$series_dvds_nav = $this->load->view('series_dvds_nav', array('series_dvds' => $series_dvds), true);
+	
+	echo heading("Details $series_dvds_nav", 4);
 	
 	$series_dvds_id = $series_dvd['id'];
 
-	/** Series Data **/
-	echo heading("Details", 4);
-	
 	echo "<blockquote>";
 
 	extract($series_dvd);

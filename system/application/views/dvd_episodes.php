@@ -15,7 +15,9 @@
 		''
 	);
 	
-	echo heading("Episodes", 4);
+	$series_dvds_nav = $this->load->view('series_dvds_nav', array('series_dvds' => $series_dvds), true);
+	
+	echo heading("Episodes $series_dvds_nav", 4);
 	
 	if($series['indexed'] == 't') {
 		echo anchor("", "Reindex Episodes", "onclick='reindex(); return false;'");

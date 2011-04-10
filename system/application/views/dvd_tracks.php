@@ -1,6 +1,8 @@
 <p><?
 
-	echo heading("Tracks", 4);
+	$series_dvds_nav = $this->load->view('series_dvds_nav', array('series_dvds' => $series_dvds), true);
+	
+	echo heading("Tracks $series_dvds_nav", 4);
 
 	extract($tracks);
 	

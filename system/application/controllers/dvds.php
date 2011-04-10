@@ -33,6 +33,7 @@
 			$data['series'] = $this->series_model->get_data($series_id);
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
 			$data['episodes'] = $this->dvds_model->get_episodes($id);
+			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
 			
 			// Navigation
 			$data['dvd_id'] = $id;
@@ -51,7 +52,6 @@
  			$this->load->view('series_nav', $data);
  			$this->load->view('dvd_series_details', $data);
  			$this->load->view('dvd_details', $data);
- 			
 		
 		}
 		
@@ -64,6 +64,7 @@
 			$data['series'] = $this->series_model->get_data($series_id);
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
 			$data['episodes'] = $this->dvds_model->get_episodes($id);
+			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
 			
 			$data['next_episode'] = $this->_estimate_next_episode($data);
 			
@@ -101,6 +102,7 @@
 			$data['collection'] = $this->collections_model->get_data($collection_id);
 			$data['series'] = $this->series_model->get_data($series_id);
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
+			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
 			
 			// Navigation
 			$data['dvd_id'] = $id;
