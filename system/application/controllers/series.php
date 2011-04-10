@@ -23,6 +23,7 @@
 			$data['series'] = $this->series_model->get_data($id);
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
+			$data['new_dvds'] = $this->dvds_model->get_new_dvds();
 			
 			foreach($data['dvds'] as $dvd_id => $row) {
 				$data['episodes'][$dvd_id] = $this->dvds_model->get_episodes($dvd_id);
