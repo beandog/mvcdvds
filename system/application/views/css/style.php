@@ -28,9 +28,6 @@
 		color: gray;
 	}
 
-</style>
-<style>
-
 	a, a.visited {
 		color: black;
 	}
@@ -38,5 +35,9 @@
 	table.zebra tr:nth-child(even) {
  		background-color: #d8e2ff;
 	}
+
+	.zebra td { border-bottom: 1px dotted black; }
+	
+	.pointer { cursor: pointer; }
 
 </style>

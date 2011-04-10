@@ -1,9 +1,5 @@
 <p>
-<style>
-	
-	.zebra td { border-bottom: 1px dotted black; }
 
-</style>
 <?
 
 	extract($tracks);
@@ -29,7 +25,7 @@
 	
 	foreach($episodes as $episode_id => $row) {
 	
-		$img_delete = img(array('src' => "images/icons/delete.png", 'style' => 'cursor: pointer;', 'onclick' => 'remove_row(this); return false;'));
+		$img_delete = img(array('src' => "images/icons/delete.png", 'class' => 'pointer', 'onclick' => 'remove_row(this); return false;'));
 		
 		// delete_episode('.$episode_id.'); 
 	
