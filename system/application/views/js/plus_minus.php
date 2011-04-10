@@ -23,5 +23,17 @@
 		}
 	
 	}
+	
+	function plus_one_html(e) {
+	
+		var i = $(e).html();
+		
+		if(i.length === 0) {
+			$(e).html(1);
+		} else {
+			$(e).html(parseInt(i) + 1);
+		}
+	
+	}
 
 </script>

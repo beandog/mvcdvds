@@ -114,6 +114,7 @@
 			$this->load->view('css/style');
 			$this->load->view('jquery');
 			$this->load->view('js/dvd_tracks');
+			$this->load->view('js/plus_minus');
 			
  			$this->load->view('series_nav', $data);
  			$this->load->view('dvd_tracks', $data);

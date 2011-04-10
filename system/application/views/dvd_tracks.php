@@ -29,11 +29,14 @@
 		
 		$length_too_small = length_too_small($length);
 		$length_close_to_average = length_close_to_average($length, $series['average_length'], 10);
+		$length_larger = intval($length > ($series['average_length'] * 60));
 		
 		if($length_too_small)
 			$color = 'gray';
 		elseif($length_close_to_average)
 			$color = 'green';
+		elseif($length_larger)
+			$color = '663300';
 		else
 			$color = '5171ff';
 		
@@ -45,10 +48,13 @@
 		
 		$display_num_episodes = "<span></span>";
 		
-		$a_new_episode = anchor("dvds/tracks/$dvd_id", $img_add, "onclick='new_episode($track_id); return false;'");
+		$a_new_episode = anchor("dvds/tracks/$dvd_id", $img_add, "onclick='new_episode($track_id); plus_one_html($(\"span[name=num_episodes][track_id=$track_id]\")); return false;'");
 		
-		if($length_close_to_average) {
-			$display_num_episodes = "<span name='num_episodes' track_id='$track_id'>$num_episodes</span> &nbsp; $a_new_episode &nbsp; $img_delete";
+		if($length_close_to_average || $length_larger) {
+			$display_num_episodes = "$a_new_episode";
+			$display_num_episodes .= " &nbsp; ";
+// 			$display_num_episodes = "$img_delete";
+			$display_num_episodes .= "<span name='num_episodes' track_id='$track_id'></span>";
 		}
 		
 		$tbl_row = array(
