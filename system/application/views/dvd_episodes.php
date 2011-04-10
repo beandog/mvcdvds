@@ -3,17 +3,29 @@
 
 	extract($tracks);
 	
-	$tbl_heading = array(
-		'',
-		'Track',
-		'ix',
-		'Title',
-		'Part',
-		'Ch.',
-		'',
-		'Ssn.',
-		''
-	);
+	if($series['indexed'] == 't')
+		$tbl_heading = array(
+			'',
+			'Track',
+			'ix',
+			'Title',
+			'Part',
+			'Ch.',
+			'',
+			'Ssn.',
+			''
+		);
+	else
+		$tbl_heading = array(
+			'',
+			'Track',
+			'Title',
+			'Part',
+			'Ch.',
+			'',
+			'Ssn.',
+			''
+		);
 	
 	echo heading("Episodes", 4);
 	
@@ -40,25 +52,38 @@
 		
 		$i_part = form_input("episode[$episode_id][part]", $part, "size='2' track_id='$track_id' episode_id='$episode_id'");
 		
-		// FIXME Only display chapters if prompted to
 		$i_starting_chapter = form_input("episode[$episode_id][starting_chapter]", $starting_chapter, "size='2' track_id='$track_id' episode_id='$episode_id'");
 		$i_ending_chapter = form_input("episode[$episode_id][ending_chapter]", $ending_chapter, "size='2' track_id='$track_id' episode_id='$episode_id'");
 		
 		$i_season = form_input("episode[$episode_id][season]", $season, "size='2' track_id='$track_id' episode_id='$episode_id'");
 		
-		$tbl_row = array(
-		
-			$img_dvd,
-			$i_track_ix,
-			$i_ix,
-			$i_title,
-			$i_part,
-			$i_starting_chapter,
-			$i_ending_chapter,
- 			$i_season,
- 			$img_delete,
-		
-		);
+		if($series['indexed'] == 't')
+			$tbl_row = array(
+			
+				$img_dvd,
+				$i_track_ix,
+				$i_ix,
+				$i_title,
+				$i_part,
+				$i_starting_chapter,
+				$i_ending_chapter,
+				$i_season,
+				$img_delete,
+			
+			);
+		else
+			$tbl_row = array(
+			
+				$img_dvd,
+				$i_track_ix,
+				$i_title,
+				$i_part,
+				$i_starting_chapter,
+				$i_ending_chapter,
+				$i_season,
+				$img_delete,
+			
+			);
 		
  		$this->table->add_row($tbl_row);
 		
