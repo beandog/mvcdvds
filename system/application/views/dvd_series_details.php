@@ -3,7 +3,7 @@
 	$series_dvds_id = $series_dvd['id'];
 
 	/** Series Data **/
-	echo heading("Series + DVD Details", 4);
+	echo heading("Details", 4);
 	
 	echo "<blockquote>";
 
