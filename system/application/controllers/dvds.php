@@ -111,6 +111,8 @@
 		
 			$episodes = $this->input->post('episode');
 			
+			var_dump('test');
+			
 			foreach($episodes as $id => $arr) {
 				$this->episodes_model->load($id);
 				$this->episodes_model->set('ix', $arr['ix']);
