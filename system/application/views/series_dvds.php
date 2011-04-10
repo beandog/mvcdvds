@@ -43,11 +43,15 @@
 		if(!$num_episodes)
 			$num_episodes = "";
 		
+		$display_season = "<span>$season</span>";
+		$display_ix = "<span>$ix</span>";
+		$display_side = "<span>$side</span>";
+		
 		$tbl_row = array(
 			$a_dvd,
-			$season,
-			$ix,
-			$side,
+			$display_season,
+			$display_ix,
+			$display_side,
 			$num_episodes,
 			$links,
 		);

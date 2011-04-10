@@ -28,8 +28,6 @@
 				$data['episodes'][$dvd_id] = $this->dvds_model->get_episodes($dvd_id);
 			}
 			
-			
-
 			$this->load->view('css/style');
 			
  			$this->load->view('series_nav', $data);
