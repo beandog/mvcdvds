@@ -112,14 +112,18 @@
 		
 			$episodes = $this->input->post('episode');
 			
-			foreach($episodes as $id => $arr) {
-				$this->episodes_model->load($id);
-				$this->episodes_model->set('ix', pg_null($arr['ix']));
-				$this->episodes_model->set('title', $arr['title']);
-				$this->episodes_model->set('part', pg_null($arr['part']));
-				$this->episodes_model->set('starting_chapter', pg_null($arr['starting_chapter']));
-				$this->episodes_model->set('ending_chapter', pg_null($arr['ending_chapter']));
-// 				$this->episodes_model->set_season($arr['season']);
+			foreach($episodes as $episode_id => $arr) {
+			
+				extract($arr);
+			
+				$this->episodes_model->load($episode_id);
+				$this->episodes_model->set('ix', pg_null($ix));
+				$this->episodes_model->set('title', $title);
+				$this->episodes_model->set('part', pg_null($part));
+				$this->episodes_model->set('starting_chapter', pg_null($starting_chapter));
+				$this->episodes_model->set('ending_chapter', pg_null($ending_chapter));
+ 				$this->episodes_model->set('season', pg_null($season));
+ 				
 			}
 			
 			redirect("/dvds/episodes/$dvd_id");
