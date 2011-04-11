@@ -19,13 +19,6 @@
 	
 	echo heading("Episodes $series_dvds_nav", 4);
 	
-	if($series['indexed'] == 't') {
-		echo anchor("", "Reindex Episodes", "onclick='reindex(); return false;'");
-		echo nbs();
-		echo anchor("", "Remove Indexes", "onclick='remove_indexes(); return false;'");
-		echo p();
-	}
-	
 	echo form_open("dvds/update_episodes/".$dvds['id'], "autocomplete='off' method='post'");
 	
 	$this->table->set_heading($tbl_heading);
@@ -89,5 +82,16 @@
 	$this->table->clear();
 	
 	echo p().form_submit('submit', 'Update Episodes');
+	
+	if($series['indexed'] == 't') {
+	
+		echo nbs(5);
+		echo form_button("reindex", "Reindex Episodes", "onclick='window.reindex(); return false;'");
+		echo nbs();
+		echo form_button("reindex", "Remove Indexes", "onclick='window.remove_indexes(); return false;'");
+	
+// 		echo anchor("", "Remove Indexes", "onclick='remove_indexes(); return false;'");
+// 		echo p();
+	}
 	
 	echo form_close();
