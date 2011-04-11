@@ -31,6 +31,8 @@
 			
  			$this->load->view('series_nav', $data);
  			$this->load->view('track_chapters', $data);
+ 			$this->load->view('track_audio', $data);
+ 			$this->load->view('track_subp', $data);
  			
 		}
 	

@@ -1,5 +1,7 @@
 <p><?
 
+	echo heading("Chapters", 4);
+
 	$tbl_heading = array(
 		'ix',
 		'Length',
