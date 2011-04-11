@@ -22,7 +22,7 @@
 		$color = 'black';
 		
 		$length_too_small = length_too_small($length);
-		$length_close_to_average = length_close_to_average($length, $series['average_length'], 10);
+		$length_close_to_average = length_close_to_average($length, $series['average_length'], 25);
 		$length_larger = intval($length > ($series['average_length'] * 60));
 		
 		if($length_too_small)

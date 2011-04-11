@@ -36,6 +36,9 @@
 		
 		extract($row);
 		
+		// Link to track
+		$a_track = anchor("tracks/index/$track_id", $img_dvd);
+		
 		// Track
 		$i_track_ix = form_input("episode[$episode_id][track_ix]", $track_ix, "size='2' track_id='$track_id' episode_id='$episode_id'");
 		
@@ -57,7 +60,7 @@
 		
 		$tbl_row = array(
 		
-			$img_dvd,
+			$a_track,
 			$i_track_ix,
 			$i_ix,
 			$i_title,
