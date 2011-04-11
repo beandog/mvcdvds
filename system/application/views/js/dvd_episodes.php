@@ -19,8 +19,6 @@
 	
 		var url = <?=anchor("ajax_tracks/delete_episode");?> + "/" + episode_id;
 		
-		console.log(url);
-		
 		if(confirm("Delete episode?")) {
 			$.ajax(url);
 			remove_row(e);

@@ -14,6 +14,9 @@
 		'Episodes',
 	);
 	
+	echo form_button("add_valid", "Valid Tracks to Episodes", "onclick='window.make_episodes();'");
+	echo p();
+	
 	$this->table->set_heading($tbl_heading);
 	
 	$num_episodes = 0;
@@ -31,11 +34,14 @@
 		$length_close_to_average = length_close_to_average($length, $series['average_length'], 10);
 		$length_larger = intval($length > ($series['average_length'] * 60));
 		
+		$valid_length = "0";
+		
 		if($length_too_small)
 			$color = 'gray';
-		elseif($length_close_to_average)
+		elseif($length_close_to_average) {
 			$color = 'green';
-		elseif($length_larger)
+			$valid_length = "1";
+		} elseif($length_larger)
 			$color = '663300';
 		else
 			$color = '5171ff';
@@ -43,7 +49,7 @@
 		$a_track = anchor("tracks/index/$track_id", "Track $ix");
 		$time = format_seconds($length, "m:s");
 		$display_time = "<span style='color: $color'>$time</span>";
-		$display_length = "<span style='color: $color'>".format_seconds($length)."</span>";
+		$display_length = "<span style='color: $color' track_id='$track_id' valid='$valid_length' >".format_seconds($length)."</span>";
 		$num_chapters = count($chapters[$track_id]);
 		
 		$display_num_episodes = "<span></span>";
