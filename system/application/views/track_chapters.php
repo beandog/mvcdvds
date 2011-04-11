@@ -1,6 +1,8 @@
 <p><?
 
-	echo heading("Chapters", 4);
+	$tracks_nav = $this->load->view('tracks_nav', array('tracks' => $tracks, 'track_id' => $track_id), true);
+
+	echo heading("Chapters $tracks_nav", 4);
 
 	$tbl_heading = array(
 		'ix',
