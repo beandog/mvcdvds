@@ -90,8 +90,6 @@
 		echo nbs();
 		echo form_button("reindex", "Remove Indexes", "onclick='window.remove_indexes(); return false;'");
 	
-// 		echo anchor("", "Remove Indexes", "onclick='remove_indexes(); return false;'");
-// 		echo p();
 	}
 	
 	echo form_close();
