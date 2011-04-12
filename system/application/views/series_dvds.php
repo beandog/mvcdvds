@@ -20,6 +20,11 @@
 	
 		extract($row);
 		
+		$num_episodes = count($episodes[$id]);
+		
+		if(!$num_episodes)
+			$num_episodes = "";
+		
 		if(is_null($longest_track)) {
 			$needs_import = true;
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
@@ -33,13 +38,12 @@
 		else
 			$class = 'imported';
 		
-		$a_dvd = anchor("dvds/episodes/$id", $title, "class='$class'");
-		
-		$num_episodes = count($episodes[$id]);
-		
-		if(!$num_episodes)
-			$num_episodes = "";
-		
+		// If there are no episodes, go straight to the
+		// tracks page to add some.
+		if($num_episodes)
+			$a_dvd = anchor("dvds/episodes/$id", $title, "class='$class'");
+		else
+			$a_dvd = anchor("dvds/tracks/$id", $title, "class='$class'");
 		
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
 		$display_season = "<span>$season</span>";
