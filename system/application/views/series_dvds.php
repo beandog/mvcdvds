@@ -1,8 +1,6 @@
 <p><?
 
 	echo heading("DVDs", 4);
-
-	extract($series);
 	
 	$heading = array(
 	
