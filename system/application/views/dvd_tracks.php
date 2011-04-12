@@ -60,7 +60,10 @@
 			$display_num_episodes = "$a_new_episode";
 			$display_num_episodes .= " &nbsp; ";
 // 			$display_num_episodes = "$img_delete";
-			$display_num_episodes .= "<span name='num_episodes' track_id='$track_id'></span>";
+			$display_num_episodes .= "<span name='num_episodes' track_id='$track_id'>";
+			if($num_episodes)
+				$display_num_episodes .= $num_episodes;
+			$display_num_episodes .= "</span>";
 		}
 		
 		$tbl_row = array(
