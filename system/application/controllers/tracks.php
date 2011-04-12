@@ -26,7 +26,7 @@
  			
  			$this->load->view('css/style');
 			$this->load->view('jquery');
-			$this->load->view('js/dvd_tracks');
+			$this->load->view('js/track_chapters');
 			$this->load->view('js/plus_minus');
 			$this->load->view('html_title', $data['series']);
 			

@@ -3,12 +3,16 @@
 	$tracks_nav = $this->load->view('tracks_nav', array('tracks' => $tracks, 'track_id' => $track_id), true);
 
 	echo heading("Chapters $tracks_nav", 4);
+	
+	echo form_button("add_valid", "Valid Chapters to Episodes", "onclick='window.make_chapter_episodes();'");
+	echo p();
 
 	$tbl_heading = array(
 		'ix',
 		'Length',
 		'Episodes',
 	);
+	
 	
 	$this->table->set_heading($tbl_heading);
 	
@@ -27,11 +31,14 @@
 		$length_close_to_average = length_close_to_average($length, $series['average_length'], 25);
 		$length_larger = intval($length > ($series['average_length'] * 60));
 		
+		$valid_length = "0";
+		
 		if($length_too_small)
 			$color = 'gray';
-		elseif($length_close_to_average)
+		elseif($length_close_to_average) {
 			$color = 'green';
-		elseif($length_larger)
+			$valid_length = "1";
+		} elseif($length_larger)
 			$color = '663300';
 		else
 			$color = '5171ff';
@@ -39,8 +46,7 @@
 		$display_ix = "Chapter $ix";
 		$time = format_seconds($length, "m:s");
 		$display_time = "<span style='color: $color'>$time</span>";
-		$display_length = "<span style='color: $color'>".format_seconds($length)."</span>";
-// 		$num_chapters = count($chapters[$track_id]);
+		$display_length = "<span style='color: $color' track_id='$track_id' ix='$ix' valid='$valid_length'>".format_seconds($length)."</span>";
 		
 		$display_num_episodes = "<span></span>";
 		
@@ -49,7 +55,7 @@
 		if($length_close_to_average || $length_larger) {
 			$display_num_episodes = "$a_new_episode";
 			$display_num_episodes .= " &nbsp; ";
-			$display_num_episodes .= "<span name='num_episodes' track_id='$track_id'></span>";
+			$display_num_episodes .= "<span name='num_episodes' track_id='$track_id' ix='$ix'></span>";
 		}
 		
 		$tbl_row = array(

@@ -34,6 +34,7 @@
 			$this->db->order_by('episodes.season');
 			$this->db->order_by('episodes.ix');
 			$this->db->order_by('tracks.ix');
+			$this->db->order_by('episodes.starting_chapter');
 			$this->db->order_by('episodes.title');
 			
 			$arr = $this->get_assoc();
