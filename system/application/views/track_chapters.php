@@ -50,7 +50,7 @@
 		
 		$display_num_episodes = "<span></span>";
 		
-		$a_new_episode = anchor("dvds/tracks/$dvd_id", $img_add, "onclick='new_episode($track_id); plus_one_html($(\"span[name=num_episodes][track_id=$track_id]\")); return false;'");
+		$a_new_episode = anchor("dvds/tracks/$dvd_id", $img_add, "onclick='new_chapter_episode($track_id, $ix); plus_one_html($(\"span[name=num_episodes][track_id=$track_id][ix=$ix]\")); return false;'");
 		
 		if($length_close_to_average || $length_larger) {
 			$display_num_episodes = "$a_new_episode";
