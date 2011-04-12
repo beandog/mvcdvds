@@ -151,6 +151,7 @@
 			$this->series_dvds_model->create_new();
 			$this->series_dvds_model->set_series_id($this->input->post('series_id'));
 			$this->series_dvds_model->set_dvd_id($dvd_id);
+			$this->series_dvds_model->set_audio_preference($this->input->post('audio_preference'));
 		
 			redirect("dvds/details/$dvd_id");
 		

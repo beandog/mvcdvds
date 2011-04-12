@@ -1,6 +1,12 @@
 <p><?
 
 	$attr = array('id' => 'series_update', 'autocomplete' => 'off');
+	
+	$select_audio_preference = array(
+		'Automatic',
+		'First English Track',
+		'Best Audio Quality',
+	);
 
 	/** DVD Deta **/
 	echo heading("DVD Series", 4);
@@ -15,6 +21,7 @@
 	echo form_open("dvds/update_series_dvd/".$dvds['id'], $attr);
 	
 	$i_series_id = form_dropdown('series_id', $select_series, $series_dvd['series_id']);
+	$i_audio_preference = form_dropdown('audio_preference', $select_audio_preference, $series_dvd['audio_preference']);
 	
 	if(!empty($title))
 		$this->table->add_row(array("Title:", $title));
@@ -26,6 +33,7 @@
 	if($longest_track)
 		$this->table->add_row(array("Longest Track:", $longest_track));
 	$this->table->add_row(array("Series:", $i_series_id));
+	$this->table->add_row(array("Audio:", $i_audio_preference));
 	
 	$submit = form_submit('submit', 'Update');
 	
