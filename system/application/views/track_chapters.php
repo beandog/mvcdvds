@@ -55,7 +55,10 @@
 		if($length_close_to_average || $length_larger) {
 			$display_num_episodes = "$a_new_episode";
 			$display_num_episodes .= " &nbsp; ";
-			$display_num_episodes .= "<span name='num_episodes' track_id='$track_id' ix='$ix'></span>";
+			$display_num_episodes .= "<span name='num_episodes' track_id='$track_id' ix='$ix'>";
+			if($num_episodes)
+				$display_num_episodes .= $num_episodes;
+			$display_num_episodes .= "</span>";
 		}
 		
 		$tbl_row = array(
