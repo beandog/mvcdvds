@@ -3,7 +3,7 @@
 	$attr = array('id' => 'series_update', 'autocomplete' => 'off');
 	
 	$select_audio_preference = array(
-		'Automatic',
+		'Default',
 		'First English Track',
 		'Best Audio Quality',
 	);
