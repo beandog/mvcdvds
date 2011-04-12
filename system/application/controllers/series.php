@@ -25,6 +25,7 @@
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
 			$data['new_dvds'] = $this->dvds_model->get_new_dvds();
+			$data['series_id'] = $id;
 			
 			foreach($data['dvds'] as $dvd_id => $row) {
 				$data['episodes'][$dvd_id] = $this->dvds_model->get_episodes($dvd_id);
@@ -35,6 +36,9 @@
 			
  			$this->load->view('series_nav', $data);
  			$this->load->view('series_dvds', $data);
+ 			
+ 			if(count($data['new_dvds']))
+ 				$this->load->view('series_new_dvds', $data);
 		
 		}
 		
@@ -56,6 +60,22 @@
 			
 			$this->load->view('series_nav', $data);
 			$this->load->view('series_details', $data);
+		
+		}
+		
+		public function new_dvd() {
+		
+			$uri = $this->uri->uri_to_assoc();
+		
+			$series_id = $uri['series_id'];
+			$dvd_id = $uri['dvd_id'];
+			
+			$this->series_dvds_model->delete_dvd($dvd_id);
+			$this->series_dvds_model->create_new();
+			$this->series_dvds_model->set_series_id($series_id);
+			$this->series_dvds_model->set_dvd_id($dvd_id);
+		
+			redirect("series/dvds/$series_id");
 		
 		}
 		
