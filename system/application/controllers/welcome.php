@@ -2,13 +2,11 @@
 
 class Welcome extends Controller {
 
-	function Welcome()
-	{
+	function Welcome() {
 		parent::Controller();	
 	}
 	
-	function index()
-	{
+	function index() {
 	
 		$data['collections'] = $this->collections_model->get_collections();
 		$data['presets'] = $this->presets_model->get_presets();
