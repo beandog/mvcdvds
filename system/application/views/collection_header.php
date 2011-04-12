@@ -1,7 +1,7 @@
 <?
 
-	$a = anchor("/", $title);
-
-	echo heading($a);
+	echo heading($title);
+	
+	echo anchor("/", "Home");
 
 ?>
