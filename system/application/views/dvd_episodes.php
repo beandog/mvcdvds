@@ -36,6 +36,9 @@
 		$i_track_ix = form_input("episode[$episode_id][track_ix]", $track_ix, "size='2' track_id='$track_id' episode_id='$episode_id'");
 		
 		// Episode #
+		// Override episode index if series is unindexed.
+		if($series['indexed'] == 'f')
+			$ix = null;
 		$i_ix = "<input type='text' size='2' name='episode[$episode_id][ix]' value='$ix' ix='$ix' track_id='$track_id' episode_id='$episode_id'>\n";
 		
 		// Episode Title
