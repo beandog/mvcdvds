@@ -13,7 +13,6 @@
 		'Disc',
 		'Side',
 		'Eps.',
-		'Links',
 	
 	);
 	
@@ -38,11 +37,6 @@
 		
 		$a_dvd = anchor("dvds/episodes/$id", $title, "class='$class'");
 		
-		$a_tracks = anchor("dvds/tracks/$id", "Tracks");
-		$a_dvd_details = anchor("dvds/details/$id", "Details");
-		
-		$links = "$a_tracks | $a_dvd_details";
-		
 		$num_episodes = count($episodes[$id]);
 		
 		if(!$num_episodes)
@@ -64,7 +58,6 @@
 			$display_ix,
 			$display_side,
 			$display_num_episodes,
-			$links,
 		);
 		
 		$this->table->add_row($tbl_row);
