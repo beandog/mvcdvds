@@ -16,9 +16,13 @@
 
 	extract($series_dvd);
 	
-	$i_season = form_input('season', $season, "size='3' id='season' onkeyup=\"set_season($series_dvds_id, $('#season').val());\"");
-	$i_volume = form_input('volume', $volume, "size='3' id='volume' onkeyup=\"set_volume($series_dvds_id, $('#volume').val());\"");
-	$i_ix = form_input('ix', $ix, "size='3' id='ix' onkeyup=\"set_ix($series_dvds_id, $('#ix').val());\"");
+	$display_season = ($season ? $season : "");
+	$display_volume = ($volume ? $volume : "");
+	$display_ix = ($ix ? $ix : "");
+	
+	$i_season = form_input('season', $display_season, "size='3' id='season' onkeyup=\"set_season($series_dvds_id, $('#season').val());\"");
+	$i_volume = form_input('volume', $display_volume, "size='3' id='volume' onkeyup=\"set_volume($series_dvds_id, $('#volume').val());\"");
+	$i_ix = form_input('ix', $display_ix, "size='3' id='ix' onkeyup=\"set_ix($series_dvds_id, $('#ix').val());\"");
 	
 	$i_side_none = form_radio(array('name' => 'side', 'value' => '', 'checked' => ($side === ' '), 'onclick' => "set_side($series_dvds_id, ' ');"));
 	$i_side_a = form_radio(array('name' => 'side', 'value' => 'A', 'checked' => ($side === 'A'), 'onclick' => "set_side($series_dvds_id, 'A');"));
