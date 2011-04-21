@@ -23,6 +23,14 @@
  			
 		}
 		
+		public function delete($id) {
+		
+			$this->dvds_model->delete($id);
+			
+			redirect("/");
+		
+		}
+		
 		public function details($id) {
 		
 			$data['dvds'] = $this->dvds_model->get_data($id);

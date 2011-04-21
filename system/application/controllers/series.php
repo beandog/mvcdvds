@@ -50,9 +50,6 @@
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
-			
-// 			$data['discs'] = $this->discs_model->get_series($id, 'disc');
-			
 			$data['collections'] = $this->collections_model->get_collections();
 			
 			$this->load->view('css/style');
@@ -90,6 +87,7 @@
 				'average_length' => $this->input->post('average_length'),
 				'production_year' => $this->input->post('production_year'),
 				'indexed' => bool_pg($this->input->post('indexed')),
+				'grayscale' => bool_pg($this->input->post('grayscale')),
 			);
 			
 			$this->series_model->set($arr);

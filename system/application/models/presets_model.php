@@ -11,11 +11,24 @@
 		public function get_presets() {
 		
 			$this->db->select('id, name');
-			$this->db->order_by('id');
+			$this->db->where('base_preset > \'\'');
+			$this->db->order_by('name');
 			
 			$arr = $this->get_assoc();
 			
 			return $arr;
+		
+		}
+		
+		public function get_base_presets() {
+		
+			$this->db->select('id, name');
+			$this->db->where('base_preset', '');
+			$this->db->order_by('name');
+			
+			$arr = $this->get_assoc();
+			
+			return $arr;	
 		
 		}
 		

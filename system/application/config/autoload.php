@@ -108,7 +108,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('database_table', 'presets_model', 'tv_shows_model', 'collections_model', 'dvds_model', 'series_model', 'tracks_model', 'episodes_model', 'series_dvds_model');
+$autoload['model'] = array('database_table', 'presets_model', 'tv_shows_model', 'collections_model', 'dvds_model', 'series_model', 'tracks_model', 'episodes_model', 'series_dvds_model', 'queue_model');
 
 
 

@@ -27,5 +27,17 @@ class Collections extends Controller {
 	
 	}
 	
+	function unarchived_series($id) {
+	
+		$data['series'] = $this->collections_model->get_unarchived_series($id);
+		$data['collection'] = $this->collections_model->get_data($id);
+		
+		$this->load->view('css/style');
+		$this->load->view('html_title', $data['collection']);
+		$this->load->view('collection_header', $data['collection']);
+		$this->load->view('collection_unarchived_series', $data);
+		
+	
+	}
 	
 }

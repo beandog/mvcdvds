@@ -32,20 +32,12 @@
 			
 			$submit = $this->input->post('submit');
 			
-			$bools = array('grayscale', 'detelecine', 'decomb', 'deinterlace', '_8x8dct', 'cabac', 'no_dct_decimate', 'mixed_refs');
-			
-			$numbers = array('crf', 'ref', 'bframes', 'weightp', 'subme', 'merange', 'b_adapt', 'trellis', 'keyint', 'rc_lookahead', 'aq_strength', 'psy_rd', 'deblock');
-			
 			if($submit == 'Update') {
 			
 				$arr['name'] = $this->input->post('name');
 				$arr['base_preset'] = $this->input->post('base_preset');
-				
-				foreach($bools as $str)
-					$arr[$str] = bool_pg($this->input->post($str));
-				
-				foreach($numbers as $str)
-					$arr[$str] = $this->input->post($str);
+				$arr['crf'] = $this->input->post('crf');
+				$arr['x264opts'] = $this->input->post('x264opts');
 				
 				$this->presets_model->set($arr);
 				

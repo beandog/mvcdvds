@@ -5,6 +5,12 @@
 	echo heading("Details $series_dvds_nav", 4);
 	
 	$series_dvds_id = $series_dvd['id'];
+	
+	$a_dvd_delete = anchor("dvds/delete/$dvd_id", "Remove DVD", "onclick='return confirm(\"Remove disc?\");'");
+	
+	echo $a_dvd_delete;
+	
+	echo p();
 
 	echo "<blockquote>";
 

@@ -1,6 +1,7 @@
 <?
 
 	$header = array(
+		'',
 		'Title',
 // 		'# Discs',
 // 		'# Seasons',
@@ -23,9 +24,15 @@
 		
 		$num_discs = 0;
 		
+		if($missing_index)
+			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
+		else
+			$img_dvd = img(array('src' => "images/icons/dvd.png"));
+		
 		$a_title = anchor("series/dvds/$series_id", $title, array('class' => 'black'));
 		
 		$table_row = array(
+			$img_dvd,
 			$a_title,
 		);
 		
