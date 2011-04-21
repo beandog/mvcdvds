@@ -39,7 +39,8 @@
 		// Override episode index if series is unindexed.
 		if($series['indexed'] == 'f')
 			$ix = null;
-		$i_ix = "<input type='text' size='2' name='episode[$episode_id][ix]' value='$ix' ix='$ix' track_id='$track_id' episode_id='$episode_id'>\n";
+		$display_ix = ($ix ? $ix : "");
+		$i_ix = "<input type='text' size='2' name='episode[$episode_id][ix]' value='$display_ix' ix='$ix' track_id='$track_id' episode_id='$episode_id'>\n";
 		
 		// Episode Title
 		$i_title = form_input("episode[$episode_id][title]", $title, "size='30' track_id='$track_id' episode_id='$episode_id' tabindex='$track_ix'");
@@ -52,7 +53,8 @@
 		$i_ending_chapter = form_input("episode[$episode_id][ending_chapter]", $ending_chapter, "size='2' track_id='$track_id' episode_id='$episode_id'");
 		
 		// Episode season (override disc)
-		$i_season = form_input("episode[$episode_id][season]", $season, "size='2' track_id='$track_id' episode_id='$episode_id'");
+		$display_season = ($season ? $season : "");
+		$i_season = form_input("episode[$episode_id][season]", $display_season, "size='2' track_id='$track_id' episode_id='$episode_id'");
 		
 		$tbl_row = array(
 		
