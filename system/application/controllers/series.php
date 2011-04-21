@@ -84,7 +84,7 @@
 				'collection_id' => $this->input->post('collection'),
 				'title_long' => $this->input->post('title_long'),
 				'title' => $this->input->post('title'),
-				'average_length' => $this->input->post('average_length'),
+				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => $this->input->post('production_year'),
 				'indexed' => bool_pg($this->input->post('indexed')),
 				'grayscale' => bool_pg($this->input->post('grayscale')),
