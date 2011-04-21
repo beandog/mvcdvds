@@ -82,7 +82,6 @@
 			
 			$arr = array(
 				'collection_id' => $this->input->post('collection'),
-				'title_long' => $this->input->post('title_long'),
 				'title' => $this->input->post('title'),
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => $this->input->post('production_year'),

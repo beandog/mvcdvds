@@ -44,13 +44,11 @@
 		
 		public function get_collection($id, $order_by = 'title') {
 		
-// 			select s.*, count(d.longest_track) AS missing_index from series s  INNER JOIN series_dvds sd ON sd.series_id = s.id AND s.id = 1 LEFT OUTER JOIN dvds d ON sd.dvd_id = d.id AND d.longest_track IS NULL GROUP BY s.id, s.collection_id, s.title, s.title_long, s.production_year, s.production_studio, s.indexed, s.average_length, s.grayscale;
-		
 			$this->db->select('series.*');
 			$this->db->select('COUNT(dvds.id) AS missing_index');
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id');
 			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id AND dvds.longest_track IS NULL', 'left outer');
-			$this->db->group_by('series.id, series.collection_id, series.title, series.title_long, series.production_year, series.production_studio, series.indexed, series.average_length, series.grayscale');
+			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.production_studio, series.indexed, series.average_length, series.grayscale');
 			$this->db->order_by('series.title');
 			$this->db->where('series.collection_id', $id);
 			
