@@ -45,10 +45,14 @@
 		else
 			$a_dvd = anchor("dvds/tracks/$id", $title, "class='$class'");
 		
+		$display_season = ($season ? $season : "");
+		$display_volume = ($volume ? $volume : "");
+		$display_ix = ($ix ? $ix : "");
+		
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
-		$display_season = "<span>$season</span>";
-		$display_volume = "<span>$volume</span>";
-		$display_ix = "<span>$ix</span>";
+		$display_season = "<span>$display_season</span>";
+		$display_volume = "<span>$display_volume</span>";
+		$display_ix = "<span>$display_ix</span>";
 		$display_side = "<span>$side</span>";
 		$display_num_episodes = "<span>$num_episodes</span>";
 		
