@@ -1,10 +1,21 @@
-<ul>
-<?
-
-	foreach($collections as $id => $title) {
-		$anchor = anchor("collections/index/$id", $title);
-		echo "<li> $anchor</li>";
-	}
-
-?>
-</ul>
+<table cellpadding='0' cellspacing='0'>
+	<tr>
+		<td width='225'>
+			<ul>
+			<?
+			
+				foreach($collections as $id => $title) {
+					$anchor = anchor("collections/index/$id", $title);
+					echo "<li> $anchor</li>";
+				}
+			
+			?>
+			</ul>
+		</td>
+		<td valign='top'>
+			<form action='search' method='post'>
+				<input type='text' name='q'> <input type='submit' value='Search'>
+			</form>
+		</td>
+	</tr>
+</table>

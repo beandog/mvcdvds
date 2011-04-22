@@ -37,6 +37,12 @@ class Welcome extends Controller {
 		
 	}
 	
+	public function search() {
+	
+		$q = $this->input->post('q');
+	
+	}
+	
 	
 }
 
