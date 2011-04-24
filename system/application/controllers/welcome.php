@@ -44,6 +44,22 @@ class Welcome extends Controller {
 	public function search() {
 	
 		$q = $this->input->post('q');
+		
+		$data['title'] = 'Search Results';
+		$data['collections'] = $this->series_model->search($q);
+		
+		if(count($data['collections']) === 1) {
+		
+			$series_id = key($data['collections']);
+			redirect("series/dvds/$series_id");
+		
+		}
+		
+		$this->load->view('css/style');
+		$this->load->view('html_title', $data);
+		
+//  		$this->load->view('collection_header', $data['dvds']);
+ 		$this->load->view('search_results', $data);
 	
 	}
 	

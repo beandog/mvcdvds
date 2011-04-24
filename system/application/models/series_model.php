@@ -97,4 +97,22 @@
 		
 		}
 		
+		public function search($q) {
+		
+			$q = strtolower($q);
+			
+			$this->db->select('series.*');
+			$this->db->select('COUNT(dvds.id) AS missing_index');
+			$this->db->join('series_dvds', 'series_dvds.series_id = series.id');
+			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id AND dvds.longest_track IS NULL', 'left outer');
+			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.production_studio, series.indexed, series.average_length, series.grayscale');
+			$this->db->order_by('series.title');
+			$this->db->where('LOWER(series.title) LIKE', "%${q}%");
+			
+			$arr = $this->get_assoc('series');
+			
+			return $arr;
+		
+		}
+		
 	}

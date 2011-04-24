@@ -13,7 +13,7 @@
 			</ul>
 		</td>
 		<td valign='top'>
-			<form action='search' method='post'>
+			<form action='welcome/search' method='post'>
 				<input type='text' name='q'> <input type='submit' value='Search'>
 			</form>
 		</td>
