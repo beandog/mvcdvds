@@ -25,9 +25,10 @@
 		
 		public function delete($id) {
 		
+			$series_id = $this->dvds_model->get_series_id($id);
 			$this->dvds_model->delete($id);
 			
-			redirect("/");
+			redirect("series/dvds/$series_id");
 		
 		}
 		
