@@ -19,7 +19,7 @@
 		
 		$a_series = anchor("series/dvds/$series_id", $series_title);
 		$a_episode = anchor("dvds/episodes/$dvd_id", $episode_title);
-		$a_delete = anchor("queue/delete/$episode_id", $img_delete);
+		$a_delete = anchor("queue/delete/$episode_id", $img_delete, "onclick='return confirm(\"Delete from queue?\");'");
 		
 		$tbl_row = array(
 			$a_series,
