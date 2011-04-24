@@ -14,6 +14,7 @@ class Welcome extends Controller {
 		$data['new_dvds'] = $this->dvds_model->get_new_dvds();
 		$data['title'] = "DVDs Admin v3.0";
 		$data['queue'] = $this->queue_model->get_queue();
+		$data['isos'] = $this->home_dir->get_isos();
 		
 		$this->load->view('css/style');
 		$this->load->view('jquery');
@@ -26,6 +27,9 @@ class Welcome extends Controller {
 		$this->load->view('presets', $data);
 		$data['presets'] = $this->presets_model->get_base_presets();
 		$this->load->view('presets', $data);
+		
+// 		if(count($data['isos']))
+// 			$this->load->view('fs_isos', $data);
 		
 		if(count($data['new_dvds']))
 			$this->load->view('dvds_new', $data);
