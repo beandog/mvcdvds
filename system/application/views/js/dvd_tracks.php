@@ -2,7 +2,7 @@
 
 	function new_episode(track_id) {
 		
-		var url = "<?=base_url()."index.php/ajax_tracks/new_episode/";?>" + track_id;
+		var url = "<?=site_url()."/ajax_tracks/new_episode/";?>" + track_id;
 		
 		console.log(url);
 		
