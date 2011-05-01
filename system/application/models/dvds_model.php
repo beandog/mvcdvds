@@ -24,7 +24,7 @@
 		
 		}
 		
-		public function get_episodes($id) {
+		public function get_episodes($id, $orderby = 'episode_ix') {
 		
 			$this->db->select('episodes.*, tracks.ix AS track_ix, tracks.id AS track_id');
 			$this->db->join('tracks', 'tracks.dvd_id = dvds.id');
@@ -32,7 +32,8 @@
 			$this->db->where('dvds.id', $id);
 			
 			$this->db->order_by('episodes.season');
-			$this->db->order_by('episodes.ix');
+			if($orderby = 'episode_ix')
+				$this->db->order_by('episodes.ix');
 			$this->db->order_by('tracks.ix');
 			$this->db->order_by('episodes.starting_chapter');
 			$this->db->order_by('episodes.title');

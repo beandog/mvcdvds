@@ -29,6 +29,17 @@
 		
 		}
 		
+		public function load_dvd_id($dvd_id) {
+		
+			$this->db->select('id');
+			$this->db->where('dvd_id', $dvd_id);
+			
+			$id = $this->db->getOne();
+			
+			$this->load($id);
+		
+		}
+		
 		
 		
 	}

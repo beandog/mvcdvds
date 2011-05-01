@@ -58,6 +58,17 @@
 		
 		}
 		
+		public function get_indexed($id) {
+		
+			$this->db->select('indexed');
+			$this->db->where('id', $id);
+			
+			$var = $this->get_one();
+			
+			return $var;
+		
+		}
+		
 		public function get_preset_id($id) {
 		
 			$this->db->select('preset_id');

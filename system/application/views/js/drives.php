@@ -2,7 +2,7 @@
 
 	function eject() {
 	
-		var url = <?=anchor("ajax_drives/eject");?>;
+		var url = "<?=site_url()."index.php/ajax_drives/eject";?>";
 		
 		$.ajax(url);
 	
@@ -10,7 +10,7 @@
 
 	function import_dvd() {
 	
-		var url = <?=anchor("ajax_drives/import_dvd");?>;
+		var url = "<?=site_url()."ajax_drives/import_dvd";?>";
 		
 		$.ajax(url);
 	

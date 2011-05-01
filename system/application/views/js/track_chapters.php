@@ -2,7 +2,7 @@
 
 	function new_chapter_episode(track_id, chapter) {
 		
-		var url = <?=anchor("ajax_tracks/new_chapter_episode");?>;
+		var url = "<?=site_url()."index.php/ajax_tracks/new_chapter_episode";?>";
 		var obj = { track_id: track_id, chapter: chapter };
 		
 		$.ajax({

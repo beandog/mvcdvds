@@ -73,7 +73,13 @@
 			$data['collection'] = $this->collections_model->get_data($collection_id);
 			$data['series'] = $this->series_model->get_data($series_id);
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
-			$data['episodes'] = $this->dvds_model->get_episodes($id);
+			
+			if($this->series_model->get_indexed($series_id) == 'f')
+				$orderby = 'episode_ix';
+			else
+				$orderby = 'tracks_ix';
+			
+			$data['episodes'] = $this->dvds_model->get_episodes($id, $orderby);
 			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
 			
 			$data['next_episode'] = $this->_estimate_next_episode($data);
@@ -156,10 +162,8 @@
 		
 		public function update_series_dvd($dvd_id) {
 		
-			$this->series_dvds_model->delete_dvd($dvd_id);
-			$this->series_dvds_model->create_new();
+			$this->series_dvds_model->load_dvd($dvd_id);
 			$this->series_dvds_model->set_series_id($this->input->post('series_id'));
-			$this->series_dvds_model->set_dvd_id($dvd_id);
 			$this->series_dvds_model->set_audio_preference($this->input->post('audio_preference'));
 			$this->series_dvds_model->set_no_dvdnav(bool_pg($this->input->post('no_dvdnav')));
 		
