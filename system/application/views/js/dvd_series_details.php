@@ -2,7 +2,7 @@
 
 	function set_ix(series_dvds_id, ix) {
 	
-		var url = "<?=site_url()."index.php/ajax_series_dvds/set_ix";?>";
+		var url = "<?=site_url()."/ajax_series_dvds/set_ix";?>";
 		var obj = { series_dvds_id: series_dvds_id, ix: ix };
 		
 		$.ajax({
@@ -18,7 +18,7 @@
 
 	function set_season(series_dvds_id, season) {
 		
-		var url = "<?=site_url()."index.php/ajax_series_dvds/set_season");?>";
+		var url = "<?=site_url()."/ajax_series_dvds/set_season";?>";
 		var obj = { series_dvds_id: series_dvds_id, season: season };
 		
 		$.ajax({
@@ -34,7 +34,7 @@
 	
 	function set_side(series_dvds_id, side) {
 		
-		var url = "<?=site_url()."index.php/ajax_series_dvds/set_side";?>";
+		var url = "<?=site_url()."/ajax_series_dvds/set_side";?>";
 		var obj = { series_dvds_id: series_dvds_id, side: side };
 		
 		$.ajax({
@@ -50,7 +50,7 @@
 	
 	function set_volume(series_dvds_id, volume) {
 		
-		var url = "<?=site_url()."index.php/ajax_series_dvds/set_volume";?>";
+		var url = "<?=site_url()."/ajax_series_dvds/set_volume";?>";
 		var obj = { series_dvds_id: series_dvds_id, volume: volume };
 		
 		$.ajax({
