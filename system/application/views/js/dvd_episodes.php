@@ -17,7 +17,7 @@
 	
 	function delete_episode(episode_id, e) {
 	
-		var url = "<?=site_url()."index.php/ajax_tracks/delete_episode/";?>" + episode_id;
+		var url = "<?=site_url()."/ajax_tracks/delete_episode/";?>" + episode_id;
 		
 		if(confirm("Delete episode?")) {
 			$.ajax(url);
