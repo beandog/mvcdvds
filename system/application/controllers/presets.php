@@ -38,6 +38,9 @@
 				$arr['base_preset'] = $this->input->post('base_preset');
 				$arr['crf'] = $this->input->post('crf');
 				$arr['x264opts'] = $this->input->post('x264opts');
+				$arr['format'] = $this->input->post('format');
+				$arr['acodec'] = $this->input->post('acodec');
+				$arr['acodec_bitrate'] = $this->input->post('acodec_bitrate');
 				
 				$this->presets_model->set($arr);
 				
