@@ -15,8 +15,11 @@
 	
 	extract($dvds);
 	
-	if(!isset($series_dvd))
+	if(!isset($series_dvd)) {
 		$series_dvd['series_id'] = null;
+		$series_dvd['audio_preference'] = null;	
+		$series_dvd['no_dvdnav'] = null;	
+	}
 	
 	echo form_open("dvds/update_series_dvd/".$dvds['id'], $attr);
 	
