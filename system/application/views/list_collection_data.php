@@ -24,7 +24,7 @@
 		
 		$num_discs = 0;
 		
-		if($missing_index)
+		if($missing_metadata)
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
 		else
 			$img_dvd = img(array('src' => "images/icons/dvd.png"));
