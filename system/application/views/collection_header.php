@@ -2,6 +2,6 @@
 
 	echo heading($title);
 	
-	echo anchor("/", "Home");
+	echo anchor("/", "All Collections");
 
 ?>
