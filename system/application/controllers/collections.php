@@ -13,6 +13,9 @@ class Collections extends Controller {
 		foreach(array_keys($data['collections']) as $series_id) {
 			$data['sum_filesize'][$series_id] = $this->series_model->get_sum_filesize($series_id);
 		}
+		foreach(array_keys($data['collections']) as $series_id) {
+			$data['num_dvds'][$series_id] = $this->series_model->get_num_dvds($series_id);
+		}
 
 		$this->load->view('css/style');
 		$this->load->view('html_title', $data['collection']);

@@ -3,6 +3,7 @@
 	$header = array(
 		'',
 		'Title',
+		'# DVDs',
 		'Total Filesize',
 // 		'# Discs',
 // 		'# Seasons',
@@ -18,6 +19,7 @@
 	$this->table->set_heading($header);
 
 	$total_filesize = 0;
+	$total_num_dvds = 0;
 	
 	foreach($collections as $series_id => $row) {
 	
@@ -41,8 +43,11 @@
 		$table_row = array(
 			$img_dvd,
 			$a_title,
+			$num_dvds[$series_id],
 			$display_filesize,
 		);
+
+		$total_num_dvds += $num_dvds[$series_id];
 		
 		$this->table->add_row($table_row);
 	
@@ -60,6 +65,7 @@
 	$this->table->add_row(array(
 		'',
 		'',
+		number_format($total_num_dvds),
 		$display_total_filesize,
 	));
 

@@ -74,6 +74,20 @@
 			return $var;
 
 		}
+
+		// Get the total number of DVDs for a series
+		public function get_num_dvds($id) {
+
+			$this->db->select('COUNT(dvds.id) AS num_dvds');
+			$this->db->join('series_dvds', 'series_dvds.series_id = series.id');
+			$this->db->join('dvds', 'dvds.id = series_dvds.dvd_id');
+			$this->db->where('series.id', $id);
+
+			$var = $this->get_one();
+
+			return $var;
+
+		}
 		
 		public function get_indexed($id) {
 		
