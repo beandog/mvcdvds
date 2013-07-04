@@ -53,7 +53,7 @@
 		if(!$num_episodes)
 			$num_episodes = "";
 		
-		if(is_null($longest_track)) {
+		if(is_null($longest_track) || is_null($filesize)) {
 			$needs_import = true;
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
 		} else {
