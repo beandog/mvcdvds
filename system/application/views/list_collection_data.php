@@ -35,7 +35,7 @@
 		$a_title = anchor("series/dvds/$series_id", $title, array('class' => 'black'));
 
 		if($sum_filesize[$series_id]) {
-			$display_filesize = number_format($sum_filesize[$series_id] / 1024)." MB";
+			$display_filesize = number_format($sum_filesize[$series_id])." MB";
 			$total_filesize += $sum_filesize[$series_id];
 		} else
 			$display_filesize = '';
@@ -59,7 +59,7 @@
 
 	$this->table->set_template($tmpl);
 
-	$display_total_filesize = number_format($total_filesize / 1024). " MB";
+	$display_total_filesize = number_format($total_filesize). " MB";
 
 	// Display totals
 	$this->table->add_row(array(
