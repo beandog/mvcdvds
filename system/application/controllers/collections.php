@@ -10,7 +10,10 @@ class Collections extends Controller {
 	
 		$data['collection'] = $this->collections_model->get_data($id);
 		$data['collections'] = $this->series_model->get_collection($id);
-		
+		foreach(array_keys($data['collections']) as $series_id) {
+			$data['sum_filesize'][$series_id] = $this->series_model->get_sum_filesize($series_id);
+		}
+
 		$this->load->view('css/style');
 		$this->load->view('html_title', $data['collection']);
 		
@@ -36,8 +39,7 @@ class Collections extends Controller {
 		$this->load->view('html_title', $data['collection']);
 		$this->load->view('collection_header', $data['collection']);
 		$this->load->view('collection_unarchived_series', $data);
-		
-	
+
 	}
 	
 }

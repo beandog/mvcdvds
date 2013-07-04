@@ -76,7 +76,7 @@
 		$display_season = ($season ? $season : "");
 		$display_volume = ($volume ? $volume : "");
 		$display_ix = ($ix ? $ix : "");
-		$display_filesize = number_format($filesize)." MB";
+		$display_filesize = number_format($filesize / 1024)." MB";
 		
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
 		$display_season = "<span>$display_season</span>";
@@ -110,7 +110,7 @@
 		"<b>$total_discs</b>",
 		'',
 		"<b>$total_episodes</b>",
-		"<b>".number_format($total_filesize). " MB</b>",
+		"<b>".number_format($total_filesize / 1024). " MB</b>",
 	);
 
 	$this->table->add_row($totals_row);
