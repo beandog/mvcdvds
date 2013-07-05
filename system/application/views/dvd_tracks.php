@@ -12,6 +12,7 @@
 		'Length',
 		'Chapters',
 		'Episodes',
+		'',
 	);
 	
 	echo form_button("add_valid", "Valid Tracks to Episodes", "onclick='window.make_episodes();'");
@@ -52,18 +53,18 @@
 		$display_length = "<span style='color: $color' track_id='$track_id' valid='$valid_length' >".format_seconds($length)."</span>";
 		$num_chapters = count($chapters[$track_id]);
 		
-		$display_num_episodes = "<span></span>";
-		
 		$a_new_episode = anchor("dvds/tracks/$dvd_id", $img_add, "onclick='new_episode($track_id); plus_one_html($(\"span[name=num_episodes][track_id=$track_id]\")); return false;'");
+
+		$display_num_episodes = "<span name='num_episodes' track_id='$track_id'>";
+		if($num_episodes)
+			$display_num_episodes .= $num_episodes;
+		$display_num_episodes .= "</span>";
+
+		$display_add_episodes = '';
 		
 		if($length_close_to_average || $length_larger) {
-			$display_num_episodes = "$a_new_episode";
-			$display_num_episodes .= " &nbsp; ";
-// 			$display_num_episodes = "$img_delete";
-			$display_num_episodes .= "<span name='num_episodes' track_id='$track_id'>";
-			if($num_episodes)
-				$display_num_episodes .= $num_episodes;
-			$display_num_episodes .= "</span>";
+			$display_add_episodes = "$a_new_episode";
+			$display_add_episodes .= " &nbsp; ";
 		}
 		
 		$tbl_row = array(
@@ -72,7 +73,8 @@
 			$aspect,
 			$display_length,
 			$num_chapters,
-			$display_num_episodes
+			$display_num_episodes,
+			$display_add_episodes,
 		
 		);
 		
