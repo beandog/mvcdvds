@@ -10,6 +10,7 @@
 		'Vol.',
 		'Disc',
 		'Side',
+		'Tracks',
 		'Eps.',
 		'Filesize',
 	
@@ -22,6 +23,7 @@
 	$total_seasons = null;
 	$total_volumes = null;
 	$total_discs = 0;
+	$total_tracks = 0;
 	$total_episodes = 0;
 	$total_filesize = 0;
 	
@@ -83,6 +85,7 @@
 		$display_volume = "<span>$display_volume</span>";
 		$display_ix = "<span>$display_ix</span>";
 		$display_side = "<span>$side</span>";
+		$display_num_tracks = "<span>$num_tracks</span>";
 		$display_num_episodes = "<span>$num_episodes</span>";
 		$display_filesize = "<span>$display_filesize</span>";
 		
@@ -93,6 +96,7 @@
 			$display_volume,
 			$display_ix,
 			$display_side,
+			$display_num_tracks,
 			$display_num_episodes,
 			$display_filesize,
 		);
@@ -109,6 +113,7 @@
 		"<b>$total_volumes</b>",
 		"<b>$total_discs</b>",
 		'',
+		"<b>$total_tracks</b>",
 		"<b>$total_episodes</b>",
 		"<b>".number_format($total_filesize). " MB</b>",
 	);
