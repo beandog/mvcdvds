@@ -55,7 +55,8 @@
 		if(!$num_episodes)
 			$num_episodes = "";
 		
-		if(is_null($longest_track) || is_null($filesize)) {
+		// missing_metadata boolean is set in controller
+		if(is_null($longest_track) || is_null($filesize) || $missing_metadata) {
 			$needs_import = true;
 		} else {
 			$needs_import = false;

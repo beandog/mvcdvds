@@ -20,11 +20,11 @@
 
 	$total_filesize = 0;
 	$total_num_dvds = 0;
-	
+
 	foreach($collections as $series_id => $row) {
 	
 		extract($row);
-		
+
 		$num_discs = 0;
 		
 		if($missing_metadata)

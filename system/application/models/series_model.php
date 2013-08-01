@@ -156,5 +156,22 @@
 			return $arr;
 		
 		}
-		
+
+		// Find collections where some of the
+		// DVDs are missing metadata.  In this case,
+		// where the 'angles' value for a track is null.
+		public function missing_metadata($series_id) {
+			
+			$this->db->select('COUNT(tracks.id) AS missing_metadata');
+			$this->db->join('series_dvds', 'series_dvds.dvd_id = tracks.dvd_id');
+			$this->db->where('series_id', $series_id);
+			$this->db->where('angles', null);
+
+			$var = $this->get_one('tracks');
+
+			$bool = (bool)$var;
+			
+			return $bool;
+		}
+
 	}

@@ -30,8 +30,19 @@
 			foreach($data['dvds'] as $dvd_id => $row) {
 				$data['dvds'][$dvd_id]['num_tracks'] = count($this->dvds_model->get_tracks($dvd_id));
 				$data['episodes'][$dvd_id] = $this->dvds_model->get_episodes($dvd_id);
+
+				$data['dvds'][$dvd_id]['missing_metadata'] = false;
+
+				// Check each track to see if it is missing 'angles' metadata.
+				// If so, flag it as needing importing
+				$tracks = $this->dvds_model->get_tracks($dvd_id);
+				foreach($tracks as $track_id => $arr) {
+					$track_data = $this->tracks_model->get_data($track_id);
+					if(is_null($track_data['angles']))
+						$data['dvds'][$dvd_id]['missing_metadata'] = true;
+				}
 			}
-			
+
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data['series']);
 			
