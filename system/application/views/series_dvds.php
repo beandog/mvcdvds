@@ -57,17 +57,18 @@
 		
 		if(is_null($longest_track) || is_null($filesize)) {
 			$needs_import = true;
-			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
 		} else {
 			$needs_import = false;
-			$img_dvd = img(array('src' => "images/icons/dvd.png"));
 		}
 			
-		if($needs_import)
+		if($needs_import) {
 			$class = 'update';
-		else
+			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
+		} else {
 			$class = 'imported';
-		
+			$img_dvd = img(array('src' => "images/icons/dvd.png"));
+		}
+
 		// If there are no episodes, go straight to the
 		// tracks page to add some.
 		if($num_episodes)
