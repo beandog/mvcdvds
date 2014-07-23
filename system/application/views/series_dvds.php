@@ -1,9 +1,9 @@
 <p><?
 
 	echo heading("DVDs", 4);
-	
+
 	$heading = array(
-	
+
 		'',
 		'Title',
 		'Ssn.',
@@ -13,9 +13,9 @@
 		'Tracks',
 		'Eps.',
 		'Filesize',
-	
+
 	);
-	
+
 	$this->table->set_heading($heading);
 
 	$arr_seasons = array();
@@ -26,7 +26,7 @@
 	$total_tracks = 0;
 	$total_episodes = 0;
 	$total_filesize = 0;
-	
+
 	foreach($dvds as $id => $row) {
 
 		extract($row);
@@ -34,7 +34,7 @@
 		$total_discs++;
 		if($filesize)
 			$total_filesize += $filesize;
-		
+
 		$num_episodes = count($episodes[$id]);
 
 		if(intval($season)) {
@@ -51,17 +51,17 @@
 
 		if(intval($num_episodes))
 			$total_episodes += $num_episodes;
-		
+
 		if(!$num_episodes)
 			$num_episodes = "";
-		
+
 		// missing_metadata boolean is set in controller
 		if(is_null($longest_track) || is_null($filesize) || $missing_metadata) {
 			$needs_import = true;
 		} else {
 			$needs_import = false;
 		}
-			
+
 		if($needs_import) {
 			$class = 'update';
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
@@ -76,12 +76,12 @@
 			$a_dvd = anchor("dvds/episodes/$id", $title, "class='$class'");
 		else
 			$a_dvd = anchor("dvds/tracks/$id", $title, "class='$class'");
-		
+
 		$display_season = ($season ? $season : "");
 		$display_volume = ($volume ? $volume : "");
 		$display_ix = ($ix ? $ix : "");
 		$display_filesize = number_format($filesize)." MB";
-		
+
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
 		$display_season = "<span>$display_season</span>";
 		$display_volume = "<span>$display_volume</span>";
@@ -90,7 +90,7 @@
 		$display_num_tracks = "<span>$num_tracks</span>";
 		$display_num_episodes = "<span>$num_episodes</span>";
 		$display_filesize = "<span>$display_filesize</span>";
-		
+
 		$tbl_row = array(
 			$a_dvd2,
 			$a_dvd,
@@ -102,9 +102,9 @@
 			$display_num_episodes,
 			$display_filesize,
 		);
-		
+
 		$this->table->add_row($tbl_row);
-	
+
 	}
 
 	// Add totals
@@ -121,12 +121,12 @@
 	);
 
 	$this->table->add_row($totals_row);
-	
+
 	$tmpl = array(
 		'table_open' => '<table border="0" cellpadding="4" cellspacing="0" class="zebra">',
 	);
-	
+
 	$this->table->set_template($tmpl);
-	
+
 	echo $this->table->generate();
 	$this->table->clear();

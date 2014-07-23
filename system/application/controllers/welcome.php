@@ -3,11 +3,11 @@
 class Welcome extends Controller {
 
 	function Welcome() {
-		parent::Controller();	
+		parent::Controller();
 	}
-	
+
 	function index() {
-	
+
 		$data['collections'] = $this->collections_model->get_collections();
 		$data['presets'] = $this->presets_model->get_presets();
 		$data['dvds'] = $this->dvds_model->get_new_dvds();
@@ -15,55 +15,54 @@ class Welcome extends Controller {
 		$data['title'] = "DVDs Admin v3.0";
 		$data['queue'] = $this->queue_model->get_queue();
 		$data['isos'] = $this->home_dir->get_isos();
-		
+
 		$this->load->view('css/style');
 		$this->load->view('jquery');
 		$this->load->view('js/drives');
 		$this->load->view('html_title', $data);
-		
+
 		$this->load->view('header_collections');
 		$this->load->view('home_collections', $data);
 		$this->load->view('welcome_presets', $data);
 		$this->load->view('presets', $data);
-		$data['presets'] = $this->presets_model->get_base_presets();
 		$this->load->view('presets', $data);
-		
+
 // 		if(count($data['isos']))
 // 			$this->load->view('fs_isos', $data);
-		
+
 		if(count($data['new_dvds']))
 			$this->load->view('dvds_new', $data);
-		
+
 		if(count($data['queue'])) {
 			$this->load->view('queue');
 			$this->load->view('queue_reset');
 		}
-		
+
 	}
-	
+
 	public function search() {
-	
+
 		$q = $this->input->post('q');
-		
+
 		$data['title'] = 'Search Results';
 		$data['collections'] = $this->series_model->search($q);
-		
+
 		if(count($data['collections']) === 1) {
-		
+
 			$series_id = key($data['collections']);
 			redirect("series/dvds/$series_id");
-		
+
 		}
-		
+
 		$this->load->view('css/style');
 		$this->load->view('html_title', $data);
-		
+
 //  		$this->load->view('collection_header', $data['dvds']);
  		$this->load->view('search_results', $data);
-	
+
 	}
-	
-	
+
+
 }
 
 /* End of file welcome.php */

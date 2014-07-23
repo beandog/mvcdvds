@@ -20,42 +20,42 @@
 		else {
 			$var = htmlentities($var);
 			print_r($var);
-		}	
+		}
 		echo "</pre>\n";
 	}
 
 	function pg_bool($str) {
-	
+
 		if($str == 't')
 			return true;
 		else
 			return false;
-	
+
 	}
-	
+
 	function bool_pg($bool) {
-	
+
 		if($bool)
 			return 't';
 		else
 			return 'f';
-	
+
 	}
-	
+
 	function pg_null($str) {
-	
+
 		if(empty($str))
 			return null;
 		else
 			return $str;
-	
+
 	}
-	
+
 	function p($int = 1) {
-	
+
 		$str = "<p>\n";
 		$str = str_repeat($str, $int);
-		
+
 		return $str;
-	
+
 	}
