@@ -33,7 +33,7 @@
 		$this->table->add_row(array("Provider ID:", $provider_id));
 	if(!empty($vmg_id))
 		$this->table->add_row(array("VMG ID:", $vmg_id));
-	$this->table->add_row(array("Uniq ID:", $uniq_id));
+	$this->table->add_row(array("dvdread ID:", $dvdread_id));
 	if($longest_track)
 		$this->table->add_row(array("Longest Track:", $longest_track));
 	$this->table->add_row(array("Series:", $i_series_id));
