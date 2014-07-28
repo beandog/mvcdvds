@@ -25,7 +25,6 @@ class Welcome extends Controller {
 		$this->load->view('home_collections', $data);
 		$this->load->view('welcome_presets', $data);
 		$this->load->view('presets', $data);
-		$this->load->view('presets', $data);
 
 // 		if(count($data['isos']))
 // 			$this->load->view('fs_isos', $data);
