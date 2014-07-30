@@ -10,10 +10,10 @@
 
 		public function get_presets() {
 
-			$this->db->select('id, name');
+			$this->db->select('*');
 			$this->db->order_by('name');
 
-			$arr = $this->get_assoc();
+			$arr = $this->get_all();
 
 			return $arr;
 

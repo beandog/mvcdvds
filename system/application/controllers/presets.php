@@ -64,6 +64,9 @@
 				$acodec = $this->input->post('acodec');
 				$acodec_bitrate = $this->input->post('acodec_bitrate');
 
+				if(!$acodec_bitrate)
+					$acodec_bitrate = null;
+
 				$arr['name'] = $this->input->post('name');
 				$arr['x264opts'] = $this->input->post('x264opts');
 				$arr['x264_tune'] = $this->input->post('x264_tune');
@@ -76,7 +79,7 @@
 
 			}
 
- 			redirect("presets/index/$id");
+ 			redirect("presets/index");
 
 		}
 
