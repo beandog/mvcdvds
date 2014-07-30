@@ -8,35 +8,36 @@
 
 	$attr = array('id' => 'series_update', 'autocomplete' => 'off');
 
-	$strict = $loose = false;
-
 	$inputs = array();
 
-	$o_format = array('mkv' => 'mkv', 'mp4' => 'mp4');
 	$o_acodec = array('copy' => 'copy', 'aac' => 'aac');
+	$o_x264_preset = array('medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
+	$o_x264_tune = array('film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
 
-	$i_name = form_input('name', $name);
+	$i_name = form_input('name', $name, 'size=45');
 	$i_crf = form_input('crf', $crf, 'size=2');
 	$i_x264opts = form_input('x264opts', $x264opts);
-	$i_format = form_dropdown('format', $o_format, $format);
-	$i_video_bitrate = form_input('video_bitrate', $video_bitrate);
+	$i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
+	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
+	$i_video_bitrate = form_input('video_bitrate', $video_bitrate, 'size=6');
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
-	$i_acodec_bitrate = form_input('acodec_bitrate', $acodec_bitrate);
+	$i_acodec_bitrate = form_input('acodec_bitrate', $acodec_bitrate, 'size=5');
+	$i_two_pass = form_checkbox('two_pass', 't', $two_pass == 't');
 
 	$this->table->add_row(array("Name:", $i_name));
-	$this->table->add_row(array("CRF:", $i_crf));
-	$this->table->add_row(array("x264:", $i_x264opts));
-	$this->table->add_row(array("Format:", $i_format));
+	$this->table->add_row(array("x264 tuning:", $i_x264_tune));
+	$this->table->add_row(array("x264 preset:", $i_x264_preset));
+	$this->table->add_row(array("Quality:", "Two Pass: $i_two_pass / CRF: $i_crf"));
+	$this->table->add_row(array("x264 options:", $i_x264opts));
 	$this->table->add_row(array("Video Bitrate:", $i_video_bitrate));
-	$this->table->add_row(array("Audio Codec:", $i_acodec));
-	$this->table->add_row(array("Audio Bitrate:", $i_acodec_bitrate));
+	$this->table->add_row(array("Audio:", "$i_acodec $i_acodec_bitrate"));
 
 	$submit = form_submit('submit', 'Update');
 
+	$this->table->add_row(array("", $submit));
+
 	echo $this->table->generate();
 	$this->table->clear();
-
-	echo "<p>$submit</p>";
 
 	echo form_close();
 

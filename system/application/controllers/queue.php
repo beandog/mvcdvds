@@ -21,8 +21,16 @@
 
 		}
 
+		function index() {
+
+			$data['queue'] = $this->queue_model->get_queue();
+			$this->load->view('css/style');
+			$this->load->view('jquery');
+			$this->load->view('js/drives');
+			$this->load->view('html_title', $data);
+			$this->load->view('queue');
+			$this->load->view('queue_reset');
+
+		}
 
 	}
-
-/* End of file welcome.php */
-/* Location: ./system/application/controllers/welcome.php */
