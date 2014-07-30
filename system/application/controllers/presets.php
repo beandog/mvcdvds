@@ -7,13 +7,20 @@
 			parent::Controller();
 		}
 
-		function index($id) {
+		function index($id = null) {
 
-			$data['preset'] = $this->presets_model->get_data($id);
+			$data['presets'] = $this->presets_model->get_presets();
+
 			$this->load->view('css/style');
+			$this->load->view('html_title', $data);
 
-			$this->load->view('presets_header', $data['preset']);
-			$this->load->view('preset_details', $data['preset']);
+			if($id) {
+				$data['preset'] = $this->presets_model->get_data($id);
+				$this->load->view('preset_details', $data['preset']);
+			} else {
+				$this->load->view('presets', $data);
+				$this->load->view('welcome_presets', $data);
+			}
 
 		}
 

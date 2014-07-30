@@ -1,5 +1,5 @@
 <?
 
-	echo heading("Collections");
+	echo heading("Collections", 2);
 
 ?>

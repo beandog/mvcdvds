@@ -1,7 +1,5 @@
 <?
 
-	echo heading($title);
-
-	echo anchor("/", "All Collections");
+	echo heading($title, 2);
 
 ?>
