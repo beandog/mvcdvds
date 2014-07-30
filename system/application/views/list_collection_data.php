@@ -1,5 +1,7 @@
 <?
 
+	echo heading($title, 2);
+
 	$header = array(
 		'',
 		'Title',

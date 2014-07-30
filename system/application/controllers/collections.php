@@ -28,7 +28,6 @@ class Collections extends Controller {
 		$this->load->view('css/style');
 		$this->load->view('html_title', $data['collection']);
 
- 		$this->load->view('collection_header', $data['collection']);
  		$this->load->view('list_collection_data', $data);
 	}
 
