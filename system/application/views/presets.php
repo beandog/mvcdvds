@@ -16,7 +16,7 @@
 
 	$this->table->set_heading($tbl_heading);
 
-	foreach($presets as $arr) {
+	foreach($presets as $id => $arr) {
 
 		extract($arr);
 
@@ -60,3 +60,9 @@
 
 	echo $this->table->generate();
 	$this->table->clear();
+
+	echo p();
+
+	echo anchor("presets/create_new", "Create New Preset");
+
+

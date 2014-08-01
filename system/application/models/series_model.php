@@ -9,8 +9,6 @@
 
 			parent::__construct();
 
-
-
 		}
 
 		public function get_dvds($id, $orderby = null) {
@@ -120,6 +118,17 @@
 			$this->db->order_by('series.title');
 
 			$arr = $this->get_assoc();
+
+			return $arr;
+
+		}
+
+		public function get_series_presets() {
+
+			$this->db->select('series_id, preset_id');
+			$this->db->order_by('series_id');
+
+			$arr = $this->get_assoc('series_presets');
 
 			return $arr;
 

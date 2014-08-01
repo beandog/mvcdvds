@@ -13,7 +13,7 @@
 			$this->db->select('*');
 			$this->db->order_by('name');
 
-			$arr = $this->get_all();
+			$arr = $this->get_assoc();
 
 			return $arr;
 

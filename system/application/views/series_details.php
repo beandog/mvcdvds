@@ -1,5 +1,8 @@
 <p><?
 
+	foreach($presets as $id => $arr)
+		$arr_dropdown_presets[$id] = $arr['name'];
+
 	echo heading("Series", 4);
 
 	echo "<blockquote>";
@@ -13,7 +16,7 @@
 	$display_average_length = ($average_length ? $average_length : "");
 
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
-	$input_preset = form_dropdown('preset_id', $presets, $preset['id']);
+	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_title = form_input('title', $title, "size='50'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_production_year = form_input('production_year', $production_year, "size='4'");

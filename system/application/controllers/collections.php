@@ -10,6 +10,9 @@ class Collections extends Controller {
 
 		$data['collection'] = $this->collections_model->get_data($id);
 		$data['collections'] = $this->series_model->get_collection($id);
+		$data['presets'] = $this->presets_model->get_presets();
+		$data['series_presets'] = $this->series_model->get_series_presets();
+
 		foreach(array_keys($data['collections']) as $series_id) {
 
 			$data['sum_filesize'][$series_id] = $this->series_model->get_sum_filesize($series_id);
