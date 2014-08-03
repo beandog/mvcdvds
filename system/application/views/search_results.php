@@ -15,9 +15,9 @@
 
 		$num_discs = 0;
 
-		if($missing_metadata)
-			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
-		else
+		// if($missing_metadata)
+		//	$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
+		// else
 			$img_dvd = img(array('src' => "images/icons/dvd.png"));
 
 		$a_title = anchor("series/dvds/$series_id", $title, array('class' => 'black'));

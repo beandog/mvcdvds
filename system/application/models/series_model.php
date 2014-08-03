@@ -41,19 +41,7 @@
 		}
 
 		// Find all the DVDs in a collection
-		// Additionally, set a 'missing_metadata' boolean if
-		// there are values in the dvds table that are null
 		public function get_collection($id, $order_by = 'title') {
-
-			/*
-			$this->db->select('series.*');
-			$this->db->select('COUNT(dvds.id) AS missing_metadata');
-			$this->db->join('series_dvds', 'series_dvds.series_id = series.id', 'left outer');
-			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id AND (dvds.longest_track IS NULL OR dvds.filesize IS NULL)', 'left outer');
-			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.production_studio, series.indexed, series.average_length, series.grayscale');
-			$this->db->order_by('series.title');
-			$this->db->where('series.collection_id', $id);
-			*/
 
 			$this->db->select('series.*');
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id', 'left outer');
@@ -162,9 +150,8 @@
 			$q = strtolower($q);
 
 			$this->db->select('series.*');
-			$this->db->select('COUNT(dvds.id) AS missing_metadata');
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id');
-			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id AND (dvds.filesize IS NULL OR dvds.longest_track IS NULL)', 'left outer');
+			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id', 'left outer');
 			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.production_studio, series.indexed, series.average_length, series.grayscale');
 			$this->db->order_by('series.title');
 			$this->db->where('LOWER(series.title) LIKE', "%${q}%");
@@ -185,7 +172,7 @@
 			$this->db->select_max('metadata_spec');
 			$metadata_spec = $this->get_one('dvds');
 
-			$this->db->select('COUNT(1) AS missing_metadata');
+			$this->db->select('COUNT(1)');
 			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id');
 			$this->db->where("metadata_spec < $metadata_spec");
 			$this->db->where('series_id', $series_id);
@@ -200,7 +187,7 @@
 		// Find series where some of the episodes have no title
 		public function missing_episode_titles($series_id = null) {
 
-			$this->db->select('COUNT(1) AS missing_metadata');
+			$this->db->select('COUNT(1)');
 			$this->db->where("episode_title", "");
 			$this->db->where("series_id", $series_id);
 			$var = $this->get_one("view_episodes");

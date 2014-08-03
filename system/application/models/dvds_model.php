@@ -137,7 +137,7 @@
 		// Find series where some of the episodes have no title
 		public function missing_episode_titles($id) {
 
-			$this->db->select('COUNT(1) AS missing_metadata');
+			$this->db->select('COUNT(1)');
 			$this->db->where("episode_title", "");
 			$this->db->where("dvd_id", $id);
 			$var = $this->get_one("view_episodes");
