@@ -111,4 +111,41 @@
 
 		}
 
+		/** Check for missing metadata */
+
+		// Find collections where some of the
+		// DVDs are not using the latest metadata spec.
+		public function old_metadata_spec($dvd_id) {
+
+			$dvd_id = abs(intval($dvd_id));
+
+			// Find the highest metadata spec in the database
+			$this->db->select_max('metadata_spec');
+			$newest_spec = abs(intval($this->get_one('dvds')));
+
+			$this->db->select("metadata_spec");
+			$this->db->where("id", $dvd_id);
+			$current_spec = abs(intval($this->get_one('dvds')));
+
+			if($newest_spec === $current_spec)
+				return false;
+			else
+				return true;
+
+		}
+
+		// Find series where some of the episodes have no title
+		public function missing_episode_titles($id) {
+
+			$this->db->select('COUNT(1) AS missing_metadata');
+			$this->db->where("episode_title", "");
+			$this->db->where("dvd_id", $id);
+			$var = $this->get_one("view_episodes");
+
+			$bool = (bool)$var;
+
+			return $bool;
+
+		}
+
 	}

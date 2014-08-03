@@ -9,6 +9,7 @@
 		'Total Filesize',
 		'Preset',
 		'Preset Filesize',
+//		'Missing Metadata',
 // 		'# Discs',
 // 		'# Seasons',
 // 		'# Volumes',
@@ -26,19 +27,22 @@
 	$total_preset_filesize = 0;
 	$total_num_dvds = 0;
 
-
 	foreach($collections as $series_id => $row) {
 
 		extract($row);
 
 		$num_discs = 0;
 
-		if(count($metadata[$series_id]))
+		if(count($metadata[$series_id])) {
+			$class = 'update';
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
-		else
+		} else {
+			$class = 'imported';
 			$img_dvd = img(array('src' => "images/icons/dvd.png"));
+		}
 
-		$a_title = anchor("series/dvds/$series_id", $title, array('class' => 'black'));
+		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
+		$a_title = anchor("series/dvds/$series_id", $title, array('class' => $class));
 
 		if($sum_filesize[$series_id]) {
 			$display_filesize = number_format($sum_filesize[$series_id])." MB";
@@ -52,13 +56,16 @@
 
 		$total_preset_filesize += $series_numbers[$series_id]['megabytes'];
 
+		$d_missing_metadata = implode(", ", $metadata[$series_id]);
+
 		$table_row = array(
-			$img_dvd,
+			$a_dvd2,
 			$a_title,
 			$num_dvds[$series_id],
 			$display_filesize,
 			$d_preset,
 			$d_preset_filesize,
+			// $d_missing_metadata,
 		);
 
 		$total_num_dvds += $num_dvds[$series_id];

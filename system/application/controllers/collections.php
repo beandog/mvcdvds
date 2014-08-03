@@ -25,7 +25,7 @@ class Collections extends Controller {
 
 			$metadata = array();
 			if($this->series_model->old_metadata_spec($series_id))
-				$metadata[] = "Old Spec";
+				$metadata[] = "Legacy Metadata";
 			if($this->series_model->missing_episode_titles($series_id))
 				$metadata[] = "Missing Titles";
 

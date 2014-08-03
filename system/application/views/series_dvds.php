@@ -13,6 +13,7 @@
 		'Tracks',
 		'Eps.',
 		'Filesize',
+		'Metadata',
 
 	);
 
@@ -55,14 +56,7 @@
 		if(!$num_episodes)
 			$num_episodes = "";
 
-		// missing_metadata boolean is set in controller
-		if(is_null($longest_track) || is_null($filesize) || $missing_metadata) {
-			$needs_import = true;
-		} else {
-			$needs_import = false;
-		}
-
-		if($needs_import) {
+		if(count($metadata[$id])) {
 			$class = 'update';
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
 		} else {
@@ -90,6 +84,7 @@
 		$display_num_tracks = "<span>$num_tracks</span>";
 		$display_num_episodes = "<span>$num_episodes</span>";
 		$display_filesize = "<span>$display_filesize</span>";
+		$d_missing_metadata = "<span>".implode(", ", $metadata[$id])."</span>";
 
 		$tbl_row = array(
 			$a_dvd2,
@@ -101,6 +96,7 @@
 			$display_num_tracks,
 			$display_num_episodes,
 			$display_filesize,
+			$d_missing_metadata,
 		);
 
 		$this->table->add_row($tbl_row);
@@ -118,6 +114,7 @@
 		"<b>$total_tracks</b>",
 		"<b>$total_episodes</b>",
 		"<b>".number_format($total_filesize). " MB</b>",
+		'',
 	);
 
 	$this->table->add_row($totals_row);
