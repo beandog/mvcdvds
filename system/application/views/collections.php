@@ -26,13 +26,14 @@
 	$total_preset_filesize = 0;
 	$total_num_dvds = 0;
 
+
 	foreach($collections as $series_id => $row) {
 
 		extract($row);
 
 		$num_discs = 0;
 
-		if($missing_metadata)
+		if(count($metadata[$series_id]))
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
 		else
 			$img_dvd = img(array('src' => "images/icons/dvd.png"));

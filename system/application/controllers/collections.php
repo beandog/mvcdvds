@@ -23,14 +23,14 @@ class Collections extends Controller {
 				$data['series_numbers'][$series_id] = null;
 			$data['num_dvds'][$series_id] = $this->series_model->get_num_dvds($series_id);
 
-			// The get_collection function for the series model (above)
-			// already sets a variable 'missing_metadata'.  FIXME I'm not
-			// going to rewrite that query, so I already have a separate one
-			// that looks for missing metadata in other places.  Add the
-			// two together here, so either one sets the boolean in the
-			// array in the final data.
-			if(!$data['collections'][$series_id]['missing_metadata'] && $this->series_model->missing_metadata($series_id))
-				$data['collections'][$series_id]['missing_metadata'] = true;
+			$metadata = array();
+			if($this->series_model->old_metadata_spec($series_id))
+				$metadata[] = "Old Spec";
+			if($this->series_model->missing_episode_titles($series_id))
+				$metadata[] = "Missing Titles";
+
+			$data['metadata'][$series_id] = $metadata;
+
 		}
 
 		$this->load->view('css/style');
