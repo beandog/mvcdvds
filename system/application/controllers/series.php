@@ -38,6 +38,8 @@
 					$metadata[] = "Legacy Metadata";
 				if($this->dvds_model->missing_episode_titles($dvd_id))
 					$metadata[] = "Missing Titles";
+				if(count($data['episodes'][$dvd_id]) === 0)
+					$metadata[] = "No Episodes";
 
 				$data['metadata'][$dvd_id] = $metadata;
 

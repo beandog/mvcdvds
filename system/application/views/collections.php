@@ -9,7 +9,7 @@
 		'Total Filesize',
 		'Preset',
 		'Preset Filesize',
-//		'Missing Metadata',
+		'Missing Metadata',
 // 		'# Discs',
 // 		'# Seasons',
 // 		'# Volumes',
@@ -65,7 +65,7 @@
 			$display_filesize,
 			$d_preset,
 			$d_preset_filesize,
-			// $d_missing_metadata,
+			$d_missing_metadata,
 		);
 
 		$total_num_dvds += $num_dvds[$series_id];
@@ -91,6 +91,7 @@
 		$display_total_filesize,
 		'',
 		$display_total_preset_filesize,
+		'',
 	));
 
 	echo $this->table->generate();
