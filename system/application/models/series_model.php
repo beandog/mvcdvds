@@ -84,6 +84,36 @@
 
 		}
 
+		// Get the total number of episodes for a series
+		public function get_num_episodes($id) {
+
+			$id = abs(intval($id));
+
+			$this->db->select('COUNT(1) AS num_episodes');
+			$this->db->where('series_id', $id);
+
+			$var = $this->get_one('view_episodes');
+
+			$var = intval($var);
+
+			return $var;
+
+		}
+
+		// Get the dvd id of any DVDs that have zero episodes on them.
+		// Used to check for missing metadata
+		public function num_dvds_no_episodes($id) {
+
+			$id = abs(intval($id));
+
+			$sql = "SELECT DISTINCT sd.dvd_id FROM series_dvds sd LEFT OUTER JOIN view_episodes e ON sd.series_id = e.series_id WHERE e.episode_id IS NULL AND sd.series_id = $id;";
+			$obj = $this->db->query($sql);
+			$num_rows = $obj->num_rows();
+
+			return $num_rows;
+
+		}
+
 		public function get_indexed($id) {
 
 			$this->db->select('indexed');
