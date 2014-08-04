@@ -106,7 +106,7 @@
 
 			$id = abs(intval($id));
 
-			$sql = "SELECT DISTINCT sd.dvd_id FROM series_dvds sd LEFT OUTER JOIN view_episodes e ON sd.series_id = e.series_id WHERE e.episode_id IS NULL AND sd.series_id = $id;";
+			$sql = "SELECT DISTINCT sd.series_id FROM series_dvds sd LEFT OUTER JOIN view_episodes e ON sd.dvd_id = e.dvd_id WHERE e.episode_id IS NULL AND sd.series_id = $id ORDER BY sd.series_id;";
 			$obj = $this->db->query($sql);
 			$num_rows = $obj->num_rows();
 

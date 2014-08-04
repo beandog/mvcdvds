@@ -33,7 +33,7 @@ class Collections extends Controller {
 			if($data['num_episodes'][$series_id] === 0)
 				$metadata[] = "No Series Episodes";
 			elseif($data['num_dvds_no_episodes'][$series_id])
-				$metadata[] = "No DVD Episodes";
+				$metadata[] = "DVD No Episodes";
 
 			$data['metadata'][$series_id] = $metadata;
 
