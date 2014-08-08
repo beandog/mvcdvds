@@ -20,7 +20,7 @@
 
 		public function get_queue() {
 
-			$this->db->select('queue.hostname, view_episodes.*');
+			$this->db->select('queue.hostname, view_episodes.*, queue.x264, queue.xml, queue.mkv');
 			$this->db->join('view_episodes', 'view_episodes.episode_id = queue.episode_id');
 			$this->db->order_by('queue.priority, queue.insert_date');
 

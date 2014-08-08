@@ -5,7 +5,9 @@
 	$tbl_heading = array(
 		'Series',
 		'Episode',
-		'Status',
+		'Handbrake',
+		'XML',
+		'Matroska',
 	);
 
 	echo p();
@@ -14,16 +16,25 @@
 
 	$img_delete = img("images/icons/delete.png");
 
-	$arr_queue_status = array(
-		'Queued',
+	$arr_x264_status = array(
+		'',
 		'Encoding',
-		'Encoding failed',
-		'Generating XML',
-		'Generating XML failed',
-		'Muxing',
-		'Muxing failed',
-		'Missing source files',
-		'Ready to resume',
+		'Finished',
+		'Failed',
+	);
+
+	$arr_xml_status = array(
+		'',
+		'In Progress',
+		'Finished',
+		'Failed',
+	);
+
+	$arr_mkv_status = array(
+		'',
+		'In Progress',
+		'Finished',
+		'Failed',
 	);
 
 	foreach($queue as $arr) {
@@ -32,13 +43,17 @@
 
 		$a_series = anchor("series/dvds/$series_id", $series_title);
 		$a_episode = anchor("dvds/episodes/$dvd_id", $episode_title);
-		// $row_status = $arr_queue_status[$status];
+		$d_x264_status = $arr_x264_status[$x264];
+		$d_xml_status = $arr_xml_status[$xml];
+		$d_mkv_status = $arr_mkv_status[$mkv];
 		$a_delete = anchor("queue/delete/$episode_id", $img_delete);
 
 		$tbl_row = array(
 			$a_series,
 			$a_episode,
-			$row_status,
+			$d_x264_status,
+			$d_xml_status,
+			$d_mkv_status,
 			$a_delete
 		);
 
