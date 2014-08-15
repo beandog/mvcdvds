@@ -11,20 +11,57 @@
 
 		}
 
-		public function delete_episode($episode_id) {
+		public function delete_episode($queue_id) {
 
-			$this->db->where('episode_id', $episode_id);
-			$this->db->delete('queue');
+			$queue_id = abs(intval($queue_id));
+
+			if($queue_id) {
+				$this->db->where('id', $queue_id);
+				$this->db->delete('queue');
+			}
 
 		}
 
-		public function get_queue() {
+		public function delete_series($series_id) {
 
-			$this->db->select('queue.hostname, view_episodes.*, queue.x264, queue.xml, queue.mkv');
+			$series_id = abs(intval($series_id));
+
+			if($series_id) {
+				$arr_queue = $this->get_queue($series_id);
+
+				foreach($arr_queue as $arr) {
+
+					$this->delete_episode($arr['queue_id']);
+
+				}
+			}
+
+		}
+
+		public function get_queue($series_id = null) {
+
+			if(!is_null($series_id))
+				$series_id = abs(intval($series_id));
+
+			$this->db->select('queue.id AS queue_id, queue.hostname, view_episodes.*, queue.x264, queue.xml, queue.mkv');
 			$this->db->join('view_episodes', 'view_episodes.episode_id = queue.episode_id');
+			if($series_id)
+				$this->db->where('view_episodes.series_id', $series_id);
 			$this->db->order_by('queue.priority, queue.insert_date');
 
 			$arr = $this->get_all();
+
+			return $arr;
+
+		}
+
+		public function get_series() {
+
+			$this->db->select('series_id, series_title');
+			$this->db->distinct();
+			$this->db->join('view_episodes', 'view_episodes.episode_id = queue.episode_id');
+
+			$arr = $this->get_all('queue');
 
 			return $arr;
 
