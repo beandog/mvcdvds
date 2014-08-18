@@ -7,7 +7,7 @@
 	*
 	* @param mixed $var
 	*/
-	function pre($var, $header = false, $sort = true) {
+	function pre($var, $header = false, $sort = false) {
 		if($header)
 			echo "<p><b>$header</b></p>\n";
 		echo "<pre>\n";
