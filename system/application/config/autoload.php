@@ -90,7 +90,7 @@ $autoload['config'] = array();
 |
 |	$autoload['language'] = array('lang1', 'lang2');
 |
-| NOTE: Do not include the "_lang" part of your file.  For example 
+| NOTE: Do not include the "_lang" part of your file.  For example
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
 */
@@ -108,7 +108,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('database_table', 'presets_model', 'tv_shows_model', 'collections_model', 'dvds_model', 'series_model', 'tracks_model', 'episodes_model', 'series_dvds_model', 'queue_model', 'home_dir');
+$autoload['model'] = array('database_table', 'presets_model', 'tv_shows_model', 'collections_model', 'dvds_model', 'series_model', 'library_model', 'tracks_model', 'episodes_model', 'series_dvds_model', 'queue_model', 'home_dir');
 
 
 

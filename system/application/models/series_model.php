@@ -56,6 +56,24 @@
 
 		}
 
+		// Find all the DVDs in a library
+		public function get_library($id, $order_by = 'title') {
+
+			$this->db->select('series.*');
+			$this->db->join('series_library', 'series_library.series_id = series.id');
+			$this->db->join('library', 'library.id = series_library.library_id');
+			$this->db->join('series_dvds', 'series_dvds.series_id = series.id', 'left outer');
+			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id', 'left outer');
+			$this->db->group_by('series.id, series.title, series.production_year, series.production_studio, series.indexed, series.average_length, series.grayscale');
+			$this->db->order_by('series.title');
+			$this->db->where('library.id', $id);
+
+			$arr = $this->get_assoc('series');
+
+			return $arr;
+
+		}
+
 		// Get the sum of the filesize of all DVDs in the series
 		public function get_sum_filesize($id) {
 

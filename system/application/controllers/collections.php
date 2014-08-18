@@ -1,4 +1,4 @@
-<?php
+<?
 
 class Collections extends Controller {
 
@@ -6,10 +6,23 @@ class Collections extends Controller {
 		parent::Controller();
 	}
 
-	function index($id) {
+	function index($id, $type = 'collections') {
 
-		$data['collection'] = $this->collections_model->get_data($id);
-		$data['collections'] = $this->series_model->get_collection($id);
+		$data['type'] = $type;
+
+		if($type == 'collections') {
+
+			$data['collection'] = $this->collections_model->get_data($id);
+			$data['collections'] = $this->series_model->get_collection($id);
+
+		} elseif($type == "library") {
+
+			$data['collection'] = $this->library_model->get_data($id);
+			$data['collections'] = $this->series_model->get_library($id);
+			$data['title'] = $data['collection']['name'];
+
+		}
+
 		$data['presets'] = $this->presets_model->get_presets();
 		$data['series_presets'] = $this->series_model->get_series_presets();
 		$data['series_numbers'] = $this->series_dvds_model->get_encoded_series_preset_filesize();
@@ -43,6 +56,7 @@ class Collections extends Controller {
 		$this->load->view('html_title', $data['collection']);
 
  		$this->load->view('collections', $data);
+
 	}
 
 	function new_series($id) {
