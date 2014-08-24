@@ -24,12 +24,11 @@
 		$color = 'black';
 
 		$display_ix = "Track $ix";
-		$display_language = "$language ($langcode)";
 
 		$tbl_row = array(
 
 			$display_ix,
-			$display_language,
+			$langcode,
 			$format,
 			$channels,
 			$streamid,
