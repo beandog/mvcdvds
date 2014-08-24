@@ -22,11 +22,6 @@ class Welcome extends Controller {
 		if(count($data['new_dvds']))
 			$this->load->view('dvds_new', $data);
 
-		if(count($data['queue'])) {
-			$this->load->view('queue');
-			$this->load->view('queue_reset');
-		}
-
 	}
 
 	public function search() {
