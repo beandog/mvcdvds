@@ -1,6 +1,6 @@
 <p><?
 
-	echo heading("New DVDs", 1);
+	echo heading("New DVDs", 4);
 
 
 	foreach($dvds as $id => $row) {
