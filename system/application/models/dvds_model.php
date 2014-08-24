@@ -127,7 +127,9 @@
 			$this->db->where("id", $dvd_id);
 			$current_spec = abs(intval($this->get_one('dvds')));
 
-			if($newest_spec === $current_spec)
+			// Differences between spec v.3 and 2 and similar enough not to warrant
+			// a notice.
+			if($newest_spec === $current_spec || ($newest_spec == 3 && $current_spec == 2))
 				return false;
 			else
 				return true;

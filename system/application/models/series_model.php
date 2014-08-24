@@ -222,7 +222,12 @@
 
 			$this->db->select('COUNT(1)');
 			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id');
-			$this->db->where("metadata_spec < $metadata_spec");
+			// If latest metadata spec is v3, there are few enough differences
+			// between v2 to not make a fuss about it.
+			if($metadata_spec == 3)
+				$this->db->where("metadata_spec < 2");
+			else
+				$this->db->where("metadata_spec < $metadata_spec");
 			$this->db->where('series_id', $series_id);
 			$var = $this->get_one('series_dvds');
 
