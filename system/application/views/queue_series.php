@@ -31,6 +31,8 @@
 
 	}
 
+	$this->table->add_row('', $total_episodes, '');
+
 	$tmpl = array(
 		'table_open' => '<table border="0" cellpadding="4" cellspacing="0" class="zebra">',
 	);

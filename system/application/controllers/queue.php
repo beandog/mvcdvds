@@ -47,6 +47,7 @@
 
 			if($total_episodes) {
 
+				$data['total_episodes'] = $total_episodes;
 				$this->load->view('queue_series', $data);
 
 				$data['queue'] = $this->queue_model->get_queue();
