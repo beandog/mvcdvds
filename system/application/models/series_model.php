@@ -46,7 +46,7 @@
 			$this->db->select('series.*');
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id', 'left outer');
 			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id', 'left outer');
-			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.production_studio, series.indexed, series.average_length, series.grayscale');
+			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.indexed, series.average_length, series.grayscale');
 			$this->db->order_by('series.title');
 			$this->db->where('series.collection_id', $id);
 
@@ -64,7 +64,7 @@
 			$this->db->join('library', 'library.id = series_library.library_id');
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id', 'left outer');
 			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id', 'left outer');
-			$this->db->group_by('series.id, series.title, series.production_year, series.production_studio, series.indexed, series.average_length, series.grayscale');
+			$this->db->group_by('series.id, series.title, series.production_year, series.indexed, series.average_length, series.grayscale');
 			$this->db->order_by('series.title');
 			$this->db->where('library.id', $id);
 
@@ -200,7 +200,7 @@
 			$this->db->select('series.*');
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id');
 			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id', 'left outer');
-			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.production_studio, series.indexed, series.average_length, series.grayscale');
+			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.indexed, series.average_length, series.grayscale');
 			$this->db->order_by('series.title');
 			$this->db->where('LOWER(series.title) LIKE', "%${q}%");
 
