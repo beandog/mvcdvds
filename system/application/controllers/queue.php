@@ -49,13 +49,8 @@
 
 				$this->load->view('queue_series', $data);
 
-				foreach($data['series'] as $arr) {
-					extract($arr);
-					$data['series_title'] = $series_title;
-					$data['series_id'] = $series_id;
-					$data['queue'] = $this->queue_model->get_queue($series_id);
-					$this->load->view('queue_episodes', $data);
-				}
+				$data['queue'] = $this->queue_model->get_queue();
+				$this->load->view('queue_episodes', $data);
 
 				$this->load->view('queue_reset');
 

@@ -2,9 +2,10 @@
 
 	echo p();
 
-	echo heading($series_title, 3);
+	echo heading("Episodes", 3);
 
 	$tbl_heading = array(
+		'Series',
 		'Episode',
 		'Handbrake',
 		'XML',
@@ -50,6 +51,7 @@
 		$a_delete = anchor("queue/delete/$queue_id", $img_delete);
 
 		$tbl_row = array(
+			$a_series,
 			$a_episode,
 			$d_x264_status,
 			$d_xml_status,
