@@ -21,7 +21,7 @@
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_indexed = form_checkbox('indexed', 'accept', pg_bool($indexed));
-	$input_grayscale = form_checkbox('grayscale', 'accept', pg_bool($grayscale));
+	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
 
 	$this->table->add_row(array("Collection:", $input_collection));
 	$this->table->add_row(array("Preset:", $input_preset));

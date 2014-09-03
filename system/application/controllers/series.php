@@ -100,7 +100,7 @@
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => $this->input->post('production_year'),
 				'indexed' => bool_pg($this->input->post('indexed')),
-				'grayscale' => bool_pg($this->input->post('grayscale')),
+				'grayscale' => intval($this->input->post('grayscale')),
 			);
 
 			$this->series_model->set($arr);
