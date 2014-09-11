@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Dvds extends Controller {
 

@@ -1,4 +1,4 @@
-<p><?
+<p><?php
 
 	$attr = array('id' => 'series_update', 'autocomplete' => 'off');
 

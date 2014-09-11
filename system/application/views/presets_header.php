@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$a = anchor("/", $name);
 

@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Series_Model extends Database_Table {
 

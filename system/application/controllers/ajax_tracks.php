@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Ajax_tracks extends Controller {
 

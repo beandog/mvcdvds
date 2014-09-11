@@ -1,4 +1,4 @@
-<p><?
+<p><?php
 
 	$tracks_nav = $this->load->view('tracks_nav', array('tracks' => $tracks, 'track_id' => $track_id), true);
 

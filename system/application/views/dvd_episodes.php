@@ -1,5 +1,4 @@
-<p>
-<?
+<p><?php
 
 	$img_dvd = img(array('src' => "images/icons/dvd.png", 'class' => 'handle'));
 

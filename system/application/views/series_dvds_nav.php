@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$array_keys = array_keys($series_dvds);
 	$index = array_search($dvd_id, $array_keys);

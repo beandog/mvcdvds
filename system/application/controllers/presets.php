@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Presets extends Controller {
 

@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Series_Dvds_Model extends Database_Table {
 

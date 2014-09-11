@@ -1,4 +1,4 @@
-<p><?
+<p><?php
 
 	$series_dvds_nav = $this->load->view('series_dvds_nav', array('series_dvds' => $series_dvds), true);
 

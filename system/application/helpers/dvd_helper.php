@@ -1,4 +1,4 @@
-<?
+<?php
 
 	function length_too_small($length) {
 

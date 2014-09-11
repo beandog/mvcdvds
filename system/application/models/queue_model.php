@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Queue_Model extends Database_Table {
 

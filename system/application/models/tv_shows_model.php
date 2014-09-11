@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class TV_Shows_Model extends Database_Table {
 

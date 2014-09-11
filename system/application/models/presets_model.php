@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Presets_Model extends Database_Table {
 

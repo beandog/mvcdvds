@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Home_Dir extends Model {
 

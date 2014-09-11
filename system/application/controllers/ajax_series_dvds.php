@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Ajax_series_dvds extends Controller {
 

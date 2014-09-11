@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Discs_Model extends Database_Table {
 

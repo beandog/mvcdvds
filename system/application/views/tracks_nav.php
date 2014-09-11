@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$array_keys = array_keys($tracks);
 	$index = array_search($track_id, $array_keys);

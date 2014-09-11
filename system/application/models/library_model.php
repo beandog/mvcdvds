@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Library_Model extends Database_Table {
 

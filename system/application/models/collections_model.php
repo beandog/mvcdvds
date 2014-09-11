@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Collections_Model extends Database_Table {
 

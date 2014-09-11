@@ -1,4 +1,4 @@
-<?
+<?php
 
 	echo heading("Disc Drives");
 

@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class Episodes_Model extends Database_Table {
 

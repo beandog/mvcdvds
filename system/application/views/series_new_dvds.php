@@ -1,4 +1,4 @@
-<p><?
+<p><?php
 
 	echo heading("Add New DVDs to Series", 4);
 

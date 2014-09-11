@@ -1,4 +1,4 @@
-<p><?
+<p><?php
 
 	if(count($subp)) {
 

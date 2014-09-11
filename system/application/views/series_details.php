@@ -1,4 +1,4 @@
-<p><?
+<p><?php
 
 	foreach($presets as $id => $arr)
 		$arr_dropdown_presets[$id] = $arr['name'];

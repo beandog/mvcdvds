@@ -1,4 +1,4 @@
-<?
+<?php
 
 	echo heading($series['title'], 2);
 
