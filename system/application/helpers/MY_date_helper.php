@@ -1,4 +1,4 @@
-<?
+<?php
 
 	function format_seconds($float, $format = 'm:s') {
 
