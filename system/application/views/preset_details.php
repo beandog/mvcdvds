@@ -12,7 +12,7 @@
 
 	$o_acodec = array('copy' => 'copy', 'fdk_aac' => 'fdk_aac');
 	$o_x264_preset = array('medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
-	$o_x264_profile = array('baseline' => 'baseline', 'main' => 'main', 'high' => 'high');
+	$o_x264_profile = array('baseline' => 'baseline');
 	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
 
 	$i_name = form_input('name', $name, 'size=45');
