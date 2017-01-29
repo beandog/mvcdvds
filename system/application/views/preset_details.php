@@ -12,7 +12,7 @@
 
 	$o_acodec = array('copy' => 'copy', 'aac' => 'aac');
 	$o_x264_preset = array('medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
-	$o_x264_tune = array('film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
+	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
 
 	$i_name = form_input('name', $name, 'size=45');
 	$i_crf = form_input('crf', $crf, 'size=2');
