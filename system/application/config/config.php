@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "/~steve/mvcdvds/";
+$config['base_url']	= "http://media.beandog.org/";
 
 /*
 |--------------------------------------------------------------------------
