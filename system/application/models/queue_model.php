@@ -43,11 +43,11 @@
 			if(!is_null($series_id))
 				$series_id = abs(intval($series_id));
 
-			$this->db->select('queue.id AS queue_id, queue.hostname, view_episodes.*, queue.x264, queue.xml, queue.mkv');
+			$this->db->select('queue.id AS queue_id, queue.hostname, view_episodes.*');
 			$this->db->join('view_episodes', 'view_episodes.episode_id = queue.episode_id');
 			if($series_id)
 				$this->db->where('view_episodes.series_id', $series_id);
-			$this->db->order_by('queue.x264 DESC, queue.xml DESC, queue.mkv DESC, queue.insert_date');
+			$this->db->order_by('queue.insert_date');
 
 			$arr = $this->get_all();
 
