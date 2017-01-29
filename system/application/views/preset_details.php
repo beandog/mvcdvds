@@ -21,18 +21,15 @@
 	$i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
 	$i_x264_profile = form_dropdown('x264_profile', $o_x264_profile, $x264_profile);
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
-	$i_video_bitrate = form_input('video_bitrate', $video_bitrate, 'size=6');
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
 	$i_acodec_bitrate = form_input('acodec_bitrate', $acodec_bitrate, 'size=5');
-	$i_two_pass = form_checkbox('two_pass', 't', $two_pass == 't');
 
 	$this->table->add_row(array("Name:", $i_name));
 	$this->table->add_row(array("x264 tuning:", $i_x264_tune));
 	$this->table->add_row(array("x264 preset:", $i_x264_preset));
 	$this->table->add_row(array("x264 profile:", $i_x264_profile));
-	$this->table->add_row(array("Quality:", "Two Pass: $i_two_pass / CRF: $i_crf"));
+	$this->table->add_row(array("x264 CRF:", $i_crf));
 	$this->table->add_row(array("x264 options:", $i_x264opts));
-	$this->table->add_row(array("Video Bitrate:", $i_video_bitrate));
 	$this->table->add_row(array("Audio:", "$i_acodec $i_acodec_bitrate"));
 
 	$submit = form_submit('submit', 'Update');

@@ -26,9 +26,6 @@
 		if($crf) {
 			$d_video = "crf";
 			$d_video_quality = $crf;
-		} elseif ($two_pass == 't') {
-			$d_video = "two-pass";
-			$d_video_quality = "${video_bitrate}k";
 		}
 
 		if($acodec == 'copy') {

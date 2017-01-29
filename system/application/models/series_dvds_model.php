@@ -70,7 +70,7 @@
 			if($series_id)
 				$sql_select_series = " WHERE series_id = $series_id";
 
-			$sql = "SELECT series_id, total_seconds, total_bitrate, ((total_seconds * total_bitrate) / 8192) AS megabytes FROM (SELECT dvd_tracks.series_id, SUM(track_length) AS total_seconds, (p.acodec_bitrate + p.video_bitrate) AS total_bitrate FROM (SELECT DISTINCT sd.series_id AS series_id, d.id AS dvd_id, t.id AS track_id, t.ix AS track_ix, t.length AS track_length FROM dvds d JOIN tracks t ON t.dvd_id = d.id LEFT OUTER JOIN episodes e ON e.track_id = t.id JOIN series_dvds sd ON d.id = sd.dvd_id WHERE e.id IS NOT NULL) AS dvd_tracks JOIN series_presets sp ON sp.series_id = dvd_tracks.series_id JOIN presets p ON sp.preset_id = p.id GROUP BY dvd_tracks.series_id, total_bitrate ORDER BY dvd_tracks.series_id) AS series_bitrates $sql_select_series;";
+			$sql = "SELECT series_id, total_seconds, total_bitrate, ((total_seconds * total_bitrate) / 8192) AS megabytes FROM (SELECT dvd_tracks.series_id, SUM(track_length) AS total_seconds, (p.acodec_bitrate) AS total_bitrate FROM (SELECT DISTINCT sd.series_id AS series_id, d.id AS dvd_id, t.id AS track_id, t.ix AS track_ix, t.length AS track_length FROM dvds d JOIN tracks t ON t.dvd_id = d.id LEFT OUTER JOIN episodes e ON e.track_id = t.id JOIN series_dvds sd ON d.id = sd.dvd_id WHERE e.id IS NOT NULL) AS dvd_tracks JOIN series_presets sp ON sp.series_id = dvd_tracks.series_id JOIN presets p ON sp.preset_id = p.id GROUP BY dvd_tracks.series_id, total_bitrate ORDER BY dvd_tracks.series_id) AS series_bitrates $sql_select_series;";
 
 			// At the time of writing, it's been a long time since I wrote queries
 			// using the CodeIgniter syntax.  Because of that and the complexity

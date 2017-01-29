@@ -41,7 +41,6 @@
 			if($submit == 'Update') {
 
 				$crf = abs(intval($this->input->post('crf')));
-				$video_bitrate = abs(intval($this->input->post('video_bitrate')));
 				$acodec_bitrate = abs(intval($this->input->post('acodec_bitrate')));
 				$acodec = $this->input->post('acodec');
 
@@ -50,34 +49,14 @@
 				if(!$acodec_bitrate)
 					$acodec_bitrate = null;
 
-				if($this->input->post('two_pass') == 't') {
-
-					$arr['two_pass'] = 't';
-					$arr['two_pass_turbo'] = 't';
-					$arr['crf'] = null;
-
-					if(!$video_bitrate)
-						$arr['video_bitrate'] = 1024;
-					else
-						$arr['video_bitrate'] = $video_bitrate;
-
-				} else {
-
-					if(!$crf)
-						$crf = 20;
-
-					$arr['two_pass'] = 'f';
-					$arr['two_pass_turbo'] = 'f';
-					$arr['crf'] = $crf;
-				}
-
+				if(!$crf)
+					$crf = 20;
 
 				$arr['name'] = $this->input->post('name');
 				$arr['x264opts'] = $this->input->post('x264opts');
 				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['x264_preset'] = $this->input->post('x264_preset');
 				$arr['x264_profile'] = $this->input->post('x264_profile');
-				$arr['video_bitrate'] = $video_bitrate;
 				$arr['acodec'] = $acodec;
 				$arr['acodec_bitrate'] = $acodec_bitrate;
 
