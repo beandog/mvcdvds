@@ -10,7 +10,7 @@
 
 	$inputs = array();
 
-	$o_acodec = array('copy' => 'copy', 'aac' => 'aac');
+	$o_acodec = array('copy' => 'copy', 'fdk_aac' => 'fdk_aac');
 	$o_x264_preset = array('medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
 	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
 
