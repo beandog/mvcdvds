@@ -48,7 +48,7 @@
 				if($acodec == 'copy')
 					$acodec_bitrate = 192;
 				if(!$acodec_bitrate)
-					$acodec_bitrate = 96;
+					$acodec_bitrate = null;
 
 				if($this->input->post('two_pass') == 't') {
 
