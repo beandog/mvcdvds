@@ -33,7 +33,9 @@
 			$d_audio_quality = '';
 		} else {
 			$d_audio = $acodec;
-			$d_audio_quality = "${acodec_bitrate}k";
+			$d_audio_quality = '';
+			if($acodec_bitrate)
+				$d_audio_quality = "${acodec_bitrate}k";
 		}
 
 		$tbl_row = array(
