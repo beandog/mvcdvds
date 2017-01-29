@@ -76,6 +76,7 @@
 				$arr['x264opts'] = $this->input->post('x264opts');
 				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['x264_preset'] = $this->input->post('x264_preset');
+				$arr['x264_profile'] = $this->input->post('x264_profile');
 				$arr['video_bitrate'] = $video_bitrate;
 				$arr['acodec'] = $acodec;
 				$arr['acodec_bitrate'] = $acodec_bitrate;
