@@ -2,11 +2,11 @@
 
 	echo heading($series['title'], 2);
 
- 	$a_series = anchor("series/details/".$series['id'], "Collection / Preset");
+ 	$a_series = anchor("series/details/".$series['id'], "Encoding Settings");
  	$a_dvds = anchor("series/dvds/".$series['id'], "DVDs");
  	$a_episodes = anchor("dvds/episodes/$dvd_id", "Episodes");
  	$a_tracks = anchor("dvds/tracks/$dvd_id", "Tracks");
- 	$a_details = anchor("dvds/details/$dvd_id", "Season / Volume");
+ 	$a_details = anchor("dvds/details/$dvd_id", "Season");
 
  	if(array_key_exists('longest_track', $dvds)) {
 		if(is_null($dvds['longest_track']))
