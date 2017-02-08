@@ -11,6 +11,7 @@
 		'Ch.',
 		'',
 		'Ssn.',
+		'#',
 		''
 	);
 
@@ -55,6 +56,10 @@
 		$display_season = ($season ? $season : "");
 		$i_season = form_input("episode[$episode_id][season]", $display_season, "size='2' track_id='$track_id' episode_id='$episode_id'");
 
+		// Episode number (override all)
+		$display_episode_number = ($episode_number ? $episode_number : "");
+		$i_episode_number = form_input("episode[$episode_id][episode_number]", $display_episode_number, "size='2' track_id='$track_id' episode_id='$episode_id'");
+
 		$tbl_row = array(
 
 			$a_track,
@@ -65,6 +70,7 @@
 			$i_starting_chapter,
 			$i_ending_chapter,
 			$i_season,
+			$i_episode_number,
 			$img_delete,
 
 		);

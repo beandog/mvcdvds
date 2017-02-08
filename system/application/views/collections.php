@@ -4,6 +4,7 @@
 
 	$header = array(
 		'',
+		'NSIX',
 		'Title',
 		'# DVDs',
 		'Total Filesize',
@@ -60,6 +61,7 @@
 
 		$table_row = array(
 			$a_dvd2,
+			$nsix,
 			$a_title,
 			$num_dvds[$series_id],
 			$display_filesize,
