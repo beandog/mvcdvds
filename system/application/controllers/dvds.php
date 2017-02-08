@@ -157,6 +157,7 @@
 				$this->episodes_model->set('starting_chapter', pg_null($starting_chapter));
 				$this->episodes_model->set('ending_chapter', pg_null($ending_chapter));
  				$this->episodes_model->set('season', intval($season));
+ 				$this->episodes_model->set('episode_number', intval($episode_number));
 
 
 			}
