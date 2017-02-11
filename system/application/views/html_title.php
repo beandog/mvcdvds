@@ -6,7 +6,7 @@
 	echo heading("DVD Media", 1);
 	echo "<p>";
 	echo "<table width='100%'><tr><td>\n";
-	echo anchor("/", "Home")." | ".anchor("/queue/", "Queue")." | ".anchor("/presets/", "Presets");
+	echo anchor("/", "Home")." | ".anchor("/presets/", "Presets");
 	echo " | ".anchor("collections/index/1", "Cartoons");
 	echo " | ".anchor("collections/index/2", "TV Shows");
 	echo " | ".anchor("collections/index/3", "Church Videos");

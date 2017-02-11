@@ -11,7 +11,6 @@ class Welcome extends Controller {
 		$data['presets'] = $this->presets_model->get_presets();
 		$data['dvds'] = $this->dvds_model->get_new_dvds();
 		$data['new_dvds'] = $this->dvds_model->get_new_dvds();
-		$data['queue'] = $this->queue_model->get_queue();
 		$data['isos'] = $this->home_dir->get_isos();
 
 		$this->load->view('css/style');
