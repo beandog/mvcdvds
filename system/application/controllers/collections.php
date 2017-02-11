@@ -15,12 +15,6 @@ class Collections extends Controller {
 			$data['collection'] = $this->collections_model->get_data($id);
 			$data['collections'] = $this->series_model->get_collection($id);
 
-		} elseif($type == "library") {
-
-			$data['collection'] = $this->library_model->get_data($id);
-			$data['collections'] = $this->series_model->get_library($id);
-			$data['title'] = $data['collection']['name'];
-
 		}
 
 		$data['presets'] = $this->presets_model->get_presets();
