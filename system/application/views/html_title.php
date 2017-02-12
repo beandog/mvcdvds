@@ -11,7 +11,6 @@
 	echo " | ".anchor("collections/index/2", "TV Shows");
 	echo " | ".anchor("collections/index/3", "Church Videos");
 	echo " | ".anchor("collections/index/4", "Movies");
-	echo " | ".anchor("collections/index/5", "Serials");
 	echo " | ".anchor("collections/index/6", "Box Sets");
 	echo "</td><td align='right'>";
 ?>
