@@ -96,7 +96,7 @@
 		$display_side = "<span>$side</span>";
 		$display_num_tracks = "<span>$num_tracks</span>";
 		$display_num_episodes = "<span>$num_episodes</span>";
-		$display_num_plex_episodes = "<span>$num_plex_episodes</span>";
+		$display_num_plex_episodes = "<span>".($num_plex_episodes ? $num_plex_episodes : '')."</span>";
 		$display_filesize = "<span>$display_filesize</span>";
 		$d_missing_metadata = "<span>".implode(", ", $metadata[$id])."</span>";
 
