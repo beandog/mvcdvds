@@ -1,6 +1,6 @@
 <?php
 
-	echo heading($series['title'], 2);
+	echo heading($series['title']." - ".$series['nsix'], 2);
 
  	$a_series = anchor("series/details/".$series['id'], "Encoding Settings");
  	$a_dvds = anchor("series/dvds/".$series['id'], "DVDs");

@@ -5,6 +5,7 @@
 	$heading = array(
 
 		'',
+		'',
 		'Title',
 		'Ssn.',
 		'Vol.',
@@ -71,12 +72,14 @@
 		else
 			$a_dvd = anchor("dvds/tracks/$id", $title, "class='$class'");
 
+		$display_id = str_pad($id, 4, 0, STR_PAD_LEFT);
 		$display_season = ($season ? $season : "");
 		$display_volume = ($volume ? $volume : "");
 		$display_ix = ($ix ? $ix : "");
 		$display_filesize = number_format($filesize)." MB";
 
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
+		$display_id = "<span>$display_id</span>";
 		$display_season = "<span>$display_season</span>";
 		$display_volume = "<span>$display_volume</span>";
 		$display_ix = "<span>$display_ix</span>";
@@ -88,6 +91,7 @@
 
 		$tbl_row = array(
 			$a_dvd2,
+			$display_id,
 			$a_dvd,
 			$display_season,
 			$display_volume,
@@ -105,6 +109,7 @@
 
 	// Add totals
 	$totals_row = array(
+		'',
 		'',
 		"<b>Totals</b>",
 		"<b>$total_seasons</b>",
