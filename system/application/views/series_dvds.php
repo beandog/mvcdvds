@@ -82,7 +82,7 @@
 		else
 			$a_dvd = anchor("dvds/tracks/$id", $title, "class='$class'");
 
-		$display_id = str_pad($id, 4, 0, STR_PAD_LEFT);
+		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($id, 4, 0, STR_PAD_LEFT);
 		$display_season = ($season ? $season : "");
 		$display_volume = ($volume ? $volume : "");
 		$display_ix = ($ix ? $ix : "");
