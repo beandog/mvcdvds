@@ -186,7 +186,7 @@
 			$this->db->order_by('series.title');
 			$this->db->where('LOWER(series.title) LIKE', "%${q}%");
 			$this->db->or_where('UPPER(series.nsix) LIKE', strtoupper("%${q}%"));
-			$this->db->or_where('series.id =', ("${q}"));
+			$this->db->or_where('series.id =', intval("${q}"));
 
 			$arr = $this->get_assoc('series');
 
