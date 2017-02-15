@@ -185,6 +185,8 @@
 			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.indexed, series.average_length, series.grayscale');
 			$this->db->order_by('series.title');
 			$this->db->where('LOWER(series.title) LIKE', "%${q}%");
+			$this->db->or_where('UPPER(series.nsix) LIKE', strtoupper("%${q}%"));
+			$this->db->or_where('series.id =', ("${q}"));
 
 			$arr = $this->get_assoc('series');
 
