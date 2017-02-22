@@ -61,6 +61,10 @@
 
 		$d_missing_metadata = implode(", ", $metadata[$series_id]);
 
+		$total_num_dvds += $num_dvds[$series_id];
+		$total_num_episodes += $num_episodes[$series_id];
+		$total_preset_filesize += $series_numbers[$series_id]['megabytes'];
+
 		$table_row = array(
 			$a_dvd2,
 			$nsix,
@@ -73,10 +77,6 @@
 			$d_missing_metadata,
 		);
 
-		$total_num_dvds += $num_dvds[$series_id];
-		$total_num_episodes += $num_episodes[$series_id];
-		$total_preset_filesize += $series_numbers[$series_id]['megabytes'];
-
 		$this->table->add_row($table_row);
 
 	}
@@ -88,6 +88,7 @@
 	$this->table->set_template($tmpl);
 
 	$display_total_dvds = number_format($total_num_dvds);
+	$display_total_episodes = number_format($total_num_episodes);
 	$display_total_filesize = number_format($total_filesize). " MB";
 	$display_total_preset_filesize = number_format($total_preset_filesize). " MB";
 
@@ -97,6 +98,7 @@
 		'',
 		'',
 		$display_total_dvds,
+		$display_total_episodes,
 		$display_total_filesize,
 		'',
 		$display_total_preset_filesize,
