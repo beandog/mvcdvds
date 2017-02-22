@@ -7,6 +7,7 @@
 		'NSIX',
 		'Title',
 		'# DVDs',
+		'# Eps.',
 		'Total Filesize',
 		'Preset',
 		'Preset Filesize',
@@ -27,6 +28,7 @@
 	$total_filesize = 0;
 	$total_preset_filesize = 0;
 	$total_num_dvds = 0;
+	$total_num_episodes = 0;
 
 	foreach($collections as $series_id => $row) {
 
@@ -45,6 +47,8 @@
 
 		$d_num_dvds = $num_dvds[$series_id];
 
+		$d_num_episodes = $num_episodes[$series_id];
+
 		if($sum_filesize[$series_id]) {
 			$d_filesize = number_format($sum_filesize[$series_id])." MB";
 			$total_filesize += $sum_filesize[$series_id];
@@ -54,7 +58,6 @@
 		$d_preset = anchor("series/details/$series_id", $presets[$series_presets[$series_id]]['name']);
 
 		$d_preset_filesize = "&nbsp; ".number_format($series_numbers[$series_id]['megabytes'])." MB";
-		$total_preset_filesize += $series_numbers[$series_id]['megabytes'];
 
 		$d_missing_metadata = implode(", ", $metadata[$series_id]);
 
@@ -63,6 +66,7 @@
 			$nsix,
 			$a_title,
 			$d_num_dvds,
+			$d_num_episodes,
 			$d_filesize,
 			$d_preset,
 			$d_preset_filesize,
@@ -70,6 +74,8 @@
 		);
 
 		$total_num_dvds += $num_dvds[$series_id];
+		$total_num_episodes += $num_episodes[$series_id];
+		$total_preset_filesize += $series_numbers[$series_id]['megabytes'];
 
 		$this->table->add_row($table_row);
 
