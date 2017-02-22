@@ -45,16 +45,17 @@
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
 		$a_title = anchor("series/dvds/$series_id", $title, array('class' => $class));
 
+		$d_num_dvds = $num_dvds[$series_id];
+
 		if($sum_filesize[$series_id]) {
-			$display_filesize = number_format($sum_filesize[$series_id])." MB";
+			$d_filesize = number_format($sum_filesize[$series_id])." MB";
 			$total_filesize += $sum_filesize[$series_id];
 		} else
-			$display_filesize = '';
+			$d_filesize = '';
 
 		$d_preset = anchor("series/details/$series_id", $presets[$series_presets[$series_id]]['name']);
 
 		$d_preset_filesize = "&nbsp; ".number_format($series_numbers[$series_id]['megabytes'])." MB";
-
 		$total_preset_filesize += $series_numbers[$series_id]['megabytes'];
 
 		$d_missing_metadata = implode(", ", $metadata[$series_id]);
@@ -63,8 +64,8 @@
 			$a_dvd2,
 			$nsix,
 			$a_title,
-			$num_dvds[$series_id],
-			$display_filesize,
+			$d_num_dvds,
+			$d_filesize,
 			$d_preset,
 			$d_preset_filesize,
 			$d_missing_metadata,
@@ -82,6 +83,7 @@
 
 	$this->table->set_template($tmpl);
 
+	$display_total_dvds = number_format($total_num_dvds);
 	$display_total_filesize = number_format($total_filesize). " MB";
 	$display_total_preset_filesize = number_format($total_preset_filesize). " MB";
 
@@ -90,7 +92,7 @@
 		'',
 		'',
 		'',
-		number_format($total_num_dvds),
+		$display_total_dvds,
 		$display_total_filesize,
 		'',
 		$display_total_preset_filesize,
