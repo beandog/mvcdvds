@@ -58,6 +58,9 @@
 			$total_volumes = count($arr_volumes);
 		}
 
+		if(intval($num_tracks))
+			$total_tracks += $num_tracks;
+
 		if(intval($num_episodes))
 			$total_episodes += $num_episodes;
 
