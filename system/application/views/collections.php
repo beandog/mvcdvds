@@ -112,10 +112,6 @@
 
 	echo "<p><b>Total Series:</b> $total</p>";
 
-	if($type == "collections") {
+	$a_new_series = anchor("collections/new_series/$id", "Create New Series");
 
-		$a_new_series = anchor("collections/new_series/$id", "Create New Series");
-
-		echo "<p>$a_new_series</p>";
-
-	}
+	echo "<p>$a_new_series</p>";
