@@ -89,6 +89,7 @@
 	$this->table->add_row(array(
 		'',
 		'',
+		'',
 		number_format($total_num_dvds),
 		$display_total_filesize,
 		'',
