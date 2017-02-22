@@ -32,8 +32,6 @@
 
 		extract($row);
 
-		$num_discs = 0;
-
 		if(count($metadata[$series_id])) {
 			$class = 'update';
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
