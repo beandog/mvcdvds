@@ -8,6 +8,7 @@
 		'Title',
 		'# DVDs',
 		'# Eps.',
+		'Plex',
 		'Total Filesize',
 		'Preset',
 		'Preset Filesize',
@@ -29,10 +30,15 @@
 	$total_preset_filesize = 0;
 	$total_num_dvds = 0;
 	$total_num_episodes = 0;
+	$total_num_plex = 0;
+
+	$plex_collection_files = preg_grep("/^1\..+\.mkv$/", scandir("/opt/plex/episodes"));
 
 	foreach($collections as $series_id => $row) {
 
 		extract($row);
+
+		$num_plex = count(preg_grep("/^1\.0*${series_id}\..+\.mkv$/", $plex_collection_files));
 
 		if(count($metadata[$series_id])) {
 			$class = 'update';
@@ -43,11 +49,18 @@
 		}
 
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
+
+		$d_nsix = $nsix;
+		if($num_plex == $num_episodes[$series_id])
+			$d_nsix = "<b>$d_nsix</b>";
+
 		$a_title = anchor("series/dvds/$series_id", $title, array('class' => $class));
 
 		$d_num_dvds = $num_dvds[$series_id];
 
 		$d_num_episodes = $num_episodes[$series_id];
+
+		$d_num_plex = number_format($num_plex);
 
 		if($sum_filesize[$series_id]) {
 			$d_filesize = number_format($sum_filesize[$series_id])." MB";
@@ -63,14 +76,16 @@
 
 		$total_num_dvds += $num_dvds[$series_id];
 		$total_num_episodes += $num_episodes[$series_id];
+		$total_num_plex += $num_plex;
 		$total_preset_filesize += $series_numbers[$series_id]['megabytes'];
 
 		$table_row = array(
 			$a_dvd2,
-			$nsix,
+			$d_nsix,
 			$a_title,
 			$d_num_dvds,
 			$d_num_episodes,
+			$d_num_plex,
 			$d_filesize,
 			$d_preset,
 			$d_preset_filesize,
@@ -89,6 +104,7 @@
 
 	$display_total_dvds = number_format($total_num_dvds);
 	$display_total_episodes = number_format($total_num_episodes);
+	$display_total_plex = number_format($total_num_plex);
 	$display_total_filesize = number_format($total_filesize). " MB";
 	$display_total_preset_filesize = number_format($total_preset_filesize). " MB";
 
@@ -99,6 +115,7 @@
 		'',
 		$display_total_dvds,
 		$display_total_episodes,
+		$display_total_plex,
 		$display_total_filesize,
 		'',
 		$display_total_preset_filesize,
