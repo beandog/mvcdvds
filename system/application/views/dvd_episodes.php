@@ -12,6 +12,7 @@
 		'',
 		'Ssn.',
 		'#',
+		'NSIX',
 		''
 	);
 
@@ -28,6 +29,8 @@
 		$img_delete = img(array('src' => "images/icons/delete.png", 'class' => 'pointer', 'onclick' => 'delete_episode('.$episode_id.', this); return false;'));
 
 		extract($row);
+	
+		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($id, 4, 0, STR_PAD_LEFT).".".str_pad($episode_id, 5, 0, STR_PAD_LEFT);
 
 		// Link to track
 		$a_track = anchor("tracks/index/$track_id", $img_dvd);
@@ -71,6 +74,7 @@
 			$i_ending_chapter,
 			$i_season,
 			$i_episode_number,
+			$display_id,
 			$img_delete,
 
 		);
