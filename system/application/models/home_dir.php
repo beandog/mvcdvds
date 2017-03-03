@@ -11,7 +11,7 @@
 
 			parent::Model();
 
-			$this->dir = "/home/steve/dvds";
+			$this->dir = realpath(".");
 
 		}
 
