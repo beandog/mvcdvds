@@ -13,6 +13,7 @@
 		'Preset',
 		'Prod. Year',
 //		'Preset Filesize',
+		'QA',
 		'Missing Metadata',
 // 		'# Discs',
 // 		'# Seasons',
@@ -73,6 +74,10 @@
 
 		$d_preset_filesize = "&nbsp; ".number_format($series_numbers[$series_id]['megabytes'])." MB";
 
+		$d_qa = '';
+		if($qa_notes)
+			$d_qa = 'Yes';
+
 		$d_missing_metadata = implode(", ", $metadata[$series_id]);
 
 		$d_production_year = $production_year;
@@ -92,6 +97,7 @@
 			// $d_filesize,
 			$d_preset,
 			$d_production_year,
+			$d_qa,
 			// $d_preset_filesize,
 			$d_missing_metadata,
 		);
@@ -121,6 +127,7 @@
 		$display_total_episodes,
 		$display_total_plex,
 		// $display_total_filesize,
+		'',
 		'',
 		'',
 		// $display_total_preset_filesize,
