@@ -23,6 +23,7 @@
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_indexed = form_checkbox('indexed', 'accept', pg_bool($indexed));
 	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
+	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
 
 	$this->table->add_row(array("NSIX:", $input_nsix));
 	$this->table->add_row(array("Display Title:", $input_title));
@@ -32,6 +33,7 @@
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Indexed:", $input_indexed));
 	$this->table->add_row(array("Grayscale:", $input_grayscale));
+	$this->table->add_row(array("QA Notes:", $input_qa_notes));
 
 	$submit = form_submit('submit', 'Update');
 
