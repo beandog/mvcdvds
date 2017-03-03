@@ -9,9 +9,10 @@
 		'# DVDs',
 		'# Eps.',
 		'Plex',
-		'Total Filesize',
+//		'Total Filesize',
 		'Preset',
-		'Preset Filesize',
+		'Prod. Year',
+//		'Preset Filesize',
 		'Missing Metadata',
 // 		'# Discs',
 // 		'# Seasons',
@@ -74,6 +75,8 @@
 
 		$d_missing_metadata = implode(", ", $metadata[$series_id]);
 
+		$d_production_year = $production_year;
+
 		$total_num_dvds += $num_dvds[$series_id];
 		$total_num_episodes += $num_episodes[$series_id];
 		$total_num_plex += $num_plex;
@@ -86,9 +89,10 @@
 			$d_num_dvds,
 			$d_num_episodes,
 			$d_num_plex,
-			$d_filesize,
+			// $d_filesize,
 			$d_preset,
-			$d_preset_filesize,
+			$d_production_year,
+			// $d_preset_filesize,
 			$d_missing_metadata,
 		);
 
@@ -116,9 +120,10 @@
 		$display_total_dvds,
 		$display_total_episodes,
 		$display_total_plex,
-		$display_total_filesize,
+		// $display_total_filesize,
 		'',
-		$display_total_preset_filesize,
+		'',
+		// $display_total_preset_filesize,
 		'',
 	));
 
