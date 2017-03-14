@@ -1,5 +1,8 @@
 <p><?php
 
+	$plex_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\.\d*".$dvds['id']."\..*\.mp4/";
+	$plex_files = preg_grep($plex_pattern, scandir("/opt/plex/episodes"));
+
 	$img_dvd = img(array('src' => "images/icons/dvd.png", 'class' => 'handle'));
 
 	$tbl_heading = array(
@@ -13,6 +16,7 @@
 		'Ssn.',
 		'#',
 		'NSIX',
+		'Plex',
 		''
 	);
 
@@ -31,6 +35,11 @@
 		extract($row);
 	
 		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvd_id, 4, 0, STR_PAD_LEFT).".".str_pad($episode_id, 5, 0, STR_PAD_LEFT);
+
+		$plex_file = $display_id.".".$series['nsix'].".mp4";
+		$d_plex = '';
+		if(in_array($plex_file, $plex_files))
+			$d_plex = '++';
 
 		// Link to track
 		$a_track = anchor("tracks/index/$track_id", $img_dvd);
@@ -75,6 +84,7 @@
 			$i_season,
 			$i_episode_number,
 			$display_id,
+			$d_plex,
 			$img_delete,
 
 		);

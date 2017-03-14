@@ -34,13 +34,13 @@
 	$total_num_episodes = 0;
 	$total_num_plex = 0;
 
-	$plex_collection_files = preg_grep("/^1\..+\.mp4$/", scandir("/opt/plex/episodes"));
+	$plex_collection_files = preg_grep("/^$id\..+\.mp4$/", scandir("/opt/plex/episodes"));
 
 	foreach($collections as $series_id => $row) {
 
 		extract($row);
 
-		$num_plex = count(preg_grep("/^1\.0*${series_id}\..+\.mp4$/", $plex_collection_files));
+		$num_plex = count(preg_grep("/^$id\.0*${series_id}\..+\.mp4$/", $plex_collection_files));
 
 		if(count($metadata[$series_id])) {
 			$class = 'update';
