@@ -36,6 +36,8 @@
 				$metadata = array();
 				if($this->dvds_model->old_metadata_spec($dvd_id) == true)
 					$metadata[] = "Legacy Metadata";
+				if($this->dvds_model->missing_filesize($dvd_id))
+					$metadata[] = "Unknown Filesize";
 				// if($this->dvds_model->missing_episode_titles($dvd_id))
 				//	$metadata[] = "Missing Titles";
 				if(count($data['episodes'][$dvd_id]) === 0)
