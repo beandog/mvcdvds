@@ -150,4 +150,20 @@
 
 		}
 
+		// Find series where some of the episodes have no title
+		public function missing_filesize($id) {
+
+			$this->db->select('filesize');
+			$this->db->where("id", $id);
+			$var = $this->get_one("dvds");
+
+			$var = abs(intval($var));
+
+			if(!$var)
+				return true;
+			else
+				return false;
+
+		}
+
 	}
