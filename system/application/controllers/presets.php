@@ -50,13 +50,14 @@
 					$acodec_bitrate = null;
 
 				if(!$crf)
-					$crf = 20;
+					$crf = 23;
 
 				$arr['name'] = $this->input->post('name');
 				$arr['x264opts'] = $this->input->post('x264opts');
 				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['x264_preset'] = $this->input->post('x264_preset');
 				$arr['x264_profile'] = $this->input->post('x264_profile');
+				$arr['crf'] = $crf;
 				$arr['deinterlace'] = $this->input->post('deinterlace');
 				$arr['decomb'] = $this->input->post('decomb');
 				$arr['detelecine'] = $this->input->post('detelecine');
