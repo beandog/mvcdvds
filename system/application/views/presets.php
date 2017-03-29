@@ -7,8 +7,8 @@
 		'x264 preset',
 		'x264 profile',
 		'x264 tune',
-		'video quality',
-		'',
+		'CRF',
+		'detelecine',
 		'audio codec',
 		'audio bitrate',
 	);
@@ -23,10 +23,11 @@
 
 		$a_preset = anchor("presets/index/$id", $name);
 
-		if($crf) {
-			$d_video = "crf";
-			$d_video_quality = $crf;
-		}
+		$d_video_quality = $crf;
+
+		$d_detelecine = '';
+		if($detelecine)
+			$d_detelecine = 'detelecine';
 
 		if($acodec == 'copy') {
 			$d_audio = "copy";
@@ -43,8 +44,8 @@
 			$x264_preset,
 			$x264_profile,
 			$x264_tune,
-			$d_video,
 			$d_video_quality,
+			$d_detelecine,
 			$d_audio,
 			$d_audio_quality,
 		);
