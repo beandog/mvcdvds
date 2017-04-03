@@ -17,6 +17,7 @@
 		'#',
 		'NSIX',
 		'Plex',
+		'Filesize',
 		''
 	);
 
@@ -38,8 +39,12 @@
 
 		$plex_file = $display_id.".".$series['nsix'].".mp4";
 		$d_plex = '';
-		if(in_array($plex_file, $plex_files))
+		$d_filesize = '';
+		if(in_array($plex_file, $plex_files)) {
 			$d_plex = '++';
+			$filesize = filesize("/opt/plex/episodes/$plex_file") / (1024 * 1024);
+			$d_filesize = number_format($filesize)." MB";
+		}
 
 		// Link to track
 		$a_track = anchor("tracks/index/$track_id", $img_dvd);
@@ -85,6 +90,7 @@
 			$i_episode_number,
 			$display_id,
 			$d_plex,
+			$d_filesize,
 			$img_delete,
 
 		);
