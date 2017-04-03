@@ -15,6 +15,7 @@
 		'Eps.',
 		'Plex',
 		'Filesize',
+		'Episodes',
 		'Metadata',
 
 	);
@@ -30,6 +31,8 @@
 	$total_episodes = 0;
 	$total_plex_episodes = 0;
 	$total_filesize = 0;
+	$total_episode_filesize = 0;
+	$total_dvds_episode_filesize = 0;
 
 	$plex_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\./";
 	$plex_files = preg_grep($plex_pattern, scandir("/opt/plex/episodes"));
@@ -44,7 +47,19 @@
 
 		$num_episodes = count($episodes[$id]);
 
-		$num_plex_episodes = count(preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\./", $plex_files));
+		$plex_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\./", $plex_files);
+		$num_plex_episodes = count($plex_episodes);
+
+		$episode_filesize = 0;
+		$total_episode_filesize = 0;
+		$d_total_episode_filesize = '';
+		foreach($plex_episodes as $plex_episode) {
+			$episode_filesize = filesize("/opt/plex/episodes/$plex_episode") / (1024 * 1024);
+			$total_episode_filesize += $episode_filesize;
+			$total_dvds_episode_filesize += $episode_filesize;
+		}
+		if($total_episode_filesize)
+			$d_total_episode_filesize = number_format($total_episode_filesize)." MB";
 
 		if(intval($season)) {
 			$arr_seasons[] = $season;
@@ -115,6 +130,7 @@
 			$display_num_episodes,
 			$display_num_plex_episodes,
 			$display_filesize,
+			$d_total_episode_filesize,
 			$d_missing_metadata,
 		);
 
@@ -123,6 +139,11 @@
 	}
 
 	// Add totals
+
+	$d_total_dvds_episode_filesize = '';
+	if($total_dvds_episode_filesize)
+		$d_total_dvds_episode_filesize = number_format($total_dvds_episode_filesize)." MB";
+
 	$totals_row = array(
 		'',
 		'',
@@ -135,6 +156,7 @@
 		"<b>$total_episodes</b>",
 		"<b>$total_plex_episodes</b>",
 		"<b>".number_format($total_filesize). " MB</b>",
+		"<b>$d_total_dvds_episode_filesize</b>",
 		'',
 	);
 
