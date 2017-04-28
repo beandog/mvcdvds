@@ -26,7 +26,7 @@
 			elseif($active === 1)
 				$display_active = 'yes';
 			else
-				$display_active = '';
+				$display_active = 'Missing Metadata';
 
 			$tbl_row = array(
 
