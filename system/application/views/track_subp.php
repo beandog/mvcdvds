@@ -8,6 +8,7 @@
 			'ix',
 			'Language',
 			'Stream',
+			'Active',
 		);
 
 		$this->table->set_heading($tbl_heading);
@@ -19,13 +20,20 @@
 			$color = 'black';
 
 			$display_ix = "Track $ix";
-			$display_language = "$language ($langcode)";
+			$display_language = "$langcode";
+			if($active === 0)
+				$display_active = 'no';
+			elseif($active === 1)
+				$display_active = 'yes';
+			else
+				$display_active = '';
 
 			$tbl_row = array(
 
 				$display_ix,
 				$display_language,
 				$streamid,
+				$display_active,
 
 			);
 
