@@ -20,10 +20,12 @@
 			$color = 'black';
 
 			$display_ix = "Track $ix";
+
 			$display_language = "$langcode";
-			if($active === 0)
+
+			if($active === "0")
 				$display_active = 'no';
-			elseif($active === 1)
+			elseif($active === "1")
 				$display_active = 'yes';
 			else
 				$display_active = 'Missing Metadata';

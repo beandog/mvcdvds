@@ -8,6 +8,7 @@
 		'Format',
 		'Ch.',
 		'Stream',
+		'Active',
 	);
 
 	$this->table->set_heading($tbl_heading);
@@ -19,11 +20,19 @@
 
 	foreach($audio as $audio_id => $audio_row) {
 
+
 		extract($audio_row);
 
 		$color = 'black';
 
 		$display_ix = "Track $ix";
+
+		if($active === "0")
+			$display_active = 'no';
+		elseif($active === "1")
+			$display_active = 'yes';
+		else
+			$display_active = 'Missing Metadata';
 
 		$tbl_row = array(
 
@@ -32,6 +41,7 @@
 			$format,
 			$channels,
 			$streamid,
+			$display_active,
 
 		);
 
