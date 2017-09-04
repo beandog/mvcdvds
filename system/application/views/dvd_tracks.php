@@ -37,6 +37,14 @@
 
 		$valid_length = "0";
 
+		$trailer_length = false;
+		if($length > 60 && $length <= 240)
+			$trailer_length = true;
+
+		$feature_length = false;
+		if($length > 240 && $length < $series['average_length'] * 60)
+			$feature_length = true;
+
 		if($length_too_small)
 			$color = 'gray';
 		elseif($length_close_to_average) {
@@ -53,6 +61,15 @@
 		$display_length = "<span style='color: $color' track_id='$track_id' valid='$valid_length' >".format_seconds($length)."</span>";
 		$num_chapters = count($chapters[$track_id]);
 
+		if($length_close_to_average || $length_larger)
+			$img_add = img(array('src' => "images/icons/add.png", 'border' => 0));
+		elseif($trailer_length)
+			$img_add = img(array('src' => "images/icons/film.png", 'border' => 0));
+		elseif($feature_length)
+			$img_add = img(array('src' => "images/icons/folder_add.png", 'border' => 0));
+		else
+			$img_add = img(array('src' => "images/icons/folder_add.png", 'border' => 0));
+
 		$a_new_episode = anchor("dvds/tracks/$dvd_id", $img_add, "onclick='new_episode($track_id); plus_one_html($(\"span[name=num_episodes][track_id=$track_id]\")); return false;'");
 
 		$display_num_episodes = "<span name='num_episodes' track_id='$track_id'>";
@@ -62,7 +79,7 @@
 
 		$display_add_episodes = '';
 
-		if($length_close_to_average || $length_larger) {
+		if($length_close_to_average || $length_larger || $trailer_length || $feature_length) {
 			$display_add_episodes = "$a_new_episode";
 			$display_add_episodes .= " &nbsp; ";
 		}
