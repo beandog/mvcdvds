@@ -57,6 +57,7 @@
 				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['x264_preset'] = $this->input->post('x264_preset');
 				$arr['x264_profile'] = $this->input->post('x264_profile');
+				$arr['format'] = $this->input->post('format');
 				$arr['crf'] = $crf;
 				$arr['deinterlace'] = $this->input->post('deinterlace');
 				$arr['decomb'] = $this->input->post('decomb');
