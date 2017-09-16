@@ -35,7 +35,7 @@
 
 		extract($row);
 	
-		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvd_id, 4, 0, STR_PAD_LEFT).".".str_pad($episode_id, 5, 0, STR_PAD_LEFT);
+		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvd_id, 4, 0, STR_PAD_LEFT).".".str_pad($episode_id, 5, 0, STR_PAD_LEFT).".".$series['nsix'];
 
 		$plex_file = $display_id.".".$series['nsix'].".mp4";
 		$d_plex = '';
