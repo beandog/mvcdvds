@@ -166,4 +166,19 @@
 
 		}
 
+		// Find where no tracks have any audio tracks
+		public function missing_audio_tracks($id) {
+
+			$this->db->select('COUNT(1)');
+			$this->db->join('tracks', 'audio.track_id = tracks.id', 'left outer');
+			$this->db->where('tracks.dvd_id', $id);
+			$var = intval($this->get_one('audio'));
+
+			if($var)
+				return false;
+			else
+				return true;
+
+		}
+
 	}
