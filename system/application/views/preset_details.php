@@ -15,6 +15,8 @@
 	$o_x264_preset = array('medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
 	$o_x264_profile = array('high' => 'high', 'baseline' => 'baseline');
 	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
+	$o_upscale = array('' => '', '480p' => '480p', '720p' => '720p', '1080p' => '1080p');
+	$o_fps = array('' => '', '25' => '25', '30' => '30', '60' => '60');
 
 	$i_name = form_input('name', $name, 'size=45');
 	$i_format = form_dropdown('format', $o_format, $format);
@@ -28,7 +30,8 @@
 	$i_deinterlace = form_checkbox('deinterlace', 1, $deinterlace);
 	$i_decomb = form_checkbox('decomb', 1, $decomb);
 	$i_detelecine = form_checkbox('detelecine', 1, $detelecine);
-	$i_upscale = form_checkbox('upscale', 1, $upscale);
+	$i_upscale = form_dropdown('upscale', $o_upscale, $upscale);
+	$i_fps = form_dropdown('fps', $o_fps, $fps);
 
 	$this->table->add_row(array("Name:", $i_name));
 	$this->table->add_row(array("Container:", $i_format));
@@ -42,6 +45,7 @@
 	$this->table->add_row(array("Decomb:", $i_decomb));
 	$this->table->add_row(array("Detelecine:", $i_detelecine));
 	$this->table->add_row(array("Upscale:", $i_upscale));
+	$this->table->add_row(array("FPS:", $i_fps));
 
 	$submit = form_submit('submit', 'Update');
 
