@@ -1,6 +1,6 @@
 <p><?php
 
-	$plex_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\.\d*".$dvds['id']."\..*\.mp4/";
+	$plex_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\.\d*".$dvds['id']."\..*\.m(p4|kv)/";
 	$plex_files = preg_grep($plex_pattern, scandir("/opt/plex/episodes"));
 
 	$img_dvd = img(array('src' => "images/icons/dvd.png", 'class' => 'handle'));
@@ -35,14 +35,20 @@
 
 		extract($row);
 	
-		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvd_id, 4, 0, STR_PAD_LEFT).".".str_pad($episode_id, 5, 0, STR_PAD_LEFT).".".$series['nsix'];
+		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvd_id, 4, 0, STR_PAD_LEFT).".".str_pad($episode_id, 5, 0, STR_PAD_LEFT);
 
-		$plex_file = $display_id.".".$series['nsix'].".mp4";
+		$mp4_file = $display_id.".".$series['nsix'].".mp4";
+		$mkv_file = $display_id.".".$series['nsix'].".mkv";
 		$d_plex = '';
 		$d_filesize = '';
-		if(in_array($plex_file, $plex_files)) {
+		if(in_array($mp4_file, $plex_files)) {
 			$d_plex = '++';
-			$filesize = filesize("/opt/plex/episodes/$plex_file") / (1024 * 1024);
+			$filesize = filesize("/opt/plex/episodes/$mp4_file") / (1024 * 1024);
+			$d_filesize = number_format($filesize)." MB";
+		}
+		if(in_array($mkv_file, $plex_files)) {
+			$d_plex = '++';
+			$filesize = filesize("/opt/plex/episodes/$mkv_file") / (1024 * 1024);
 			$d_filesize = number_format($filesize)." MB";
 		}
 
