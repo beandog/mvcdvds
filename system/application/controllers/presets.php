@@ -43,6 +43,7 @@
 				$crf = abs(intval($this->input->post('crf')));
 				$acodec_bitrate = abs(intval($this->input->post('acodec_bitrate')));
 				$acodec = $this->input->post('acodec');
+				$fps = abs(intval($this->input->post('fps')));
 
 				if($acodec == 'copy')
 					$acodec_bitrate = 192;
@@ -51,6 +52,9 @@
 
 				if(!$crf)
 					$crf = 23;
+
+				if(!$fps)
+					$fps = null;
 
 				$arr['name'] = $this->input->post('name');
 				$arr['x264opts'] = $this->input->post('x264opts');
@@ -65,6 +69,7 @@
 				$arr['upscale'] = $this->input->post('upscale');
 				$arr['acodec'] = $acodec;
 				$arr['acodec_bitrate'] = $acodec_bitrate;
+				$arr['fps'] = $fps;
 
 				$this->presets_model->set($arr);
 
