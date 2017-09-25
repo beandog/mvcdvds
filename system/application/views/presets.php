@@ -8,9 +8,10 @@
 		'x264 profile',
 		'x264 tune',
 		'CRF',
-		'detelecine',
-		'audio codec',
-		'audio bitrate',
+		'Video filters',
+		'Audio codec',
+		'Audio bitrate',
+		'Upscale',
 	);
 
 	echo p();
@@ -25,9 +26,16 @@
 
 		$d_video_quality = $crf;
 
-		$d_detelecine = '';
+		$d_video_filters = '';
+		$arr_filters = array();
+		if($deinterlace)
+			$arr_filters[] = 'deinterlace';
+		if($decomb)
+			$arr_filters[] = 'decomb';
 		if($detelecine)
-			$d_detelecine = 'detelecine';
+			$arr_filters[] = 'detelecine';
+
+		$d_video_filters = implode(',', $arr_filters);
 
 		if($acodec == 'copy') {
 			$d_audio = "copy";
@@ -39,15 +47,21 @@
 				$d_audio_quality = "${acodec_bitrate}k";
 		}
 
+		$d_upscale = $upscale;
+
+		if($fps)
+			$d_upscale .= $fps;
+
 		$tbl_row = array(
 			$a_preset,
 			$x264_preset,
 			$x264_profile,
 			$x264_tune,
 			$d_video_quality,
-			$d_detelecine,
+			$d_video_filters,
 			$d_audio,
 			$d_audio_quality,
+			$d_upscale,
 		);
 
 		$this->table->add_row($tbl_row);
