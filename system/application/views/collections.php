@@ -39,13 +39,13 @@
 	$total_num_episodes = 0;
 	$total_num_plex = 0;
 
-	$plex_collection_files = preg_grep("/^$id\..+\.mp4$/", scandir("/opt/plex/episodes"));
+	$plex_collection_files = preg_grep("/^$id\..+\.m(p4|kv)$/", scandir("/opt/plex/episodes"));
 
 	foreach($collections as $series_id => $row) {
 
 		extract($row);
 
-		$plex_episodes = preg_grep("/^$id\.0*${series_id}\..+\.mp4$/", $plex_collection_files);
+		$plex_episodes = preg_grep("/^$id\.0*${series_id}\..+\.m(p4|kv)$/", $plex_collection_files);
 		$num_plex = count($plex_episodes);
 
 		$total_series_episodes_filesize = 0;
@@ -89,7 +89,9 @@
 
 		$d_preset_filesize = "&nbsp; ".number_format($series_numbers[$series_id]['megabytes'])." MB";
 
-		$d_total_series_episodes_filesize = "&nbsp; ". number_format($total_series_episodes_filesize / (1024 * 1024))." MB";
+		$d_total_series_episodes_filesize = '';
+		if($total_series_episodes_filesize)
+			$d_total_series_episodes_filesize = "&nbsp; ". number_format($total_series_episodes_filesize / (1024 * 1024))." MB";
 
 		$d_qa = '';
 		if($qa_notes)
