@@ -11,6 +11,7 @@
 		'Video filters',
 		'Audio codec',
 		'Audio bitrate',
+		'Container',
 		'Upscale',
 	);
 
@@ -50,7 +51,7 @@
 		$d_upscale = $upscale;
 
 		if($fps)
-			$d_upscale .= $fps;
+			$d_upscale .= "${fps} fps";
 
 		$tbl_row = array(
 			$a_preset,
@@ -61,6 +62,7 @@
 			$d_video_filters,
 			$d_audio,
 			$d_audio_quality,
+			$format,
 			$d_upscale,
 		);
 
