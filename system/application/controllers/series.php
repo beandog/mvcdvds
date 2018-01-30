@@ -28,6 +28,7 @@
 			$data['dvd_id'] = key($data['dvds']);
 			$data['new_dvds'] = $this->dvds_model->get_new_dvds();
 			$data['series_id'] = $id;
+			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
 
 			foreach($data['dvds'] as $dvd_id => $row) {
 				$data['dvds'][$dvd_id]['num_tracks'] = count($this->dvds_model->get_tracks($dvd_id));
