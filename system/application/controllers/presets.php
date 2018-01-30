@@ -41,14 +41,8 @@
 			if($submit == 'Update') {
 
 				$crf = abs(intval($this->input->post('crf')));
-				$acodec_bitrate = abs(intval($this->input->post('acodec_bitrate')));
 				$acodec = $this->input->post('acodec');
 				$fps = abs(intval($this->input->post('fps')));
-
-				if($acodec == 'copy')
-					$acodec_bitrate = 192;
-				if(!$acodec_bitrate)
-					$acodec_bitrate = null;
 
 				if(!$crf)
 					$crf = 23;
@@ -65,7 +59,6 @@
 				$arr['decomb'] = $this->input->post('decomb');
 				$arr['detelecine'] = $this->input->post('detelecine');
 				$arr['acodec'] = $acodec;
-				$arr['acodec_bitrate'] = $acodec_bitrate;
 				$arr['fps'] = $fps;
 
 				$this->presets_model->set($arr);

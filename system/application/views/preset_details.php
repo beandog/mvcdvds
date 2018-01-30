@@ -24,7 +24,6 @@
 	$i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
 	$i_crf = form_input('crf', $crf, 'size=2');
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
-	$i_acodec_bitrate = form_input('acodec_bitrate', $acodec_bitrate, 'size=5');
 	$i_deinterlace = form_checkbox('deinterlace', 1, $deinterlace);
 	$i_decomb = form_checkbox('decomb', 1, $decomb);
 	$i_detelecine = form_checkbox('detelecine', 1, $detelecine);
@@ -34,7 +33,7 @@
 	$this->table->add_row(array("Container:", $i_format));
 	$this->table->add_row(array("x264 encode:", $i_x264_tune." ".$i_x264_preset));
 	$this->table->add_row(array("x264 CRF:", $i_crf));
-	$this->table->add_row(array("Audio:", "$i_acodec $i_acodec_bitrate"));
+	$this->table->add_row(array("Audio:", "$i_acodec"));
 	$this->table->add_row(array("Deinterlace:", $i_deinterlace));
 	$this->table->add_row(array("Decomb:", $i_decomb));
 	$this->table->add_row(array("Detelecine:", $i_detelecine));
