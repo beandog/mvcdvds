@@ -15,14 +15,12 @@
 	$o_format = array('mp4' => 'MPEG4', 'mkv' => 'Matroska');
 	$o_acodec = array('fdk_aac' => 'AAC', 'copy' => 'copy');
 	$o_x264_preset = array('medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
-	$o_x264_profile = array('high' => 'high', 'baseline' => 'baseline');
 	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
 	// $o_upscale = array('' => '', '480p' => '480p', '720p' => '720p', '1080p' => '1080p');
 	$o_fps = array('' => '', '25' => '25', '30' => '30', '60' => '60');
 
 	$i_name = form_input('name', $name, 'size=45');
 	$i_format = form_dropdown('format', $o_format, $format);
-	$i_x264_profile = form_dropdown('x264_profile', $o_x264_profile, $x264_profile);
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
 	$i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
 	$i_crf = form_input('crf', $crf, 'size=2');
@@ -37,7 +35,6 @@
 
 	$this->table->add_row(array("Name:", $i_name));
 	$this->table->add_row(array("Container:", $i_format));
-	$this->table->add_row(array("H.264 profile:", $i_x264_profile));
 	$this->table->add_row(array("x264 encode:", $i_x264_tune." ".$i_x264_preset));
 	$this->table->add_row(array("x264 CRF:", $i_crf));
 	$this->table->add_row(array("Audio:", "$i_acodec $i_acodec_bitrate"));
