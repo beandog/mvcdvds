@@ -66,7 +66,7 @@
 				$arr['deinterlace'] = $this->input->post('deinterlace');
 				$arr['decomb'] = $this->input->post('decomb');
 				$arr['detelecine'] = $this->input->post('detelecine');
-				$arr['upscale'] = $this->input->post('upscale');
+				// $arr['upscale'] = $this->input->post('upscale');
 				$arr['acodec'] = $acodec;
 				$arr['acodec_bitrate'] = $acodec_bitrate;
 				$arr['fps'] = $fps;
