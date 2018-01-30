@@ -75,7 +75,7 @@
 
 			}
 
- 			redirect("presets/index");
+ 			redirect("presets/index/$id");
 
 		}
 
