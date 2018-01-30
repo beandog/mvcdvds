@@ -57,7 +57,6 @@
 					$fps = null;
 
 				$arr['name'] = $this->input->post('name');
-				$arr['x264opts'] = $this->input->post('x264opts');
 				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['x264_preset'] = $this->input->post('x264_preset');
 				$arr['format'] = $this->input->post('format');

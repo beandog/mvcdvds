@@ -23,7 +23,6 @@
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
 	$i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
 	$i_crf = form_input('crf', $crf, 'size=2');
-	$i_x264opts = form_input('x264opts', $x264opts);
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
 	$i_acodec_bitrate = form_input('acodec_bitrate', $acodec_bitrate, 'size=5');
 	$i_deinterlace = form_checkbox('deinterlace', 1, $deinterlace);
