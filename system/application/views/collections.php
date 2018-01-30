@@ -85,7 +85,8 @@
 		} else
 			$d_filesize = '';
 
-		$d_preset = anchor("series/details/$series_id", $presets[$series_presets[$series_id]]['name']);
+		// $d_preset = anchor("series/details/$series_id", $presets[$series_presets[$series_id]]['name']);
+		$d_preset = anchor("presets/index/".$series_presets[$series_id], $presets[$series_presets[$series_id]]['name']);
 
 		$d_preset_filesize = "&nbsp; ".number_format($series_numbers[$series_id]['megabytes'])." MB";
 
