@@ -30,10 +30,8 @@
 	$i_fps = form_dropdown('fps', $o_fps, $fps);
 
 	$this->table->add_row(array("Name:", $i_name));
-	$this->table->add_row(array("Container:", $i_format));
-	$this->table->add_row(array("x264 encode:", $i_x264_tune." ".$i_x264_preset));
-	$this->table->add_row(array("x264 CRF:", $i_crf));
-	$this->table->add_row(array("FPS:", $i_fps));
+	$this->table->add_row(array("Container:", $i_format." ".$i_fps));
+	$this->table->add_row(array("x264 encode:", $i_x264_tune." ".$i_x264_preset." ".$i_crf));
 	$this->table->add_row(array("Audio:", "$i_acodec"));
 	$this->table->add_row(array("Deinterlace:", $i_deinterlace));
 	$this->table->add_row(array("Decomb:", $i_decomb));
