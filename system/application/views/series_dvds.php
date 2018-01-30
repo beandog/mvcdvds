@@ -14,6 +14,7 @@
 		'Tracks',
 		'Eps.',
 		'Plex',
+		'MKV',
 		'Filesize',
 		'Episodes',
 		'Metadata',
@@ -30,6 +31,7 @@
 	$total_tracks = 0;
 	$total_episodes = 0;
 	$total_plex_episodes = 0;
+	$total_plex_mkv_episodes = 0;
 	$total_filesize = 0;
 	$total_episode_filesize = 0;
 	$total_dvds_episode_filesize = 0;
@@ -49,6 +51,12 @@
 
 		$plex_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\./", $plex_files);
 		$num_plex_episodes = count($plex_episodes);
+
+		$plex_mp4_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mp4/", $plex_files);
+		$num_plex_mp4_episodes = count($plex_mp4_episodes);
+
+		$plex_mkv_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mkv/", $plex_files);
+		$num_plex_mkv_episodes = count($plex_mkv_episodes);
 
 		$episode_filesize = 0;
 		$total_episode_filesize = 0;
@@ -85,6 +93,9 @@
 		if(intval($num_plex_episodes))
 			$total_plex_episodes += $num_plex_episodes;
 
+		if(intval($num_plex_mkv_episodes))
+			$total_plex_mkv_episodes += $num_plex_mkv_episodes;
+
 		if(count($metadata[$id])) {
 			$class = 'update';
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
@@ -115,6 +126,7 @@
 		$display_num_tracks = "<span>$num_tracks</span>";
 		$display_num_episodes = "<span>$num_episodes</span>";
 		$display_num_plex_episodes = "<span>".($num_plex_episodes ? $num_plex_episodes : '')."</span>";
+		$display_num_plex_mkv_episodes = "<span>".($num_plex_mkv_episodes ? $num_plex_mkv_episodes : '')."</span>";
 		$display_filesize = "<span>$display_filesize</span>";
 		$d_missing_metadata = "<span>".implode(", ", $metadata[$id])."</span>";
 
@@ -129,6 +141,7 @@
 			$display_num_tracks,
 			$display_num_episodes,
 			$display_num_plex_episodes,
+			$display_num_plex_mkv_episodes,
 			$display_filesize,
 			$d_total_episode_filesize,
 			$d_missing_metadata,
@@ -155,6 +168,7 @@
 		"<b>$total_tracks</b>",
 		"<b>$total_episodes</b>",
 		"<b>$total_plex_episodes</b>",
+		"<b>".($total_plex_mkv_episodes ? $total_plex_mkv_episodes : '')."</b>",
 		"<b>".number_format($total_filesize). " MB</b>",
 		"<b>$d_total_dvds_episode_filesize</b>",
 		'',
