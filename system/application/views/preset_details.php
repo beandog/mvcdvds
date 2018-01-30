@@ -2,6 +2,8 @@
 
 	echo form_open("presets/update/$id", array('autocomplete' => 'off'));
 
+	echo heading("Presets - $name", 2);
+
 	echo heading("Edit Details", 4);
 
 	echo "<blockquote>";
