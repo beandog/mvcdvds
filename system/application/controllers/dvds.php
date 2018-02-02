@@ -43,6 +43,7 @@
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
 			$data['episodes'] = $this->dvds_model->get_episodes($id);
 			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
+			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
 
 			// Navigation
 			$data['dvd_id'] = $id;
@@ -121,6 +122,7 @@
 			$data['series'] = $this->series_model->get_data($series_id);
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
 			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
+			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
 			// Navigation
 			$data['dvd_id'] = $id;
 
