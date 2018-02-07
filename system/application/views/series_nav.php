@@ -17,5 +17,6 @@
 	} else
 		$img = "";
 
- 	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series | $a_preset &nbsp; $img";
+ 	# echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series | $a_preset &nbsp; $img";
+ 	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series &nbsp; $img";
 
