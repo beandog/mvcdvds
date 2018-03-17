@@ -67,6 +67,17 @@
 
 		}
 
+		public function get_cc($id) {
+
+			$this->db->select('closed_captioning');
+			$this->db->where('id', $id);
+
+			$arr = $this->get_one('tracks');
+
+			return $arr;
+
+		}
+
 		public function get_track_ix_id($dvd_id, $ix) {
 
 			$this->db->select('id');

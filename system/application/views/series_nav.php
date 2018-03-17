@@ -7,7 +7,7 @@
  	$a_episodes = anchor("dvds/episodes/$dvd_id", "Episodes");
  	$a_tracks = anchor("dvds/tracks/$dvd_id", "Tracks");
  	$a_details = anchor("dvds/details/$dvd_id", "Season");
-	$a_preset = anchor("presets/index/".$preset['id'], "Current Preset");
+	// $a_preset = anchor("presets/index/".$preset['id'], "Current Preset");
 
  	if(array_key_exists('longest_track', $dvds)) {
 		if(is_null($dvds['longest_track']))

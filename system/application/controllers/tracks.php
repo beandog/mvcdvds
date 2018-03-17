@@ -22,6 +22,7 @@
  			$data['chapters'] = $this->tracks_model->get_chapters($track_id);
  			$data['audio'] = $this->tracks_model->get_audio($track_id);
  			$data['subp'] = $this->tracks_model->get_subp($track_id);
+ 			$data['cc'] = $this->tracks_model->get_cc($track_id);
  			$data['track_id'] = $track_id;
 
  			$this->load->view('css/style');

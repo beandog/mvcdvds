@@ -1,6 +1,6 @@
 <p><?php
 
-	if(count($subp)) {
+	if(count($subp) || $cc) {
 
 		echo heading("Subtitles", 4);
 
@@ -29,6 +29,28 @@
 				$display_active = 'yes';
 			else
 				$display_active = 'Missing Metadata';
+
+			$tbl_row = array(
+
+				$display_ix,
+				$display_language,
+				$streamid,
+				$display_active,
+
+			);
+
+			$this->table->add_row($tbl_row);
+
+		}
+
+		if($cc) {
+
+			$color = 'black';
+
+			$display_ix = "Track ".(count($subp) + 1);
+			$display_language = "en";
+			$streamid = 'cc';
+			$display_active = 'yes';
 
 			$tbl_row = array(
 
