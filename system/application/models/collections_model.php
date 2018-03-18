@@ -19,6 +19,18 @@
 
 		}
 
+		public function get_children($collection_id) {
+
+			$this->db->select('id, title');
+			$this->db->where('parent_id', $collection_id);
+			$this->db->order_by('id');
+
+			$arr = $this->get_assoc();
+
+			return $arr;
+
+		}
+
 		public function get_unarchived_series($collection_id) {
 
 			$this->db->select('series.id, series.title');

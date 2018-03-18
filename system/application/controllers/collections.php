@@ -9,6 +9,7 @@ class Collections extends Controller {
 	function index($id, $order_by = 'title') {
 
 		$data['collection'] = $this->collections_model->get_data($id);
+		$data['children'] = $this->collections_model->get_children($id);
 		$data['collections'] = $this->series_model->get_collection($id, $order_by);
 
 		$data['presets'] = $this->presets_model->get_presets();
@@ -42,7 +43,6 @@ class Collections extends Controller {
 
 		$this->load->view('css/style');
 		$this->load->view('html_title', $data['collection']);
-
  		$this->load->view('collections', $data);
 
 	}
