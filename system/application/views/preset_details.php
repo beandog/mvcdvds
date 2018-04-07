@@ -12,7 +12,7 @@
 
 	$inputs = array();
 
-	$o_format = array('mkv' => 'Matroska', 'mp4' => 'MPEG4');
+	$o_format = array('m2ts' => 'm2ts', 'mkv' => 'mkv', 'mp4' => 'mp4');
 	$o_acodec = array('fdk_aac' => 'aac', 'ac3' => 'ac3', 'copy' => 'copy');
 	$o_x264_preset = array('medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
 	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
