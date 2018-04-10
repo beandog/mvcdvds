@@ -10,7 +10,7 @@
 		'CRF',
 		'Video filters',
 		'Audio codec',
-		'Audio bitrate',
+		// 'Audio bitrate',
 		'Container',
 		'Upscale',
 	);
@@ -61,7 +61,7 @@
 			$d_video_quality,
 			$d_video_filters,
 			$d_audio,
-			$d_audio_quality,
+			// $d_audio_quality,
 			$format,
 			$d_upscale,
 		);
