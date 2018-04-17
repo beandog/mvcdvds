@@ -44,7 +44,7 @@
 				$acodec = $this->input->post('acodec');
 				$fps = abs(intval($this->input->post('fps')));
 
-				if(!$crf)
+				if(!strlen($this->input->post('crf')))
 					$crf = 23;
 
 				if(!$fps)
