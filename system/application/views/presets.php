@@ -10,7 +10,6 @@
 		'CRF',
 		'Video filters',
 		'Audio codec',
-		// 'Audio bitrate',
 		'Container',
 		'Upscale',
 	);
@@ -44,8 +43,6 @@
 		} else {
 			$d_audio = $acodec;
 			$d_audio_quality = '';
-			if($acodec_bitrate)
-				$d_audio_quality = "${acodec_bitrate}k";
 		}
 
 		$d_upscale = $upscale;
@@ -61,7 +58,6 @@
 			$d_video_quality,
 			$d_video_filters,
 			$d_audio,
-			// $d_audio_quality,
 			$format,
 			$d_upscale,
 		);

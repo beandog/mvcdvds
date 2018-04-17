@@ -91,7 +91,6 @@
 		$d_preset = anchor("series/details/$series_id", $presets[$series_presets[$series_id]]['name']);
 		// $d_preset = anchor("presets/index/".$series_presets[$series_id], $presets[$series_presets[$series_id]]['name']);
 
-		$d_preset_filesize = "&nbsp; ".number_format($series_numbers[$series_id]['megabytes'])." MB";
 
 		$d_total_series_episodes_filesize = '';
 		if($total_series_episodes_filesize)
@@ -108,7 +107,6 @@
 		$total_num_dvds += $num_dvds[$series_id];
 		$total_num_episodes += $num_episodes[$series_id];
 		$total_num_plex += $num_plex;
-		$total_preset_filesize += $series_numbers[$series_id]['megabytes'];
 
 		$table_row = array(
 			$a_dvd2,
@@ -122,7 +120,6 @@
 			$d_filesize,
 			// $d_production_year,
 			// $d_qa,
-			// $d_preset_filesize,
 			$d_total_series_episodes_filesize,
 			// $d_missing_metadata,
 		);

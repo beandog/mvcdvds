@@ -14,15 +14,10 @@ class Collections extends Controller {
 
 		$data['presets'] = $this->presets_model->get_presets();
 		$data['series_presets'] = $this->series_model->get_series_presets();
-		$data['series_numbers'] = $this->series_dvds_model->get_encoded_series_preset_filesize();
 
 		foreach(array_keys($data['collections']) as $series_id) {
 
 			$data['sum_filesize'][$series_id] = $this->series_model->get_sum_filesize($series_id);
-			if(array_key_exists($series_id, $data['series_numbers']))
-				$data['series_numbers'][$series_id] = $data['series_numbers'][$series_id];
-			else
-				$data['series_numbers'][$series_id] = null;
 			$data['num_dvds'][$series_id] = $this->series_model->get_num_dvds($series_id);
 			$data['num_episodes'][$series_id] = $this->series_model->get_num_episodes($series_id);
 			$data['num_dvds_no_episodes'][$series_id] = $this->series_model->num_dvds_no_episodes($series_id);
