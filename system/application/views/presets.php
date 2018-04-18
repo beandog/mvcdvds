@@ -4,13 +4,13 @@
 
 	$tbl_heading = array(
 		'Preset',
-		'x264 preset',
-		'x264 profile',
-		'x264 tune',
+		// 'x264 preset',
+		// 'x264 profile',
+		// 'x264 tune',
 		'CRF',
 		'Video filters',
 		'Audio codec',
-		'Container',
+		// 'Container',
 		'Upscale',
 	);
 
@@ -47,18 +47,18 @@
 
 		$d_upscale = $upscale;
 
-		if($fps)
+		if($fps > 30)
 			$d_upscale .= "${fps} fps";
 
 		$tbl_row = array(
 			$a_preset,
-			$x264_preset,
-			$x264_profile,
-			$x264_tune,
+			// $x264_preset,
+			// $x264_profile,
+			// $x264_tune,
 			$d_video_quality,
 			$d_video_filters,
 			$d_audio,
-			$format,
+			// $format,
 			$d_upscale,
 		);
 
