@@ -47,8 +47,12 @@
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id', 'left outer');
 			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id', 'left outer');
 			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.indexed, series.average_length, series.grayscale');
-			$this->db->order_by('series.title');
 			$this->db->where('series.collection_id', $id);
+
+			if($order_by == 'year')
+				$this->db->order_by('series.production_year DESC');
+			else
+				$this->db->order_by('series.title');
 
 			$arr = $this->get_assoc('series');
 
