@@ -149,6 +149,11 @@
 
 				extract($arr);
 
+				if(array_key_exists('skip', $arr))
+					$skip = 1;
+				else
+					$skip = 0;
+
 				// Set new track ID using the track ix as a reference
 				$track_id = $this->tracks_model->get_track_ix_id($dvd_id, $track_ix);
 
@@ -161,7 +166,7 @@
 				$this->episodes_model->set('ending_chapter', pg_null($ending_chapter));
  				$this->episodes_model->set('season', intval($season));
  				$this->episodes_model->set('episode_number', intval($episode_number));
-
+ 				$this->episodes_model->set('skip', $skip);
 
 			}
 
