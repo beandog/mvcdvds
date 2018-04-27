@@ -15,7 +15,7 @@
 	$o_format = array('mkv' => 'mkv', 'mp4' => 'mp4', 'm2ts' => 'm2ts', 'vob' => 'vob');
 	$o_acodec = array('fdk_aac' => 'aac', 'ac3' => 'ac3', 'copy' => 'copy');
 	$o_x264_preset = array('medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
-	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
+	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain', 'ssim' => 'ssim');
 	$o_fps = array('' => '', '25' => '25', '30' => '30', '60' => '60');
 
 	$i_name = form_input('name', $name, 'size=45');
