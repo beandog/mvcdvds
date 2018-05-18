@@ -4,7 +4,7 @@
 
 	$tbl_heading = array(
 		'Preset',
-		// 'x264 preset',
+		'x265',
 		// 'x264 profile',
 		// 'x264 tune',
 		'CRF',
@@ -23,6 +23,10 @@
 		extract($arr);
 
 		$a_preset = anchor("presets/index/$id", $name);
+		$d_preset = $a_preset;
+
+		if($reference)
+			$d_preset = "[$reference] $d_preset";
 
 		$d_video_quality = $crf;
 
@@ -47,12 +51,12 @@
 
 		$d_upscale = $upscale;
 
-		if($fps > 30)
+		if($fps > 30 || $reference)
 			$d_upscale .= "${fps} fps";
 
 		$tbl_row = array(
-			$a_preset,
-			// $x264_preset,
+			$d_preset,
+			$x264_preset,
 			// $x264_profile,
 			// $x264_tune,
 			$d_video_quality,
