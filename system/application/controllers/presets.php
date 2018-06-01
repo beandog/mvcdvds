@@ -16,6 +16,7 @@
 
 			if($id) {
 				$data['preset'] = $this->presets_model->get_data($id);
+				$data['preset']['series_titles'] = $this->presets_model->get_series_titles($id);
 				$this->load->view('preset_details', $data['preset']);
 			} else {
 				$this->load->view('presets', $data);

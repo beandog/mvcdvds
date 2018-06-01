@@ -4,7 +4,7 @@
 
 	echo heading("Presets - $name", 2);
 
-	echo heading("Edit Details", 4);
+	echo heading("Edit Details", 3);
 
 	echo "<blockquote>";
 
@@ -33,7 +33,7 @@
 	$this->table->add_row(array("Container:", $i_format." ".$i_fps));
 	$this->table->add_row(array("Encoder:", $i_x264_tune." ".$i_x264_preset." ".$i_crf));
 	$this->table->add_row(array("Audio:", "$i_acodec"));
-	$this->table->add_row(array("Deinterlace:", $i_deinterlace));
+	// $this->table->add_row(array("Deinterlace:", $i_deinterlace));
 	$this->table->add_row(array("Decomb:", $i_decomb));
 	$this->table->add_row(array("Detelecine:", $i_detelecine));
 
@@ -47,3 +47,21 @@
 	echo form_close();
 
 	echo "</blockquote>";
+
+	echo heading("Preset Series", 3);
+
+	$tmpl = array(
+		'table_open' => '<table border="0" cellpadding="4" cellspacing="0" class="zebra">',
+	);
+
+	$this->table->set_heading(array('NSIX', 'Series Title'));
+	$this->table->set_template($tmpl);
+
+	foreach($series_titles as $series_id => $arr_series) {
+
+		$d_nsix = $arr_series['nsix'];
+		$a_series_title = anchor("series/dvds/$series_id", $arr_series['title']);
+		$this->table->add_row(array($d_nsix, $a_series_title));
+	}
+	echo $this->table->generate();
+	$this->table->clear();
