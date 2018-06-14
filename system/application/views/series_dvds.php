@@ -14,7 +14,6 @@
 		'Tracks',
 		'Eps.',
 		'Plex',
-		'MKV',
 		'Filesize',
 		'Episodes',
 		'Metadata',
@@ -93,9 +92,6 @@
 		if(intval($num_plex_episodes))
 			$total_plex_episodes += $num_plex_episodes;
 
-		if(intval($num_plex_mkv_episodes))
-			$total_plex_mkv_episodes += $num_plex_mkv_episodes;
-
 		if(count($metadata[$id])) {
 			$class = 'update';
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
@@ -141,7 +137,6 @@
 			$display_num_tracks,
 			$display_num_episodes,
 			$display_num_plex_episodes,
-			$display_num_plex_mkv_episodes,
 			$display_filesize,
 			$d_total_episode_filesize,
 			$d_missing_metadata,
@@ -168,7 +163,6 @@
 		"<b>$total_tracks</b>",
 		"<b>$total_episodes</b>",
 		"<b>$total_plex_episodes</b>",
-		"<b>".($total_plex_mkv_episodes ? $total_plex_mkv_episodes : '')."</b>",
 		"<b>".number_format($total_filesize). " MB</b>",
 		"<b>$d_total_dvds_episode_filesize</b>",
 		'',
