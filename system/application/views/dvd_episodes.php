@@ -8,14 +8,14 @@
 	$tbl_heading = array(
 		'',
 		'Track',
-		'ix',
+		// 'ix',
 		'Title',
 		'Part',
 		'Ch.',
 		'',
 		'Ssn.',
 		'#',
-		'X',
+		'No',
 		'NSIX',
 		'Plex',
 		'Filesize',
@@ -61,10 +61,12 @@
 
 		// Episode #
 		// Override episode index if series is unindexed.
+		/*
 		if($series['indexed'] == 'f')
 			$ix = null;
 		$display_ix = ($ix ? $ix : "");
 		$i_ix = "<input type='text' size='2' name='episode[$episode_id][ix]' value='$display_ix' ix='$ix' track_id='$track_id' episode_id='$episode_id'>\n";
+		*/
 
 		// Episode Title
 		$i_title = form_input("episode[$episode_id][title]", $title, "size='30' track_id='$track_id' episode_id='$episode_id' tabindex='$track_ix'");
@@ -91,7 +93,7 @@
 
 			$a_track,
 			$i_track_ix,
-			$i_ix,
+			//  $i_ix,
 			$i_title,
 			$i_part,
 			$i_starting_chapter,
@@ -124,6 +126,7 @@
 
 	echo p().form_submit('submit', 'Update Episodes');
 
+	/*
 	if($series['indexed'] == 't') {
 
 		echo nbs(5);
@@ -132,5 +135,6 @@
 		echo form_button("reindex", "Remove Indexes", "onclick='window.remove_indexes(); return false;'");
 
 	}
+	*/
 
 	echo form_close();

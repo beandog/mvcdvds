@@ -26,6 +26,7 @@
 
 	}
 
+	/*
 	function reindex() {
 
 		var arr = $('input[ix]');
@@ -46,5 +47,6 @@
 			$(e).val("");
 		});
 	}
+	*/
 
 </script>
