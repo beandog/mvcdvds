@@ -31,7 +31,6 @@
 	$this->table->add_row(array("Preset:", $input_preset));
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
-	$this->table->add_row(array("Indexed:", $input_indexed));
 	$this->table->add_row(array("Grayscale:", $input_grayscale));
 	$this->table->add_row(array("QA Notes:", $input_qa_notes));
 
