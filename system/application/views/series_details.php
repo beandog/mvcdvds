@@ -15,7 +15,7 @@
 
 	$display_average_length = ($average_length ? $average_length : "");
 
-	$input_nsix = form_input('nsix', $nsix, "size='8'");
+	$input_nsix = form_input('nsix', $nsix, "size='8' maxlength='5'");
 	$input_title = form_input('title', $title, "size='50'");
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
