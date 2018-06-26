@@ -7,7 +7,7 @@
 	echo "<p>";
 	echo "<table width='100%'><tr><td>\n";
 	echo anchor("/", "Home")." | ".anchor("/presets/", "Presets");
-	echo " | ".anchor("collections/index/1", "Cartoons");
+	echo " | ".anchor("collections/index/1/year", "Cartoons");
 	echo " | ".anchor("collections/index/2", "TV Shows");
 	echo " | ".anchor("collections/index/3", "Church Videos");
 	echo " | ".anchor("collections/index/4", "Movies");
