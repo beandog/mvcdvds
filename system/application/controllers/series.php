@@ -32,7 +32,7 @@
 
 			foreach($data['dvds'] as $dvd_id => $row) {
 				$data['dvds'][$dvd_id]['num_tracks'] = count($this->dvds_model->get_tracks($dvd_id));
-				$data['episodes'][$dvd_id] = $this->dvds_model->get_episodes($dvd_id);
+				$data['episodes'][$dvd_id] = $this->dvds_model->get_episodes($dvd_id, 'episode_ix', false);
 
 				$metadata = array();
 				if($this->dvds_model->old_metadata_spec($dvd_id) == true)

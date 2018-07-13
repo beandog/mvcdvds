@@ -24,12 +24,14 @@
 
 		}
 
-		public function get_episodes($id, $orderby = 'episode_ix') {
+		public function get_episodes($id, $orderby = 'episode_ix', $include_skipped = true) {
 
 			$this->db->select('episodes.*, tracks.ix AS track_ix, tracks.id AS track_id');
 			$this->db->join('tracks', 'tracks.dvd_id = dvds.id');
 			$this->db->join('episodes', 'episodes.track_id = tracks.id');
 			$this->db->where('dvds.id', $id);
+			if(!$include_skipped)
+				$this->db->where('episodes.skip', 0);
 
 			$this->db->order_by('episodes.season');
 			if($orderby = 'episode_ix')
