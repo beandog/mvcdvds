@@ -89,12 +89,14 @@
 		}
 
 		// Get the total number of episodes for a series
-		public function get_num_episodes($id) {
+		public function get_num_episodes($id, $include_skipped = true) {
 
 			$id = abs(intval($id));
 
 			$this->db->select('COUNT(1) AS num_episodes');
 			$this->db->where('series_id', $id);
+			if(!$include_skipped)
+				$this->db->where('episode_skip', 0);
 
 			$var = $this->get_one('view_episodes');
 

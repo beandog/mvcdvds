@@ -19,7 +19,7 @@ class Collections extends Controller {
 
 			$data['sum_filesize'][$series_id] = $this->series_model->get_sum_filesize($series_id);
 			$data['num_dvds'][$series_id] = $this->series_model->get_num_dvds($series_id);
-			$data['num_episodes'][$series_id] = $this->series_model->get_num_episodes($series_id);
+			$data['num_episodes'][$series_id] = $this->series_model->get_num_episodes($series_id, false);
 			$data['num_dvds_no_episodes'][$series_id] = $this->series_model->num_dvds_no_episodes($series_id);
 
 			$metadata = array();
