@@ -109,6 +109,7 @@
 				'grayscale' => (bool)($this->input->post('grayscale')),
 				'dvdnav' => (bool)($this->input->post('dvdnav')),
 				'qa_notes' => ($this->input->post('qa_notes')),
+				'tvdb' => $this->input->post('tvdb'),
 			);
 
 			$this->series_model->set($arr);

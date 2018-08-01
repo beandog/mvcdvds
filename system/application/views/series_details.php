@@ -17,6 +17,7 @@
 
 	$input_nsix = form_input('nsix', $nsix, "size='8' maxlength='5'");
 	$input_title = form_input('title', $title, "size='50'");
+	$input_tvdb = form_input('tvdb', $tvdb, "size='25'");
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
@@ -26,8 +27,12 @@
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
 
+	if($tvdb)
+		$input_tvdb .= " <a href='https://www.thetvdb.com/series/$tvdb/seasons/all' target='_blank'>All Seasons</a>";
+
 	$this->table->add_row(array("NSIX:", $input_nsix));
 	$this->table->add_row(array("Display Title:", $input_title));
+	$this->table->add_row(array("TV DB:", $input_tvdb));
 	$this->table->add_row(array("Collection:", $input_collection));
 	$this->table->add_row(array("Preset:", $input_preset));
 	$this->table->add_row(array("Production Year:", $input_production_year));
