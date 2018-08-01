@@ -60,7 +60,7 @@
 	foreach($series_titles as $series_id => $arr_series) {
 
 		$d_nsix = $arr_series['nsix'];
-		$a_series_title = anchor("series/dvds/$series_id", $arr_series['title']);
+		$a_series_title = anchor("series/details/$series_id", $arr_series['title']);
 		$this->table->add_row(array($d_nsix, $a_series_title));
 	}
 	echo $this->table->generate();
