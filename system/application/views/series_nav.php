@@ -7,8 +7,9 @@
  	$a_episodes = anchor("dvds/episodes/$dvd_id", "Episodes");
  	$a_tracks = anchor("dvds/tracks/$dvd_id", "Tracks");
  	$a_details = anchor("dvds/details/$dvd_id", "Season");
-	$preset_name = $preset['name'];
-	//  $a_preset = anchor("presets/index/".$preset['id'], $preset_name);
+	$preset_name = '';
+	if(isset($preset))
+		$preset_name = $preset['name'];
 
  	if(array_key_exists('longest_track', $dvds)) {
 		if(is_null($dvds['longest_track']))
@@ -18,5 +19,8 @@
 	} else
 		$img = "";
 
- 	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series - $preset_name&nbsp; $img";
+ 	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series";
+	if(strlen($preset_name))
+		echo " - $preset_name";
+	echo "&nbsp; $img";
 
