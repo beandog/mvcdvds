@@ -53,7 +53,7 @@
 	echo "</blockquote>";
 
 	/** DVD Metadata **/
-	echo heading("Metadata", 4);
+	echo heading("Notes", 4);
 
 	$attr = array('id' => 'dvd_update', 'autocomplete' => 'off');
 

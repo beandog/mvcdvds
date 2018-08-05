@@ -45,6 +45,8 @@
 				//	$metadata[] = "Missing Titles";
 				if(count($data['episodes'][$dvd_id]) === 0)
 					$metadata[] = "No Episodes";
+				if($this->dvds_model->has_bugs($dvd_id))
+					$metadata[] = "Bugs";
 
 				$data['metadata'][$dvd_id] = $metadata;
 

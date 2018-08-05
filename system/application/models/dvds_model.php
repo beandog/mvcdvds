@@ -183,4 +183,18 @@
 
 		}
 
+		// Find if DVD has any documented bugs
+		public function has_bugs($id) {
+
+			$this->db->select('bugs');
+			$this->db->where('id', $id);
+			$var = $this->get_one('dvds');
+
+			if(strlen(trim($var)))
+				return true;
+			else
+				return false;
+
+		}
+
 	}
