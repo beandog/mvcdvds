@@ -191,6 +191,15 @@
 
 		}
 
+		public function update_metadata($id) {
+
+			$this->dvds_model->load($id);
+			$this->dvds_model->set_bugs(trim($this->input->post('bugs')));
+
+			redirect("dvds/details/$id");
+
+		}
+
 		private function _estimate_next_episode($dvd_data) {
 
 			extract($dvd_data);
