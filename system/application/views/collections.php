@@ -78,12 +78,9 @@
 
 		$d_num_dvds = $num_dvds[$series_id];
 
-		$d_num_episodes = $num_episodes[$series_id];
+		$d_num_episodes = number_format($num_episodes[$series_id]);
 
-		if(!$num_plex)
-			$d_num_plex = '';
-		else
-			$d_num_plex = number_format($num_plex);
+		$d_num_plex = number_format($num_plex);
 
 		if($sum_filesize[$series_id]) {
 			$d_filesize = number_format($sum_filesize[$series_id])." MB";
