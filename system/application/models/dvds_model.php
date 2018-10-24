@@ -98,11 +98,11 @@
 
 		public function get_tracks($id, $orderby = 'track') {
 
-			$this->db->select('tracks.id, tracks.dvd_id, tracks.ix, tracks.length, tracks.format, tracks.aspect');
+			$this->db->select('tracks.id, tracks.dvd_id, tracks.ix, tracks.length, tracks.format, tracks.aspect, tracks.playlist');
 			$this->db->select("COUNT(episodes.id) AS num_episodes");
 			$this->db->join('episodes', 'episodes.track_id = tracks.id', 'left outer');
 			$this->db->where('dvd_id', $id);
-			$this->db->group_by('tracks.id, tracks.dvd_id, tracks.ix, tracks.length, tracks.format, tracks.aspect');
+			$this->db->group_by('tracks.id, tracks.dvd_id, tracks.ix, tracks.length, tracks.format, tracks.aspect, tracks.playlist');
 
 			if($orderby == 'track')
 				$this->db->order_by('ix');

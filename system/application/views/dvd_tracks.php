@@ -61,6 +61,9 @@
 		$display_length = "<span style='color: $color' track_id='$track_id' valid='$valid_length' >".format_seconds($length)."</span>";
 		$num_chapters = count($chapters[$track_id]);
 
+		if($bluray)
+			$a_track .= " / Playlist $playlist\n";
+
 		if($length_close_to_average || $length_larger)
 			$img_add = img(array('src' => "images/icons/add.png", 'border' => 0));
 		elseif($trailer_length)
