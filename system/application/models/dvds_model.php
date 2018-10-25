@@ -230,11 +230,11 @@
 		// Find if DVD has any documented bugs
 		public function has_bugs($id) {
 
-			$this->db->select('bugs');
-			$this->db->where('id', $id);
-			$var = $this->get_one('dvds');
+			$this->db->select('dvd_id');
+			$this->db->where('dvd_id', $id);
+			$var = $this->get_one('dvd_bugs');
 
-			if(strlen(trim($var)))
+			if($var)
 				return true;
 			else
 				return false;
