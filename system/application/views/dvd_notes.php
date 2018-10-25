@@ -9,9 +9,9 @@
 
 	echo form_open("dvds/update_metadata/".$dvds['id'], $attr);
 
-	$i_dvd_notes = form_textarea(array('name' => 'notes', 'rows' => 5, 'cols' => 50), $dvds['notes']);
+	$i_dvd_notes = form_textarea(array('name' => 'notes', 'rows' => 20, 'cols' => 100), $dvds['notes']);
 
-	$this->table->add_row(array("Bugs:", $i_dvd_notes));
+	$this->table->add_row(array($i_dvd_notes));
 
 	$submit = form_submit('submit', 'Update');
 
