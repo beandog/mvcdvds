@@ -113,6 +113,50 @@
 
 		}
 
+		public function get_bugs($id) {
+
+			$this->db->select('bugs.id');
+			$this->db->select('bugs.disc');
+			$this->db->select('bugs.name');
+			$this->db->select('dvd_bugs.dvd_id');
+			$this->db->join('dvd_bugs', "dvd_bugs.bug_id = bugs.id AND dvd_bugs.dvd_id = $id", 'left');
+			$this->db->order_by('bugs.disc');
+			$this->db->order_by('bugs.name');
+
+			$arr = $this->get_all('bugs');
+
+			return $arr;
+
+		}
+
+		public function enable_bug($id, $bug_id) {
+
+			$this->db->select('id');
+			$this->db->where('dvd_id', $id);
+			$this->db->where('bug_id', $bug_id);
+
+			$dvd_bug_id = $this->get_one('dvd_bugs');
+
+			if($dvd_bug_id)
+				return;
+
+			$data = array(
+				'dvd_id' => $id,
+				'bug_id' => $bug_id,
+			);
+
+			$this->db->insert('dvd_bugs', $data);
+
+		}
+
+		public function disable_bug($id, $bug_id) {
+
+			$this->db->where('dvd_id', $id);
+			$this->db->where('bug_id', $bug_id);
+			$this->db->delete('dvd_bugs');
+
+		}
+
 		/** Check for missing metadata */
 
 		// Find collections where some of the

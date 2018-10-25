@@ -44,6 +44,7 @@
 			$data['episodes'] = $this->dvds_model->get_episodes($id);
 			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($series_id));
+			$data['bugs'] = $this->dvds_model->get_bugs($id);
 
 			// Navigation
 			$data['dvd_id'] = $id;
@@ -63,6 +64,8 @@
  			$this->load->view('series_nav', $data);
  			$this->load->view('dvd_series_details', $data);
  			$this->load->view('dvd_details', $data);
+ 			$this->load->view('dvd_bugs', $data);
+ 			$this->load->view('dvd_notes', $data);
 
 		}
 
@@ -145,6 +148,28 @@
 
 		}
 
+		public function update_bugs($dvd_id) {
+
+			$data['bugs'] = $this->dvds_model->get_bugs($dvd_id);
+
+			$array_keys = array();
+			if($this->input->post('dvd_bug') !== false)
+				$array_keys = array_keys($this->input->post('dvd_bug'));
+
+			foreach($data['bugs'] as $arr_bug) {
+
+				$bug_id = $arr_bug['id'];
+				if(in_array($bug_id, $array_keys))
+					$this->dvds_model->enable_bug($dvd_id, $bug_id);
+				else
+					$this->dvds_model->disable_bug($dvd_id, $bug_id);
+
+			}
+
+			redirect("dvds/details/$dvd_id");
+
+		}
+
 		public function update_episodes($dvd_id) {
 
 			$episodes = $this->input->post('episode');
@@ -197,7 +222,7 @@
 		public function update_metadata($id) {
 
 			$this->dvds_model->load($id);
-			$this->dvds_model->set_bugs(trim($this->input->post('bugs')));
+			$this->dvds_model->set_notes(trim($this->input->post('notes')));
 
 			redirect("dvds/details/$id");
 
