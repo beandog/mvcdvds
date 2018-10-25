@@ -1,5 +1,9 @@
 <p><?php
 
+	$bluray = false;
+	if($tracks[$track_id]['playlist'] != null)
+		$bluray = true;
+
 	if(count($subp) || $cc) {
 
 		echo heading("Subtitles", 4);
@@ -11,6 +15,9 @@
 			'Active',
 		);
 
+		if($bluray)
+			$tbl_heading[] = 'Passthrough';
+
 		$this->table->set_heading($tbl_heading);
 
 		foreach($subp as $subp_id => $subp_row) {
@@ -20,6 +27,8 @@
 			$color = 'black';
 
 			$display_ix = "Track $ix";
+			if($bluray)
+				$display_ix = "Track ".($ix + count($audio));
 
 			$display_language = "$langcode";
 
@@ -30,6 +39,10 @@
 			else
 				$display_active = 'Missing Metadata';
 
+			$display_passthrough = '';
+			if($langcode == 'eng' && ($passthrough == null || $passthrough == 1))
+				$display_passthrough = 'Default';
+
 			$tbl_row = array(
 
 				$display_ix,
@@ -38,6 +51,9 @@
 				$display_active,
 
 			);
+
+			if($bluray)
+				$tbl_row[] = $display_passthrough;
 
 			$this->table->add_row($tbl_row);
 

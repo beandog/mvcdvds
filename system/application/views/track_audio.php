@@ -2,6 +2,10 @@
 
 	echo heading("Audio Tracks", 4);
 
+	$bluray = false;
+	if($tracks[$track_id]['playlist'] != null)
+		$bluray = true;
+
 	$tbl_heading = array(
 		'ix',
 		'Language',
@@ -11,6 +15,9 @@
 		'Active',
 	);
 
+	if($bluray)
+		$tbl_heading[] = 'Passthrough';
+
 	$this->table->set_heading($tbl_heading);
 
 	$num_episodes = 0;
@@ -19,7 +26,6 @@
 	$img_delete = img("images/icons/delete.png");
 
 	foreach($audio as $audio_id => $audio_row) {
-
 
 		extract($audio_row);
 
@@ -34,6 +40,12 @@
 		else
 			$display_active = 'Missing Metadata';
 
+		$display_passthrough = '';
+		if($langcode == 'eng' && ($passthrough == null || $passthrough == 1))
+			$display_passthrough = "<img src='/images/icons/sound.png'>";
+		elseif($langcode == 'eng' && ($passthrough == 1))
+			$display_passthrough = "<img src='/images/icons/sound_delete.png'>";
+
 		$tbl_row = array(
 
 			$display_ix,
@@ -44,6 +56,9 @@
 			$display_active,
 
 		);
+
+		if($bluray)
+			$tbl_row[] = $display_passthrough;
 
 		$this->table->add_row($tbl_row);
 
