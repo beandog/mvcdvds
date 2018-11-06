@@ -42,7 +42,8 @@
 	$total_num_episodes = 0;
 	$total_num_plex = 0;
 
-	$plex_collection_files = preg_grep("/^$id\..+\.m(p4|kv)$/", scandir("/opt/plex/episodes"));
+	$plex_pattern= "/^$id\..+\.m(p4|kv)$/";
+	$plex_collection_files = plex_episode_patterns($plex_pattern, $plex_episode_dirs);
 
 	foreach($collections as $series_id => $row) {
 
@@ -53,7 +54,7 @@
 
 		$total_series_episodes_filesize = 0;
 		foreach($plex_episodes as $plex_episode) {
-			$episode_filesize = filesize("/opt/plex/episodes/$plex_episode");
+			$episode_filesize = plex_episode_filesize($plex_episode, $plex_episode_dirs);
 			$total_series_episodes_filesize += $episode_filesize; 
 
 		}

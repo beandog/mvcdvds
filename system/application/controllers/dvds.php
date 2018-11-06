@@ -78,6 +78,7 @@
 			$data['series'] = $this->series_model->get_data($series_id);
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($series_id));
+			$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
 
 			if($this->series_model->get_indexed($series_id) == 'f')
 				$orderby = 'episode_ix';
@@ -103,6 +104,7 @@
 			$this->load->view('series_nav', $data);
  			$this->load->view('js/dvd_episodes');
  			$this->load->view('js/tables');
+ 			$this->load->view('plex_episodes', $data);
  			$this->load->view('dvd_episodes', $data);
 
 		}

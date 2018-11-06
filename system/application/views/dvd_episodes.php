@@ -1,7 +1,7 @@
 <p><?php
 
 	$plex_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\.\d*".$dvds['id']."\..*\.m(p4|kv)/";
-	$plex_files = preg_grep($plex_pattern, scandir("/opt/plex/episodes"));
+	$plex_files = plex_episode_patterns($plex_pattern, $plex_episode_dirs);
 
 	$img_dvd = img(array('src' => "images/icons/dvd.png", 'class' => 'handle'));
 
@@ -44,12 +44,14 @@
 		$d_filesize = '';
 		if(in_array($mp4_file, $plex_files)) {
 			$d_plex = '++';
-			$filesize = filesize("/opt/plex/episodes/$mp4_file") / (1024 * 1024);
+			$filesize = plex_episode_filesize($mp4_file, $plex_episode_dirs);
+			$filesize = $filesize / (1024 * 1024);
 			$d_filesize = number_format($filesize)." MB";
 		}
 		if(in_array($mkv_file, $plex_files)) {
 			$d_plex = '++';
-			$filesize = filesize("/opt/plex/episodes/$mkv_file") / (1024 * 1024);
+			$filesize = plex_episode_filesize($mkv_file, $plex_episode_dirs);
+			$filesize = $filesize / (1024 * 1024);
 			$d_filesize = number_format($filesize)." MB";
 		}
 

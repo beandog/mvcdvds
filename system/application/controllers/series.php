@@ -29,6 +29,7 @@
 			$data['new_dvds'] = $this->dvds_model->get_new_dvds();
 			$data['series_id'] = $id;
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
+			$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
 
 			foreach($data['dvds'] as $dvd_id => $row) {
 				$data['dvds'][$dvd_id]['num_tracks'] = count($this->dvds_model->get_tracks($dvd_id));
@@ -56,6 +57,7 @@
 			$this->load->view('html_title', $data['series']);
 
  			$this->load->view('series_nav', $data);
+ 			$this->load->view('plex_episodes', $data);
  			$this->load->view('series_dvds', $data);
 
  			if(count($data['new_dvds']))

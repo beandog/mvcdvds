@@ -14,6 +14,7 @@ class Collections extends Controller {
 
 		$data['presets'] = $this->presets_model->get_presets();
 		$data['series_presets'] = $this->series_model->get_series_presets();
+		$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
 
 		foreach(array_keys($data['collections']) as $series_id) {
 
@@ -38,6 +39,7 @@ class Collections extends Controller {
 
 		$this->load->view('css/style');
 		$this->load->view('html_title', $data['collection']);
+ 		$this->load->view('plex_episodes', $data);
  		$this->load->view('collections', $data);
 
 	}

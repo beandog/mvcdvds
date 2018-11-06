@@ -36,7 +36,8 @@
 	$total_dvds_episode_filesize = 0;
 
 	$plex_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\./";
-	$plex_files = preg_grep($plex_pattern, scandir("/opt/plex/episodes"));
+
+	$plex_files = plex_episode_patterns($plex_pattern, $plex_episode_dirs);
 
 	foreach($dvds as $id => $row) {
 
@@ -61,7 +62,8 @@
 		$total_episode_filesize = 0;
 		$d_total_episode_filesize = '';
 		foreach($plex_episodes as $plex_episode) {
-			$episode_filesize = filesize("/opt/plex/episodes/$plex_episode") / (1024 * 1024);
+			$episode_filesize = plex_episode_filesize($plex_episode, $plex_episode_dirs);
+			$episode_filesize = $episode_filesize / (1024 *1024);
 			$total_episode_filesize += $episode_filesize;
 			$total_dvds_episode_filesize += $episode_filesize;
 		}
