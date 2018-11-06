@@ -12,10 +12,10 @@
 	echo " | ".anchor("collections/index/3", "Church Videos");
 	echo " | ".anchor("collections/index/4", "Movies");
 	echo " | ".anchor("collections/index/5", "IMAX");
-	echo " | ".anchor("collections/index/6", "Blu-ray Cartoons");
+	echo " | ".anchor("collections/index/6", "BD Cartoons");
 	echo " | ".anchor("collections/index/7", "Documentary");
 	echo " | ".anchor("collections/index/8", "Blu-rays");
-	echo " | ".anchor("collections/index/9", "Kids");
+	echo " | ".anchor("collections/index/9", "BD TV Shows");
 	echo "</td><td align='right'>";
 ?>
 <form action='<?=$this->config->item('base_url').$this->config->item('index_page');?>/welcome/search' method='post'><input type='text' name='q'> <input type='submit' value='Search'></form></td>
