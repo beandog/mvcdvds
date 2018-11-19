@@ -25,6 +25,8 @@
 	$img_add = img(array('src' => "images/icons/add.png", 'border' => 0));
 	$img_delete = img("images/icons/delete.png");
 
+	$bluray = $dvds['bluray'];
+
 	foreach($tracks as $track_id => $track_row) {
 
 		extract($track_row);
@@ -56,13 +58,12 @@
 			$color = '5171ff';
 
 		$a_track = anchor("tracks/index/$track_id", "Track $ix");
+		if($bluray)
+			$a_track = anchor("tracks/index/$track_id", "Playlist $ix");
 		$time = format_seconds($length, "m:s");
 		$display_time = "<span style='color: $color'>$time</span>";
 		$display_length = "<span style='color: $color' track_id='$track_id' valid='$valid_length' >".format_seconds($length)."</span>";
 		$num_chapters = count($chapters[$track_id]);
-
-		if($bluray)
-			$a_track .= " / Playlist $playlist\n";
 
 		if($length_close_to_average || $length_larger)
 			$img_add = img(array('src' => "images/icons/add.png", 'border' => 0));

@@ -2,9 +2,7 @@
 
 	echo heading("Audio Tracks", 4);
 
-	$bluray = false;
-	if($tracks[$track_id]['playlist'] != null)
-		$bluray = true;
+	$bluray = $dvds['bluray'];
 
 	$tbl_heading = array(
 		'ix',

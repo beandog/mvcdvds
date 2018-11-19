@@ -1,8 +1,6 @@
 <p><?php
 
-	$bluray = false;
-	if($tracks[$track_id]['playlist'] != null)
-		$bluray = true;
+	$bluray = $dvds['bluray'];
 
 	if(count($subp) || $cc) {
 

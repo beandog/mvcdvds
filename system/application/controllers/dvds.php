@@ -135,10 +135,6 @@
 				$data['chapters'][$track_id] = $this->tracks_model->get_chapters($track_id);
 			}
 
-			$data['bluray'] = false;
-			if($row['playlist'] != null)
-				$data['bluray'] = true;
-
 			$this->load->view('css/style');
 			$this->load->view('jquery');
 			$this->load->view('js/dvd_tracks');
