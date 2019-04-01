@@ -7,6 +7,7 @@
 		'',
 		'',
 		'Title',
+		'',
 		'Ssn.',
 		'Vol.',
 		'Disc',
@@ -114,9 +115,12 @@
 		$display_volume = ($volume ? $volume : "");
 		$display_ix = ($ix ? $ix : "");
 		$display_filesize = number_format($filesize)." MB";
+		$display_package_title = '';
 
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
 		$display_id = "<span>$display_id</span>";
+		if(strlen($package_title))
+			$display_package_title = anchor("dvds/details/$id", $package_title, "class='$class'");
 		$display_season = "<span>$display_season</span>";
 		$display_volume = "<span>$display_volume</span>";
 		$display_ix = "<span>$display_ix</span>";
@@ -132,6 +136,7 @@
 			$a_dvd2,
 			$display_id,
 			$a_dvd,
+			$display_package_title,
 			$display_season,
 			$display_volume,
 			$display_ix,
@@ -158,6 +163,7 @@
 		'',
 		'',
 		"<b>Totals</b>",
+		'',
 		"<b>$total_seasons</b>",
 		"<b>$total_volumes</b>",
 		"<b>$total_discs</b>",
