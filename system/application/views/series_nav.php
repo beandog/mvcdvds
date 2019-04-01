@@ -5,7 +5,7 @@
  	$a_dvds = anchor("series/dvds/".$series['id'], "DVDs");
  	$a_tracks = anchor("dvds/tracks/$dvd_id", "Tracks");
  	$a_episodes = anchor("dvds/episodes/$dvd_id", "Episodes");
- 	$a_details = anchor("dvds/details/$dvd_id", "Season");
+	$a_details = anchor("dvds/details/$dvd_id", "Disc");
  	$a_series = anchor("series/details/".$series['id'], "Encoding Settings");
 	$preset_name = '';
 	if(isset($preset))
