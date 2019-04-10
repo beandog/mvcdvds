@@ -241,4 +241,18 @@
 
 		}
 
+		// Find episodes where season and episode number are not manually set
+		public function missing_episode_numbers($series_id = null) {
+
+			$this->db->select('COUNT(1)');
+			$this->db->where("episode_number IN(NULL, 0)");
+			$this->db->where("series_id", $series_id);
+			$var = $this->get_one("view_episodes");
+
+			$bool = (bool)$var;
+
+			return $bool;
+
+		}
+
 	}

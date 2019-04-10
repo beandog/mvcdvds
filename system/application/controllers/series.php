@@ -42,8 +42,10 @@
 					$metadata[] = "Unknown Filesize";
 				if($this->dvds_model->missing_audio_tracks($dvd_id))
 					$metadata[] = "Missing Audio Tracks";
-				// if($this->dvds_model->missing_episode_titles($dvd_id))
-				//	$metadata[] = "Missing Titles";
+				if($this->dvds_model->missing_episode_titles($dvd_id))
+					$metadata[] = "Missing Titles";
+				if($this->dvds_model->missing_episode_numbers($dvd_id))
+					$metadata[] = "Legacy Episode Numbers";
 				if(count($data['episodes'][$dvd_id]) === 0)
 					$metadata[] = "No Episodes";
 				if($this->dvds_model->has_bugs($dvd_id))

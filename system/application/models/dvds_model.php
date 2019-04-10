@@ -195,7 +195,21 @@
 
 		}
 
-		// Find series where some of the episodes have no title
+		// Find series where some of the episode numbers aren't set manually
+		public function missing_episode_numbers($id) {
+
+			$this->db->select('COUNT(1)');
+			$this->db->where("episode_number IN(NULL, 0)");
+			$this->db->where("dvd_id", $id);
+			$var = $this->get_one("view_episodes");
+
+			$bool = (bool)$var;
+
+			return $bool;
+
+		}
+
+		// Find series where some of the episodes have no filesize
 		public function missing_filesize($id) {
 
 			$this->db->select('filesize');
