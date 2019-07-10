@@ -1,7 +1,7 @@
 <?php
 
 	function plex_episode_exists($filename, $plex_episode_dirs) {
-	
+
 		foreach($plex_episode_dirs as $plex_episode_dir) {
 
 			$plex_episode_filename = "$plex_episode_dir/$filename";
@@ -18,12 +18,12 @@
 	function plex_episode_patterns($plex_pattern, $plex_episode_dirs) {
 
 		$arr_plex_episodes = array();
-	
+
 		foreach($plex_episode_dirs as $plex_episode_dir) {
 
 			$arr_plex_episodes = array_merge($arr_plex_episodes, scandir($plex_episode_dir));
 
-		} 
+		}
 
 		$plex_files = preg_grep($plex_pattern, $arr_plex_episodes);
 
@@ -32,7 +32,7 @@
 	}
 
 	function plex_episode_filesize($filename, $plex_episode_dirs) {
-	
+
 		$filesize = 0;
 
 		foreach($plex_episode_dirs as $plex_episode_dir) {

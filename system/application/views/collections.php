@@ -58,7 +58,7 @@
 		$total_series_episodes_filesize = 0;
 		foreach($plex_episodes as $plex_episode) {
 			$episode_filesize = plex_episode_filesize($plex_episode, $plex_episode_dirs);
-			$total_series_episodes_filesize += $episode_filesize; 
+			$total_series_episodes_filesize += $episode_filesize;
 
 		}
 
