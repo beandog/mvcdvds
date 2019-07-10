@@ -16,6 +16,7 @@
 		// 'Preset',
 		'Prod. Year',
 //		'Preset Filesize',
+		'Frequency',
 		'Filesize',
 		'Episodes',
 		// 'QA',
@@ -44,6 +45,8 @@
 
 	$plex_pattern= "/^$id\..+\.m(p4|kv)$/";
 	$plex_collection_files = plex_episode_patterns($plex_pattern, $plex_episode_dirs);
+
+	$arr_frequency = array('', 'High', 'Medium', 'Normal', 'New', 'Special');
 
 	foreach($collections as $series_id => $row) {
 
@@ -105,6 +108,8 @@
 
 		$d_production_year = $production_year;
 
+		$d_frequency = $arr_frequency[$frequency];
+
 		$total_num_dvds += $num_dvds[$series_id];
 		$total_num_episodes += $num_episodes[$series_id];
 		$total_num_plex += $num_plex;
@@ -119,6 +124,7 @@
 			// $d_filesize,
 			// $d_preset,
 			$d_production_year,
+			$d_frequency,
 			$d_filesize,
 			// $d_qa,
 			$d_total_series_episodes_filesize,
@@ -152,6 +158,7 @@
 		$display_total_plex,
 		'',
 		// '',
+		'',
 		$display_total_filesize,
 		$display_total_episodes_filesize,
 	));

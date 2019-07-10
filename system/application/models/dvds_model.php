@@ -98,9 +98,11 @@
 
 		public function get_tracks($id, $orderby = 'track') {
 
-			$this->db->select('tracks.id, tracks.dvd_id, tracks.ix, tracks.length, tracks.format, tracks.aspect');
+			$this->db->select('tracks.id, tracks.dvd_id, tracks.ix, tracks.length, tracks.format, tracks.aspect, tracks.closed_captioning');
 			$this->db->select("COUNT(episodes.id) AS num_episodes");
+			$this->db->select("COUNT(subp.id) AS num_eng_subp");
 			$this->db->join('episodes', 'episodes.track_id = tracks.id', 'left outer');
+			$this->db->join('subp', 'subp.track_id = tracks.id AND subp.langcode = \'en\' AND subp.active = 1', 'left outer');
 			$this->db->where('dvd_id', $id);
 			$this->db->group_by('tracks.id, tracks.dvd_id, tracks.ix, tracks.length, tracks.format, tracks.aspect');
 

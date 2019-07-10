@@ -112,6 +112,7 @@
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => $this->input->post('production_year'),
 				'indexed' => bool_pg($this->input->post('indexed')),
+				'frequency' => intval($this->input->post('frequency')),
 				'grayscale' => (bool)($this->input->post('grayscale')),
 				'dvdnav' => (bool)($this->input->post('dvdnav')),
 				'qa_notes' => ($this->input->post('qa_notes')),

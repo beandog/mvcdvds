@@ -13,6 +13,7 @@
 		'Chapters',
 		'Episodes',
 		'',
+		'Subtitles',
 	);
 
 	echo form_button("add_valid", "Valid Tracks to Episodes", "onclick='window.make_episodes();'");
@@ -81,6 +82,15 @@
 			$display_num_episodes .= $num_episodes;
 		$display_num_episodes .= "</span>";
 
+
+		$arr_subtitles = array();
+		if($num_eng_subp)
+			$arr_subtitles[] = 'English';
+		if($closed_captioning)
+			$arr_subtitles[] = 'CC';
+
+		$display_subtitles = join(', ', $arr_subtitles);
+
 		$display_add_episodes = '';
 
 		if($length_close_to_average || $length_larger || $trailer_length || $feature_length) {
@@ -96,6 +106,7 @@
 			$num_chapters,
 			$display_num_episodes,
 			$display_add_episodes,
+			$display_subtitles,
 
 		);
 
