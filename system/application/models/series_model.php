@@ -106,6 +106,21 @@
 
 		}
 
+		// Get the total number of seasons for a series
+		public function get_num_seasons($id) {
+
+			$id = abs(intval($id));
+
+			$this->db->select('COUNT(DISTINCT season) AS num_seasons');
+			$this->db->where('series_id', $id);
+			$var = $this->get_one('series_dvds');
+
+			$var = intval($var);
+
+			return $var;
+
+		}
+
 		// Get the dvd id of any DVDs that have zero episodes on them.
 		// Used to check for missing metadata
 		public function num_dvds_no_episodes($id) {
