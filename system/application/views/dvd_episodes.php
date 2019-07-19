@@ -17,6 +17,8 @@
 		'#',
 		'No',
 		'NSIX',
+		'Encode',
+		// 'Frames',
 		'Plex',
 		'Filesize',
 		''
@@ -91,6 +93,17 @@
 		// Skip episode
 		$i_skip_episode = form_checkbox("episode[$episode_id][skip]", '1', $skip ? true : false);
 
+		$d_frames = '-';
+		$d_encode = 'Preset';
+		if($progressive != null) {
+			if($progressive != null && ($top_field || $bottom_field))
+				$d_encode = 'Detelecine';
+			if($progressive && $top_field <= 30 && $bottom_field <= 30)
+				$d_encode = 'Progressive';
+			$d_frames = "$progressive / $top_field / $bottom_field";
+			$d_encode = "<span title='$d_frames'>$d_encode</span>";
+		}
+
 		$tbl_row = array(
 
 			$a_track,
@@ -104,6 +117,8 @@
 			$i_episode_number,
 			$i_skip_episode,
 			$display_id,
+			$d_encode,
+			// $d_frames,
 			$d_plex,
 			$d_filesize,
 			$img_delete,
