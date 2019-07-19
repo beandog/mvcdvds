@@ -168,6 +168,7 @@
 
 			// Find the highest metadata spec in the database
 			$this->db->select_max('metadata_spec');
+			$this->db->where("bluray", 0);
 			$newest_spec = abs(intval($this->get_one('dvds')));
 
 			$this->db->select("metadata_spec");
