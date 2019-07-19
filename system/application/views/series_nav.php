@@ -33,9 +33,9 @@
 		$img = "";
 
  	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series";
-	// if(strlen($preset_name))
-	//	echo " | Preset: $preset_name";
 	if(isset($series_dvds))
 		echo " | $display_season_str";
+	 if(strlen($preset_name))
+		echo " | $preset_name";
 	echo "&nbsp; $img";
 
