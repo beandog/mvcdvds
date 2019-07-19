@@ -1,6 +1,6 @@
 <p><?php
 
-	echo heading("DVDs", 4);
+	// echo heading("DVDs", 4);
 
 	$heading = array(
 
