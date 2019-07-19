@@ -16,7 +16,7 @@
 	$o_acodec = array('fdk_aac' => 'aac', 'ac3' => 'ac3', 'copy' => 'copy');
 	$o_x264_preset = array('ultrafast' => 'ultrafast', 'superfast' => 'superfast', 'veryfast' => 'veryfast', 'faster' => 'faster', 'fast' => 'fast', 'medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
 	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain', 'ssim' => 'ssim');
-	$o_fps = array('' => '', '25' => '25', '30' => '30', '60' => '60');
+	$o_fps = array('' => '', '24' => '24', '25' => '25', '30' => '30', '60' => '60');
 
 	$i_name = form_input('name', $name, 'size=45');
 	$i_format = form_dropdown('format', $o_format, $format);
