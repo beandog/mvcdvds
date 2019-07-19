@@ -59,6 +59,9 @@
 		$plex_mkv_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mkv/", $plex_files);
 		$num_plex_mkv_episodes = count($plex_mkv_episodes);
 
+		if($num_episodes != ($num_plex_mp4_episodes + $num_plex_mkv_episodes))
+			$metadata[$id][] = 'Missing Episodes';
+
 		$episode_filesize = 0;
 		$total_episode_filesize = 0;
 		$d_total_episode_filesize = '';
