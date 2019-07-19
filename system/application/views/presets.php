@@ -49,10 +49,10 @@
 			$d_audio_quality = '';
 		}
 
-		$d_upscale = $upscale;
+		$d_upscale = '';
 
 		if($fps > 30 || $reference)
-			$d_upscale .= "${fps} fps";
+			$d_upscale = "${fps} fps";
 
 		$tbl_row = array(
 			$d_preset,
