@@ -88,7 +88,7 @@
 
 		// Episode number (override all)
 		$display_episode_number = ($episode_number ? $episode_number : "");
-		$i_episode_number = form_input("episode[$episode_id][episode_number]", $display_episode_number, "size='2' track_id='$track_id' episode_id='$episode_id'");
+		$i_episode_number = form_input("episode[$episode_id][episode_number]", $display_episode_number, "size='2' track_id='$track_id' episode_id='$episode_id' tabindex='$episode_id'");
 
 		// Skip episode
 		$i_skip_episode = form_checkbox("episode[$episode_id][skip]", '1', $skip ? true : false);
