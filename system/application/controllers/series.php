@@ -34,6 +34,7 @@
 			foreach($data['dvds'] as $dvd_id => $row) {
 				$data['dvds'][$dvd_id]['num_tracks'] = count($this->dvds_model->get_tracks($dvd_id));
 				$data['episodes'][$dvd_id] = $this->dvds_model->get_episodes($dvd_id, 'episode_ix', false);
+				$episodes_skipped = count($data['episodes'][$dvd_id]) - count($this->dvds_model->get_episodes($dvd_id, 'episode_ix', true));
 
 				$metadata = array();
 				if($this->dvds_model->old_metadata_spec($dvd_id) == true)
@@ -46,7 +47,7 @@
 					$metadata[] = "Missing Titles";
 				if($this->dvds_model->missing_episode_numbers($dvd_id))
 					$metadata[] = "Legacy Episode Numbers";
-				if(count($data['episodes'][$dvd_id]) === 0)
+				if(count($data['episodes'][$dvd_id]) === 0 && $episodes_skipped === 0)
 					$metadata[] = "No Episodes";
 				if($this->dvds_model->has_bugs($dvd_id))
 					$metadata[] = "Bugs";
