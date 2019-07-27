@@ -19,13 +19,13 @@
 
 		}
 
-		public function get_children($collection_id) {
+		public function get_libraries($collection_id) {
 
-			$this->db->select('id, title');
-			$this->db->where('parent_id', $collection_id);
-			$this->db->order_by('id');
+			$this->db->select('id, name');
+			$this->db->where('collection_id', $collection_id);
+			$this->db->order_by('name');
 
-			$arr = $this->get_assoc();
+			$arr = $this->get_assoc('libraries');
 
 			return $arr;
 

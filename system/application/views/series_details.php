@@ -5,6 +5,11 @@
 
 	$arr_dropdown_frequency = array('', 'High', 'Medium', 'Normal', 'New', 'Special');
 
+	if(count($libraries)) {
+		array_unshift($libraries, '');
+	}
+	$input_libraries = '';
+
 	echo heading("Series", 4);
 
 	echo "<blockquote>";
@@ -21,6 +26,10 @@
 	$input_title = form_input('title', $title, "size='50'");
 	$input_tvdb = form_input('tvdb', $tvdb, "size='25'");
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
+	if(count($libraries)) {
+		$input_libraries = form_dropdown('library', $libraries, $series['library_id']);
+		$input_collection .= " $input_libraries";
+	}
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");

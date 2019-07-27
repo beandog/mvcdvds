@@ -2,9 +2,6 @@
 
 	echo heading($title, 2);
 
-	if(count($children))
-		$this->load->view('collection_children_title', $children);
-
 	$header = array(
 		'',
 		'NSIX',
