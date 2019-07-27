@@ -51,6 +51,8 @@
 					$metadata[] = "No Episodes";
 				if($this->dvds_model->has_bugs($dvd_id))
 					$metadata[] = "Bugs";
+				if($this->dvds_model->missing_pts($dvd_id))
+					$metadata[] = "Missing PTS";
 
 				$data['metadata'][$dvd_id] = $metadata;
 

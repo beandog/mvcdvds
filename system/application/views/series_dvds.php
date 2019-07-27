@@ -59,8 +59,9 @@
 		$plex_mkv_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mkv/", $plex_files);
 		$num_plex_mkv_episodes = count($plex_mkv_episodes);
 
+		$missing_episodes = false;
 		if($num_episodes != ($num_plex_mp4_episodes + $num_plex_mkv_episodes))
-			$metadata[$id][] = 'Missing Episodes';
+			$missing_episodes = true;
 
 		$episode_filesize = 0;
 		$total_episode_filesize = 0;
@@ -98,7 +99,7 @@
 		if(intval($num_plex_episodes))
 			$total_plex_episodes += $num_plex_episodes;
 
-		if(count($metadata[$id])) {
+		if(count($metadata[$id]) || $missing_episodes) {
 			$class = 'update';
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
 		} else {

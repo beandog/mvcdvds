@@ -243,6 +243,20 @@
 
 		}
 
+		// Find DVDs where some of the episodes have not been scanned for PTS info
+		public function missing_pts($id) {
+
+			$this->db->select('COUNT(1)');
+			$this->db->where("progressive", null);
+			$this->db->where("dvd_id", $id);
+			$var = $this->get_one("view_episodes");
+
+			$bool = (bool)$var;
+
+			return $bool;
+
+		}
+
 		// Find if DVD has any documented bugs
 		public function has_bugs($id) {
 
