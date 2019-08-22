@@ -6,7 +6,8 @@
 	$arr_dropdown_frequency = array('', 'High', 'Medium', 'Normal', 'New', 'Special');
 
 	if(count($libraries)) {
-		array_unshift($libraries, '');
+		$libraries[0] = '';
+		ksort($libraries);
 	}
 	$input_libraries = '';
 
