@@ -6,7 +6,6 @@
 
 			$plex_episode_dirs = array(
 				'/opt/plex/episodes',
-				'/opt/plex/sd/AVC',
 				'/opt/plex/sd/HEVC',
 				'/opt/plex/hd',
 			);
