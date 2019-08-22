@@ -84,7 +84,7 @@
 
 		// Episode season (override disc)
 		$display_season = ($season ? $season : "");
-		$i_season = form_input("episode[$episode_id][season]", $display_season, "size='2' track_id='$track_id' episode_id='$episode_id'");
+		$i_season = form_input("episode[$episode_id][season]", $display_season, "size='2' track_id='$track_id' episode_id='$episode_id' tabindex='$episode_id'");
 
 		// Episode number (override all)
 		$display_episode_number = ($episode_number ? $episode_number : "");
