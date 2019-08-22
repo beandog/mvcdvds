@@ -8,6 +8,7 @@
 
 	$tbl_heading = array(
 		'ix',
+		'VTS',
 		'Aspect',
 		'Length',
 		'Chapters',
@@ -101,6 +102,7 @@
 		$tbl_row = array(
 
 			$a_track,
+			$vts,
 			$aspect,
 			$display_length,
 			$num_chapters,
