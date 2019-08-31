@@ -22,6 +22,7 @@
 	echo form_open("series/update/$id", $attr);
 
 	$display_average_length = ($average_length ? $average_length : "");
+	$display_upgrade_id = ($upgrade_id ? $upgrade_id : "");
 
 	$input_nsix = form_input('nsix', $nsix, "size='8' maxlength='5'");
 	$input_title = form_input('title', $title, "size='50'");
@@ -35,6 +36,7 @@
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_indexed = form_checkbox('indexed', 'accept', pg_bool($indexed));
+	$input_upgrade_id = form_input('upgrade_id', $display_upgrade_id, "size='3'");
 	$input_frequency = form_dropdown('frequency', $arr_dropdown_frequency, $frequency);
 	$input_cgi = form_checkbox('cgi', 'accept', $cgi);
 	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
@@ -52,6 +54,8 @@
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
 	$this->table->add_row(array("Frequency:", $input_frequency));
+	if($collection_id == 1 || $collection_id == 2 || $collection_id == 4)
+		$this->table->add_row(array("Upgrade:", $input_upgrade_id));
 	$this->table->add_row(array("CGI:", $input_cgi));
 	$this->table->add_row(array("Grayscale:", $input_grayscale));
 	$this->table->add_row(array("dvdnav:", $input_dvdnav));

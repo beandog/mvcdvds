@@ -129,6 +129,11 @@
 			else
 				$arr['library_id'] = null;
 
+			if($this->input->post('upgrade_id'))
+				$arr['upgrade_id'] = intval($this->input->post('upgrade_id'));
+			else
+				$arr['upgrade_id'] = null;
+
 			$this->series_model->set($arr);
 
 			$this->series_model->set_preset_id($id, $this->input->post('preset_id'));
