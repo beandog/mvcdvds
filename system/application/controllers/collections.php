@@ -16,10 +16,12 @@ class Collections extends Controller {
 		$data['series_presets'] = $this->series_model->get_series_presets();
 		$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
 
+		$arr_collection_series_data = $this->collections_model->collection_series_data($id);
+
 		foreach(array_keys($data['collections']) as $series_id) {
 
-			$data['sum_filesize'][$series_id] = $this->series_model->get_sum_filesize($series_id);
-			$data['num_dvds'][$series_id] = $this->series_model->get_num_dvds($series_id);
+			$data['sum_filesize'][$series_id] = $arr_collection_series_data[$series_id]['sum_filesize'];
+			$data['num_dvds'][$series_id] = $arr_collection_series_data[$series_id]['num_dvds'];
 			$data['num_episodes'][$series_id] = $this->series_model->get_num_episodes($series_id, false);
 			$data['num_dvds_no_episodes'][$series_id] = $this->series_model->num_dvds_no_episodes($series_id);
 
