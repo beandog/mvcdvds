@@ -31,6 +31,16 @@
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
 			$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
 
+			if(in_array($data['collection']['id'], array(4, 5, 7, 8, 9)))
+				$movie = true;
+			else
+				$movie = false;
+
+			if(in_array($data['collection']['id'], array(6, 8)))
+				$bluray = true;
+			else
+				$bluray = false;
+
 			foreach($data['dvds'] as $dvd_id => $row) {
 				$data['dvds'][$dvd_id]['num_tracks'] = count($this->dvds_model->get_tracks($dvd_id));
 				$data['episodes'][$dvd_id] = $this->dvds_model->get_episodes($dvd_id, 'episode_ix', false);
@@ -45,14 +55,20 @@
 					$metadata[] = "Missing Audio Tracks";
 				if($this->dvds_model->missing_episode_titles($dvd_id))
 					$metadata[] = "Missing Titles";
-				if($this->dvds_model->missing_episode_numbers($dvd_id))
+				if($this->dvds_model->missing_episode_numbers($dvd_id) && !$movie)
 					$metadata[] = "Legacy Episode Numbers";
 				if(count($data['episodes'][$dvd_id]) === 0 && $episodes_skipped === 0)
 					$metadata[] = "No Episodes";
 				if($this->dvds_model->has_bugs($dvd_id))
 					$metadata[] = "Bugs";
-				if($this->dvds_model->missing_pts($dvd_id))
+				if($this->dvds_model->missing_pts($dvd_id) && !$bluray)
 					$metadata[] = "Missing PTS";
+				if($row['bluray'] && $row['decss'] === '')
+					$metadata[] = "DRM";
+				elseif($row['bluray'] && is_null($row['decss']))
+					$metadata[] = "Missing KEYDB";
+				elseif($row['bluray'] && $row['decss'])
+					$metadata[] = "AACS";
 
 				$data['metadata'][$dvd_id] = $metadata;
 
