@@ -36,10 +36,14 @@
 			else
 				$movie = false;
 
-			if(in_array($data['collection']['id'], array(6, 8)))
+			if(in_array($data['collection']['id'], array(6, 8))) {
 				$bluray = true;
-			else
+				$disc_type = 'bluray';
+			} else {
 				$bluray = false;
+				$disc_type = 'dvd';
+			}
+
 
 			foreach($data['dvds'] as $dvd_id => $row) {
 				$data['dvds'][$dvd_id]['num_tracks'] = count($this->dvds_model->get_tracks($dvd_id));
@@ -47,7 +51,7 @@
 				$episodes_skipped = count($data['episodes'][$dvd_id]) - count($this->dvds_model->get_episodes($dvd_id, 'episode_ix', true));
 
 				$metadata = array();
-				if($this->dvds_model->old_metadata_spec($dvd_id) == true)
+				if($this->dvds_model->old_metadata_spec($dvd_id, $disc_type) == true)
 					$metadata[] = "Legacy Metadata";
 				if($this->dvds_model->missing_filesize($dvd_id))
 					$metadata[] = "Unknown Filesize";

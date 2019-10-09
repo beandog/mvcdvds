@@ -162,13 +162,16 @@
 
 		// Find collections where some of the
 		// DVDs are not using the latest metadata spec.
-		public function old_metadata_spec($dvd_id) {
+		public function old_metadata_spec($dvd_id, $disc_type = 'dvd') {
 
 			$dvd_id = abs(intval($dvd_id));
 
 			// Find the highest metadata spec in the database
 			$this->db->select_max('metadata_spec');
-			$this->db->where("bluray", 0);
+			if($disc_type == 'dvd')
+				$this->db->where('bluray', 0);
+			if($disc_type == 'bluray')
+				$this->db->where('bluray', 1);
 			$newest_spec = abs(intval($this->get_one('dvds')));
 
 			$this->db->select("metadata_spec");
