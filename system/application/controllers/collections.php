@@ -16,6 +16,11 @@ class Collections extends Controller {
 		$data['series_presets'] = $this->series_model->get_series_presets();
 		$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
 
+		if(in_array($id, array(6, 8)))
+			$data['bluray'] = true;
+		else
+			$data['bluray'] = false;
+
 		$arr_collection_series_data = $this->collections_model->collection_series_data($id);
 
 		foreach(array_keys($data['collections']) as $series_id) {
