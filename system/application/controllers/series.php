@@ -67,12 +67,14 @@
 					$metadata[] = "Bugs";
 				if($this->dvds_model->missing_pts($dvd_id) && !$bluray)
 					$metadata[] = "Missing PTS";
+				/*
 				if($row['bluray'] && $row['decss'] === '')
 					$metadata[] = "DRM";
 				elseif($row['bluray'] && is_null($row['decss']))
 					$metadata[] = "Missing KEYDB";
 				elseif($row['bluray'] && $row['decss'])
 					$metadata[] = "AACS";
+				*/
 
 				$data['metadata'][$dvd_id] = $metadata;
 
