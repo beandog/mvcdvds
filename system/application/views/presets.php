@@ -51,7 +51,7 @@
 
 		$d_upscale = '';
 
-		if($fps > 30 || $reference)
+		if($fps || $reference)
 			$d_upscale = "${fps} fps";
 
 		$tbl_row = array(
