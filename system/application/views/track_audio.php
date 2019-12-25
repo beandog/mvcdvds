@@ -23,6 +23,8 @@
 	$img_add = img(array('src' => "images/icons/add.png", 'border' => 0));
 	$img_delete = img("images/icons/delete.png");
 
+	$audio_ix = $tracks[$track_id]['audio_ix'];
+
 	foreach($audio as $audio_id => $audio_row) {
 
 		extract($audio_row);
@@ -39,6 +41,8 @@
 			$display_active = 'Missing Metadata';
 
 		$display_passthrough = '';
+		if($ix == $audio_ix)
+			$display_passthrough = "<img src='/images/icons/sound.png'>";
 		if($langcode == 'eng' && ($passthrough == null || $passthrough == 1))
 			$display_passthrough = "<img src='/images/icons/sound.png'>";
 		elseif($langcode == 'eng' && ($passthrough == 1))
@@ -52,11 +56,9 @@
 			$channels,
 			$streamid,
 			$display_active,
+			$display_passthrough
 
 		);
-
-		if($bluray)
-			$tbl_row[] = $display_passthrough;
 
 		$this->table->add_row($tbl_row);
 
