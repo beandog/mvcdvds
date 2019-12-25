@@ -20,6 +20,7 @@
  			$data['tracks'] = $this->dvds_model->get_tracks($dvd_id);
  			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
  			$data['chapters'] = $this->tracks_model->get_chapters($track_id);
+			$data['cells'] = $this->tracks_model->get_cells($track_id);
  			$data['audio'] = $this->tracks_model->get_audio($track_id);
  			$data['subp'] = $this->tracks_model->get_subp($track_id);
  			$data['cc'] = $this->tracks_model->get_cc($track_id);
@@ -33,6 +34,7 @@
 
  			$this->load->view('series_nav', $data);
  			$this->load->view('track_chapters', $data);
+ 			$this->load->view('track_cells', $data);
  			$this->load->view('track_audio', $data);
  			$this->load->view('track_subp', $data);
 
