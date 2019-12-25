@@ -42,6 +42,18 @@
 
 		}
 
+		public function get_cells($id) {
+
+			$this->db->select('*');
+			$this->db->where('track_id', $id);
+			$this->db->order_by('ix');
+
+			$arr = $this->get_assoc('cells');
+
+			return $arr;
+
+		}
+
 		public function get_dvd_id($id) {
 
 			$this->db->select('dvd_id');
