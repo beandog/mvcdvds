@@ -3,8 +3,6 @@
 	foreach($presets as $id => $arr)
 		$arr_dropdown_presets[$id] = $arr['name'];
 
-	$arr_dropdown_frequency = array('', 'High', 'Medium', 'Normal', 'New', 'Special');
-
 	if(count($libraries)) {
 		$libraries[0] = '';
 		ksort($libraries);
@@ -37,7 +35,6 @@
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_indexed = form_checkbox('indexed', 'accept', pg_bool($indexed));
 	$input_upgrade_id = form_input('upgrade_id', $display_upgrade_id, "size='3'");
-	$input_frequency = form_dropdown('frequency', $arr_dropdown_frequency, $frequency);
 	$input_cgi = form_checkbox('cgi', 'accept', $cgi);
 	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
@@ -53,7 +50,6 @@
 	$this->table->add_row(array("Preset:", $input_preset));
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
-	$this->table->add_row(array("Frequency:", $input_frequency));
 	if($collection_id == 1 || $collection_id == 2 || $collection_id == 4)
 		$this->table->add_row(array("Upgrade:", $input_upgrade_id));
 	$this->table->add_row(array("CGI:", $input_cgi));
