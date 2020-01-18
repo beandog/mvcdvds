@@ -8,6 +8,7 @@
 				'/opt/plex/episodes',
 				'/opt/plex/sd',
 				'/opt/plex/hd',
+				'/opt/plex/tv',
 			);
 
 			return $plex_episode_dirs;
