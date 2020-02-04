@@ -57,8 +57,6 @@
 		$arr_filenames[] = "$episode_nsix.mpg";
 		$arr_filenames[] = "$episode_nsix.vob";
 
-		pre($arr_filenames);
-
 		foreach($plex_episode_dirs as $plex_episode_dir) {
 
 
