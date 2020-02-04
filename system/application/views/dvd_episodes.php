@@ -71,6 +71,8 @@
 		$display_ix = ($ix ? $ix : "");
 		$i_ix = "<input type='text' size='2' name='episode[$episode_id][ix]' value='$display_ix' ix='$ix' track_id='$track_id' episode_id='$episode_id'>\n";
 		*/
+		// Episode details
+		$a_episode_details = anchor("episodes/index/$episode_id", $display_id, array('style' => "text-decoration: none"));
 
 		// Episode Title
 		$i_title = form_input("episode[$episode_id][title]", $title, "size='30' track_id='$track_id' episode_id='$episode_id' tabindex='$track_ix'");
@@ -116,7 +118,7 @@
 			$i_season,
 			$i_episode_number,
 			$i_skip_episode,
-			$display_id,
+			$a_episode_details,
 			$d_encode,
 			// $d_frames,
 			$d_plex,
