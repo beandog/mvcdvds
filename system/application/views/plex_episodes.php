@@ -47,3 +47,29 @@
 		return $filesize;
 
 	}
+
+	function plex_episode_filename($episode_nsix, $plex_episode_dirs) {
+
+		$arr_filenames = array();
+
+		$arr_filenames[] = "$episode_nsix.mkv";
+		$arr_filenames[] = "$episode_nsix.mp4";
+		$arr_filenames[] = "$episode_nsix.mpg";
+		$arr_filenames[] = "$episode_nsix.vob";
+
+		pre($arr_filenames);
+
+		foreach($plex_episode_dirs as $plex_episode_dir) {
+
+
+			foreach($arr_filenames as $filename) {
+				$plex_filename = "$plex_episode_dir/$filename";
+				if(file_exists($plex_filename))
+					return $plex_filename;
+			}
+
+		}
+
+		return false;
+
+	}
