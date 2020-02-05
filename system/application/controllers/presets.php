@@ -57,8 +57,6 @@
 				$arr['format'] = $this->input->post('format');
 				$arr['crf'] = $crf;
 				$arr['deinterlace'] = $this->input->post('deinterlace');
-				$arr['decomb'] = $this->input->post('decomb');
-				$arr['detelecine'] = $this->input->post('detelecine');
 				$arr['acodec'] = $acodec;
 				$arr['fps'] = $fps;
 

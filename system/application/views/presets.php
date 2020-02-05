@@ -32,12 +32,10 @@
 
 		$d_video_filters = '';
 		$arr_filters = array();
-		if($deinterlace)
-			$arr_filters[] = 'deinterlace';
-		if($decomb)
+		if($deinterlace == 2)
 			$arr_filters[] = 'decomb';
-		if($detelecine)
-			$arr_filters[] = 'detelecine';
+		elseif($deinterlace == 1)
+			$arr_filters[] = 'decomb + comb-detect';
 
 		$d_video_filters = implode(',', $arr_filters);
 
