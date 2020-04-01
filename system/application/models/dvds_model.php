@@ -205,7 +205,7 @@
 		public function missing_episode_numbers($id) {
 
 			$this->db->select('COUNT(1)');
-			$this->db->where("episode_number IN(NULL, 0)");
+			$this->db->where("(episode_number IS NULL OR episode_number = 0)");
 			$this->db->where("dvd_id", $id);
 			$var = $this->get_one("view_episodes");
 
