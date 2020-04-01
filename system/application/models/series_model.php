@@ -49,6 +49,7 @@
 			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.indexed, series.average_length, series.grayscale');
 			$this->db->where('series.collection_id', $id);
 			$this->db->where('series.upgrade_id', NULL);
+			$this->db->where('active', 1);
 
 			if($order_by == 'year')
 				$this->db->order_by('series.production_year DESC');
