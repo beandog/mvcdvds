@@ -149,6 +149,7 @@
 		$display_total_plex,
 		'',
 		// '',
+		'',
 		$display_total_filesize,
 		$display_total_episodes_filesize,
 	));
