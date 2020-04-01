@@ -39,6 +39,7 @@
 	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
+	$input_active = form_checkbox('active', 'accept', $active);
 
 	if($tvdb)
 		$input_tvdb .= " <a href='https://www.thetvdb.com/series/$tvdb/seasons/all' target='_blank'>All Seasons</a>";
@@ -56,6 +57,7 @@
 	$this->table->add_row(array("Grayscale:", $input_grayscale));
 	$this->table->add_row(array("dvdnav:", $input_dvdnav));
 	$this->table->add_row(array("QA Notes:", $input_qa_notes));
+	$this->table->add_row(array("Active:", $input_active));
 
 	$submit = form_submit('submit', 'Update');
 
