@@ -25,6 +25,7 @@
 	$input_nsix = form_input('nsix', $nsix, "size='8' maxlength='5'");
 	$input_title = form_input('title', $title, "size='50'");
 	$input_tvdb = form_input('tvdb', $tvdb, "size='25'");
+	$input_quality = form_dropdown('quality', array('Low', 'Medium', 'High', 'Very High'), $quality);
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
 	if(count($libraries)) {
 		$input_libraries = form_dropdown('library', $libraries, $series['library_id']);
@@ -35,7 +36,6 @@
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_indexed = form_checkbox('indexed', 'accept', pg_bool($indexed));
 	$input_upgrade_id = form_input('upgrade_id', $display_upgrade_id, "size='3'");
-	$input_cgi = form_checkbox('cgi', 'accept', $cgi);
 	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
@@ -49,11 +49,11 @@
 	$this->table->add_row(array("TV DB:", $input_tvdb));
 	$this->table->add_row(array("Collection:", $input_collection));
 	$this->table->add_row(array("Preset:", $input_preset));
+	$this->table->add_row(array("Source Quality:", $input_quality));
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
 	if($collection_id == 1 || $collection_id == 2 || $collection_id == 4)
 		$this->table->add_row(array("Upgrade:", $input_upgrade_id));
-	$this->table->add_row(array("CGI:", $input_cgi));
 	$this->table->add_row(array("Grayscale:", $input_grayscale));
 	$this->table->add_row(array("dvdnav:", $input_dvdnav));
 	$this->table->add_row(array("QA Notes:", $input_qa_notes));

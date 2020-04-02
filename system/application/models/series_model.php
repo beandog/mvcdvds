@@ -205,7 +205,7 @@
 			$this->db->select('series.*');
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id');
 			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id', 'left outer');
-			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.indexed, series.average_length, series.grayscale, series.cgi');
+			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.indexed, series.average_length, series.grayscale, series.quality');
 			$this->db->order_by('series.title');
 			$this->db->where('LOWER(series.title) LIKE', "%${q}%");
 			$this->db->or_where('UPPER(series.nsix) LIKE', strtoupper("%${q}%"));
