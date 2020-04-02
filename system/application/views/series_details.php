@@ -31,6 +31,7 @@
 		$input_libraries = form_dropdown('library', $libraries, $series['library_id']);
 		$input_collection .= " $input_libraries";
 	}
+	$input_collection .= " $input_quality";
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
@@ -49,7 +50,6 @@
 	$this->table->add_row(array("TV DB:", $input_tvdb));
 	$this->table->add_row(array("Collection:", $input_collection));
 	$this->table->add_row(array("Preset:", $input_preset));
-	$this->table->add_row(array("Source Quality:", $input_quality));
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
 	if($collection_id == 1 || $collection_id == 2 || $collection_id == 4)
