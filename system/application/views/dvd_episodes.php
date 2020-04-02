@@ -95,10 +95,12 @@
 
 		$d_frames = '-';
 		$d_encode = 'Preset';
-		if($progressive != null) {
-			if($progressive != null && ($top_field || $bottom_field))
-				$d_encode = 'Detelecine';
-			if($progressive > 0 && $top_field == 0 && $bottom_field == 0)
+		$frames = $progressive + $top_field + $bottom_field;
+		if($frames) {
+			$per_interlaced = (($top_field + $bottom_field) / $frames) * 100;
+			if($per_interlaced >= 2)
+				$d_encode = 'Decomb';
+			else
 				$d_encode = 'Progressive';
 			$d_frames = "$progressive / $top_field / $bottom_field";
 			$d_encode = "<span title='$d_frames'>$d_encode</span>";
