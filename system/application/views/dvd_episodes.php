@@ -20,6 +20,7 @@
 		'Encode',
 		// 'Frames',
 		'Plex',
+		'Video',
 		'Filesize',
 		''
 	);
@@ -106,6 +107,12 @@
 			$d_encode = "<span title='$d_frames'>$d_encode</span>";
 		}
 
+		$d_avcinfo = '';
+		if($avcinfo && $d_plex) {
+			$d_avcinfo = substr($avcinfo, 27);
+		}
+		$d_avcinfo = $avcinfo;
+
 		$tbl_row = array(
 
 			$a_track,
@@ -122,6 +129,7 @@
 			$d_encode,
 			// $d_frames,
 			$d_plex,
+			$d_avcinfo,
 			$d_filesize,
 			$img_delete,
 
