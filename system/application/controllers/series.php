@@ -140,6 +140,7 @@
 				'indexed' => bool_pg($this->input->post('indexed')),
 				'quality' => $this->input->post('quality'),
 				'grayscale' => (bool)($this->input->post('grayscale')),
+				'decomb' => (bool)($this->input->post('decomb')),
 				'dvdnav' => (bool)($this->input->post('dvdnav')),
 				'qa_notes' => ($this->input->post('qa_notes')),
 				'tvdb' => $this->input->post('tvdb'),
