@@ -156,6 +156,11 @@
 			else
 				$arr['upgrade_id'] = null;
 
+			if($this->input->post('crf'))
+				$arr['crf'] = intval($this->input->post('crf'));
+			else
+				$arr['crf'] = null;
+
 			$this->series_model->set($arr);
 
 			$this->series_model->set_preset_id($id, $this->input->post('preset_id'));

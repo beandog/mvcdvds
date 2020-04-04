@@ -26,12 +26,13 @@
 	$input_title = form_input('title', $title, "size='50'");
 	$input_tvdb = form_input('tvdb', $tvdb, "size='25'");
 	$input_quality = form_dropdown('quality', array('Low', 'Medium', 'High', 'Very High'), $quality);
+	$input_crf = form_input('crf', $crf, "size='3'");
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
 	if(count($libraries)) {
 		$input_libraries = form_dropdown('library', $libraries, $series['library_id']);
 		$input_collection .= " $input_libraries";
 	}
-	$input_collection .= " $input_quality";
+	$input_collection .= " $input_quality $input_crf";
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
