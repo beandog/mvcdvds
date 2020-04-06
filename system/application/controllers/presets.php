@@ -59,6 +59,7 @@
 				$arr['deinterlace'] = $this->input->post('deinterlace');
 				$arr['decomb'] = $this->input->post('decomb');
 				$arr['detelecine'] = $this->input->post('detelecine');
+				$arr['x265'] = $this->input->post('vcodec');
 				$arr['acodec'] = $acodec;
 				$arr['fps'] = $fps;
 
