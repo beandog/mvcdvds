@@ -8,9 +8,11 @@
 
 	extract($series);
 
-	$qa_files = preg_grep("/^$collection_id\.0+?$id\..*$nsix/", scandir("/root/qa"));
+	$qa_files = scandir("/root/qa");
 
-	foreach($qa_files as $filename) {
+	$qa_images = preg_grep("/^.*\.$nsix\..*/", $qa_files);
+
+	foreach($qa_images as $filename) {
 
 		echo heading("$filename", 3);
 		echo "<img src='/qa/$filename'>\n";

@@ -39,7 +39,8 @@
 	$input_indexed = form_checkbox('indexed', 'accept', pg_bool($indexed));
 	$input_upgrade_id = form_input('upgrade_id', $display_upgrade_id, "size='3'");
 	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
-	$input_decomb = form_checkbox('decomb', '1', $decomb);
+	// $input_decomb = form_checkbox('decomb', '1', $decomb);
+	$input_decomb = form_dropdown('decomb', array('None', 'Default', 'Permissive'));
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
 	$input_active = form_checkbox('active', 'accept', $active);
