@@ -39,8 +39,8 @@
 	$input_indexed = form_checkbox('indexed', 'accept', pg_bool($indexed));
 	$input_upgrade_id = form_input('upgrade_id', $display_upgrade_id, "size='3'");
 	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
-	// $input_decomb = form_checkbox('decomb', '1', $decomb);
-	$input_decomb = form_dropdown('decomb', array('None', 'Default', 'Permissive'));
+	$input_detelecine = form_checkbox('detelecine', 'accept', $detelecine);
+	$input_decomb = form_dropdown('decomb', array('None', 'Default', 'Permissive'), $decomb);
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
 	$input_active = form_checkbox('active', 'accept', $active);
@@ -58,6 +58,7 @@
 	if($collection_id == 1 || $collection_id == 2 || $collection_id == 4)
 		$this->table->add_row(array("Upgrade:", $input_upgrade_id));
 	$this->table->add_row(array("Grayscale:", $input_grayscale));
+	$this->table->add_row(array("Detelecine:", $input_detelecine));
 	$this->table->add_row(array("Decomb:", $input_decomb));
 	$this->table->add_row(array("dvdnav:", $input_dvdnav));
 	$this->table->add_row(array("QA Notes:", $input_qa_notes));
