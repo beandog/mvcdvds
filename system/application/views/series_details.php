@@ -43,6 +43,7 @@
 	$input_decomb = form_dropdown('decomb', array('None', 'Default', 'Permissive'), $decomb);
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
+	$input_screenshots = form_input('screenshots', $screenshots, "size='18'");
 	$input_active = form_checkbox('active', 'accept', $active);
 
 	if($tvdb)
@@ -61,6 +62,7 @@
 	$this->table->add_row(array("Detelecine:", $input_detelecine));
 	$this->table->add_row(array("Decomb:", $input_decomb));
 	$this->table->add_row(array("dvdnav:", $input_dvdnav));
+	$this->table->add_row(array("Screenshots:", $input_screenshots));
 	$this->table->add_row(array("QA Notes:", $input_qa_notes));
 	$this->table->add_row(array("Active:", $input_active));
 

@@ -15,7 +15,7 @@
 	foreach($qa_images as $filename) {
 
 		echo heading("$filename", 3);
-		echo "<img src='/qa/$filename'>\n";
+		echo "<a href='/qa/$filename'><img src='/qa/$filename'></a>\n";
 
 	}
 

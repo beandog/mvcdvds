@@ -162,6 +162,7 @@
 				'detelecine' => (bool)($this->input->post('detelecine')),
 				'decomb' => $this->input->post('decomb'),
 				'dvdnav' => (bool)($this->input->post('dvdnav')),
+				'screenshots' => $this->input->post('screenshots'),
 				'qa_notes' => ($this->input->post('qa_notes')),
 				'tvdb' => $this->input->post('tvdb'),
 				'active' => (bool)($this->input->post('active')),
