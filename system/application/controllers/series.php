@@ -157,7 +157,6 @@
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => $this->input->post('production_year'),
 				'indexed' => bool_pg($this->input->post('indexed')),
-				'quality' => $this->input->post('quality'),
 				'grayscale' => (bool)($this->input->post('grayscale')),
 				'detelecine' => (bool)($this->input->post('detelecine')),
 				'decomb' => $this->input->post('decomb'),
