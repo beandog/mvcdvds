@@ -14,10 +14,12 @@
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data);
 
-			if($id) {
+			if(array_key_exists($id, $data['presets'])) {
 				$data['preset'] = $this->presets_model->get_data($id);
 				$data['preset']['series_titles'] = $this->presets_model->get_series_titles($id);
 				$this->load->view('preset_details', $data['preset']);
+			} elseif($id) {
+				redirect("/presets");
 			} else {
 				$this->load->view('presets', $data);
 			}
