@@ -71,6 +71,9 @@
 
 		public function episodes($id) {
 
+			if($id == null)
+				redirect("/");
+
 			$data['dvds'] = $this->dvds_model->get_data($id);
 			$collection_id = $this->dvds_model->get_collection_id($id);
 			$series_id = $this->dvds_model->get_series_id($id);
@@ -101,11 +104,13 @@
 			$this->load->view('jquery');
 			$this->load->view('html_title', $data['series']);
 
-			$this->load->view('series_nav', $data);
- 			$this->load->view('js/dvd_episodes');
- 			$this->load->view('js/tables');
- 			$this->load->view('plex_episodes', $data);
- 			$this->load->view('dvd_episodes', $data);
+			if($data['dvds']) {
+				$this->load->view('series_nav', $data);
+				$this->load->view('js/dvd_episodes');
+				$this->load->view('js/tables');
+				$this->load->view('plex_episodes', $data);
+				$this->load->view('dvd_episodes', $data);
+			}
 
 		}
 
@@ -119,6 +124,9 @@
 		}
 
 		public function tracks($id) {
+
+			if($id == null)
+				redirect("/");
 
 			$data['dvds'] = $this->dvds_model->get_data($id);
 			$collection_id = $this->dvds_model->get_collection_id($id);
