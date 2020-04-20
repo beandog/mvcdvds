@@ -94,6 +94,9 @@
 
 		function details($id) {
 
+			if($id == null)
+				redirect("/");
+
 			$data['series'] = $this->series_model->get_data($id);
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
 			$data['presets'] = $this->presets_model->get_presets();
@@ -107,11 +110,17 @@
 			$this->load->view('html_title', $data['series']);
 
 			$this->load->view('series_nav', $data);
-			$this->load->view('series_details', $data);
+
+			if($data['series']) {
+				$this->load->view('series_details', $data);
+			}
 
 		}
 
 		function qa($id) {
+
+			if($id == null)
+				redirect("/");
 
 			$data['series'] = $this->series_model->get_data($id);
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);

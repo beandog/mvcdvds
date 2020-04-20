@@ -34,6 +34,9 @@
 
 		public function details($id) {
 
+			if($id == null)
+				redirect("/");
+
 			$data['dvds'] = $this->dvds_model->get_data($id);
 			$data['series_dvd'] = $this->series_dvds_model->get_dvd_data($id);
 			$collection_id = $this->dvds_model->get_collection_id($id);
