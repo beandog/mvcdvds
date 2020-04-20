@@ -25,7 +25,7 @@ class Collections extends Controller {
 
 		foreach(array_keys($data['collections']) as $series_id) {
 
-			if(!in_array($series_id, $arr_collection_series_data)) {
+			if(!in_array($series_id, array_keys($arr_collection_series_data))) {
 				$arr_collection_series_data[$series_id]['sum_filesize'] = 0;
 				$arr_collection_series_data[$series_id]['num_dvds'] = 0;
 			}
