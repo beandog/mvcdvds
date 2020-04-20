@@ -6,11 +6,11 @@ class Collections extends Controller {
 		parent::Controller();
 	}
 
-	function index($id, $library_id = 0) {
+	function index($id, $active = 1, $library_id = 0) {
 
 		$data['collection'] = $this->collections_model->get_data($id);
 		$data['libraries'] = $this->collections_model->get_libraries($id);
-		$data['collections'] = $this->series_model->get_collection($id, $library_id);
+		$data['collections'] = $this->series_model->get_collection($id, $active, $library_id);
 
 		$data['presets'] = $this->presets_model->get_presets();
 		$data['series_presets'] = $this->series_model->get_series_presets();
@@ -25,6 +25,10 @@ class Collections extends Controller {
 
 		foreach(array_keys($data['collections']) as $series_id) {
 
+			if(!in_array($series_id, $arr_collection_series_data)) {
+				$arr_collection_series_data[$series_id]['sum_filesize'] = 0;
+				$arr_collection_series_data[$series_id]['num_dvds'] = 0;
+			}
 			$data['sum_filesize'][$series_id] = $arr_collection_series_data[$series_id]['sum_filesize'];
 			$data['num_dvds'][$series_id] = $arr_collection_series_data[$series_id]['num_dvds'];
 			$data['num_episodes'][$series_id] = $this->series_model->get_num_episodes($series_id, false);

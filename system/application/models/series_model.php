@@ -41,7 +41,7 @@
 		}
 
 		// Find all the DVDs in a collection
-		public function get_collection($id, $library_id = 0) {
+		public function get_collection($id, $active = 1, $library_id = 0) {
 
 			$this->db->select('series.*');
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id', 'left outer');
@@ -49,7 +49,7 @@
 			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.indexed, series.average_length, series.grayscale');
 			$this->db->where('series.collection_id', $id);
 			$this->db->where('series.upgrade_id', NULL);
-			$this->db->where('active', 1);
+			$this->db->where('active', $active);
 			if($library_id)
 				$this->db->where('series.library_id', $library_id);
 			$this->db->order_by('series.title');
