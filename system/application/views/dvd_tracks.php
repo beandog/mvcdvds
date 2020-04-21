@@ -15,6 +15,7 @@
 		'Episodes',
 		'',
 		'Subtitles',
+		'Filesize',
 	);
 
 	echo form_button("add_valid", "Valid Tracks to Episodes", "onclick='window.make_episodes();'");
@@ -34,6 +35,11 @@
 		extract($track_row);
 
 		$color = 'black';
+
+		$mbs = ceil($filesize / 1048576);
+		$display_filesize = '';
+		if($mbs)
+			$display_filesize = "<span style='float: right;'>".number_format($mbs)." MBs</span>";
 
 		$length_too_small = length_too_small($length);
 		$length_close_to_average = length_close_to_average($length, $series['average_length'], 10);
@@ -109,6 +115,7 @@
 			$display_num_episodes,
 			$display_add_episodes,
 			$display_subtitles,
+			$display_filesize,
 
 		);
 

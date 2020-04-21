@@ -74,7 +74,7 @@
 		*/
 
 		// Episode Title
-		$i_title = form_input("episode[$episode_id][title]", $title, "size='30' track_id='$track_id' episode_id='$episode_id' tabindex='$track_ix'");
+		$i_title = form_input("episode[$episode_id][title]", $title, "size='45' track_id='$track_id' episode_id='$episode_id' tabindex='$track_ix'");
 
 		// Episode Part
 		$i_part = form_input("episode[$episode_id][part]", $part, "size='2' track_id='$track_id' episode_id='$episode_id'");
