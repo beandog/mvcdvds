@@ -3,9 +3,14 @@
 	echo heading($series['title']." - ".$series['nsix'], 2);
 
 	if(isset($series_dvds)) {
+
+		$display_basename_str = "$collection_id.".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".$dvd_id.$nsix";
+		$display_package_title = $series_dvds[$dvd_id]['package_title'];
 		$display_season = array();
 		if(strlen($series_dvds[$dvd_id]['title']))
 			$display_season[] = $series_dvds[$dvd_id]['title'];
+		if(strlen($series_dvds[$dvd_id]['package_title']))
+			$display_season[] = $series_dvds[$dvd_id]['package_title'];
 		$display_season[] = "Season: ".str_pad($series_dvds[$dvd_id]['season'], 2);
 		if($series_dvds[$dvd_id]['volume'])
 			$display_season[] = "Volume: ".str_pad($series_dvds[$dvd_id]['volume'], 2);
@@ -36,7 +41,7 @@
  	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series | $a_qa";
 	if(isset($series_dvds))
 		echo " | $display_season_str";
-	 if(strlen($preset_name))
+	if(strlen($preset_name))
 		echo " | $preset_name";
 	echo "&nbsp; $img";
 
