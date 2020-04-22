@@ -115,13 +115,14 @@
 
 		}
 
-		public function get_bugs($id) {
+		public function get_bugs($id, $disc_type = 0) {
 
 			$this->db->select('bugs.id');
 			$this->db->select('bugs.disc');
 			$this->db->select('bugs.name');
 			$this->db->select('dvd_bugs.dvd_id');
 			$this->db->join('dvd_bugs', "dvd_bugs.bug_id = bugs.id AND dvd_bugs.dvd_id = $id", 'left');
+			$this->db->where("bugs.disc = $disc_type");
 			$this->db->order_by('bugs.name');
 
 			$arr = $this->get_all('bugs');

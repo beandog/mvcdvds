@@ -47,7 +47,7 @@
 			$data['episodes'] = $this->dvds_model->get_episodes($id);
 			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($series_id));
-			$data['bugs'] = $this->dvds_model->get_bugs($id);
+			$data['bugs'] = $this->dvds_model->get_bugs($id, $data['dvds']['bluray']);
 
 			// Navigation
 			$data['dvd_id'] = $id;
