@@ -58,6 +58,7 @@
 			$d_filesize = number_format($filesize)." MB";
 		}
 
+
 		// Link to track
 		$a_track = anchor("tracks/index/$track_id", $img_dvd);
 
@@ -109,9 +110,8 @@
 
 		$d_avcinfo = '';
 		if($avcinfo && $d_plex) {
-			$d_avcinfo = substr($avcinfo, 27);
+			$d_avcinfo = $avcinfo;
 		}
-		$d_avcinfo = $avcinfo;
 
 		$tbl_row = array(
 
