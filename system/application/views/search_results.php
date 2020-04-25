@@ -24,6 +24,7 @@
 
 		$table_row = array(
 			$img_dvd,
+			$nsix,
 			$a_title,
 		);
 
