@@ -1,3 +1,21 @@
+<script type='text/javascript'>
+
+	function play_episode(episode_url, episode_filename) {
+
+		return true;
+
+		console.log("Play video " + episode_url);
+		$('#episode_player').attr('src', episode_url);
+		$('#episode_filename').text(episode_filename);
+		vid = document.getElementById('video');
+		vid.load();
+		vid.play();
+		$('#video').removeAttr('hidden');
+		// $('#video').hide();
+
+	}
+
+</script>
 <p><?php
 
 	$plex_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\.\d*".$dvds['id']."\..*\.m(p4|kv)/";
@@ -52,12 +70,15 @@
 			$d_filesize = number_format($filesize)." MB";
 		}
 		if(in_array($mkv_file, $plex_files)) {
+			$episode_filename = basename($mkv_file);
+			$d_plex = "<img src='/images/icons/film_go.png' onclick=\"play_episode('/plex/sd/$episode_filename', '$episode_filename');\">";
 			$d_plex = '++';
 			$filesize = plex_episode_filesize($mkv_file, $plex_episode_dirs);
 			$filesize = $filesize / (1024 * 1024);
 			$d_filesize = number_format($filesize)." MB";
 		}
 
+		$d_plex = "<center>$d_plex</center>";
 
 		// Link to track
 		$a_track = anchor("tracks/index/$track_id", $img_dvd);
@@ -165,3 +186,5 @@
 	*/
 
 	echo form_close();
+
+	echo "<p><b><span id='episode_filename'></span></b></p><video controls height='480' id='video' hidden><source src='' type='video/mp4' id='episode_player'></video>";

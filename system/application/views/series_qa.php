@@ -10,7 +10,7 @@
 
 	$qa_files = scandir("/root/qa");
 
-	$qa_images = preg_grep("/^.*\.$nsix\..*/", $qa_files);
+	$qa_images = preg_grep("/^.*\.$nsix\..*png/", $qa_files);
 
 	foreach($qa_images as $filename) {
 
