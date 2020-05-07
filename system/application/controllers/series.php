@@ -139,6 +139,28 @@
 
 		}
 
+		function videos($id) {
+
+			if($id == null)
+				redirect("/");
+
+			$data['series'] = $this->series_model->get_data($id);
+			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
+			$data['presets'] = $this->presets_model->get_presets();
+			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
+			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
+			$data['dvd_id'] = key($data['dvds']);
+			$data['collections'] = $this->collections_model->get_collections();
+			$data['libraries'] = $this->collections_model->get_libraries($data['series']['collection_id']);
+
+			$this->load->view('css/style');
+			$this->load->view('html_title', $data['series']);
+
+			$this->load->view('series_nav', $data);
+			$this->load->view('series_videos', $data);
+
+		}
+
 		public function new_dvd() {
 
 			$uri = $this->uri->uri_to_assoc();
