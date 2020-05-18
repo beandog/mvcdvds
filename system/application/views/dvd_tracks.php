@@ -8,6 +8,7 @@
 
 	$tbl_heading = array(
 		'ix',
+		'Video',
 		'VTS',
 		'Aspect',
 		'Length',
@@ -35,6 +36,8 @@
 		extract($track_row);
 
 		$color = 'black';
+
+		$display_codec = strtoupper($codec);
 
 		$mbs = ceil($filesize / 1048576);
 		$display_filesize = '';
@@ -108,6 +111,7 @@
 		$tbl_row = array(
 
 			$a_track,
+			$display_codec,
 			$vts,
 			$aspect,
 			$display_length,
