@@ -38,6 +38,7 @@
 		$color = 'black';
 
 		$display_codec = strtoupper($codec);
+		$display_codec = str_replace('H264', 'AVC', $display_codec);
 
 		$mbs = ceil($filesize / 1048576);
 		$display_filesize = '';
