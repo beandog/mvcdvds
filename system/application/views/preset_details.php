@@ -13,7 +13,7 @@
 	$inputs = array();
 
 	$o_format = array('mkv' => 'mkv', 'mp4' => 'mp4', 'm2ts' => 'm2ts', 'vob' => 'vob');
-	$o_vcodec = array('avc' => 'avc', 'hevc' => 'hevc', 'vp8' => 'vp8');
+	$o_vcodec = array('x264' => 'avc', 'x265' => 'hevc', 'vp8' => 'vp8', 'vp9' => 'vp9');
 	$o_acodec = array('fdk_aac' => 'aac', 'ac3' => 'ac3', 'copy' => 'copy');
 	$o_x264_preset = array('ultrafast' => 'ultrafast', 'superfast' => 'superfast', 'veryfast' => 'veryfast', 'faster' => 'faster', 'fast' => 'fast', 'medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
 	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain', 'ssim' => 'ssim');
