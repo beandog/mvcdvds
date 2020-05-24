@@ -11,7 +11,6 @@
 		public function get_presets() {
 
 			$this->db->select('*');
-			$this->db->order_by('reference');
 			$this->db->order_by('name');
 
 			$arr = $this->get_assoc();

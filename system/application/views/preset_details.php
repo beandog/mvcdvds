@@ -13,7 +13,7 @@
 	$inputs = array();
 
 	$o_format = array('mkv' => 'mkv', 'mp4' => 'mp4', 'm2ts' => 'm2ts', 'vob' => 'vob');
-	$o_vcodec = array('avc', 'hevc');
+	$o_vcodec = array('avc' => 'avc', 'hevc' => 'hevc', 'vp8' => 'vp8');
 	$o_acodec = array('fdk_aac' => 'aac', 'ac3' => 'ac3', 'copy' => 'copy');
 	$o_x264_preset = array('ultrafast' => 'ultrafast', 'superfast' => 'superfast', 'veryfast' => 'veryfast', 'faster' => 'faster', 'fast' => 'fast', 'medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
 	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain', 'ssim' => 'ssim');
@@ -24,7 +24,7 @@
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
 	$i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
 	$i_crf = form_input('crf', $crf, 'size=2');
-	$i_vcodec = form_dropdown('vcodec', $o_vcodec, $x265);
+	$i_vcodec = form_dropdown('vcodec', $o_vcodec, $vcodec);
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
 	$i_deinterlace = form_checkbox('deinterlace', 1, $deinterlace);
 	$i_decomb = form_checkbox('decomb', 1, $decomb);

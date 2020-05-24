@@ -25,9 +25,6 @@
 		$a_preset = anchor("presets/index/$id", $name);
 		$d_preset = $a_preset;
 
-		if($reference)
-			$d_preset = "[$reference] $d_preset";
-
 		$d_video_quality = $crf;
 
 		$d_video_filters = '';
@@ -51,7 +48,7 @@
 
 		$d_upscale = '';
 
-		if($fps || $reference)
+		if($fps)
 			$d_upscale = "${fps} fps";
 
 		$tbl_row = array(
