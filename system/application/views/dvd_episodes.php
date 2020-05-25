@@ -2,16 +2,27 @@
 
 	function play_episode(episode_url, episode_filename) {
 
-		return true;
-
 		console.log("Play video " + episode_url);
-		$('#episode_player').attr('src', episode_url);
 		$('#episode_filename').text(episode_filename);
 		vid = document.getElementById('video');
-		vid.load();
-		vid.play();
-		$('#video').removeAttr('hidden');
-		// $('#video').hide();
+		// vid.load();
+		// vid.play();
+
+		if($('#episode_player').attr('src') == episode_url) {
+
+			if(vid.paused)
+				vid.play();
+			else
+				vid.pause();
+
+		} else {
+
+			$('#episode_player').attr('src', episode_url);
+			vid.load();
+			vid.play();
+			$('#video').removeAttr('hidden');
+
+		}
 
 	}
 
@@ -71,8 +82,7 @@
 		}
 		if(in_array($mkv_file, $plex_files)) {
 			$episode_filename = basename($mkv_file);
-			$d_plex = "<img src='/images/icons/film_go.png' onclick=\"play_episode('/plex/sd/$episode_filename', '$episode_filename');\">";
-			$d_plex = '++';
+			$d_plex = "<img src='/images/icons/control_play_blue.png' onclick=\"play_episode('/plex/sd/$episode_filename', '$episode_filename');\">";
 			$filesize = plex_episode_filesize($mkv_file, $plex_episode_dirs);
 			$filesize = $filesize / (1024 * 1024);
 			$d_filesize = number_format($filesize)." MB";
