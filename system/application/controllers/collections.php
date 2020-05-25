@@ -35,10 +35,10 @@ class Collections extends Controller {
 			$data['num_dvds_no_episodes'][$series_id] = $this->series_model->num_dvds_no_episodes($series_id);
 
 			$metadata = array();
-			if($this->series_model->old_metadata_spec($series_id))
-				$metadata[] = "Legacy Metadata";
-			// if($this->series_model->missing_episode_titles($series_id))
-			//	$metadata[] = "Missing Titles";
+			// if($this->series_model->old_metadata_spec($series_id))
+			//	$metadata[] = "Legacy Metadata";
+			if($this->series_model->missing_episode_titles($series_id))
+				$metadata[] = "Missing Titles";
 			if($data['num_episodes'][$series_id] === 0)
 				$metadata[] = "No Series Episodes";
 			elseif($data['num_dvds_no_episodes'][$series_id])
