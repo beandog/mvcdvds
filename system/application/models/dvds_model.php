@@ -253,6 +253,7 @@
 			$this->db->select('COUNT(1)');
 			$this->db->where("progressive", null);
 			$this->db->where("dvd_id", $id);
+			$this->db->where("episode_skip", 0);
 			$var = $this->get_one("view_episodes");
 
 			if($var)
@@ -263,6 +264,7 @@
 			$this->db->where("top_field", 0);
 			$this->db->where("bottom_field", 0);
 			$this->db->where("dvd_id", $id);
+			$this->db->where("episode_skip", 0);
 			$var = $this->get_one("view_episodes");
 
 			if($var)
