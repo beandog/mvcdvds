@@ -58,11 +58,10 @@
 
 		$total_episodes_filesize += $total_series_episodes_filesize;
 
+		$class = 'imported';
 		if(count($metadata[$series_id])) {
-			$class = 'update';
 			$img_dvd = img(array('src' => "images/icons/dvd_error.png"));
 		} else {
-			$class = 'imported';
 			$img_dvd = img(array('src' => "images/icons/dvd.png"));
 		}
 
