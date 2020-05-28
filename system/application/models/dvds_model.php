@@ -115,6 +115,17 @@
 
 		}
 
+		public function get_bluray_disc_title($id) {
+
+			 $this->db->select('disc_title');
+			 $this->db->where('dvd_id', $id);
+
+			 $var = $this->get_one('blurays');
+
+			 return $var;
+
+		}
+
 		public function get_bugs($id, $disc_type = 0) {
 
 			$this->db->select('bugs.id');

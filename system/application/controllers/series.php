@@ -44,8 +44,14 @@
 				$disc_type = 'dvd';
 			}
 
-
 			foreach($data['dvds'] as $dvd_id => $row) {
+
+				if($disc_type == 'bluray') {
+					$bluray_disc_title = $this->dvds_model->get_bluray_disc_title($dvd_id);
+					if(!$data['dvds'][$dvd_id]['title'])
+						$data['dvds'][$dvd_id]['title'] = strtoupper($bluray_disc_title);
+				}
+
 				$data['dvds'][$dvd_id]['num_tracks'] = count($this->dvds_model->get_tracks($dvd_id));
 				$data['episodes'][$dvd_id] = $this->dvds_model->get_episodes($dvd_id, 'episode_ix', false);
 				$episodes_skipped = count($data['episodes'][$dvd_id]) - count($this->dvds_model->get_episodes($dvd_id, 'episode_ix', true));
