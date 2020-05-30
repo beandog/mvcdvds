@@ -28,8 +28,11 @@
 	$i_package_title = form_input('package_title', $package_title, "size='64'");
 	// $i_no_dvdnav = form_checkbox('no_dvdnav', 't', $series_dvd['no_dvdnav'] == 't');
 
+	$nsix = "$collection_id.".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvds['id'], 4, 0, STR_PAD_LEFT).".".$series['nsix'].".iso";
+
 	if(!empty($title))
 		$this->table->add_row(array("Title:", $title));
+	$this->table->add_row(array("NSIX:", $nsix));
 	if(!empty($provider_id))
 		$this->table->add_row(array("Provider ID:", $provider_id));
 	if(!empty($vmg_id))
