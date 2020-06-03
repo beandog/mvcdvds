@@ -193,7 +193,6 @@
 				'title' => $this->input->post('title'),
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => $this->input->post('production_year'),
-				'indexed' => bool_pg($this->input->post('indexed')),
 				'grayscale' => (bool)($this->input->post('grayscale')),
 				'detelecine' => (bool)($this->input->post('detelecine')),
 				'decomb' => $this->input->post('decomb'),
@@ -218,6 +217,11 @@
 				$arr['crf'] = intval($this->input->post('crf'));
 			else
 				$arr['crf'] = null;
+
+			if($this->input->post('start_date'))
+				$arr['start_date'] = $this->input->post('start_date');
+			else
+				$arr['start_date'] = null;
 
 			$this->series_model->set($arr);
 

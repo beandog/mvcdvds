@@ -35,7 +35,6 @@
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
-	$input_indexed = form_checkbox('indexed', 'accept', pg_bool($indexed));
 	$input_upgrade_id = form_input('upgrade_id', $display_upgrade_id, "size='3'");
 	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
 	$input_detelecine = form_checkbox('detelecine', 'accept', $detelecine);
@@ -43,6 +42,7 @@
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
 	$input_screenshots = form_input('screenshots', $screenshots, "size='18'");
+	$input_start_date = form_input('start_date', $start_date, "size='10'");
 	$input_active = form_checkbox('active', 'accept', $active);
 
 	if($tvdb)
@@ -57,6 +57,7 @@
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
 	if($collection_id == 1 || $collection_id == 2 || $collection_id == 4)
 		$this->table->add_row(array("Upgrade:", $input_upgrade_id));
+	$this->table->add_row(array("Start Date:", $input_start_date));
 	$this->table->add_row(array("Grayscale:", $input_grayscale));
 	$this->table->add_row(array("Detelecine:", $input_detelecine));
 	$this->table->add_row(array("Decomb:", $input_decomb));
