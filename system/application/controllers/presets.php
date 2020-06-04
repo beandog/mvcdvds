@@ -45,7 +45,6 @@
 
 				$crf = abs(intval($this->input->post('crf')));
 				$acodec = $this->input->post('acodec');
-				$fps = abs(intval($this->input->post('fps')));
 
 				if(!strlen($this->input->post('crf')))
 					$crf = 23;
@@ -63,7 +62,7 @@
 				$arr['detelecine'] = $this->input->post('detelecine');
 				$arr['vcodec'] = $this->input->post('vcodec');
 				$arr['acodec'] = $acodec;
-				$arr['fps'] = $fps;
+				$arr['fps'] = $this->input->post('fps');
 
 				$this->presets_model->set($arr);
 
