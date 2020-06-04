@@ -27,11 +27,11 @@
 
 		public function get_chapters($id, $orderby = 'ix') {
 
-			$this->db->select('chapters.id, chapters.track_id, chapters.ix, chapters.length, chapters.startcell, chapters.filesize');
+			$this->db->select('chapters.id, chapters.track_id, chapters.ix, chapters.length, chapters.filesize');
 			$this->db->select('COUNT(episodes.id) AS num_episodes');
 			$this->db->join('episodes', 'episodes.track_id = chapters.track_id AND episodes.starting_chapter = chapters.ix AND episodes.ending_chapter = chapters.ix', 'left outer');
 			$this->db->where('chapters.track_id', $id);
-			$this->db->group_by('chapters.id, chapters.track_id, chapters.ix, chapters.length, chapters.startcell, chapters.filesize');
+			$this->db->group_by('chapters.id, chapters.track_id, chapters.ix, chapters.length, chapters.filesize');
 
 			if($orderby == 'ix')
 				$this->db->order_by('ix');
