@@ -46,7 +46,7 @@
 		'#',
 		'No',
 		'NSIX',
-		'Encode',
+		// 'Encode',
 		// 'Frames',
 		'Plex',
 		'Video',
@@ -74,6 +74,7 @@
 		$mkv_file = $display_id.".".$series['nsix'].".mkv";
 		$d_plex = '';
 		$d_filesize = '';
+		$filesize = 0;
 		if(in_array($mp4_file, $plex_files)) {
 			$d_plex = '++';
 			$filesize = plex_episode_filesize($mp4_file, $plex_episode_dirs);
@@ -118,6 +119,7 @@
 		$i_skip_episode = form_checkbox("episode[$episode_id][skip]", '1', $skip ? true : false);
 
 		$d_frames = '-';
+		/*
 		$d_encode = 'Preset';
 		$frames = $progressive + $top_field + $bottom_field;
 		if($frames) {
@@ -129,9 +131,10 @@
 			$d_frames = "$progressive / $top_field / $bottom_field";
 			$d_encode = "<span title='$d_frames'>$d_encode</span>";
 		}
+		*/
 
 		$d_avcinfo = '';
-		if($avcinfo && $d_plex) {
+		if($avcinfo && $filesize) {
 			$d_avcinfo = $avcinfo;
 		}
 
@@ -148,7 +151,7 @@
 			$i_episode_number,
 			$i_skip_episode,
 			$display_id,
-			$d_encode,
+			// $d_encode,
 			// $d_frames,
 			$d_plex,
 			$d_avcinfo,
