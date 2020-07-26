@@ -9,6 +9,7 @@
 				'/opt/plex/sd',
 				'/opt/plex/hd',
 				'/opt/plex/tv',
+				'/opt/plex/4k',
 			);
 
 			return $plex_episode_dirs;
