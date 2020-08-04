@@ -17,13 +17,18 @@
 
 	foreach($qa_videos as $filename) {
 
+		foreach(array('sd', 'bd', 'hd') as $dir) {
+			if(file_exists("/opt/plex/$dir/$filename"))
+				$video_filename = "/plex/$dir/$filename";
+		}
+
 		$video_type = pathinfo($filename, PATHINFO_EXTENSION);
 
 		if($video_type == 'mkv')
 			$video_type = 'mp4';
 
 		echo "<b>$filename</b><p>";
-		echo "<p><video src='/plex/sd/$filename' type='video/$video_type' controls></video></p>";
+		echo "<p><video src='$video_filename' type='video/$video_type' controls></video></p>";
 
 	}
 
