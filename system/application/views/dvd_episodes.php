@@ -82,8 +82,14 @@
 			$d_filesize = number_format($filesize)." MB";
 		}
 		if(in_array($mkv_file, $plex_files)) {
+			if(file_exists("/opt/plex/sd/$mkv_file"))
+				$video_filename = "/plex/sd/$mkv_file";
+			elseif(file_exists("/opt/plex/tv/$mkv_file"))
+				$video_filename = "/plex/tv/$mkv_file";
+			else
+				$video_filename = '';
 			$episode_filename = basename($mkv_file);
-			$d_plex = "<img src='/images/icons/control_play_blue.png' onclick=\"play_episode('/plex/sd/$episode_filename', '$episode_filename');\">";
+			$d_plex = "<img src='/images/icons/control_play_blue.png' onclick=\"play_episode('$video_filename', '$episode_filename');\">";
 			$filesize = plex_episode_filesize($mkv_file, $plex_episode_dirs);
 			$filesize = $filesize / (1024 * 1024);
 			$d_filesize = number_format($filesize)." MB";
