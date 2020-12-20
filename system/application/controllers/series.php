@@ -189,7 +189,7 @@
 
 			$arr = array(
 				'collection_id' => $this->input->post('collection'),
-				'nsix' => $this->input->post('nsix'),
+				'nsix' => strtoupper($this->input->post('nsix')),
 				'title' => $this->input->post('title'),
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => $this->input->post('production_year'),
