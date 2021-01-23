@@ -45,10 +45,12 @@
 			$display_passthrough = '';
 			if($ix == $audio_ix)
 				$display_passthrough = "<img src='/images/icons/sound.png'>";
+			/*
 			if($langcode == 'eng' && ($passthrough == null || $passthrough == 1))
 				$display_passthrough = "<img src='/images/icons/sound.png'>";
 			elseif($langcode == 'eng' && ($passthrough == 1))
 				$display_passthrough = "<img src='/images/icons/sound_delete.png'>";
+			*/
 
 			$tbl_row = array(
 
