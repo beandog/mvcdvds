@@ -24,9 +24,9 @@
 
 			$color = 'black';
 
-			$display_ix = "Track $ix";
+			$display_ix = "<abbr title='$subp_id'>Track $ix</abbr>";
 			if($bluray)
-				$display_ix = "Track ".($ix + count($audio));
+				$display_ix = "<abbr title='$subp_id'>Track ".($ix + count($audio))."</abbr>";
 
 			$display_language = "$langcode";
 
