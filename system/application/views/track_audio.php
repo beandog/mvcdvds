@@ -33,7 +33,7 @@
 
 			$color = 'black';
 
-			$display_ix = "<abbr title='${audio_id}'>Track $ix</abbr>";
+			$display_ix = "<abbr title='$audio_id'>Track $ix</abbr>";
 
 			if($active === "0")
 				$display_active = 'no';
@@ -46,7 +46,7 @@
 			if($ix == $audio_ix) {
 				$display_passthrough = "<img src='/images/icons/sound.png'>";
 			} else if($passthrough == 2) {
-				$display_passthrough = "<img src='/images/icons/comments.png' valign='bottom'> Commentary";
+				$display_passthrough = "<img src='/images/icons/comments.png' valign='bottom'>";
 			}
 
 			$tbl_row = array(
