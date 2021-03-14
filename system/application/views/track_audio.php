@@ -43,14 +43,11 @@
 				$display_active = 'Missing Metadata';
 
 			$display_passthrough = '';
-			if($ix == $audio_ix)
+			if($ix == $audio_ix) {
 				$display_passthrough = "<img src='/images/icons/sound.png'>";
-			/*
-			if($langcode == 'eng' && ($passthrough == null || $passthrough == 1))
-				$display_passthrough = "<img src='/images/icons/sound.png'>";
-			elseif($langcode == 'eng' && ($passthrough == 1))
-				$display_passthrough = "<img src='/images/icons/sound_delete.png'>";
-			*/
+			} else if($passthrough == 2) {
+				$display_passthrough = "<img src='/images/icons/comments.png' valign='bottom'> Commentary";
+			}
 
 			$tbl_row = array(
 
