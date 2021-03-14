@@ -33,7 +33,7 @@
 
 			$color = 'black';
 
-			$display_ix = "Track $ix";
+			$display_ix = "<abbr title='${audio_id}'>Track $ix</abbr>";
 
 			if($active === "0")
 				$display_active = 'no';
