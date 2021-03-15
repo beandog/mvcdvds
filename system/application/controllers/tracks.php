@@ -34,7 +34,8 @@
 
  			$this->load->view('series_nav', $data);
  			$this->load->view('track_chapters', $data);
- 			$this->load->view('track_cells', $data);
+			if($data['dvds']['bluray'] == 0)
+				$this->load->view('track_cells', $data);
  			$this->load->view('track_audio', $data);
  			$this->load->view('track_subp', $data);
 
