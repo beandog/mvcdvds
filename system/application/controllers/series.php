@@ -118,6 +118,12 @@
 
 			$this->load->view('series_nav', $data);
 
+			$nsix_type = substr($data['series']['nsix'], 0, 2);
+			if(in_array($data['collection']['id'], array(6, 8)) || $nsix_type == 'BD' || $nsix_type == 'HD' || $nsix_type == '4K')
+				$data['series']['bluray'] = true;
+			else
+				$data['series']['bluray'] = false;
+
 			if($data['series']) {
 				$this->load->view('series_details', $data);
 			}

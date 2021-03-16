@@ -61,7 +61,8 @@
 	$this->table->add_row(array("Grayscale:", $input_grayscale));
 	$this->table->add_row(array("Detelecine:", $input_detelecine));
 	$this->table->add_row(array("Decomb:", $input_decomb));
-	$this->table->add_row(array("dvdnav:", $input_dvdnav));
+	if($series['bluray'] == 0)
+		$this->table->add_row(array("dvdnav:", $input_dvdnav));
 	$this->table->add_row(array("Screenshots:", $input_screenshots));
 	$this->table->add_row(array("QA Notes:", $input_qa_notes));
 	$this->table->add_row(array("Active:", $input_active));
