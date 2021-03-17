@@ -161,5 +161,9 @@
 	echo "<p><b>Total Series:</b> $total</p>";
 
 	$a_new_series = anchor("collections/new_series/$id", "Create New Series");
+	if($collection['active'] == 1)
+		$a_active_series = anchor("collections/index/$id/0", "Inactive Series");
+	else
+		$a_active_series = anchor("collections/index/$id", "Active Series");
 
-	echo "<p>$a_new_series</p>";
+	echo "<p>$a_new_series | $a_active_series</p>";
