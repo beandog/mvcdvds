@@ -108,6 +108,7 @@
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
 			$data['presets'] = $this->presets_model->get_presets();
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
+			$data['rippers'] = $this->presets_model->get_rippers();
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
 			$data['collections'] = $this->collections_model->get_collections();
@@ -198,6 +199,7 @@
 				'collection_id' => $this->input->post('collection'),
 				'nsix' => strtoupper($this->input->post('nsix')),
 				'title' => $this->input->post('title'),
+				'ripping_id' => $this->input->post('ripping_id'),
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => $this->input->post('production_year'),
 				'grayscale' => (bool)($this->input->post('grayscale')),

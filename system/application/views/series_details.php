@@ -33,6 +33,8 @@
 	}
 	$input_collection .= " $input_crf";
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
+	$input_ripping = form_dropdown('ripping_id', $rippers, $ripping_id);
+	$input_preset .= " $input_ripping";
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_upgrade_id = form_input('upgrade_id', $display_upgrade_id, "size='3'");

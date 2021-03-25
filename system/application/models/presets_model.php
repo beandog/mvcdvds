@@ -19,6 +19,17 @@
 
 		}
 
+		public function get_rippers() {
+
+			$this->db->select('*');
+			$this->db->order_by('id');
+
+			$arr = $this->get_assoc('ripping');
+
+			return $arr;
+
+		}
+
 		public function get_series_titles($preset_id = null) {
 
 			$this->db->select('series.id, series.nsix, series.title');
