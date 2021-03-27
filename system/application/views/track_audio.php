@@ -46,7 +46,11 @@
 			if($ix == $audio_ix) {
 				$display_passthrough = "<img src='/images/icons/sound.png'>";
 			} else if($passthrough == 2) {
-				$display_passthrough = "<img src='/images/icons/comments.png' valign='bottom'>";
+				$display_passthrough = "<img src='/images/icons/comments.png' valign='bottom'> Commentary";
+			} else if($passthrough == 3) {
+				$display_passthrough = "<img src='/images/icons/comments.png' valign='bottom'> Descriptive Audio";
+			} else if($passthrough == 4) {
+				$display_passthrough = "<img src='/images/icons/sound.png'> Original Audio";
 			}
 
 			$tbl_row = array(
