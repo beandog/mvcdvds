@@ -51,6 +51,8 @@
 				$display_passthrough = "<img src='/images/icons/comments.png' valign='bottom'> Descriptive Audio";
 			} else if($passthrough == 4) {
 				$display_passthrough = "<img src='/images/icons/sound.png'> Original Audio";
+			} else if($passthrough == 5) {
+				$display_passthrough = "<img src='/images/icons/music.png'> Theatrical Score";
 			}
 
 			$tbl_row = array(
