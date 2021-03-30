@@ -30,8 +30,7 @@
 
 		$mbs = ceil($filesize / 1048576);
 		$display_filesize = '';
-		if($mbs)
-			$display_filesize = "<span style='float: right;'>".number_format($mbs)." MBs</span>";
+		$display_filesize = "<span style='float: right;'>".number_format($mbs)." MBs</span>";
 
 		$length_too_small = length_too_small($length);
 		$length_close_to_average = length_close_to_average($length, $series['average_length'], 25);
