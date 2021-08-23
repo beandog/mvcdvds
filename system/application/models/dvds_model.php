@@ -39,6 +39,7 @@
 			$this->db->order_by('tracks.ix');
 			$this->db->order_by('episodes.starting_chapter');
 			$this->db->order_by('episodes.title');
+			$this->db->order_by('episodes.id');
 
 			$arr = $this->get_assoc();
 
