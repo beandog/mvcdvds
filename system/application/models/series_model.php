@@ -17,6 +17,7 @@
 			$this->db->join('series_dvds', 'series_dvds.dvd_id = dvds.id');
 			$this->db->where('series_dvds.series_id', $id);
 
+			$this->db->order_by('dvds.bluray DESC');
 			$this->db->order_by('series_dvds.season');
 			$this->db->order_by('series_dvds.volume');
 			$this->db->order_by('series_dvds.ix');
