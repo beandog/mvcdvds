@@ -72,7 +72,7 @@
 
 		}
 
-		public function episodes($id) {
+		public function episodes($id = null) {
 
 			if($id == null)
 				redirect("/");
@@ -120,7 +120,7 @@
 
 		}
 
-		public function tracks($id) {
+		public function tracks($id = null) {
 
 			if($id == null)
 				redirect("/");
