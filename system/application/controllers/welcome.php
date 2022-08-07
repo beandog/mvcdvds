@@ -15,7 +15,6 @@ class Welcome extends Controller {
 
 		$this->load->view('css/style');
 		$this->load->view('jquery');
-		$this->load->view('js/drives');
 		$this->load->view('html_title', $data);
 
 		if(count($data['new_dvds']))
