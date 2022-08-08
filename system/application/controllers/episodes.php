@@ -1,8 +1,5 @@
 <?php
 
-	// Unused but *very* detailed
-	// http://dlna.beandog.org/index.php/episodes/index/1
-
 	class Episodes extends Controller {
 
 		function __construct() {
