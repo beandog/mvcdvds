@@ -35,7 +35,9 @@
 				$data['mediainfo'] = shell_exec("mediainfo ".$data['filename']);
 
 			$this->load->view('css/style');
+			$this->load->view('jquery');
 			$this->load->view('html_title', $data['series']);
+			$this->load->view('js/play_episode');
 			$this->load->view('series_nav', $data);
 			$this->load->view('episode_details', $data);
 

@@ -106,6 +106,7 @@
 				$this->load->view('js/dvd_episodes');
 				$this->load->view('js/tables');
 				$this->load->view('plex_episodes', $data);
+				$this->load->view('js/play_episode');
 				$this->load->view('dvd_episodes', $data);
 			}
 
