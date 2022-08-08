@@ -21,6 +21,7 @@
 			} elseif($id) {
 				redirect("/presets");
 			} else {
+				$data['num_series'] = $this->presets_model->get_num_series();
 				$this->load->view('presets', $data);
 			}
 

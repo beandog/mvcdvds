@@ -4,7 +4,8 @@
 
 	$tbl_heading = array(
 		'Preset',
-		'x265',
+		'Series',
+		'x264',
 		// 'x264 profile',
 		// 'x264 tune',
 		'CRF',
@@ -24,6 +25,10 @@
 
 		$a_preset = anchor("presets/index/$id", $name);
 		$d_preset = $a_preset;
+
+		$d_num_series = '';
+		if(array_key_exists($id, $num_series))
+			$d_num_series = $num_series[$id];
 
 		$d_video_quality = $crf;
 
@@ -53,6 +58,7 @@
 
 		$tbl_row = array(
 			$d_preset,
+			$d_num_series,
 			$x264_preset,
 			// $x264_profile,
 			// $x264_tune,

@@ -44,4 +44,16 @@
 
 		}
 
+		public function get_num_series() {
+
+			$this->db->select('DISTINCT(preset_id), COUNT(series_id)');
+			$this->db->group_by('preset_id');
+			$this->db->order_by('preset_id');
+
+			$arr = $this->get_assoc('series_presets');
+
+			return $arr;
+
+		}
+
 	}
