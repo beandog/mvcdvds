@@ -39,7 +39,7 @@
 	} else
 		$img = "";
 
- 	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series | $a_qa | $a_videos";
+ 	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series | $a_qa";
 	if(isset($series_dvds))
 		echo " | $display_season_str";
 	if(strlen($preset_name))
