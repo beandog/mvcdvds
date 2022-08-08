@@ -50,6 +50,7 @@
 		// 'Frames',
 		'Plex',
 		'Video',
+		'Media',
 		'Filesize',
 		''
 	);
@@ -139,10 +140,19 @@
 		}
 		*/
 
+		// Encoding info
 		$d_avcinfo = '';
 		if($avcinfo && $filesize) {
 			$d_avcinfo = $avcinfo;
 		}
+
+		// Episode info
+		$d_episode_info = '';
+		if($filesize) {
+			$img_episode = img(array('src' => "images/icons/application_view_gallery.png", 'class' => 'handle'));
+			$d_episode_info = "<center>".anchor("episodes/index/$episode_id", $img_episode)."</center>";
+		}
+
 
 		$tbl_row = array(
 
@@ -161,6 +171,7 @@
 			// $d_frames,
 			$d_plex,
 			$d_avcinfo,
+			$d_episode_info,
 			$d_filesize,
 			$img_delete,
 
