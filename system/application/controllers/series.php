@@ -9,12 +9,16 @@
 
 		function index($id) {
 
+  			redirect("/");
+
+			/*
 			$data['series'] = $this->series_model->get_data($id);
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
 
 			$this->load->view('css/style');
 
  			$this->load->view('series_nav', $data);
+			*/
 
 		}
 
