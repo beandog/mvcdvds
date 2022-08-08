@@ -4,8 +4,8 @@
 
 	echo heading("Chapters $tracks_nav", 4);
 
-	echo form_button("add_valid", "Valid Chapters to Episodes", "onclick='window.make_chapter_episodes();'");
-	echo p();
+	// echo form_button("add_valid", "Valid Chapters to Episodes", "onclick='window.make_chapter_episodes();'");
+	// echo p();
 
 	$tbl_heading = array(
 		'ix',

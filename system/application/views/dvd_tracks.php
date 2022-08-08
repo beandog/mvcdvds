@@ -19,8 +19,8 @@
 		'Filesize',
 	);
 
-	echo form_button("add_valid", "Valid Tracks to Episodes", "onclick='window.make_episodes();'");
-	echo p();
+	// echo form_button("add_valid", "Valid Tracks to Episodes", "onclick='window.make_episodes();'");
+	// echo p();
 
 	$this->table->set_heading($tbl_heading);
 
