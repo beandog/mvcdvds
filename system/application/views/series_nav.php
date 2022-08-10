@@ -28,7 +28,7 @@
  	$a_videos = anchor("series/videos/".$series['id'], "Videos");
  	$a_series = anchor("series/details/".$series['id'], "Encoding Settings");
 	$preset_name = '';
-	if(isset($preset))
+	if(is_array($preset))
 		$preset_name = $preset['name'];
 
  	if(array_key_exists('longest_track', $dvds)) {
