@@ -32,6 +32,8 @@
 		$input_collection .= " $input_libraries";
 	}
 	$input_collection .= " $input_crf";
+	if(!is_array($preset))
+		$preset['id'] = 0;
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_ripping = form_dropdown('ripping_id', $rippers, $ripping_id);
 	$input_preset .= " $input_ripping";
