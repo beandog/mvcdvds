@@ -16,6 +16,7 @@
 			$data['dvd_id'] = $data['track']['dvd_id'];
 			$series_id = $this->dvds_model->get_series_id($data['track']['dvd_id']);
 			$data['series'] = $this->series_model->get_data($series_id);
+			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($series_id));
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
 			$data['dvds'] = $this->series_model->get_dvds($series_id);
 			$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
