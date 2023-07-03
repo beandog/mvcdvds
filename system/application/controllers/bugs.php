@@ -26,6 +26,7 @@
 			$data['series']['collection_id'] = $this->dvds_model->get_collection_id($dvd_id);
 			$data['series']['nsix'] = $this->bugs_model->get_series_nsix($data['series']['id']);
 			$data['series']['title'] = $this->bugs_model->get_series_title($data['series']['id']);
+			$data['series']['notes'] = $this->bugs_model->get_series_notes($data['series']['id']);
 			$data['bugs'] = $this->bugs_model->get_dvd_bugs($dvd_id);
 			$data['bugs_details'] = $this->bugs_model->get_bugs_details();
 

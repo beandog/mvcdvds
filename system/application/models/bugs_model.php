@@ -84,6 +84,17 @@
 
 		}
 
+		public function get_series_notes($series_id) {
+
+			$this->db->select('qa_notes');
+			$this->db->where('id', $series_id);
+
+			$var = $this->get_one('series');
+
+			return $var;
+
+		}
+
 		public function set_dvd_notes($dvd_id, $notes) {
 
 			$this->db->where('id', $dvd_id);
