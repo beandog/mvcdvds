@@ -8,10 +8,11 @@
 
 	echo "<blockquote>";
 
+	$a_disc = anchor("dvds/details/".$dvd['id'], $nsix);
 	$a_series = anchor("series/dvds/".$series['id'], $series['title']);
 
 	$this->table->add_row(array('Title:', $dvd['title']));
-	$this->table->add_row(array('NSIX:', $nsix));
+	$this->table->add_row(array('NSIX:', $a_disc));
 	$this->table->add_row(array('Series:', $a_series));
 
 	echo $this->table->generate();

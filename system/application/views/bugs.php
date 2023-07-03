@@ -18,17 +18,20 @@
 		extract($row);
 
 		if(!$active) {
-			continue;
+			$d_nsix = $nsix;
+		} else {
+			$d_nsix = "<b>$nsix</b>";
 		}
 
 		$a_disc = anchor("dvds/details/$dvd_id", $dvd_nsix_iso);
 		$a_series = anchor("series/dvds/$series_id", $series_title);
 		$a_bugs_dvd = anchor("bugs/dvd/$dvd_id", $dvd_title);
 
+
 		$table_row = array(
 			$img_dvd,
-			$a_disc,
-			$nsix,
+			$d_nsix,
+			$dvd_nsix_iso,
 			$a_bugs_dvd,
 			$a_series,
 			$description,
