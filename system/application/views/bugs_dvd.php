@@ -46,10 +46,10 @@
 
 	echo "</blockquote>";
 
-	echo heading("Notes", 4);
+	echo heading("Notes / Encoding Notes", 4);
 
 	$i_dvd_notes = form_textarea(array('name' => 'notes', 'rows' => 12, 'cols' => 100), $dvd['notes']);
-	$i_series_notes = form_textarea(array('name' => 'notes', 'rows' => 12, 'cols' => 100), $series['notes']);
+	$i_series_notes = form_textarea(array('name' => 'encoding_notes', 'rows' => 12, 'cols' => 100), $series['notes']);
 
 	$this->table->add_row(array($i_dvd_notes, $i_series_notes));
 
