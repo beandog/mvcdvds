@@ -133,7 +133,8 @@
 			$this->db->select('bugs.name');
 			$this->db->select('dvd_bugs.dvd_id');
 			$this->db->join('dvd_bugs', "dvd_bugs.bug_id = bugs.id AND dvd_bugs.dvd_id = $id", 'left');
-			$this->db->where("bugs.disc = $disc_type");
+			if(!is_null($disc_type))
+				$this->db->where("bugs.disc = $disc_type");
 			$this->db->order_by('bugs.name');
 
 			$arr = $this->get_all('bugs');
