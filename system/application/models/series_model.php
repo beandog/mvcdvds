@@ -204,31 +204,6 @@
 
 		/** Check for missing metadata */
 
-		// Find collections where some of the
-		// DVDs are not using the latest metadata spec.
-		public function old_metadata_spec($series_id = null) {
-
-			// Find the highest metadata spec in the database
-			$this->db->select_max('metadata_spec');
-			$metadata_spec = $this->get_one('dvds');
-
-			$this->db->select('COUNT(1)');
-			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id');
-			// If latest metadata spec is v3, there are few enough differences
-			// between v2 to not make a fuss about it.
-			if($metadata_spec == 3)
-				$this->db->where("metadata_spec < 2");
-			else
-				$this->db->where("metadata_spec < $metadata_spec");
-			$this->db->where('series_id', $series_id);
-			$var = $this->get_one('series_dvds');
-
-			$bool = (bool)$var;
-
-			return $bool;
-
-		}
-
 		// Find series where some of the episodes have no title
 		public function missing_episode_titles($series_id = null) {
 

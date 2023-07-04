@@ -62,8 +62,6 @@
 				$episodes_skipped = count($data['episodes'][$dvd_id]) - count($this->dvds_model->get_episodes($dvd_id, 'episode_ix', true));
 
 				$metadata = array();
-				if($disc_type == 'dvd' && $this->dvds_model->old_metadata_spec($dvd_id, $disc_type) == true)
-					$metadata[] = "Legacy Metadata";
 				if($this->dvds_model->missing_filesize($dvd_id))
 					$metadata[] = "Unknown Filesize";
 				if($this->dvds_model->missing_audio_tracks($dvd_id))
