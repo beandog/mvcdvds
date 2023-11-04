@@ -25,6 +25,7 @@
  			$data['subp'] = $this->tracks_model->get_subp($track_id);
  			$data['cc'] = $this->tracks_model->get_cc($track_id);
  			$data['track_id'] = $track_id;
+			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($series_id));
 
  			$this->load->view('css/style');
 			$this->load->view('jquery');
