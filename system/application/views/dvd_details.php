@@ -23,6 +23,8 @@
 
 	echo form_open("dvds/update_series_dvd/".$dvds['id'], $attr);
 
+	if(($collection_id == 4 || $collection_id == 8) && strlen($dvdread_id) != 64)
+		$i_bluray_id = form_input('bluray_id', '', "size='64'");
 	$i_series_id = form_dropdown('series_id', $select_series, $series_dvd['series_id']);
 	$i_audio_preference = form_dropdown('audio_preference', $select_audio_preference, $series_dvd['audio_preference']);
 	$i_package_title = form_input('package_title', $package_title, "size='64'");
@@ -38,6 +40,8 @@
 	if(!empty($vmg_id))
 		$this->table->add_row(array("VMG ID:", $vmg_id));
 	$this->table->add_row(array("dvdread ID:", $dvdread_id));
+	if(($collection_id == 4 || $collection_id == 8) && strlen($dvdread_id) != 64)
+		$this->table->add_row(array("bluray ID:", $i_bluray_id));
 	if(isset($longest_track))
 		$this->table->add_row(array("Longest Track:", $longest_track));
 	$this->table->add_row(array("Package title:", $i_package_title));
