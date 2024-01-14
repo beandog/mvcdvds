@@ -230,6 +230,20 @@
 
 		}
 
+		// Look for legacy dvdread ID for Blu-rays
+		public function missing_bluray_id($id) {
+
+			$this->db->select('dvdread_id');
+			$this->db->where('id', $id);
+			$var = $this->get_one('dvds');
+
+			if(strlen($var) != 64)
+				return true;
+
+			return false;
+
+		}
+
 		// Find DVDs where some of the episodes have not been scanned for PTS info
 		public function missing_pts($id) {
 

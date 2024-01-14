@@ -70,6 +70,8 @@
 					$metadata[] = "Missing Titles";
 				if($this->dvds_model->missing_episode_numbers($dvd_id) && !$movie)
 					$metadata[] = "Legacy Episode Numbers";
+				if($disc_type == 'bluray' && $this->dvds_model->missing_bluray_id($dvd_id))
+					$metadata[] = "Legacy Unique ID";
 				if(count($data['episodes'][$dvd_id]) === 0 && $episodes_skipped === 0)
 					$metadata[] = "No Episodes";
 				if($this->dvds_model->has_bugs($dvd_id))
