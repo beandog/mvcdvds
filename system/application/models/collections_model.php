@@ -37,7 +37,6 @@
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id');
 			$this->db->join('dvds', 'dvds.id = series_dvds.dvd_id');
 			$this->db->where('series.collection_id', $id);
-			$this->db->where('series.active', 1);
 			$this->db->group_by('series.id');
 
 			$arr = $this->get_assoc('series');
