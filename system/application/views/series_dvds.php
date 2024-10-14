@@ -53,15 +53,15 @@
 		$plex_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\./", $plex_files);
 		$num_plex_episodes = count($plex_episodes);
 
-		$plex_mp4_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mp4/", $plex_files);
-		$num_plex_mp4_episodes = count($plex_mp4_episodes);
+		// $plex_mp4_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mp4/", $plex_files);
+		// $num_plex_mp4_episodes = count($plex_mp4_episodes);
 
 		$plex_mkv_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mkv/", $plex_files);
 		$num_plex_mkv_episodes = count($plex_mkv_episodes);
 
 		$missing_episodes = false;
-		if($num_episodes != ($num_plex_mp4_episodes + $num_plex_mkv_episodes))
-			$missing_episodes = true;
+		// if($num_episodes != ($num_plex_mp4_episodes + $num_plex_mkv_episodes))
+		//	$missing_episodes = true;
 
 		$episode_filesize = 0;
 		$total_episode_filesize = 0;

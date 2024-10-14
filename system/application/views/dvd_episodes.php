@@ -42,17 +42,19 @@
 
 		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvd_id, 4, 0, STR_PAD_LEFT).".".str_pad($episode_id, 5, 0, STR_PAD_LEFT);
 
-		$mp4_file = $display_id.".".$series['nsix'].".mp4";
+		// $mp4_file = $display_id.".".$series['nsix'].".mp4";
 		$mkv_file = $display_id.".".$series['nsix'].".mkv";
 		$d_plex = '';
 		$d_filesize = '';
 		$filesize = 0;
+		/*
 		if(in_array($mp4_file, $plex_files)) {
 			$d_plex = '++';
 			$filesize = plex_episode_filesize($mp4_file, $plex_episode_dirs);
 			$filesize = $filesize / (1024 * 1024);
 			$d_filesize = number_format($filesize)." MB";
 		}
+		*/
 		if(in_array($mkv_file, $plex_files)) {
 			if(file_exists("/opt/plex/sd/$mkv_file"))
 				$video_filename = "/plex/sd/$mkv_file";

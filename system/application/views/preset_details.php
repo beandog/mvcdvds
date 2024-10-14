@@ -12,7 +12,7 @@
 
 	$inputs = array();
 
-	$o_format = array('mkv' => 'mkv', 'mp4' => 'mp4');
+	$o_format = array('mkv' => 'mkv');
 	$o_vcodec = array('x264' => 'avc', 'x265' => 'hevc');
 	$o_acodec = array('copy' => 'copy', 'flac' => 'flac');
 	$o_x264_preset = array('fast' => 'fast', 'medium' => 'medium', 'slow' => 'slow');
@@ -20,7 +20,7 @@
 	// $o_fps = array('' => '', '23.976' => '23.97', '24' => '24', '25' => '25', '29.97' => '29.97', '30' => '30', '60' => '60');
 
 	$i_name = form_input('name', $name, 'size=45');
-	$i_format = form_dropdown('format', $o_format, $format);
+	// $i_format = form_dropdown('format', $o_format, $format);
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
 	$i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
 	$i_crf = form_input('crf', $crf, 'size=2');
@@ -33,6 +33,7 @@
 
 	$this->table->add_row(array("Name:", $i_name));
 	// $this->table->add_row(array("Container:", $i_format." ".$i_fps));
+	// $this->table->add_row(array("Container:", $i_format));
 	$this->table->add_row(array("Encoder:", $i_x264_tune." ".$i_x264_preset." ".$i_crf));
 	$this->table->add_row(array("Video:", "$i_vcodec"));
 	$this->table->add_row(array("Audio:", "$i_acodec"));

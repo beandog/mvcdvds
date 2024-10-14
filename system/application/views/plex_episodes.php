@@ -53,12 +53,9 @@
 		$arr_filenames = array();
 
 		$arr_filenames[] = "$episode_nsix.mkv";
-		$arr_filenames[] = "$episode_nsix.mp4";
-		$arr_filenames[] = "$episode_nsix.mpg";
-		$arr_filenames[] = "$episode_nsix.vob";
+		// $arr_filenames[] = "$episode_nsix.mp4";
 
 		foreach($plex_episode_dirs as $plex_episode_dir) {
-
 
 			foreach($arr_filenames as $filename) {
 				$plex_filename = "$plex_episode_dir/$filename";
