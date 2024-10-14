@@ -12,7 +12,7 @@
 		'Video filters',
 		'Audio codec',
 		// 'Container',
-		'Upscale',
+		// 'Upscale',
 	);
 
 	echo p();
@@ -51,7 +51,7 @@
 			$d_audio_quality = '';
 		}
 
-		$d_upscale = '';
+		// $d_upscale = '';
 
 		// if($fps)
 		//	$d_upscale = "${fps} fps";
@@ -66,7 +66,7 @@
 			$d_video_filters,
 			$d_audio,
 			// $format,
-			$d_upscale,
+			// $d_upscale,
 		);
 
 		$this->table->add_row($tbl_row);

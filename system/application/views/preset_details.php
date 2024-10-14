@@ -14,7 +14,7 @@
 
 	$o_format = array('mkv' => 'mkv', 'mp4' => 'mp4');
 	$o_vcodec = array('x264' => 'avc', 'x265' => 'hevc');
-	$o_acodec = array('copy' => 'copy', 'ac3' => 'ac3', 'flac' => 'flac');
+	$o_acodec = array('copy' => 'copy', 'flac' => 'flac');
 	$o_x264_preset = array('fast' => 'fast', 'medium' => 'medium', 'slow' => 'slow');
 	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
 	// $o_fps = array('' => '', '23.976' => '23.97', '24' => '24', '25' => '25', '29.97' => '29.97', '30' => '30', '60' => '60');
