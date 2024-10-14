@@ -65,7 +65,6 @@
 			$d_video_quality,
 			$d_video_filters,
 			$d_audio,
-			// $format,
 			// $d_upscale,
 		);
 

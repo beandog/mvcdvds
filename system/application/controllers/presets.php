@@ -31,6 +31,7 @@
 
 			$id = $this->presets_model->create_new();
 			$this->presets_model->set_name('New Preset');
+			$this->presets_model->set_format('mkv');
 
 			redirect("presets/index/$id");
 
@@ -56,7 +57,6 @@
 				$arr['name'] = $this->input->post('name');
 				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['x264_preset'] = $this->input->post('x264_preset');
-				$arr['format'] = $this->input->post('format');
 				$arr['crf'] = $crf;
 				$arr['deinterlace'] = $this->input->post('deinterlace');
 				$arr['decomb'] = $this->input->post('decomb');
