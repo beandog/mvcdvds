@@ -24,7 +24,6 @@
  	$a_tracks = anchor("dvds/tracks/$dvd_id", "Tracks");
  	$a_episodes = anchor("dvds/episodes/$dvd_id", "Episodes");
 	$a_details = anchor("dvds/details/$dvd_id", "Disc");
- 	$a_qa = anchor("series/qa/".$series['id'], "QA");
  	$a_videos = anchor("series/videos/".$series['id'], "Videos");
  	$a_series = anchor("series/details/".$series['id'], "Encoding Settings");
 	$preset_name = '';
@@ -39,7 +38,7 @@
 	} else
 		$img = "";
 
- 	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series | $a_qa";
+ 	echo "$a_dvds | $a_tracks | $a_episodes | $a_details | $a_series";
 	if(isset($series_dvds))
 		echo " | $display_season_str";
 	if(strlen($preset_name))
