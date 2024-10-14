@@ -32,7 +32,7 @@
 
 		public function get_series_titles($preset_id = null) {
 
-			$this->db->select('series.id, series.nsix, series.title');
+			$this->db->select('series.id, series.nsix, series.title, series.crf');
 			$this->db->join('series_presets', 'series_presets.series_id = series.id');
 			$this->db->where('series_presets.preset_id', $preset_id);
 			$this->db->order_by('series.collection_id');
