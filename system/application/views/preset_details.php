@@ -12,12 +12,12 @@
 
 	$inputs = array();
 
-	$o_format = array('mkv' => 'mkv', 'mp4' => 'mp4', 'webm' => 'webm', 'm2ts' => 'm2ts', 'vob' => 'vob');
-	$o_vcodec = array('x264' => 'avc', 'x265' => 'hevc', 'vp8' => 'vp8', 'vp9' => 'vp9');
-	$o_acodec = array('fdk_aac' => 'aac', 'ac3' => 'ac3', 'opus' => 'opus',  'flac' => 'flac', 'copy' => 'copy');
-	$o_x264_preset = array('ultrafast' => 'ultrafast', 'superfast' => 'superfast', 'veryfast' => 'veryfast', 'faster' => 'faster', 'fast' => 'fast', 'medium' => 'medium', 'slow' => 'slow', 'slower' => 'slower', 'veryslow' => 'veryslow', 'placebo' => 'placebo');
-	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain', 'ssim' => 'ssim');
-	$o_fps = array('' => '', '23.976' => '23.97', '24' => '24', '25' => '25', '29.97' => '29.97', '30' => '30', '60' => '60');
+	$o_format = array('mkv' => 'mkv', 'mp4' => 'mp4');
+	$o_vcodec = array('x264' => 'avc', 'x265' => 'hevc');
+	$o_acodec = array('copy' => 'copy', 'ac3' => 'ac3', 'flac' => 'flac');
+	$o_x264_preset = array('fast' => 'fast', 'medium' => 'medium', 'slow' => 'slow');
+	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
+	// $o_fps = array('' => '', '23.976' => '23.97', '24' => '24', '25' => '25', '29.97' => '29.97', '30' => '30', '60' => '60');
 
 	$i_name = form_input('name', $name, 'size=45');
 	$i_format = form_dropdown('format', $o_format, $format);
@@ -29,10 +29,10 @@
 	$i_deinterlace = form_checkbox('deinterlace', 1, $deinterlace);
 	$i_decomb = form_checkbox('decomb', 1, $decomb);
 	$i_detelecine = form_checkbox('detelecine', 1, $detelecine);
-	$i_fps = form_dropdown('fps', $o_fps, $fps);
+	// $i_fps = form_dropdown('fps', $o_fps, $fps);
 
 	$this->table->add_row(array("Name:", $i_name));
-	$this->table->add_row(array("Container:", $i_format." ".$i_fps));
+	// $this->table->add_row(array("Container:", $i_format." ".$i_fps));
 	$this->table->add_row(array("Encoder:", $i_x264_tune." ".$i_x264_preset." ".$i_crf));
 	$this->table->add_row(array("Video:", "$i_vcodec"));
 	$this->table->add_row(array("Audio:", "$i_acodec"));

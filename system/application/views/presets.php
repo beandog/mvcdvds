@@ -53,8 +53,8 @@
 
 		$d_upscale = '';
 
-		if($fps)
-			$d_upscale = "${fps} fps";
+		// if($fps)
+		//	$d_upscale = "${fps} fps";
 
 		$tbl_row = array(
 			$d_preset,
