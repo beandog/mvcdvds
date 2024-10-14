@@ -210,7 +210,6 @@
 				'detelecine' => (bool)($this->input->post('detelecine')),
 				'decomb' => $this->input->post('decomb'),
 				'dvdnav' => (bool)($this->input->post('dvdnav')),
-				'screenshots' => $this->input->post('screenshots'),
 				'qa_notes' => ($this->input->post('qa_notes')),
 				'tvdb' => $this->input->post('tvdb'),
 				'active' => (bool)($this->input->post('active')),
@@ -220,11 +219,6 @@
 				$arr['library_id'] = $this->input->post('library');
 			else
 				$arr['library_id'] = null;
-
-			if($this->input->post('upgrade_id'))
-				$arr['upgrade_id'] = intval($this->input->post('upgrade_id'));
-			else
-				$arr['upgrade_id'] = null;
 
 			if($this->input->post('crf'))
 				$arr['crf'] = intval($this->input->post('crf'));
