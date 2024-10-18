@@ -36,7 +36,7 @@
 			$this->db->join('series_presets', 'series_presets.series_id = series.id');
 			$this->db->where('series_presets.preset_id', $preset_id);
 			$this->db->order_by('series.collection_id');
-			$this->db->order_by('series.active DESC, series.title');
+			$this->db->order_by('series.active, series.title');
 
 			$arr = $this->get_assoc('series');
 
