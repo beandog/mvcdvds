@@ -161,9 +161,18 @@
 	echo "<p><b>Total Series:</b> $total</p>";
 
 	$a_new_series = anchor("collections/new_series/$id", "Create New Series");
-	if($collection['active'] == 1)
-		$a_active_series = anchor("collections/index/$id/0", "Inactive Series");
-	else
-		$a_active_series = anchor("collections/index/$id", "Active Series");
+	if($collection['active'] == 1) {
+		$a_active_series = "Active Series";
+		$a_inactive_series = anchor("collections/index/$id/2", "Inactive Series");
+		$a_archived_series = anchor("collections/index/$id/3", "Archived Series");
+	} elseif($collection['active'] == 2) {
+		$a_active_series = anchor("collections/index/$id/1", "Active Series");
+		$a_inactive_series = "Inactive Series";
+		$a_archived_series = anchor("collections/index/$id/3", "Archived Series");
+	} elseif($collection['active'] == 3) {
+		$a_active_series = anchor("collections/index/$id/1", "Active Series");
+		$a_inactive_series = anchor("collections/index/$id/2", "Inactive Series");
+		$a_archived_series = "Archived Series";
+	}
 
-	echo "<p>$a_new_series | $a_active_series</p>";
+	echo "<p>$a_new_series | $a_active_series | $a_inactive_series | $a_archived_series</p>";

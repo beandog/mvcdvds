@@ -46,7 +46,7 @@
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
 	$input_start_date = form_input('start_date', $start_date, "size='10'");
-	$input_active = form_checkbox('active', 'accept', $active);
+	$input_active = form_dropdown('active', array(1 => 'Active', 2 => 'Inactive', 3 => 'Archived'), $active);
 
 	if($tvdb)
 		$input_tvdb .= " <a href='https://www.thetvdb.com/series/$tvdb/seasons/all' target='_blank'>All Seasons</a>";
