@@ -54,15 +54,16 @@
 		'table_open' => '<table border="0" cellpadding="4" cellspacing="0" class="zebra">',
 	);
 
-	$this->table->set_heading(array('NSIX', 'Series Title', 'Series CRF'));
+	$this->table->set_heading(array('NSIX', 'Series Title', 'Series Preset', 'Series CRF'));
 	$this->table->set_template($tmpl);
 
 	foreach($series_titles as $series_id => $arr_series) {
 
 		$d_nsix = $arr_series['nsix'];
+		$d_x264_preset = $arr_series['x264_preset'];
 		$d_crf = "<center>".$arr_series['crf']."</center>";
 		$a_series_title = anchor("series/details/$series_id", $arr_series['title']);
-		$this->table->add_row(array($d_nsix, $a_series_title, $d_crf));
+		$this->table->add_row(array($d_nsix, $a_series_title, $d_x264_preset, $d_crf));
 	}
 	echo $this->table->generate();
 	$this->table->clear();
