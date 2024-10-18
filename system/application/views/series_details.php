@@ -21,6 +21,8 @@
 
 	$display_average_length = ($average_length ? $average_length : "");
 
+	$x264_presets = array('' => '', 'medium' => 'medium', 'slow' => 'slow');
+
 	$input_nsix = form_input('nsix', $nsix, "size='8' maxlength='5'");
 	$input_title = form_input('title', $title, "size='50'");
 	$input_tvdb = form_input('tvdb', $tvdb, "size='25'");
@@ -30,12 +32,12 @@
 		$input_libraries = form_dropdown('library', $libraries, $series['library_id']);
 		$input_collection .= " $input_libraries";
 	}
-	$input_collection .= " $input_crf";
 	if(!is_array($preset))
 		$preset['id'] = 0;
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_ripping = form_dropdown('ripping_id', $rippers, $ripping_id);
-	$input_preset .= " $input_ripping";
+	$input_x264_preset = form_dropdown('x264_preset', $x264_presets, $x264_preset);
+	$input_preset .= " $input_ripping $input_x264_preset $input_crf";
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_grayscale = form_checkbox('grayscale', 'accept', $grayscale);
