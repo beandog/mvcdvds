@@ -220,10 +220,12 @@
 			else
 				$arr['library_id'] = null;
 
+			/*
 			if($this->input->post('x264_preset'))
 				$arr['x264_preset'] = $this->input->post('x264_preset');
 			else
 				$arr['x264_preset'] = null;
+			*/
 
 			if($this->input->post('crf'))
 				$arr['crf'] = intval($this->input->post('crf'));

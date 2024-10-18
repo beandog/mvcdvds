@@ -12,17 +12,17 @@
 
 	$inputs = array();
 
-	$o_vcodec = array('x264' => 'avc', 'x265' => 'hevc');
+	// $o_vcodec = array('x264' => 'avc', 'x265' => 'hevc');
 	$o_acodec = array('copy' => 'copy', 'flac' => 'flac');
-	$o_x264_preset = array('medium' => 'medium', 'slow' => 'slow');
-	$o_x264_tune = array('' => 'none', 'film' => 'film', 'animation' => 'animation', 'grain' => 'grain');
+	// $o_x264_preset = array('medium' => 'medium', 'slow' => 'slow');
+	$o_x264_tune = array('' => '', 'film' => 'film', 'animation' => 'animation');
 	// $o_fps = array('' => '', '23.976' => '23.97', '24' => '24', '25' => '25', '29.97' => '29.97', '30' => '30', '60' => '60');
 
 	$i_name = form_input('name', $name, 'size=45');
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
-	$i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
+	// $i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
 	$i_crf = form_input('crf', $crf, 'size=2');
-	$i_vcodec = form_dropdown('vcodec', $o_vcodec, $vcodec);
+	// $i_vcodec = form_dropdown('vcodec', $o_vcodec, $vcodec);
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
 	$i_deinterlace = form_checkbox('deinterlace', 1, $deinterlace);
 	$i_decomb = form_checkbox('decomb', 1, $decomb);
@@ -30,8 +30,9 @@
 	// $i_fps = form_dropdown('fps', $o_fps, $fps);
 
 	$this->table->add_row(array("Name:", $i_name));
-	$this->table->add_row(array("Encoder:", $i_x264_tune." ".$i_x264_preset." ".$i_crf));
-	$this->table->add_row(array("Video:", "$i_vcodec"));
+	// $this->table->add_row(array("Encoder:", $i_x264_tune." ".$i_x264_preset." ".$i_crf));
+	$this->table->add_row(array("Encoder:", "$i_x264_tune $i_crf"));
+	// $this->table->add_row(array("Video:", "$i_vcodec"));
 	$this->table->add_row(array("Audio:", "$i_acodec"));
 	// $this->table->add_row(array("Deinterlace:", $i_deinterlace));
 	$this->table->add_row(array("Decomb:", $i_decomb));
@@ -56,17 +57,17 @@
 		'table_open' => '<table border="0" cellpadding="4" cellspacing="0" class="zebra">',
 	);
 
-	$this->table->set_heading(array('NSIX', 'Series Title', 'Series Preset', 'Series CRF', 'Active Status'));
+	$this->table->set_heading(array('NSIX', 'Series Title', 'Series CRF', 'Active Status'));
 	$this->table->set_template($tmpl);
 
 	foreach($series_titles as $series_id => $arr_series) {
 
 		$d_nsix = $arr_series['nsix'];
-		$d_x264_preset = "<center>".$arr_series['x264_preset']."</center>";
+		// $d_x264_preset = "<center>".$arr_series['x264_preset']."</center>";
 		$d_crf = "<center>".$arr_series['crf']."</center>";
 		$d_status = "<center>".$arr_status[$arr_series['active']]."</center>";
 		$a_series_title = anchor("series/details/$series_id", $arr_series['title']);
-		$this->table->add_row(array($d_nsix, $a_series_title, $d_x264_preset, $d_crf, $d_status));
+		$this->table->add_row(array($d_nsix, $a_series_title, $d_crf, $d_status));
 	}
 	echo $this->table->generate();
 	$this->table->clear();
