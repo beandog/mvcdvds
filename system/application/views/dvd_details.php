@@ -36,12 +36,14 @@
 
 	$nsix = "$collection_id.".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvds['id'], 4, 0, STR_PAD_LEFT).".".$series['nsix'].".iso";
 
+	/*
 	if($bluray || empty($title))
 		$this->table->add_row(array("Volume name:", $i_volname));
 	else
-		$this->table->add_row(array("Title:", $title));
+	*/
+	$this->table->add_row(array("Title:", $title));
 	if($bluray)
-		$this->table->add_row('Blu-ray Disc Title:', $bluray_data['disc_title']);
+		$this->table->add_row('Blu-ray Title:', $bluray_data['disc_title']);
 	$this->table->add_row(array("NSIX:", $nsix));
 	if(!empty($provider_id))
 		$this->table->add_row(array("Provider ID:", $provider_id));
