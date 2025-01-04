@@ -49,6 +49,10 @@
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($series_id));
 			$data['bugs'] = $this->dvds_model->get_bugs($id, $data['dvds']['bluray']);
 
+			$data['volname'] = $data['dvds']['title'];
+			if($data['dvds']['bluray'])
+				$data['bluray_data'] = current($this->dvds_model->get_bluray_data($id));
+
 			// Navigation
 			$data['dvd_id'] = $id;
 
@@ -221,6 +225,12 @@
 			$this->series_dvds_model->set_audio_preference($this->input->post('audio_preference'));
 			if(strlen($this->input->post('bluray_id')))
 				$this->dvds_model->set_dvdread_id($this->input->post('bluray_id'));
+			if(strlen($this->input->post('volname')))
+				$this->dvds_model->set_title($this->input->post('volname'));
+			/*
+			if(strlen($this->input->post('bluray_disc_title')))
+				$this->dvds_model->set_title($this->input->post('bluray_disc_title'));
+			*/
 
 			// $this->series_dvds_model->set_no_dvdnav($no_dvdnav);
 

@@ -237,7 +237,7 @@
 			$this->db->where('id', $id);
 			$var = $this->get_one('dvds');
 
-			if(strlen($var) != 64)
+			if(strlen($var) != 32)
 				return true;
 
 			return false;
@@ -282,6 +282,18 @@
 				return true;
 			else
 				return false;
+
+		}
+
+		public function get_bluray_data($id) {
+
+			$this->db->select('id');
+			$this->db->select('disc_title');
+			$this->db->where('dvd_id', $id);
+
+			$arr = $this->get_all('blurays');
+
+			return $arr;
 
 		}
 
