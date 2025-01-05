@@ -225,8 +225,8 @@
 			$this->series_dvds_model->set_audio_preference($this->input->post('audio_preference'));
 			if(strlen($this->input->post('bluray_id')))
 				$this->dvds_model->set_dvdread_id($this->input->post('bluray_id'));
-			// if(strlen($this->input->post('volname')))
-			//	$this->dvds_model->set_title($this->input->post('volname'));
+			if(strlen($this->input->post('volname')))
+				$this->dvds_model->set_title($this->input->post('volname'));
 			/*
 			if(strlen($this->input->post('bluray_disc_title')))
 				$this->dvds_model->set_title($this->input->post('bluray_disc_title'));
