@@ -26,6 +26,7 @@
 	$input_nsix = form_input('nsix', $nsix, "size='8' maxlength='5'");
 	$input_title = form_input('title', $title, "size='50'");
 	$input_tvdb = form_input('tvdb', $tvdb, "size='25'");
+	$input_jfin = form_input('jfin', $jfin, "size=6");
 	$input_crf = form_input('crf', $crf, "size='3'");
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
 	if(count($libraries)) {
@@ -49,6 +50,7 @@
 	$input_start_date = form_input('start_date', $start_date, "size='10'");
 	$input_active = form_dropdown('active', array(1 => 'Active', 2 => 'Inactive', 3 => 'Archived'), $active);
 
+	$input_tvdb .= " $input_jfin";
 	if($tvdb)
 		$input_tvdb .= " <a href='https://www.thetvdb.com/series/$tvdb/seasons/all' target='_blank'>All Seasons</a>";
 

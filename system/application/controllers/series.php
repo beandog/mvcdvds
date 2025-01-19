@@ -212,6 +212,7 @@
 				'dvdnav' => (bool)($this->input->post('dvdnav')),
 				'qa_notes' => ($this->input->post('qa_notes')),
 				'tvdb' => $this->input->post('tvdb'),
+				'jfin' => $this->input->post('jfin'),
 				'active' => $this->input->post('active'),
 			);
 
