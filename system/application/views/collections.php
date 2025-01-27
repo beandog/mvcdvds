@@ -16,7 +16,7 @@
 		'Filesize',
 		'Episodes',
 		// 'QA',
-		// 'Missing Metadata',
+		'Missing Metadata',
 // 		'# Discs',
 // 		'# Seasons',
 // 		'# Volumes',
@@ -118,7 +118,7 @@
 			$d_filesize,
 			// $d_qa,
 			$d_total_series_episodes_filesize,
-			// $d_missing_metadata,
+			$d_missing_metadata,
 		);
 
 		$this->table->add_row($table_row);
@@ -151,6 +151,7 @@
 		// '',
 		$display_total_filesize,
 		$display_total_episodes_filesize,
+		'',
 	));
 
 	echo $this->table->generate();

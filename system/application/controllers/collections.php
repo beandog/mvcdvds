@@ -22,6 +22,11 @@ class Collections extends Controller {
 		else
 			$data['bluray'] = false;
 
+		if(in_array($id, array(1, 2, 6)))
+			$data['tv'] = true;
+		else
+			$data['tv'] = false;
+
 		$arr_collection_series_data = $this->collections_model->collection_series_data($id);
 
 		foreach(array_keys($data['collections']) as $series_id) {
@@ -42,6 +47,9 @@ class Collections extends Controller {
 				$metadata[] = "No Series Episodes";
 			elseif($data['num_dvds_no_episodes'][$series_id])
 				$metadata[] = "DVD No Episodes";
+
+			if($data['tv'] && !strlen($data['collections'][$series_id]['jfin']))
+				$metadata[] = 'TV DB';
 
 			$data['metadata'][$series_id] = $metadata;
 
