@@ -196,7 +196,7 @@
 
 				$this->episodes_model->load($episode_id);
 				$this->episodes_model->set('track_id', intval($track_id));
-				$this->episodes_model->set('title', $title);
+				$this->episodes_model->set('title', trim($title));
 				$this->episodes_model->set('part', pg_null($part));
 				$this->episodes_model->set('starting_chapter', pg_null($starting_chapter));
 				$this->episodes_model->set('ending_chapter', pg_null($ending_chapter));
