@@ -220,7 +220,7 @@
 
 			$this->series_dvds_model->load_dvd($dvd_id);
 			$this->dvds_model->load($dvd_id);
-			$this->dvds_model->set_package_title($this->input->post('package_title'));
+			$this->dvds_model->set_package_title(trim($this->input->post('package_title')));
 			$this->series_dvds_model->set_series_id($this->input->post('series_id'));
 			$this->series_dvds_model->set_audio_preference($this->input->post('audio_preference'));
 			if(strlen($this->input->post('bluray_id')))
