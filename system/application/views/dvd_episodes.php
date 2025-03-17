@@ -78,7 +78,8 @@
 		$i_track_ix = form_input("episode[$episode_id][track_ix]", $track_ix, "size='2' track_id='$track_id' episode_id='$episode_id'");
 
 		// Episode Title
-		$i_title = form_input("episode[$episode_id][title]", $title, "size='45' track_id='$track_id' episode_id='$episode_id' tabindex='$track_ix'");
+		$tabindex = $track_ix + 1;
+		$i_title = form_input("episode[$episode_id][title]", $title, "size='45' track_id='$track_id' episode_id='$episode_id' tabindex='$tabindex'");
 
 		// Episode Part
 		$i_part = form_input("episode[$episode_id][part]", $part, "size='2' track_id='$track_id' episode_id='$episode_id'");
@@ -89,11 +90,13 @@
 
 		// Episode season (override disc)
 		$display_season = ($season ? $season : "");
-		$i_season = form_input("episode[$episode_id][season]", $display_season, "size='2' track_id='$track_id' episode_id='$episode_id' tabindex='$episode_id'");
+		$tabindex = $episode_id + 1;
+		$i_season = form_input("episode[$episode_id][season]", $display_season, "size='2' track_id='$track_id' episode_id='$episode_id' tabindex='$tabindex'");
 
 		// Episode number (override all)
 		$display_episode_number = ($episode_number ? $episode_number : "");
-		$i_episode_number = form_input("episode[$episode_id][episode_number]", $display_episode_number, "size='2' track_id='$track_id' episode_id='$episode_id' tabindex='$episode_id'");
+		$tabindex = $episode_id + 1;
+		$i_episode_number = form_input("episode[$episode_id][episode_number]", $display_episode_number, "size='2' track_id='$track_id' episode_id='$episode_id' tabindex='$tabindex'");
 
 		// Skip episode
 		$i_skip_episode = form_checkbox("episode[$episode_id][skip]", '1', $skip ? true : false);
