@@ -120,6 +120,7 @@
 		$d_avcinfo = '';
 		if($avcinfo && $filesize) {
 			$d_avcinfo = $avcinfo;
+			$d_avcinfo = str_replace("AVC medium ", "q", $d_avcinfo);
 		}
 
 		// Episode info
