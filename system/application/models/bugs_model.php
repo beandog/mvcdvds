@@ -22,6 +22,7 @@
 			$this->db->select('dvd_bugs.bug_id, dvd_bugs.id dvd_bugs_id, bugs.name, dvd_bugs.description dvd_description, bugs.description bug_description');
 			$this->db->join('bugs', 'bugs.id = dvd_bugs.bug_id');
 			$this->db->where('dvd_bugs.dvd_id', $id);
+			$this->db->orderby('bugs.name');
 
 			$arr = $this->get_assoc('dvd_bugs');
 

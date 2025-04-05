@@ -23,10 +23,14 @@
 			$d_nsix = "<b>$nsix</b>";
 		}
 
+		$arr_dvd_bug_names = array();
+		foreach($dvd_bugs[$dvd_id] as $arr)
+			$arr_dvd_bug_names[] = $arr['name'];
+
 		$a_disc = anchor("dvds/details/$dvd_id", $dvd_nsix_iso);
 		$a_series = anchor("series/dvds/$series_id", $series_title);
 		$a_bugs_dvd = anchor("bugs/dvd/$dvd_id", $dvd_title);
-
+		$d_bug_names = implode(', ', $arr_dvd_bug_names);
 
 		$table_row = array(
 			$img_dvd,
@@ -34,7 +38,7 @@
 			$dvd_nsix_iso,
 			$a_bugs_dvd,
 			$a_series,
-			$description,
+			$d_bug_names,
 		);
 
 		$this->table->add_row($table_row);

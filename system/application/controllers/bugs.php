@@ -10,6 +10,8 @@
 		function index($id = null) {
 
 			$data['bugs'] = $this->bugs_model->get_bugs();
+			foreach($data['bugs'] as $arr)
+				$data['dvd_bugs'][$arr['dvd_id']] = $this->bugs_model->get_dvd_bugs($arr['dvd_id']);
 
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data);
