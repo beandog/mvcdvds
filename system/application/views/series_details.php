@@ -54,7 +54,7 @@
 	$this->table->add_row(array("Display Title:", $input_title));
 	$this->table->add_row(array("TV DB:", $input_tvdb));
 	$this->table->add_row(array("Collection:", $input_collection));
-	$this->table->add_row(array("Preset:", $input_preset));
+	$this->table->add_row(array("Encoder:", $input_preset));
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
 	$this->table->add_row(array("Start Date:", $input_start_date));
