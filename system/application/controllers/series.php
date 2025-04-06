@@ -208,7 +208,6 @@
 				'production_year' => $this->input->post('production_year'),
 				'grayscale' => (bool)($this->input->post('grayscale')),
 				'detelecine' => (bool)($this->input->post('detelecine')),
-				'decomb' => $this->input->post('decomb'),
 				'dvdnav' => (bool)($this->input->post('dvdnav')),
 				'qa_notes' => ($this->input->post('qa_notes')),
 				'tvdb' => $this->input->post('tvdb'),

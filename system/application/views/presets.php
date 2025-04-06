@@ -34,10 +34,6 @@
 
 		$d_video_filters = '';
 		$arr_filters = array();
-		if($deinterlace)
-			$arr_filters[] = 'deinterlace';
-		if($decomb)
-			$arr_filters[] = 'decomb';
 		if($detelecine)
 			$arr_filters[] = 'detelecine';
 

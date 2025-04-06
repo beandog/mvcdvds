@@ -24,8 +24,6 @@
 	$i_crf = form_input('crf', $crf, 'size=2');
 	// $i_vcodec = form_dropdown('vcodec', $o_vcodec, $vcodec);
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
-	$i_deinterlace = form_checkbox('deinterlace', 1, $deinterlace);
-	$i_decomb = form_checkbox('decomb', 1, $decomb);
 	$i_detelecine = form_checkbox('detelecine', 1, $detelecine);
 	// $i_fps = form_dropdown('fps', $o_fps, $fps);
 
@@ -34,8 +32,6 @@
 	$this->table->add_row(array("Encoder:", "$i_x264_tune $i_crf"));
 	// $this->table->add_row(array("Video:", "$i_vcodec"));
 	$this->table->add_row(array("Audio:", "$i_acodec"));
-	// $this->table->add_row(array("Deinterlace:", $i_deinterlace));
-	$this->table->add_row(array("Decomb:", $i_decomb));
 	$this->table->add_row(array("Detelecine:", $i_detelecine));
 
 	$arr_status = array('', '', 'Inactive', 'Archived');
