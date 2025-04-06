@@ -34,8 +34,6 @@
 
 		$d_video_filters = '';
 		$arr_filters = array();
-		if($detelecine)
-			$arr_filters[] = 'detelecine';
 
 		$d_video_filters = implode(',', $arr_filters);
 

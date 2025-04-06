@@ -42,7 +42,6 @@
 	$input_preset .= " $input_ripping $input_crf";
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
-	$input_detelecine = form_checkbox('detelecine', 'accept', $detelecine);
 	$input_dvdnav = form_checkbox('dvdnav', '1', $dvdnav == '1');
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
 	$input_start_date = form_input('start_date', $start_date, "size='10'");
@@ -60,7 +59,6 @@
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
 	$this->table->add_row(array("Start Date:", $input_start_date));
-	$this->table->add_row(array("Detelecine:", $input_detelecine));
 	if($series['bluray'] == 0)
 		$this->table->add_row(array("dvdnav:", $input_dvdnav));
 	$this->table->add_row(array("QA Notes:", $input_qa_notes));

@@ -206,7 +206,6 @@
 				'ripping_id' => $this->input->post('ripping_id'),
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => $this->input->post('production_year'),
-				'detelecine' => (bool)($this->input->post('detelecine')),
 				'dvdnav' => (bool)($this->input->post('dvdnav')),
 				'qa_notes' => ($this->input->post('qa_notes')),
 				'tvdb' => $this->input->post('tvdb'),
