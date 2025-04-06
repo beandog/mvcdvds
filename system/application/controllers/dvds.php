@@ -212,12 +212,6 @@
 
 		public function update_series_dvd($dvd_id) {
 
-			/*
-			$no_dvdnav = $this->input->post('no_dvdnav');
-			if($no_dvdnav != 't')
-				$no_dvdnav = 'f';
-			*/
-
 			$this->series_dvds_model->load_dvd($dvd_id);
 			$this->dvds_model->load($dvd_id);
 			$this->dvds_model->set_package_title(trim($this->input->post('package_title')));
@@ -231,8 +225,6 @@
 			if(strlen($this->input->post('bluray_disc_title')))
 				$this->dvds_model->set_title($this->input->post('bluray_disc_title'));
 			*/
-
-			// $this->series_dvds_model->set_no_dvdnav($no_dvdnav);
 
 			redirect("dvds/details/$dvd_id");
 

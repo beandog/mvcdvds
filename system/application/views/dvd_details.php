@@ -18,7 +18,6 @@
 	if(!isset($series_dvd)) {
 		$series_dvd['series_id'] = null;
 		$series_dvd['audio_preference'] = null;
-	// 	$series_dvd['no_dvdnav'] = null;
 	}
 
 	echo form_open("dvds/update_series_dvd/".$dvds['id'], $attr);
@@ -32,7 +31,6 @@
 	$i_audio_preference = form_dropdown('audio_preference', $select_audio_preference, $series_dvd['audio_preference']);
 	$i_package_title = form_input('package_title', $package_title, "size='48'");
 	$i_volname = form_input('volname', $title, "size='48'");
-	// $i_no_dvdnav = form_checkbox('no_dvdnav', 't', $series_dvd['no_dvdnav'] == 't');
 
 	$nsix = "$collection_id.".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvds['id'], 4, 0, STR_PAD_LEFT).".".$series['nsix'].".iso";
 
@@ -58,7 +56,6 @@
 	$this->table->add_row(array("Package title:", $i_package_title));
 	$this->table->add_row(array("Series:", $i_series_id));
 	$this->table->add_row(array("Audio:", $i_audio_preference));
-	// $this->table->add_row(array("No dvdnav:", $i_no_dvdnav));
 
 	$submit = form_submit('submit', 'Update');
 
