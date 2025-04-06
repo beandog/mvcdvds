@@ -47,7 +47,7 @@
 			$this->db->select('series.*');
 			$this->db->join('series_dvds', 'series_dvds.series_id = series.id', 'left outer');
 			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id', 'left outer');
-			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.average_length, series.grayscale');
+			$this->db->group_by('series.id, series.collection_id, series.title, series.production_year, series.average_length');
 			$this->db->where('series.collection_id', $id);
 			$this->db->where('active', $active);
 			if($library_id)
