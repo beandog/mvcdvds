@@ -15,7 +15,7 @@
 			return $arr;
 			*/
 
-			$sql = "SELECT DISTINCT d.id AS dvd_id, s.collection_id, s.id AS series_id, (((s.collection_id || '.'::text) || to_char(s.id, 'FM000'::text)) || '.'::text) || to_char(d.id, 'FM0000'::text) AS dvd_nsix_iso, s.nsix, s.active, d.bluray, sd.season, sd.volume, sd.side, s.title AS series_title, d.title AS dvd_title, db.description FROM dvd_bugs db JOIN dvds d ON d.id = db.dvd_id JOIN series_dvds sd ON sd.dvd_id = d.id JOIN series s ON s.id = sd.series_id ORDER BY s.collection_id, s.title, sd.season, sd.volume, sd.side, d.title;";
+			$sql = "SELECT DISTINCT d.id AS dvd_id, s.collection_id, s.id AS series_id, s.production_year, (((s.collection_id || '.'::text) || to_char(s.id, 'FM000'::text)) || '.'::text) || to_char(d.id, 'FM0000'::text) AS dvd_nsix_iso, s.nsix, s.active, d.bluray, sd.season, sd.volume, sd.side, s.title AS series_title, d.title AS dvd_title, db.description FROM dvd_bugs db JOIN dvds d ON d.id = db.dvd_id JOIN series_dvds sd ON sd.dvd_id = d.id JOIN series s ON s.id = sd.series_id ORDER BY s.collection_id, s.id, s.title, sd.season, sd.volume, sd.side, d.title;";
 
 			$arr_assoc = array();
 			$obj = $this->db->query($sql);
