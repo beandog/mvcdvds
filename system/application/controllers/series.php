@@ -116,7 +116,6 @@
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
 			$data['collections'] = $this->collections_model->get_collections();
-			$data['libraries'] = $this->collections_model->get_libraries($data['series']['collection_id']);
 
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data['series']);
@@ -147,7 +146,6 @@
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
 			$data['collections'] = $this->collections_model->get_collections();
-			$data['libraries'] = $this->collections_model->get_libraries($data['series']['collection_id']);
 
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data['series']);
@@ -169,7 +167,6 @@
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
 			$data['collections'] = $this->collections_model->get_collections();
-			$data['libraries'] = $this->collections_model->get_libraries($data['series']['collection_id']);
 
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data['series']);
@@ -211,11 +208,6 @@
 				'jfin' => $this->input->post('jfin'),
 				'active' => $this->input->post('active'),
 			);
-
-			if($this->input->post('library'))
-				$arr['library_id'] = $this->input->post('library');
-			else
-				$arr['library_id'] = null;
 
 			/*
 			if($this->input->post('x264_preset'))

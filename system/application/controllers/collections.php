@@ -6,12 +6,11 @@ class Collections extends Controller {
 		parent::Controller();
 	}
 
-	function index($id, $active = 1, $library_id = 0) {
+	function index($id, $active = 1) {
 
 		$data['collection'] = $this->collections_model->get_data($id);
 		$data['collection']['active'] = intval($active);
-		$data['libraries'] = $this->collections_model->get_libraries($id);
-		$data['collections'] = $this->series_model->get_collection($id, $active, $library_id);
+		$data['collections'] = $this->series_model->get_collection($id, $active);
 
 		$data['presets'] = $this->presets_model->get_presets();
 		$data['series_presets'] = $this->series_model->get_series_presets();

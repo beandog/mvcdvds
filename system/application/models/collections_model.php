@@ -19,18 +19,6 @@
 
 		}
 
-		public function get_libraries($collection_id) {
-
-			$this->db->select('id, name');
-			$this->db->where('collection_id', $collection_id);
-			$this->db->order_by('name');
-
-			$arr = $this->get_assoc('libraries');
-
-			return $arr;
-
-		}
-
 		public function collection_series_data($id) {
 
 			$this->db->select('series.id AS series_id, SUM(dvds.filesize) AS sum_filesize, COUNT(dvds.id) AS num_dvds');

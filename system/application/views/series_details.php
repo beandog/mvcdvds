@@ -3,12 +3,6 @@
 	foreach($presets as $id => $arr)
 		$arr_dropdown_presets[$id] = $arr['name'];
 
-	if(count($libraries)) {
-		$libraries[0] = '';
-		ksort($libraries);
-	}
-	$input_libraries = '';
-
 	echo heading("Series Encoding Settings", 4);
 
 	echo "<blockquote>";
@@ -29,10 +23,6 @@
 	$input_jfin = form_input('jfin', $jfin, "size=6");
 	$input_crf = form_input('crf', $crf, "size='3'");
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
-	if(count($libraries)) {
-		$input_libraries = form_dropdown('library', $libraries, $series['library_id']);
-		$input_collection .= " $input_libraries";
-	}
 	if(!is_array($preset))
 		$preset['id'] = 0;
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
