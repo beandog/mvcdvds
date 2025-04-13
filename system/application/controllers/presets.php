@@ -51,15 +51,11 @@
 				if(!strlen($this->input->post('crf')))
 					$crf = 23;
 
-				if(!$fps)
-					$fps = null;
-
 				$arr['name'] = $this->input->post('name');
 				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['crf'] = $crf;
 				$arr['vcodec'] = $this->input->post('vcodec');
 				$arr['acodec'] = $acodec;
-				$arr['fps'] = $this->input->post('fps');
 
 				$this->presets_model->set($arr);
 
