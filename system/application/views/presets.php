@@ -5,7 +5,6 @@
 	$tbl_heading = array(
 		'Preset',
 		'Series',
-		'x264',
 		// 'x264 profile',
 		// 'x264 tune',
 		'CRF',
@@ -53,7 +52,6 @@
 		$tbl_row = array(
 			$d_preset,
 			$d_num_series,
-			$x264_preset,
 			// $x264_profile,
 			// $x264_tune,
 			$d_video_quality,

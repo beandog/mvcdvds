@@ -14,20 +14,17 @@
 
 	$o_vcodec = array('x264' => 'avc', 'x265' => 'hevc');
 	$o_acodec = array('copy' => 'copy', 'fdk_aac' => 'aac', 'mp3' => 'lame', 'flac' => 'flac');
-	// $o_x264_preset = array('medium' => 'medium', 'slow' => 'slow');
 	$o_x264_tune = array('' => '', 'film' => 'film', 'animation' => 'animation');
 	// $o_fps = array('' => '', '23.976' => '23.97', '24' => '24', '25' => '25', '29.97' => '29.97', '30' => '30', '60' => '60');
 
 	$i_name = form_input('name', $name, 'size=45');
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
-	// $i_x264_preset = form_dropdown('x264_preset', $o_x264_preset, $x264_preset);
 	$i_crf = form_input('crf', $crf, 'size=2');
 	$i_vcodec = form_dropdown('vcodec', $o_vcodec, $vcodec);
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
 	// $i_fps = form_dropdown('fps', $o_fps, $fps);
 
 	$this->table->add_row(array("Name:", $i_name));
-	// $this->table->add_row(array("Encoder:", $i_x264_tune." ".$i_x264_preset." ".$i_crf));
 	$this->table->add_row(array("Encoder:", "$i_x264_tune $i_crf"));
 	$this->table->add_row(array("Video:", "$i_vcodec"));
 	$this->table->add_row(array("Audio:", "$i_acodec"));
@@ -57,7 +54,6 @@
 	foreach($series_titles as $series_id => $arr_series) {
 
 		$d_nsix = $arr_series['nsix'];
-		// $d_x264_preset = "<center>".$arr_series['x264_preset']."</center>";
 		$d_crf = "<center>".$arr_series['crf']."</center>";
 		$d_status = "<center>".$arr_status[$arr_series['active']]."</center>";
 		$a_series_title = anchor("series/details/$series_id", $arr_series['title']);
