@@ -56,8 +56,6 @@
 
 			}
 
-			// $this->bugs_model->set_dvd_notes($dvd_id, $this->input->post('notes'));
-
 			$this->dvds_model->load($dvd_id);
 			$this->dvds_model->set_notes(trim($this->input->post('notes')));
 
