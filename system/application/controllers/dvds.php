@@ -221,10 +221,6 @@
 				$this->dvds_model->set_dvdread_id($this->input->post('bluray_id'));
 			if(strlen($this->input->post('volname')))
 				$this->dvds_model->set_title($this->input->post('volname'));
-			/*
-			if(strlen($this->input->post('bluray_disc_title')))
-				$this->dvds_model->set_title($this->input->post('bluray_disc_title'));
-			*/
 
 			redirect("dvds/details/$dvd_id");
 
@@ -284,23 +280,12 @@
 			$last_track_ix = $this->dvds_model->get_last_track_ix($dvds['id']);
 			$last_episode_ix = $this->dvds_model->get_last_episode_ix($dvds['id']);
 
-// 			var_dump($last_track_ix);
-// 			var_dump($last_episode_ix);
-
 			$data['track'] = current($possible_tracks);
 			$data['ix'] = $max_episode_ix;
 			$data['season'] = $season;
-
-// 			var_dump($using_chapters);
-
-// 			pre($possible_tracks);
-
-//  			pre($dvd_data);
 
 			return $data;
 
 		}
 
 	}
-
-
