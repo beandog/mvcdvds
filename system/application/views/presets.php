@@ -8,9 +8,7 @@
 		// 'x264 tune',
 		'CRF',
 		'Video filters',
-		'Audio codec',
-		// 'Container',
-		// 'Upscale',
+		'Audio codec'
 	);
 
 	echo p();
@@ -43,19 +41,13 @@
 			$d_audio_quality = '';
 		}
 
-		// $d_upscale = '';
-
-		// if($fps)
-		//	$d_upscale = "${fps} fps";
-
 		$tbl_row = array(
 			$d_preset,
 			$d_num_series,
 			// $x264_tune,
 			$d_video_quality,
 			$d_video_filters,
-			$d_audio,
-			// $d_upscale,
+			$d_audio
 		);
 
 		$this->table->add_row($tbl_row);
