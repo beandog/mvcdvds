@@ -198,14 +198,14 @@
 
 			$arr = array(
 				'collection_id' => $this->input->post('collection'),
-				'nsix' => strtoupper($this->input->post('nsix')),
-				'title' => $this->input->post('title'),
+				'nsix' => trim(strtoupper($this->input->post('nsix'))),
+				'title' => trim($this->input->post('title')),
 				'ripping_id' => $this->input->post('ripping_id'),
 				'average_length' => intval($this->input->post('average_length')),
-				'production_year' => $this->input->post('production_year'),
-				'qa_notes' => ($this->input->post('qa_notes')),
-				'tvdb' => $this->input->post('tvdb'),
-				'jfin' => $this->input->post('jfin'),
+				'production_year' => trim($this->input->post('production_year')),
+				'qa_notes' => trim($this->input->post('qa_notes')),
+				'tvdb' => trim($this->input->post('tvdb')),
+				'jfin' => trim($this->input->post('jfin')),
 				'active' => $this->input->post('active'),
 			);
 
