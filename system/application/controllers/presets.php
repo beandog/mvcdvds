@@ -54,6 +54,7 @@
 				$arr['name'] = $this->input->post('name');
 				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['crf'] = $crf;
+				$arr['fps'] = $this->input->post('fps');
 				$arr['vcodec'] = $this->input->post('vcodec');
 				$arr['acodec'] = $acodec;
 

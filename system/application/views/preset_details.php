@@ -15,15 +15,17 @@
 	$o_vcodec = array('x264' => 'avc', 'x265' => 'hevc');
 	$o_acodec = array('copy' => 'copy', 'fdk_aac' => 'aac', 'mp3' => 'lame', 'flac' => 'flac');
 	$o_x264_tune = array('' => '', 'film' => 'film', 'animation' => 'animation');
+	$o_fps = array('' => '', '29.97' => '29.97', '59.94' => '59.94');
 
 	$i_name = form_input('name', $name, 'size=45');
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
 	$i_crf = form_input('crf', $crf, 'size=2');
+	$i_fps = form_dropdown('fps', $o_fps, $fps);
 	$i_vcodec = form_dropdown('vcodec', $o_vcodec, $vcodec);
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
 
 	$this->table->add_row(array("Name:", $i_name));
-	$this->table->add_row(array("Encoder:", "$i_x264_tune $i_crf"));
+	$this->table->add_row(array("Encoder:", "$i_x264_tune $i_crf $i_fps"));
 	$this->table->add_row(array("Video:", "$i_vcodec"));
 	$this->table->add_row(array("Audio:", "$i_acodec"));
 

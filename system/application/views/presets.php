@@ -4,10 +4,10 @@
 
 	$tbl_heading = array(
 		'Preset',
-		'Series',
+		'# Series',
 		// 'x264 tune',
 		'CRF',
-		'Video filters',
+		'FPS',
 		'Audio codec'
 	);
 
@@ -28,10 +28,7 @@
 
 		$d_video_quality = $crf;
 
-		$d_video_filters = '';
-		$arr_filters = array();
-
-		$d_video_filters = implode(',', $arr_filters);
+		$d_fps = $fps;
 
 		if($acodec == 'copy') {
 			$d_audio = "copy";
@@ -46,7 +43,7 @@
 			$d_num_series,
 			// $x264_tune,
 			$d_video_quality,
-			$d_video_filters,
+			$d_fps,
 			$d_audio
 		);
 
