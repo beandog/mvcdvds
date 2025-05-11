@@ -229,4 +229,19 @@
 
 		}
 
+		// Find Blu-rays where dvread_id is legacy value, with 40 or 64 string length instead of 32
+		public function legacy_dvdread_id($series_id = null) {
+
+			$this->db->select('COUNT(1)');
+			$this->db->join('dvds', 'series_dvds.dvd_id = dvds.id');
+			$this->db->where('LENGTH(dvds.dvdread_id) != 32');
+			$this->db->where('series_dvds.series_id', $series_id);
+			$var = $this->get_one("series_dvds");
+
+			$bool = boolval($var);
+
+			return $bool;
+
+		}
+
 	}

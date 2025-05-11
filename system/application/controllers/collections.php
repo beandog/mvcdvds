@@ -46,6 +46,9 @@ class Collections extends Controller {
 				$metadata[] = "No Series Episodes";
 			elseif($data['num_dvds_no_episodes'][$series_id])
 				$metadata[] = "DVD No Episodes";
+			if(($id == 6 || $id == 8) && $this->series_model->legacy_dvdread_id($series_id))
+				$metadata[] = "Legacy Unique ID";
+
 
 			if($data['tv'] && !strlen($data['collections'][$series_id]['jfin']))
 				$metadata[] = 'TV DB';
