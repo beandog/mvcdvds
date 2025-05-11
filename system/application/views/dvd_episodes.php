@@ -48,6 +48,7 @@
 		$d_plex = '';
 		$d_filesize = '';
 		$filesize = 0;
+		$d_ctime = '';
 		/*
 		if(in_array($mp4_file, $plex_files)) {
 			$d_plex = '++';
