@@ -21,6 +21,7 @@
 		// 'Frames',
 		'Plex',
 		'Video',
+		'Created',
 		'Media',
 		'Filesize',
 		''
@@ -66,6 +67,7 @@
 			$d_plex = "<img src='/images/icons/control_play_blue.png' onclick=\"play_episode('$video_filename', '$episode_filename');\">";
 			$filesize = plex_episode_filesize($mkv_file, $plex_episode_dirs);
 			$filesize = $filesize / (1024 * 1024);
+			$d_ctime = date("Y-m-d", filectime("/opt/$video_filename"));
 			$d_filesize = number_format($filesize)." MB";
 		}
 
@@ -148,6 +150,7 @@
 			// $d_frames,
 			$d_plex,
 			$d_avcinfo,
+			$d_ctime,
 			$d_episode_info,
 			$d_filesize,
 			$img_delete,
