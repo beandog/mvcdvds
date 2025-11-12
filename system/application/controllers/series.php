@@ -113,6 +113,7 @@
 			$data['presets'] = $this->presets_model->get_presets();
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
 			$data['rippers'] = $this->presets_model->get_rippers();
+			$data['video_filters'] = $this->presets_model->get_video_filters();
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
 			$data['collections'] = $this->collections_model->get_collections();
@@ -201,6 +202,7 @@
 				'nsix' => trim(strtoupper($this->input->post('nsix'))),
 				'title' => trim($this->input->post('title')),
 				'ripping_id' => $this->input->post('ripping_id'),
+				'video_filter_id' => $this->input->post('video_filter_id'),
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => trim($this->input->post('production_year')),
 				'qa_notes' => trim($this->input->post('qa_notes')),

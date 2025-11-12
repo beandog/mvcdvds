@@ -25,7 +25,8 @@
 		$preset['id'] = 0;
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_ripping = form_dropdown('ripping_id', $rippers, $ripping_id);
-	$input_preset .= " $input_ripping $input_crf";
+	$input_video_filter = form_dropdown('video_filter_id', $video_filters, $video_filter_id);
+	$input_preset .= " $input_ripping $input_video_filter $input_crf";
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
