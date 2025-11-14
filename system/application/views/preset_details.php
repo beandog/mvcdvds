@@ -13,7 +13,7 @@
 	$inputs = array();
 
 	$o_vcodec = array('h264_hwenc' => 'avc hwenc', 'hevc_hwenc' => 'hevc hwenc', 'x264' => 'avc', 'x265' => 'hevc');
-	$o_acodec = array('copy' => 'copy', 'fdk_aac' => 'aac', 'mp3' => 'lame', 'flac' => 'flac');
+	$o_acodec = array('copy' => 'copy', 'fdk_aac' => 'aac');
 	$o_x264_tune = array('' => '', 'film' => 'film', 'animation' => 'animation');
 	$o_fps = array('' => '', '29.97' => '29.97', '59.94' => '59.94');
 
