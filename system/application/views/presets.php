@@ -7,6 +7,9 @@
 		'# Series',
 		// 'x264 tune',
 		'CRF',
+		'CQ',
+		'Qmin',
+		'Qmax',
 		'FPS',
 		'Audio codec'
 	);
@@ -27,6 +30,9 @@
 			$d_num_series = $num_series[$id];
 
 		$d_video_quality = $crf;
+		$d_video_cq = $cq;
+		$d_video_qmin = $qmin;
+		$d_video_qmax = $qmax;
 
 		$d_fps = $fps;
 
@@ -43,6 +49,9 @@
 			$d_num_series,
 			// $x264_tune,
 			$d_video_quality,
+			$d_video_cq,
+			$d_video_qmin,
+			$d_video_qmax,
 			$d_fps,
 			$d_audio
 		);

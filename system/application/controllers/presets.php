@@ -46,14 +46,27 @@
 			if($submit == 'Update') {
 
 				$crf = abs(intval($this->input->post('crf')));
+				$cq = abs(intval($this->input->post('cq')));
+				$qmin = abs(intval($this->input->post('qmin')));
+				$qmax = abs(intval($this->input->post('qmax')));
 				$acodec = $this->input->post('acodec');
 
 				if(!strlen($this->input->post('crf')))
 					$crf = 23;
 
+				if(!$cq)
+					$cq = null;
+				if(!$qmin)
+					$qmin = null;
+				if(!$qmax)
+					$qmax = null;
+
 				$arr['name'] = $this->input->post('name');
 				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['crf'] = $crf;
+				$arr['cq'] = $cq;
+				$arr['qmin'] = $qmin;
+				$arr['qmax'] = $qmax;
 				$arr['fps'] = $this->input->post('fps');
 				$arr['vcodec'] = $this->input->post('vcodec');
 				$arr['acodec'] = $acodec;
