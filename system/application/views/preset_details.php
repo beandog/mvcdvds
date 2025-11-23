@@ -13,8 +13,9 @@
 	$inputs = array();
 
 	$o_vcodec = array('h264_hwenc' => 'avc hwenc', 'hevc_hwenc' => 'hevc hwenc', 'x264' => 'avc', 'x265' => 'hevc');
-	$o_denoise = array('' => 'do not denoise', 'ultralight' => 'ultralight', 'light' => 'light', 'medium' => 'medium', 'strong' => 'strong');
-	$o_sharpen = array('' => 'do not sharpen', 'animation' => 'animation', 'film' => 'film');
+	$o_denoise = array('' => '', 'ultralight' => 'ultralight', 'light' => 'light', 'medium' => 'medium', 'strong' => 'strong');
+	$o_sharpen = array('' => '', 'light' => 'light', 'medium' => 'medium', 'strong' => 'strong', 'stronger' => 'stronger', 'verystrong' => 'verystrong');
+	$o_sharpen_tune = array('' => '', 'animation' => 'animation', 'film' => 'film');
 	$o_acodec = array('copy' => 'copy', 'aac' => 'aac');
 	$o_x264_tune = array('' => '', 'film' => 'film', 'animation' => 'animation');
 	$o_fps = array('' => '', '29.97' => '29.97', '59.94' => '59.94');
@@ -29,12 +30,15 @@
 	$i_vcodec = form_dropdown('vcodec', $o_vcodec, $vcodec);
 	$i_denoise = form_dropdown('denoise', $o_denoise, $denoise);
 	$i_sharpen = form_dropdown('sharpen', $o_sharpen, $sharpen);
+	$i_sharpen_tune = form_dropdown('sharpen_tune', $o_sharpen_tune, $sharpen_tune);
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
 
 	$this->table->add_row(array("Name:", $i_name));
 	$this->table->add_row(array("Encoder:", "$i_x264_tune $i_crf $i_fps"));
 	$this->table->add_row(array("Quality:", "cq $i_cq | qmin $i_qmin | qmax $i_qmax"));
-	$this->table->add_row(array("Video:", "$i_vcodec $i_denoise $i_sharpen"));
+	$this->table->add_row(array("Video:", $i_vcodec));
+	$this->table->add_row(array("Denoise:", $i_denoise));
+	$this->table->add_row(array("Sharpen:", "$i_sharpen $i_sharpen_tune"));
 	$this->table->add_row(array("Audio:", "$i_acodec"));
 
 	$arr_status = array('', '', 'Inactive', 'Archived');

@@ -71,6 +71,9 @@
 				$arr['vcodec'] = $this->input->post('vcodec');
 				$arr['denoise'] = $this->input->post('denoise');
 				$arr['sharpen'] = $this->input->post('sharpen');
+				$arr['sharpen_tune'] = $this->input->post('sharpen_tune');
+				if($arr['sharpen'] == '')
+					$arr['sharpen_tune'] = '';
 				$arr['acodec'] = $acodec;
 
 				$this->presets_model->set($arr);
