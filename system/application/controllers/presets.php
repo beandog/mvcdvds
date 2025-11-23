@@ -70,6 +70,7 @@
 				$arr['fps'] = $this->input->post('fps');
 				$arr['vcodec'] = $this->input->post('vcodec');
 				$arr['denoise'] = $this->input->post('denoise');
+				$arr['sharpen'] = $this->input->post('sharpen');
 				$arr['acodec'] = $acodec;
 
 				$this->presets_model->set($arr);
