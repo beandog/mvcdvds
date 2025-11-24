@@ -8,7 +8,6 @@
 				'/opt/plex/sd',
 				'/opt/plex/hd',
 				'/opt/plex/tv',
-				'/opt/plex/4k',
 				'/opt/plex/bd',
 			);
 
