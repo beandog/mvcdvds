@@ -15,8 +15,10 @@
 			'Active',
 		);
 
+		/*
 		if($bluray)
 			$tbl_heading[] = 'Passthrough';
+		*/
 
 		$this->table->set_heading($tbl_heading);
 
@@ -42,6 +44,7 @@
 			else
 				$display_active = 'Missing Metadata';
 
+			/*
 			$display_passthrough = '';
 			if($ix == $audio_ix) {
 				$display_passthrough = "<img src='/images/icons/sound.png'>";
@@ -54,6 +57,7 @@
 			} else if($passthrough == 5) {
 				$display_passthrough = "<img src='/images/icons/music.png'> Theatrical Score";
 			}
+			*/
 
 			$tbl_row = array(
 
@@ -63,7 +67,7 @@
 				$channels,
 				$streamid,
 				$display_active,
-				$display_passthrough
+				// $display_passthrough
 
 			);
 
