@@ -8,6 +8,7 @@
 	echo "<table width='100%'><tr><td>\n";
 	echo anchor("/", "Home");
 	echo " | ".anchor("presets/", "Presets");
+	echo " | ".anchor("encodes/", "Encodes");
 	echo " | ".anchor("bugs/", "Bugs");
 	echo " | ".anchor("collections/index/1", "Cartoons");
 	echo " | ".anchor("collections/index/2", "TV Shows");
