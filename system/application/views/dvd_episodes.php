@@ -8,7 +8,6 @@
 	$tbl_heading = array(
 		'',
 		'Track',
-		// 'ix',
 		'Title',
 		'Part',
 		'Ch.',
@@ -17,11 +16,10 @@
 		'#',
 		'No',
 		'NSIX',
-		// 'Encode',
-		// 'Frames',
 		'Plex',
-		'Video',
 		'Created',
+		'Encoder',
+		'Codecs',
 		'Media',
 		'Filesize',
 		''
@@ -43,20 +41,11 @@
 
 		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvd_id, 4, 0, STR_PAD_LEFT).".".str_pad($episode_id, 5, 0, STR_PAD_LEFT);
 
-		// $mp4_file = $display_id.".".$series['nsix'].".mp4";
 		$mkv_file = $display_id.".".$series['nsix'].".mkv";
 		$d_plex = '';
 		$d_filesize = '';
 		$filesize = 0;
 		$d_ctime = '';
-		/*
-		if(in_array($mp4_file, $plex_files)) {
-			$d_plex = '++';
-			$filesize = plex_episode_filesize($mp4_file, $plex_episode_dirs);
-			$filesize = $filesize / (1024 * 1024);
-			$d_filesize = number_format($filesize)." MB";
-		}
-		*/
 		if(in_array($mkv_file, $plex_files)) {
 			if(file_exists("/opt/plex/sd/$mkv_file"))
 				$video_filename = "/plex/sd/$mkv_file";
@@ -70,6 +59,44 @@
 			$filesize = $filesize / (1024 * 1024);
 			$d_ctime = date("Y-m-d", filectime("/opt/$video_filename"));
 			$d_filesize = number_format($filesize)." MB";
+		}
+
+		// Encoder details
+		$d_app = '';
+		$d_codecs = '';
+		$d_encode = '';
+		if($filesize && array_key_exists($episode_id, $encodes)) {
+
+			$arr_encode_info = $encodes[$episode_id];
+			if($arr_encode_info['vcodec'] == 'avc')
+				$arr_encode_info['vcodec'] = 'h264';
+
+			$app = $arr_encode_info['application'];
+			$d_app = $app;
+			// pre($arr_encode_info);
+			if(strstr($app, 'HandBrake') || strstr($app, 'mkvmerge')) {
+				$arr = explode(' ', $app);
+				$d_app = implode(' ', array($arr[0], $arr[1]));
+			} elseif(strstr($app, 'Lavf')) {
+				$version = str_replace('Lavf', '', $app);
+				if($version == '61.7.100')
+					$d_app = 'ffmpeg 7.1.1';
+				elseif($version == '62.3.100')
+					$d_app = 'ffmpeg 8.0.1';
+				else
+					$d_app = "ffmpeg lavf $version";
+			}
+
+			$arr = array($arr_encode_info['vcodec'], $arr_encode_info['acodec']);
+			if($arr_encode_info['scodec'])
+				$arr[] = $arr_encode_info['scodec'];
+			$d_codecs = implode(' - ', $arr);
+
+			if(!strstr($d_codecs, 'aac'))
+				$d_codecs = "<b>$d_codecs</b>";
+
+			$d_encode = $d_codecs;
+
 		}
 
 		$d_plex = "<center>$d_plex</center>";
@@ -105,26 +132,6 @@
 		$i_skip_episode = form_checkbox("episode[$episode_id][skip]", '1', $skip ? true : false);
 
 		$d_frames = '-';
-		/*
-		$d_encode = 'Preset';
-		$frames = $progressive + $top_field + $bottom_field;
-		if($frames) {
-			$per_interlaced = (($top_field + $bottom_field) / $frames) * 100;
-			if($per_interlaced >= 2)
-				$d_encode = 'Decomb';
-			else
-				$d_encode = 'Progressive';
-			$d_frames = "$progressive / $top_field / $bottom_field";
-			$d_encode = "<span title='$d_frames'>$d_encode</span>";
-		}
-		*/
-
-		// Encoding info
-		$d_avcinfo = '';
-		if($avcinfo && $filesize) {
-			$d_avcinfo = $avcinfo;
-			$d_avcinfo = str_replace("AVC medium ", "q", $d_avcinfo);
-		}
 
 		// Episode info
 		$d_episode_info = '';
@@ -133,12 +140,10 @@
 			$d_episode_info = "<center>".anchor("episodes/index/$episode_id", $img_episode)."</center>";
 		}
 
-
 		$tbl_row = array(
 
 			$a_track,
 			$i_track_ix,
-			//  $i_ix,
 			$i_title,
 			$i_part,
 			$i_starting_chapter,
@@ -147,11 +152,10 @@
 			$i_episode_number,
 			$i_skip_episode,
 			$display_id,
-			// $d_encode,
-			// $d_frames,
 			$d_plex,
-			$d_avcinfo,
 			$d_ctime,
+			$d_app,
+			$d_encode,
 			$d_episode_info,
 			$d_filesize,
 			$img_delete,

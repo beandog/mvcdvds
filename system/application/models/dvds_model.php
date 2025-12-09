@@ -46,6 +46,19 @@
 
 		}
 
+		public function get_encodes($id) {
+
+			$this->db->select('encodes.episode_id, encodes.*');
+			$this->db->join('episodes', 'episodes.id = encodes.episode_id');
+			$this->db->join('tracks', 'episodes.track_id = tracks.id');
+			$this->db->where('tracks.dvd_id', $id);
+
+			$arr = $this->get_assoc('encodes');
+
+			return $arr;
+
+		}
+
 		public function get_last_episode_ix($dvd_id) {
 
 			$this->db->select('MAX(episodes.ix)');
