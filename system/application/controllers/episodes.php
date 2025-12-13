@@ -31,6 +31,12 @@
 
 			$this->load->view('plex_episodes', $data);
 			$data['filename'] = plex_episode_filename($episode_nsix, $data['plex_episode_dirs']);
+
+			if(!file_exists($data['filename'])) {
+				redirect("dvds/episodes/".$data['dvd_id']);
+				return;
+			}
+
 			$data['mediainfo'] = '';
 			if($data['filename'])
 				$data['mediainfo'] = shell_exec("mediainfo ".$data['filename']);
