@@ -5,6 +5,8 @@
 
 	$arr_dropdown_x264_presets = array('' => '', 'slow' => 'slow', 'fast' => 'fast');
 
+	$arr_dropdown_bwdif = array('' => '', 'interlaced' => 'interlaced', 'all' => 'all');
+
 	echo heading("Series Encoding Settings", 4);
 
 	echo "<blockquote>";
@@ -28,7 +30,7 @@
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_x264_preset = form_dropdown('x264_preset', $arr_dropdown_x264_presets, $x264_preset);
 	$input_ripping = form_dropdown('ripping_id', $rippers, $ripping_id);
-	$input_video_filter = form_dropdown('video_filter_id', $video_filters, $video_filter_id);
+	$input_bwdif = form_dropdown('bwdif', $arr_dropdown_bwdif, $bwdif);
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
@@ -46,7 +48,8 @@
 	$this->table->add_row(array("Preset:", $input_preset));
 	$this->table->add_row(array("x264:", "$input_x264_preset $input_crf"));
 	$this->table->add_row(array("Encoder:", $input_ripping));
-	$this->table->add_row(array("Deinterlace Frames:", $input_video_filter));
+	if(!preg_match('/^(HD|BD|4K)/', $nsix))
+		$this->table->add_row(array("Deinterlace Frames:", $input_bwdif));
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
 	$this->table->add_row(array("Start Date:", $input_start_date));

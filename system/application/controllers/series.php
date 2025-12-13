@@ -113,7 +113,6 @@
 			$data['presets'] = $this->presets_model->get_presets();
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
 			$data['rippers'] = $this->presets_model->get_rippers();
-			$data['video_filters'] = $this->presets_model->get_video_filters();
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
 			$data['collections'] = $this->collections_model->get_collections();
@@ -197,13 +196,15 @@
 
 			$this->series_model->load($id);
 
+			$nsix = trim(strtoupper($this->input->post('nsix')));
+
 			$arr = array(
 				'collection_id' => $this->input->post('collection'),
-				'nsix' => trim(strtoupper($this->input->post('nsix'))),
+				'nsix' => $nsix,
 				'title' => trim($this->input->post('title')),
 				'ripping_id' => $this->input->post('ripping_id'),
-				'video_filter_id' => $this->input->post('video_filter_id'),
 				'x264_preset' => $this->input->post('x264_preset'),
+				'bwdif' => $this->input->post('bwdif'),
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => trim($this->input->post('production_year')),
 				'qa_notes' => trim($this->input->post('qa_notes')),
@@ -221,6 +222,9 @@
 				$arr['start_date'] = $this->input->post('start_date');
 			else
 				$arr['start_date'] = null;
+
+			if(preg_match('/^(HD|BD|4K)/', $nsix))
+				$arr['bwdif'] = '';
 
 			$this->series_model->set($arr);
 
