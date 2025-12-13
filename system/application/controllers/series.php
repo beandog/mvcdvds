@@ -203,6 +203,7 @@
 				'title' => trim($this->input->post('title')),
 				'ripping_id' => $this->input->post('ripping_id'),
 				'video_filter_id' => $this->input->post('video_filter_id'),
+				'x264_preset' => $this->input->post('x264_preset'),
 				'average_length' => intval($this->input->post('average_length')),
 				'production_year' => trim($this->input->post('production_year')),
 				'qa_notes' => trim($this->input->post('qa_notes')),

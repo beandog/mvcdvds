@@ -3,6 +3,8 @@
 	foreach($presets as $id => $arr)
 		$arr_dropdown_presets[$id] = $arr['name'];
 
+	$arr_dropdown_x264_presets = array('' => '', 'slow' => 'slow', 'fast' => 'fast');
+
 	echo heading("Series Encoding Settings", 4);
 
 	echo "<blockquote>";
@@ -24,9 +26,9 @@
 	if(!is_array($preset))
 		$preset['id'] = 0;
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
+	$input_x264_preset = form_dropdown('x264_preset', $arr_dropdown_x264_presets, $x264_preset);
 	$input_ripping = form_dropdown('ripping_id', $rippers, $ripping_id);
 	$input_video_filter = form_dropdown('video_filter_id', $video_filters, $video_filter_id);
-	$input_preset .= " $input_ripping $input_video_filter $input_crf";
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
 	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
@@ -42,6 +44,9 @@
 	$this->table->add_row(array("TV DB:", $input_tvdb));
 	$this->table->add_row(array("Collection:", $input_collection));
 	$this->table->add_row(array("Preset:", $input_preset));
+	$this->table->add_row(array("x264:", "$input_x264_preset $input_crf"));
+	$this->table->add_row(array("Encoder:", $input_ripping));
+	$this->table->add_row(array("Deinterlace Frames:", $input_video_filter));
 	$this->table->add_row(array("Production Year:", $input_production_year));
 	$this->table->add_row(array("Avg. Length:", $input_average_length));
 	$this->table->add_row(array("Start Date:", $input_start_date));
