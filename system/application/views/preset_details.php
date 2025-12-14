@@ -12,7 +12,7 @@
 
 	$inputs = array();
 
-	$o_vcodec = array('h264_hwenc' => 'avc hwenc', 'hevc_hwenc' => 'hevc hwenc', 'x264' => 'avc', 'x265' => 'hevc');
+	$o_vcodec = array('h264_hwenc' => 'avc hwenc', 'x264' => 'avc');
 	$o_denoise = array('' => '', 'ultralight' => 'ultralight', 'light' => 'light', 'medium' => 'medium', 'strong' => 'strong');
 	$o_sharpen = array('' => '', 'light' => 'light', 'medium' => 'medium', 'strong' => 'strong', 'stronger' => 'stronger', 'verystrong' => 'verystrong');
 	$o_sharpen_tune = array('' => '', 'animation' => 'animation', 'film' => 'film');
