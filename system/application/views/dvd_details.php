@@ -53,6 +53,7 @@
 	}
 	if(isset($longest_track))
 		$this->table->add_row(array("Longest Track:", $longest_track));
+	$this->table->add_row(array("Region:", $region));
 	$this->table->add_row(array("Package title:", $i_package_title));
 	$this->table->add_row(array("Series:", $i_series_id));
 	$this->table->add_row(array("Audio:", $i_audio_preference));
