@@ -12,7 +12,7 @@
 
 	$inputs = array();
 
-	$o_vcodec = array('x264' => 'avc', 'gpu' => 'gpu');
+	$o_vcodec = array('avc' => 'avc', 'hevc' => 'hevc');
 	$o_denoise = array('' => '', 'ultralight' => 'ultralight', 'light' => 'light', 'medium' => 'medium', 'strong' => 'strong');
 	$o_sharpen = array('' => '', 'light' => 'light', 'medium' => 'medium', 'strong' => 'strong', 'stronger' => 'stronger', 'verystrong' => 'verystrong');
 	$o_sharpen_tune = array('' => '', 'animation' => 'animation', 'film' => 'film');
@@ -23,9 +23,6 @@
 	$i_name = form_input('name', $name, 'size=45');
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
 	$i_crf = form_input('crf', $crf, 'size=2');
-	$i_cq = form_input('cq', $cq, 'size=2');
-	$i_qmin = form_input('qmin', $qmin, 'size=2');
-	$i_qmax = form_input('qmax', $qmax, 'size=2');
 	$i_fps = form_dropdown('fps', $o_fps, $fps);
 	$i_vcodec = form_dropdown('vcodec', $o_vcodec, $vcodec);
 	$i_denoise = form_dropdown('denoise', $o_denoise, $denoise);
@@ -35,7 +32,7 @@
 
 	$this->table->add_row(array("Name:", $i_name));
 	$this->table->add_row(array("Encoder:", "$i_x264_tune $i_crf $i_fps"));
-	$this->table->add_row(array("Quality:", "cq $i_cq | qmin $i_qmin | qmax $i_qmax"));
+	// $this->table->add_row(array("Quality:", "cq $i_cq"));
 	$this->table->add_row(array("Video:", $i_vcodec));
 	$this->table->add_row(array("Denoise:", $i_denoise));
 	$this->table->add_row(array("Sharpen:", "$i_sharpen $i_sharpen_tune"));
