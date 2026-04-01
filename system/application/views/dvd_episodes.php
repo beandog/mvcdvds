@@ -17,7 +17,7 @@
 		'No',
 		'NSIX',
 		'Plex',
-		'Created',
+		// 'Created',
 		'Encoder',
 		'Codecs',
 		'Media',
@@ -47,17 +47,17 @@
 		$filesize = 0;
 		$d_ctime = '';
 		if(in_array($mkv_file, $plex_files)) {
-			if(file_exists("/opt/plex/sd/$mkv_file"))
-				$video_filename = "/plex/sd/$mkv_file";
-			elseif(file_exists("/opt/plex/tv/$mkv_file"))
-				$video_filename = "/plex/tv/$mkv_file";
+			if(file_exists("/media/sd/$mkv_file"))
+				$video_filename = "/media/sd/$mkv_file";
+			elseif(file_exists("/media/tv/$mkv_file"))
+				$video_filename = "/tv/$mkv_file";
 			else
 				$video_filename = '';
 			$episode_filename = basename($mkv_file);
 			$d_plex = "<img src='/images/icons/control_play_blue.png' onclick=\"play_episode('$video_filename', '$episode_filename');\">";
 			$filesize = plex_episode_filesize($mkv_file, $plex_episode_dirs);
 			$filesize = $filesize / (1024 * 1024);
-			$d_ctime = date("Y-m-d", filectime("/opt/$video_filename"));
+			// $d_ctime = date("Y-m-d", filectime("/media/$video_filename"));
 			$d_filesize = number_format($filesize)." MB";
 		}
 
@@ -153,7 +153,7 @@
 			$i_skip_episode,
 			$display_id,
 			$d_plex,
-			$d_ctime,
+			// $d_ctime,
 			$d_app,
 			$d_encode,
 			$d_episode_info,

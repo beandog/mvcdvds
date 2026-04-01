@@ -8,8 +8,8 @@
 
 	extract($series);
 
-	$qa_files = scandir("/opt/plex/sd");
-	$qa_files = array_merge($qa_files, scandir("/opt/plex/hd"));
+	$qa_files = scandir("/media/sd");
+	$qa_files = array_merge($qa_files, scandir("/media/hd"));
 
 	$series_id = str_pad($id, 3, 0, STR_PAD_LEFT);
 
@@ -19,7 +19,7 @@
 	foreach($qa_videos as $filename) {
 
 		foreach(array('sd', 'bd', 'hd') as $dir) {
-			if(file_exists("/opt/plex/$dir/$filename"))
+			if(file_exists("/media/$dir/$filename"))
 				$video_filename = "/plex/$dir/$filename";
 		}
 

@@ -2,8 +2,11 @@
 
 	$play_filename = str_replace('/opt', '', $filename);
 	$episode_filename = basename($filename);
+	$d_mtime = '';
+	/*
 	$episode_mtime = filectime($filename);
 	$d_mtime = date("Y-m-d", filectime($filename));
+	*/
 
 	$d_play = "<img src='/images/icons/control_play_blue.png' onclick=\"play_episode('$play_filename', '$episode_filename');\">";
 

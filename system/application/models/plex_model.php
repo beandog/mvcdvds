@@ -5,10 +5,10 @@
 		function get_plex_episode_dirs() {
 
 			$plex_episode_dirs = array(
-				'/opt/plex/sd',
-				'/opt/plex/hd',
-				'/opt/plex/tv',
-				'/opt/plex/bd',
+				'/media/sd',
+				'/media/hd',
+				'/media/tv',
+				'/media/bd',
 			);
 
 			return $plex_episode_dirs;
