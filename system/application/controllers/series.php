@@ -209,7 +209,7 @@
 				'production_year' => trim($this->input->post('production_year')),
 				'qa_notes' => trim($this->input->post('qa_notes')),
 				'tvdb' => trim($this->input->post('tvdb')),
-				'jfin' => trim($this->input->post('jfin')),
+				'provider_id' => trim($this->input->post('provider_id')),
 				'active' => $this->input->post('active'),
 			);
 
