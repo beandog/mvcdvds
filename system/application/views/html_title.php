@@ -15,7 +15,7 @@
 	echo " | ".anchor("collections/index/3", "Church Videos");
 	echo " | ".anchor("collections/index/4", "Movies");
 	echo " | ".anchor("collections/index/5", "IMAX");
-	echo " | ".anchor("collections/index/6", "HDTV");
+	echo " | ".anchor("collections/index/6", "Two-Player");
 	echo " | ".anchor("collections/index/7", "Archives");
 	echo " | ".anchor("collections/index/8", "Blu-rays");
 	echo " | ".anchor("collections/index/9", "Holidays");
