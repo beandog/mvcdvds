@@ -12,10 +12,10 @@
 	echo " | ".anchor("bugs/", "Bugs");
 	echo " | ".anchor("collections/index/1", "Cartoons");
 	echo " | ".anchor("collections/index/2", "TV Shows");
-	echo " | ".anchor("collections/index/3", "Church Videos");
+	echo " | ".anchor("collections/index/3", "Church");
 	echo " | ".anchor("collections/index/4", "Movies");
 	echo " | ".anchor("collections/index/5", "IMAX");
-	echo " | ".anchor("collections/index/6", "Watch Later");
+	echo " | ".anchor("collections/index/6", "HDTV");
 	echo " | ".anchor("collections/index/7", "Shorts");
 	echo " | ".anchor("collections/index/8", "Blu-rays");
 	echo " | ".anchor("collections/index/9", "Holidays");
