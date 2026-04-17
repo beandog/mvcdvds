@@ -11,6 +11,9 @@
 			type: "POST"
 		});
 
+		// console.log(url);
+		// console.log(obj);
+
 	}
 
 	function make_chapter_episodes() {

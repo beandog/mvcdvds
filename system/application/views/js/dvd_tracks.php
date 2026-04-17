@@ -4,7 +4,7 @@
 
 		var url = "<?php echo site_url()."/ajax_tracks/new_episode/";?>" + track_id;
 
-		console.log(url);
+		// console.log(url);
 
 		$.ajax(url);
 
