@@ -244,4 +244,14 @@
 
 		}
 
+		public function get_libraries() {
+
+			$this->db->select('*');
+			$this->db->order_by('name');
+			$var = $this->get_assoc('libraries');
+
+			return $var;
+
+		}
+
 	}

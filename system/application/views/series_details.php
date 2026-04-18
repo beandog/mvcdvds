@@ -7,6 +7,11 @@
 
 	$arr_dropdown_bwdif = array('' => '', 'interlaced' => 'interlaced', 'all' => 'all');
 
+	$arr = array(0 => '');
+	foreach($libraries as $key => $value)
+		$arr[$key] = $value;
+	$libraries = $arr;
+
 	echo heading("Series Encoding Settings", 4);
 
 	echo "<blockquote>";
@@ -30,6 +35,7 @@
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_x264_preset = form_dropdown('x264_preset', $arr_dropdown_x264_presets, $x264_preset);
 	$input_ripping = form_dropdown('ripping_id', $rippers, $ripping_id);
+	$input_library = form_dropdown('library_id', $libraries, $library_id);
 	$input_bwdif = form_dropdown('bwdif', $arr_dropdown_bwdif, $bwdif);
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
@@ -44,7 +50,7 @@
 	$this->table->add_row(array("NSIX:", $input_nsix));
 	$this->table->add_row(array("Display Title:", $input_title));
 	$this->table->add_row(array("TV DB:", $input_tvdb));
-	$this->table->add_row(array("Collection:", $input_collection));
+	$this->table->add_row(array("Collection:", "$input_collection $input_library"));
 	$this->table->add_row(array("Preset:", $input_preset));
 	$this->table->add_row(array("x264:", "$input_x264_preset $input_crf"));
 	$this->table->add_row(array("Encoder:", $input_ripping));

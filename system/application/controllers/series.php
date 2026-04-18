@@ -113,6 +113,7 @@
 			$data['presets'] = $this->presets_model->get_presets();
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
 			$data['rippers'] = $this->presets_model->get_rippers();
+			$data['libraries'] = $this->series_model->get_libraries();
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
 			$data['collections'] = $this->collections_model->get_collections();
@@ -203,6 +204,7 @@
 				'nsix' => $nsix,
 				'title' => trim($this->input->post('title')),
 				'ripping_id' => $this->input->post('ripping_id'),
+				'library_id' => $this->input->post('library_id'),
 				'x264_preset' => $this->input->post('x264_preset'),
 				'bwdif' => $this->input->post('bwdif'),
 				'average_length' => intval($this->input->post('average_length')),
@@ -225,6 +227,9 @@
 
 			if(preg_match('/^(HD|BD|4K)/', $nsix))
 				$arr['bwdif'] = '';
+
+			if($arr['library_id'] == 0)
+				$arr['library_id'] = null;
 
 			$this->series_model->set($arr);
 
