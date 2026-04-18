@@ -10,9 +10,6 @@
 		public function get_encodes() {
 
 			$this->db->select('*');
-			$this->db->where('filename NOT LIKE', '%.HD%');
-			$this->db->where('filename NOT LIKE', '%.BD%');
-			$this->db->where('filename NOT LIKE', '%.4K%');
 			$this->db->order_by('filename');
 			$arr = $this->get_assoc('encodes');
 
