@@ -33,7 +33,7 @@
 			if(!$include_skipped)
 				$this->db->where('episodes.skip', 0);
 
-			$this->db->order_by('episodes.season');
+			// $this->db->order_by('episodes.season');
 			if($orderby = 'episode_ix')
 				$this->db->order_by('episodes.ix');
 			$this->db->order_by('tracks.ix');
