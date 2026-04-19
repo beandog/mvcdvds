@@ -259,33 +259,6 @@
 
 		}
 
-		// Find DVDs where some of the episodes have not been scanned for PTS info
-		public function missing_pts($id) {
-
-			$this->db->select('COUNT(1)');
-			$this->db->where("progressive", null);
-			$this->db->where("dvd_id", $id);
-			$this->db->where("episode_skip", 0);
-			$var = $this->get_one("view_episodes");
-
-			if($var)
-				return true;
-
-			$this->db->select('COUNT(1)');
-			$this->db->where("progressive", 0);
-			$this->db->where("top_field", 0);
-			$this->db->where("bottom_field", 0);
-			$this->db->where("dvd_id", $id);
-			$this->db->where("episode_skip", 0);
-			$var = $this->get_one("view_episodes");
-
-			if($var)
-				return true;
-
-			return false;
-
-		}
-
 		// Find if DVD has any documented bugs
 		public function has_bugs($id) {
 

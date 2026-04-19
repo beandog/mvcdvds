@@ -76,8 +76,6 @@
 					$metadata[] = "No Episodes";
 				if($this->dvds_model->has_bugs($dvd_id))
 					$metadata[] = "Bugs";
-				// if($this->dvds_model->missing_pts($dvd_id) && !$bluray)
-				//	$metadata[] = "Missing PTS";
 				/*
 				if($row['bluray'] && $row['decss'] === '')
 					$metadata[] = "DRM";
