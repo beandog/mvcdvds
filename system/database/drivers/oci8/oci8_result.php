@@ -1,19 +1,42 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 /**
  * CodeIgniter
  *
- * An open source application development framework for PHP 4.3.2 or newer
+ * An open source application development framework for PHP
  *
- * @package	 	CodeIgniter
- * @author	 	ExpressionEngine Dev Team
- * @copyright   Copyright (c) 2008 - 2009, EllisLab, Inc.
- * @license	 	http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since	   	Version 1.0
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2019 - 2022, CodeIgniter Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright	Copyright (c) 2019 - 2022, CodeIgniter Foundation (https://codeigniter.com/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
+ * @since	Version 1.4.1
  * @filesource
  */
-
-// ------------------------------------------------------------------------
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * oci8 Result Class
@@ -21,36 +44,41 @@
  * This class extends the parent result class: CI_DB_result
  *
  * @category	Database
- * @author	 	ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/database/
+ * @author		EllisLab Dev Team
+ * @link		https://codeigniter.com/userguide3/database/
  */
 class CI_DB_oci8_result extends CI_DB_result {
 
-	var $stmt_id;
-	var $curs_id;
-	var $limit_used;
+	/**
+	 * Limit used flag
+	 *
+	 * @var	bool
+	 */
+	public $limit_used;
 
 	/**
-	 * Number of rows in the result set.
+	 * Commit mode flag
 	 *
-	 * Oracle doesn't have a graceful way to retun the number of rows
-	 * so we have to use what amounts to a hack.
-	 * 
-	 *
-	 * @access  public
-	 * @return  integer
+	 * @var	int
 	 */
-	function num_rows()
+	public $commit_mode;
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Class constructor
+	 *
+	 * @param	object	&$driver_object
+	 * @return	void
+	 */
+	public function __construct(&$driver_object)
 	{
-		$rowcount = count($this->result_array());
-		@ociexecute($this->stmt_id);
+		parent::__construct($driver_object);
 
-		if ($this->curs_id)
-		{
-			@ociexecute($this->curs_id);
-		}
-
-		return $rowcount;
+		$this->result_id = $driver_object->result_id;
+		$this->limit_used = $driver_object->limit_used;
+		$this->commit_mode =& $driver_object->commit_mode;
+		$driver_object->result_id = FALSE;
 	}
 
 	// --------------------------------------------------------------------
@@ -58,20 +86,14 @@ class CI_DB_oci8_result extends CI_DB_result {
 	/**
 	 * Number of fields in the result set
 	 *
-	 * @access  public
-	 * @return  integer
+	 * @return	int
 	 */
-	function num_fields()
+	public function num_fields()
 	{
-		$count = @ocinumcols($this->stmt_id);
+		$count = oci_num_fields($this->result_id);
 
 		// if we used a limit we subtract it
-		if ($this->limit_used)
-		{
-			$count = $count - 1;
-		}
-
-		return $count;
+		return ($this->limit_used) ? $count - 1 : $count;
 	}
 
 	// --------------------------------------------------------------------
@@ -81,16 +103,14 @@ class CI_DB_oci8_result extends CI_DB_result {
 	 *
 	 * Generates an array of column names
 	 *
-	 * @access	public
 	 * @return	array
 	 */
-	function list_fields()
+	public function list_fields()
 	{
 		$field_names = array();
-		$fieldCount = $this->num_fields();
-		for ($c = 1; $c <= $fieldCount; $c++)
+		for ($c = 1, $fieldCount = $this->num_fields(); $c <= $fieldCount; $c++)
 		{
-			$field_names[] = ocicolumnname($this->stmt_id, $c);
+			$field_names[] = oci_field_name($this->result_id, $c);
 		}
 		return $field_names;
 	}
@@ -102,19 +122,17 @@ class CI_DB_oci8_result extends CI_DB_result {
 	 *
 	 * Generates an array of objects containing field meta-data
 	 *
-	 * @access  public
-	 * @return  array
+	 * @return	array
 	 */
-	function field_data()
+	public function field_data()
 	{
 		$retval = array();
-		$fieldCount = $this->num_fields();
-		for ($c = 1; $c <= $fieldCount; $c++)
+		for ($c = 1, $fieldCount = $this->num_fields(); $c <= $fieldCount; $c++)
 		{
-			$F			  = new stdClass();
-			$F->name		= ocicolumnname($this->stmt_id, $c);
-			$F->type		= ocicolumntype($this->stmt_id, $c);
-			$F->max_length  = ocicolumnsize($this->stmt_id, $c);
+			$F		= new stdClass();
+			$F->name	= oci_field_name($this->result_id, $c);
+			$F->type	= oci_field_type($this->result_id, $c);
+			$F->max_length	= oci_field_size($this->result_id, $c);
 
 			$retval[] = $F;
 		}
@@ -127,13 +145,13 @@ class CI_DB_oci8_result extends CI_DB_result {
 	/**
 	 * Free the result
 	 *
-	 * @return	null
-	 */		
-	function free_result()
+	 * @return	void
+	 */
+	public function free_result()
 	{
 		if (is_resource($this->result_id))
 		{
-			ocifreestatement($this->result_id);			
+			oci_free_statement($this->result_id);
 			$this->result_id = FALSE;
 		}
 	}
@@ -145,14 +163,11 @@ class CI_DB_oci8_result extends CI_DB_result {
 	 *
 	 * Returns the result set as an array
 	 *
-	 * @access  private
-	 * @return  array
+	 * @return	array
 	 */
-	function _fetch_assoc(&$row)
+	protected function _fetch_assoc()
 	{
-		$id = ($this->curs_id) ? $this->curs_id : $this->stmt_id;
-	
-		return ocifetchinto($id, $row, OCI_ASSOC + OCI_RETURN_NULLS);	
+		return oci_fetch_assoc($this->result_id);
 	}
 
 	// --------------------------------------------------------------------
@@ -162,88 +177,39 @@ class CI_DB_oci8_result extends CI_DB_result {
 	 *
 	 * Returns the result set as an object
 	 *
-	 * @access  private
-	 * @return  object
+	 * @param	string	$class_name
+	 * @return	object
 	 */
-	function _fetch_object()
-	{	
-		$result = array();
+	protected function _fetch_object($class_name = 'stdClass')
+	{
+		$row = oci_fetch_object($this->result_id);
 
-		// If PHP 5 is being used we can fetch an result object
-		if (function_exists('oci_fetch_object'))
+		if ($class_name === 'stdClass' OR ! $row)
 		{
-			$id = ($this->curs_id) ? $this->curs_id : $this->stmt_id;
-			
-			return @oci_fetch_object($id);
-		}
-		
-		// If PHP 4 is being used we have to build our own result
-		foreach ($this->result_array() as $key => $val)
-		{
-			$obj = new stdClass();
-			if (is_array($val))
-			{
-				foreach ($val as $k => $v)
-				{
-					$obj->$k = $v;
-				}
-			}
-			else
-			{
-				$obj->$key = $val;
-			}
-			
-			$result[] = $obj;
+			return $row;
 		}
 
-		return $result;
+		$class_name = new $class_name();
+		foreach ($row as $key => $value)
+		{
+			$class_name->$key = $value;
+		}
+
+		return $class_name;
 	}
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Query result.  "array" version.
+	 * Destructor
 	 *
-	 * @access  public
-	 * @return  array
+	 * Attempt to free remaining statement IDs.
+	 *
+	 * @see	https://github.com/bcit-ci/CodeIgniter/pull/5896
+	 * @return	void
 	 */
-	function result_array()
+	public function __destruct()
 	{
-		if (count($this->result_array) > 0)
-		{
-			return $this->result_array;
-		}
-
-		// oracle's fetch functions do not return arrays.
-		// The information is returned in reference parameters
-		$row = NULL;
-		while ($this->_fetch_assoc($row))
-		{
-			$this->result_array[] = $row;
-		}
-
-		return $this->result_array;
+		$this->free_result();
 	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Data Seek
-	 *
-	 * Moves the internal pointer to the desired offset.  We call
-	 * this internally before fetching results to make sure the
-	 * result set starts at zero
-	 *
-	 * @access	private
-	 * @return	array
-	 */
-	function _data_seek($n = 0)
-	{
-		return FALSE; // Not needed
-	}
-
 }
-
-
-/* End of file oci8_result.php */
-/* Location: ./system/database/drivers/oci8/oci8_result.php */
