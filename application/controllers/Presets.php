@@ -9,15 +9,15 @@
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data);
 
-			if(array_key_exists($id, $data['presets'])) {
+			if(is_null($id)) {
+				$data['num_series'] = $this->presets_model->get_num_series();
+				$this->load->view('presets', $data);
+			} elseif(array_key_exists($id, $data['presets'])) {
 				$data['preset'] = $this->presets_model->get_data($id);
 				$data['preset']['series_titles'] = $this->presets_model->get_series_titles($id);
 				$this->load->view('preset_details', $data['preset']);
 			} elseif($id) {
 				redirect("/presets");
-			} else {
-				$data['num_series'] = $this->presets_model->get_num_series();
-				$this->load->view('presets', $data);
 			}
 
 		}
