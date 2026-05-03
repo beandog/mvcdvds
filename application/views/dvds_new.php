@@ -2,8 +2,7 @@
 
 	echo heading("New DVDs", 4);
 
-
-	foreach($dvds as $id => $row) {
+	foreach($new_dvds as $id => $row) {
 
 		extract($row);
 
@@ -25,3 +24,4 @@
 
 	echo $this->table->generate();
 	$this->table->clear();
+
