@@ -118,7 +118,9 @@
 		$display_season = ($season ? $season : "");
 		$display_volume = ($volume ? $volume : "");
 		$display_ix = ($ix ? $ix : "");
-		$display_filesize = number_format($filesize)." MB";
+		$display_filesize = '';
+		if($filesize)
+			$display_filesize = number_format($filesize)." MB";
 		$display_package_title = '';
 
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
