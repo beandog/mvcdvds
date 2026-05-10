@@ -14,7 +14,7 @@
 		'Side',
 		'Tracks',
 		'Eps.',
-		'Plex',
+		'Media',
 		'Filesize',
 		'Episodes',
 		'Metadata',

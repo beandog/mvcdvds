@@ -16,7 +16,7 @@
 		'#',
 		'No',
 		'NSIX',
-		'Plex',
+		'Media',
 		// 'Created',
 		'Encoder',
 		'Codecs',

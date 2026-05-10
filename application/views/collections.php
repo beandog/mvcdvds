@@ -8,7 +8,7 @@
 		'Title',
 		'# DVDs',
 		'# Eps.',
-		'Plex',
+		'Media',
 //		'Total Filesize',
 		// 'Preset',
 		'Prod. Year',
