@@ -8,8 +8,6 @@
 
 	foreach($series as $arr) {
 
-// 		pre($row);
-
 		extract($arr);
 
 		$a_title = anchor("series/dvds/$id", $title, array('class' => 'black'));

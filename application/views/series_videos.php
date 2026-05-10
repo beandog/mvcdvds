@@ -16,7 +16,6 @@
 
 	$series_id = str_pad($id, 3, 0, STR_PAD_LEFT);
 
-	// $qa_videos = preg_grep("/^$collection_id\.$series_id\..*\.(mp4|mkv)/", $qa_files);
 	$qa_videos = preg_grep("/^$collection_id\.$series_id\..*\.mkv/", $qa_files);
 
 	foreach($qa_videos as $filename) {
@@ -27,9 +26,6 @@
 		}
 
 		$video_type = pathinfo($filename, PATHINFO_EXTENSION);
-
-		// if($video_type == 'mkv')
-		//	$video_type = 'mp4';
 
 		echo "<b>$filename</b><p>";
 		echo "<p><video src='$video_filename' type='video/$video_type' controls></video></p>";

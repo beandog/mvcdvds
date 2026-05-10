@@ -9,23 +9,10 @@
 		'# DVDs',
 		'# Eps.',
 		'Media',
-//		'Total Filesize',
-		// 'Preset',
 		'Prod. Year',
-//		'Preset Filesize',
 		'Filesize',
 		'Episodes',
-		// 'QA',
 		'Missing Metadata',
-// 		'# Discs',
-// 		'# Seasons',
-// 		'# Volumes',
-// 		'# Episodes',
-// 		'Complete Series',
-// 		'Archive',
-// 		'# Ripped',
-// 		'Avg. Size',
-// 		'Est. Total'
 	);
 
 	$this->table->set_heading($header);
@@ -108,10 +95,8 @@
 			$d_num_dvds,
 			$d_num_episodes,
 			$d_num_plex,
-			// $d_filesize,
 			$d_production_year,
 			$d_filesize,
-			// $d_qa,
 			$d_total_series_episodes_filesize,
 			$d_missing_metadata,
 		);
@@ -142,8 +127,6 @@
 		$display_total_episodes,
 		$display_total_plex,
 		'',
-		// '',
-		// '',
 		$display_total_filesize,
 		$display_total_episodes_filesize,
 		'',

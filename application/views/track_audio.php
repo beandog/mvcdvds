@@ -15,11 +15,6 @@
 			'Active',
 		);
 
-		/*
-		if($bluray)
-			$tbl_heading[] = 'Passthrough';
-		*/
-
 		$this->table->set_heading($tbl_heading);
 
 		$num_episodes = 0;
@@ -44,21 +39,6 @@
 			else
 				$display_active = 'Missing Metadata';
 
-			/*
-			$display_passthrough = '';
-			if($ix == $audio_ix) {
-				$display_passthrough = "<img src='/images/icons/sound.png'>";
-			} else if($passthrough == 2) {
-				$display_passthrough = "<img src='/images/icons/comments.png' valign='bottom'> Commentary";
-			} else if($passthrough == 3) {
-				$display_passthrough = "<img src='/images/icons/comments.png' valign='bottom'> Descriptive Audio";
-			} else if($passthrough == 4) {
-				$display_passthrough = "<img src='/images/icons/sound.png'> Original Audio";
-			} else if($passthrough == 5) {
-				$display_passthrough = "<img src='/images/icons/music.png'> Theatrical Score";
-			}
-			*/
-
 			$tbl_row = array(
 
 				$display_ix,
@@ -67,7 +47,6 @@
 				$channels,
 				$streamid,
 				$display_active,
-				// $display_passthrough
 
 			);
 
