@@ -64,7 +64,17 @@
 
 		$d_num_episodes = number_format($num_episodes[$series_id]);
 
-		$d_num_media = number_format($num_media);
+		if($num_media)
+			$d_num_media = number_format($num_media);
+		else
+			$d_num_media = '';
+
+		if($num_episodes[$series_id] != $num_media) {
+			$d_num_episodes = "<b>$d_num_episodes</b>";
+			$d_num_media = "<b>$d_num_media</b>";
+			$num_missing = $num_episodes[$series_id] - $num_media;
+			$metadata[$series_id][] = "Missing $num_missing Rips";
+		}
 
 		if($sum_filesize[$series_id]) {
 			$d_filesize = number_format($sum_filesize[$series_id])." MB";
