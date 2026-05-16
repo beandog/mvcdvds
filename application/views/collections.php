@@ -24,21 +24,21 @@
 	$total_preset_filesize = 0;
 	$total_num_dvds = 0;
 	$total_num_episodes = 0;
-	$total_num_plex = 0;
+	$total_num_media = 0;
 
-	$plex_pattern= "/^$id\..+\.m(p4|kv)$/";
-	$plex_collection_files = plex_episode_patterns($plex_pattern, $plex_episode_dirs);
+	$media_pattern= "/^$id\..+\.m(p4|kv)$/";
+	$media_collection_files = media_episode_patterns($media_pattern, $media_episode_dirs);
 
 	foreach($collections as $series_id => $row) {
 
 		extract($row);
 
-		$plex_episodes = preg_grep("/^$id\.0*{$series_id}\..+\.m(p4|kv)$/", $plex_collection_files);
-		$num_plex = count($plex_episodes);
+		$media_episodes = preg_grep("/^$id\.0*{$series_id}\..+\.m(p4|kv)$/", $media_collection_files);
+		$num_media = count($media_episodes);
 
 		$total_series_episodes_filesize = 0;
-		foreach($plex_episodes as $plex_episode) {
-			$episode_filesize = plex_episode_filesize($plex_episode, $plex_episode_dirs);
+		foreach($media_episodes as $media_episode) {
+			$episode_filesize = media_episode_filesize($media_episode, $media_episode_dirs);
 			$total_series_episodes_filesize += $episode_filesize;
 
 		}
@@ -55,7 +55,7 @@
 		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
 
 		$d_nsix = $nsix;
-		if($num_plex == $num_episodes[$series_id])
+		if($num_media == $num_episodes[$series_id])
 			$d_nsix = "<b>$d_nsix</b>";
 
 		$a_title = anchor("series/dvds/$series_id", $title, array('class' => $class));
@@ -64,7 +64,7 @@
 
 		$d_num_episodes = number_format($num_episodes[$series_id]);
 
-		$d_num_plex = number_format($num_plex);
+		$d_num_media = number_format($num_media);
 
 		if($sum_filesize[$series_id]) {
 			$d_filesize = number_format($sum_filesize[$series_id])." MB";
@@ -86,7 +86,7 @@
 
 		$total_num_dvds += $num_dvds[$series_id];
 		$total_num_episodes += $num_episodes[$series_id];
-		$total_num_plex += $num_plex;
+		$total_num_media += $num_media;
 
 		$table_row = array(
 			$a_dvd2,
@@ -94,7 +94,7 @@
 			$a_title,
 			$d_num_dvds,
 			$d_num_episodes,
-			$d_num_plex,
+			$d_num_media,
 			$d_production_year,
 			$d_filesize,
 			$d_total_series_episodes_filesize,
@@ -113,7 +113,7 @@
 
 	$display_total_dvds = number_format($total_num_dvds);
 	$display_total_episodes = number_format($total_num_episodes);
-	$display_total_plex = number_format($total_num_plex);
+	$display_total_media = number_format($total_num_media);
 	$display_total_filesize = number_format($total_filesize). " MB";
 	$display_total_episodes_filesize = number_format($total_episodes_filesize / (1024 * 1024)). " MB";
 	$display_total_preset_filesize = number_format($total_preset_filesize). " MB";
@@ -125,7 +125,7 @@
 		'',
 		$display_total_dvds,
 		$display_total_episodes,
-		$display_total_plex,
+		$display_total_media,
 		'',
 		$display_total_filesize,
 		$display_total_episodes_filesize,

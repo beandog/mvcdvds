@@ -86,7 +86,7 @@
 			$data['nsix'] = $data['series']['nsix'];
 			$data['tracks'] = $this->dvds_model->get_tracks($id);
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($series_id));
-			$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
+			$data['media_episode_dirs'] = $this->media_model->get_media_episode_dirs();
 			$data['episodes'] = $this->dvds_model->get_episodes($id);
 			$data['encodes'] = $this->dvds_model->get_encodes($id);
 			$data['series_dvds'] = $this->series_model->get_dvds($series_id, 'disc');
@@ -109,7 +109,7 @@
 				$this->load->view('series_nav', $data);
 				$this->load->view('js/dvd_episodes');
 				$this->load->view('js/tables');
-				$this->load->view('plex_episodes', $data);
+				$this->load->view('media_episodes', $data);
 				$this->load->view('js/play_episode');
 				$this->load->view('dvd_episodes', $data);
 			}

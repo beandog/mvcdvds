@@ -19,7 +19,7 @@
 			$data['new_dvds'] = $this->dvds_model->get_new_dvds();
 			$data['series_id'] = $id;
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
-			$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
+			$data['media_episode_dirs'] = $this->media_model->get_media_episode_dirs();
 
 			if(in_array($data['collection']['id'], array(4, 5, 7, 8, 9)))
 				$movie = true;
@@ -79,7 +79,7 @@
 			$this->load->view('html_title', $data['series']);
 
  			$this->load->view('series_nav', $data);
- 			$this->load->view('plex_episodes', $data);
+			$this->load->view('media_episodes', $data);
  			$this->load->view('series_dvds', $data);
 
  			if(count($data['new_dvds']))

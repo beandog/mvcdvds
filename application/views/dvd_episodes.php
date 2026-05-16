@@ -1,7 +1,7 @@
 <p><?php
 
-	$plex_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\.\d*".$dvds['id']."\..*\.m(p4|kv)/";
-	$plex_files = plex_episode_patterns($plex_pattern, $plex_episode_dirs);
+	$media_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\.\d*".$dvds['id']."\..*\.m(p4|kv)/";
+	$media_files = media_episode_patterns($media_pattern, $media_episode_dirs);
 
 	$img_dvd = img(array('src' => "images/icons/dvd.png", 'class' => 'handle'));
 
@@ -41,11 +41,11 @@
 		$display_id = $collection['id'].".".str_pad($series['id'], 3, 0, STR_PAD_LEFT).".".str_pad($dvd_id, 4, 0, STR_PAD_LEFT).".".str_pad($episode_id, 5, 0, STR_PAD_LEFT);
 
 		$mkv_file = $display_id.".".$series['nsix'].".mkv";
-		$d_plex = '';
+		$d_media = '';
 		$d_filesize = '';
 		$filesize = 0;
 		$d_ctime = '';
-		if(in_array($mkv_file, $plex_files)) {
+		if(in_array($mkv_file, $media_files)) {
 			if(file_exists("/media/sd/$mkv_file"))
 				$video_filename = "/media/sd/$mkv_file";
 			elseif(file_exists("/media/tv/$mkv_file"))
@@ -53,8 +53,8 @@
 			else
 				$video_filename = '';
 			$episode_filename = basename($mkv_file);
-			$d_plex = "<img src='/images/icons/control_play_blue.png' onclick=\"play_episode('$video_filename', '$episode_filename');\">";
-			$filesize = plex_episode_filesize($mkv_file, $plex_episode_dirs);
+			$d_media = "<img src='/images/icons/control_play_blue.png' onclick=\"play_episode('$video_filename', '$episode_filename');\">";
+			$filesize = media_episode_filesize($mkv_file, $media_episode_dirs);
 			$filesize = $filesize / (1024 * 1024);
 			// $d_ctime = date("Y-m-d", filectime("/media/$video_filename"));
 			$d_filesize = number_format($filesize)." MB";
@@ -98,7 +98,7 @@
 
 		}
 
-		$d_plex = "<center>$d_plex</center>";
+		$d_media = "<center>$d_media</center>";
 
 		// Link to track
 		$a_track = anchor("tracks/index/$track_id", $img_dvd);
@@ -151,7 +151,7 @@
 			$i_episode_number,
 			$i_skip_episode,
 			$display_id,
-			$d_plex,
+			$d_media,
 			$d_app,
 			$d_encode,
 			$d_episode_info,

@@ -22,7 +22,7 @@
 
 		foreach(array('sd', 'bd', 'hd') as $dir) {
 			if(is_dir("/media/$dir") && file_exists("/media/$dir/$filename"))
-				$video_filename = "/plex/$dir/$filename";
+				$video_filename = "/media/$dir/$filename";
 		}
 
 		$video_type = pathinfo($filename, PATHINFO_EXTENSION);

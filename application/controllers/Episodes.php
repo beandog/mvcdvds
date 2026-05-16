@@ -13,7 +13,7 @@
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($series_id));
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
 			$data['dvds'] = $this->series_model->get_dvds($series_id);
-			$data['plex_episode_dirs'] = $this->plex_model->get_plex_episode_dirs();
+			$data['media_episode_dirs'] = $this->media_model->get_media_episode_dirs();
 			$data['id'] = $id;
 
 			$episode_nsix = $data['series']['collection_id'];
@@ -23,8 +23,8 @@
 			$episode_nsix .= ".".$data['series']['nsix'];
 			$data['episode_nsix'] = $episode_nsix;
 
-			$this->load->view('plex_episodes', $data);
-			$data['filename'] = plex_episode_filename($episode_nsix, $data['plex_episode_dirs']);
+			$this->load->view('media_episodes', $data);
+			$data['filename'] = media_episode_filename($episode_nsix, $data['media_episode_dirs']);
 
 			if(!file_exists($data['filename'])) {
 				redirect("dvds/episodes/".$data['dvd_id']);

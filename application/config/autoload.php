@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('database_table', 'presets_model', 'bugs_model', 'collections_model', 'dvds_model', 'series_model', 'tracks_model', 'episodes_model', 'series_dvds_model', 'plex_model', 'encodes_model', 'home_dir');
+$autoload['model'] = array('database_table', 'presets_model', 'bugs_model', 'collections_model', 'dvds_model', 'series_model', 'tracks_model', 'episodes_model', 'series_dvds_model', 'media_model', 'encodes_model', 'home_dir');

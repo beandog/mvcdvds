@@ -30,15 +30,15 @@
 	$total_discs = 0;
 	$total_tracks = 0;
 	$total_episodes = 0;
-	$total_plex_episodes = 0;
-	$total_plex_mkv_episodes = 0;
+	$total_media_episodes = 0;
+	$total_media_mkv_episodes = 0;
 	$total_filesize = 0;
 	$total_episode_filesize = 0;
 	$total_dvds_episode_filesize = 0;
 
-	$plex_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\./";
+	$media_pattern = "/\.".str_pad($series['id'], 3, 0, STR_PAD_LEFT)."\./";
 
-	$plex_files = plex_episode_patterns($plex_pattern, $plex_episode_dirs);
+	$media_files = media_episode_patterns($media_pattern, $media_episode_dirs);
 
 	foreach($dvds as $id => $row) {
 
@@ -50,24 +50,24 @@
 
 		$num_episodes = count($episodes[$id]);
 
-		$plex_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\./", $plex_files);
-		$num_plex_episodes = count($plex_episodes);
+		$media_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\./", $media_files);
+		$num_media_episodes = count($media_episodes);
 
-		// $plex_mp4_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mp4/", $plex_files);
-		// $num_plex_mp4_episodes = count($plex_mp4_episodes);
+		// $media_mp4_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mp4/", $media_files);
+		// $num_media_mp4_episodes = count($media_mp4_episodes);
 
-		$plex_mkv_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mkv/", $plex_files);
-		$num_plex_mkv_episodes = count($plex_mkv_episodes);
+		$media_mkv_episodes = preg_grep("/\.".str_pad($id, 4, 0, STR_PAD_LEFT)."\..+\.mkv/", $media_files);
+		$num_media_mkv_episodes = count($media_mkv_episodes);
 
 		$missing_episodes = false;
-		// if($num_episodes != ($num_plex_mp4_episodes + $num_plex_mkv_episodes))
+		// if($num_episodes != ($num_media_mp4_episodes + $num_media_mkv_episodes))
 		//	$missing_episodes = true;
 
 		$episode_filesize = 0;
 		$total_episode_filesize = 0;
 		$d_total_episode_filesize = '';
-		foreach($plex_episodes as $plex_episode) {
-			$episode_filesize = plex_episode_filesize($plex_episode, $plex_episode_dirs);
+		foreach($media_episodes as $media_episode) {
+			$episode_filesize = media_episode_filesize($media_episode, $media_episode_dirs);
 			$episode_filesize = $episode_filesize / (1024 *1024);
 			$total_episode_filesize += $episode_filesize;
 			$total_dvds_episode_filesize += $episode_filesize;
@@ -96,8 +96,8 @@
 		if(!$num_episodes)
 			$num_episodes = "";
 
-		if(intval($num_plex_episodes))
-			$total_plex_episodes += $num_plex_episodes;
+		if(intval($num_media_episodes))
+			$total_media_episodes += $num_media_episodes;
 
 		if(count($metadata[$id]) || $missing_episodes) {
 			$class = 'update';
@@ -133,8 +133,8 @@
 		$display_side = "<span>$side</span>";
 		$display_num_tracks = "<span>$num_tracks</span>";
 		$display_num_episodes = "<span>$num_episodes</span>";
-		$display_num_plex_episodes = "<span>".($num_plex_episodes ? $num_plex_episodes : '')."</span>";
-		$display_num_plex_mkv_episodes = "<span>".($num_plex_mkv_episodes ? $num_plex_mkv_episodes : '')."</span>";
+		$display_num_media_episodes = "<span>".($num_media_episodes ? $num_media_episodes : '')."</span>";
+		$display_num_media_mkv_episodes = "<span>".($num_media_mkv_episodes ? $num_media_mkv_episodes : '')."</span>";
 		$display_filesize = "<span>$display_filesize</span>";
 		$d_missing_metadata = "<span>".implode(", ", $metadata[$id])."</span>";
 
@@ -149,7 +149,7 @@
 			$display_side,
 			$display_num_tracks,
 			$display_num_episodes,
-			$display_num_plex_episodes,
+			$display_num_media_episodes,
 			$display_filesize,
 			$d_total_episode_filesize,
 			$d_missing_metadata,
@@ -176,7 +176,7 @@
 		'',
 		"<b>$total_tracks</b>",
 		"<b>$total_episodes</b>",
-		"<b>$total_plex_episodes</b>",
+		"<b>$total_media_episodes</b>",
 		"<b>".number_format($total_filesize). " MB</b>",
 		"<b>$d_total_dvds_episode_filesize</b>",
 		'',
