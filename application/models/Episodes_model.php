@@ -24,7 +24,7 @@
 		function get_dvd_id($id) {
 
 			$this->db->select('dvd_id');
-			$this->db->where('id', $id);
+			$this->db->where('episode_id', $id);
 
 			$var = $this->get_one('view_episodes');
 
