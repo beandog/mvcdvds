@@ -78,6 +78,10 @@
 				redirect("/");
 
 			$data['dvds'] = $this->dvds_model->get_data($id);
+			if($data['dvds'] === false) {
+				redirect('/');
+				return;
+			}
 			$collection_id = $this->dvds_model->get_collection_id($id);
 			$data['collection_id'] = $collection_id;
 			$series_id = $this->dvds_model->get_series_id($id);
