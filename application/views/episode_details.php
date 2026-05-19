@@ -3,10 +3,10 @@
 	$play_filename = str_replace('/opt', '', $filename);
 	$episode_filename = basename($filename);
 	$d_mtime = '';
-	/*
-	$episode_mtime = filectime($filename);
-	$d_mtime = date("Y-m-d", filectime($filename));
-	*/
+
+	// $str = "<span id='filename' style='border-bottom: 1px dotted'>$filename</span> <img src='/images/icons/shape_ungroup.png' onclick=\"console.log($('#filename').text()); navigator.clipboard.writeText($('#filename').text());\">";
+	$str = "<span id='filename' style='border-bottom: 1px dotted'>$filename</span> <img src='/images/icons/shape_ungroup.png' onclick=\"console.log($('#filename').text()); document.execCommand('testing'); navigator.clipboard.writeText($('#filename').text());\">";
+	$mediainfo = str_replace($filename, $str, $mediainfo);
 
 	$d_play = "<img src='/images/icons/control_play_blue.png' onclick=\"play_episode('$play_filename', '$episode_filename');\">";
 
