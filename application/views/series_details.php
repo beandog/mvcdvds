@@ -39,7 +39,7 @@
 	$input_bwdif = form_dropdown('bwdif', $arr_dropdown_bwdif, $bwdif);
 	$input_production_year = form_input('production_year', $production_year, "size='4'");
 	$input_average_length = form_input('average_length', $display_average_length, "size='3'");
-	$input_qa_notes = form_textarea('qa_notes', $qa_notes);
+	$input_qa_notes = form_textarea(array('name' => 'qa_notes', 'rows' => 10, 'cols' => 120), $qa_notes);
 	$input_start_date = form_input('start_date', $start_date, "size='10'");
 	$input_active = form_dropdown('active', array(1 => 'Active', 2 => 'Inactive', 3 => 'Archived'), $active);
 
