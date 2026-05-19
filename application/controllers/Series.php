@@ -13,6 +13,10 @@
 			$id = abs(intval($id));
 
 			$data['series'] = $this->series_model->get_data($id);
+			if($data['series'] === false) {
+				redirect('/');
+				return;
+			}
 			$data['collection'] = $this->collections_model->get_data($data['series']['collection_id']);
 			$data['dvds'] = $this->series_model->get_dvds($id, 'disc');
 			$data['dvd_id'] = key($data['dvds']);
