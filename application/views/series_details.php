@@ -44,8 +44,12 @@
 	$input_active = form_dropdown('active', array(1 => 'Active', 2 => 'Inactive', 3 => 'Archived'), $active);
 
 	$input_tvdb .= " $input_provider_id";
-	if($tvdb)
+	if($tvdb && in_array($collection_id, array(1, 2, 6, 7)))
 		$input_tvdb .= " <a href='https://www.thetvdb.com/series/$tvdb/seasons/all' target='_blank'>All Seasons</a>";
+	if(!$tvdb && in_array($collection_id, array(4, 5, 8, 9)))
+		$input_tvdb .= " <a href='https://www.themoviedb.org/search?query=".urlencode($title)."' target='_blank'>Search TMDB</a>";
+	elseif($tvdb && in_array($collection_id, array(4, 5, 8, 9)))
+		$input_tvdb .= " <a href='https://www.themoviedb.org/movie/$tvdb' target='_blank'>TMDB</a>";
 
 	$this->table->add_row(array("NSIX:", $input_nsix));
 	$this->table->add_row(array("Display Title:", $input_title));
