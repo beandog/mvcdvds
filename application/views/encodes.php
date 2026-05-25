@@ -63,6 +63,8 @@
 
 		$a_app = '';
 		if(strstr($application, 'HandBrake')) {
+			if(strstr($application, '20260511042237-0e2bd82-master'))
+				$application = str_replace('20260511042237-0e2bd82-master', '1.11.1', $application);
 			$arr = explode(' ', $application);
 			$d_application = "{$arr[0]} {$arr[1]}";
 			$app = 'handbrake';
