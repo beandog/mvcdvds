@@ -25,7 +25,7 @@
 			$data['preset'] = $this->presets_model->get_data($this->series_model->get_preset_id($id));
 			$data['media_episode_dirs'] = $this->media_model->get_media_episode_dirs();
 
-			if(in_array($data['collection']['id'], array(4, 5, 7, 8, 9)))
+			if(in_array($data['collection']['id'], array(3, 4, 5, 8, 9)))
 				$movie = true;
 			else
 				$movie = false;
