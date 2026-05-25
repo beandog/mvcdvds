@@ -31,7 +31,7 @@
 	$input_crf = form_input('crf', $crf, "size='3'");
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
 	if(!is_array($preset))
-		$preset['id'] = 0;
+		$preset = array('id' => 0);
 	$input_preset = form_dropdown('preset_id', $arr_dropdown_presets, $preset['id']);
 	$input_x264_preset = form_dropdown('x264_preset', $arr_dropdown_x264_presets, $x264_preset);
 	$input_ripping = form_dropdown('ripping_id', $rippers, $ripping_id);
