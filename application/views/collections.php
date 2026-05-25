@@ -52,11 +52,12 @@
 			$img_dvd = img(array('src' => "images/icons/dvd.png"));
 		}
 
-		$a_dvd2 = anchor("dvds/details/$id", $img_dvd);
+		$a_dvd2 = anchor("series/details/$series_id", $img_dvd);
 
-		$d_nsix = $nsix;
-		if($num_media == $num_episodes[$series_id])
-			$d_nsix = "<b>$d_nsix</b>";
+		$a_nsix = anchor("series/details/$series_id", $nsix, "style='text-decoration: none; color: #4F5155;' target='_blank'");
+		if($num_media == $num_episodes[$series_id]) {
+			$a_nsix = "<b>$a_nsix</b>";
+		}
 
 		$a_title = anchor("series/dvds/$series_id", $title, array('class' => $class));
 
@@ -100,7 +101,7 @@
 
 		$table_row = array(
 			$a_dvd2,
-			$d_nsix,
+			$a_nsix,
 			$a_title,
 			$d_num_dvds,
 			$d_num_episodes,
