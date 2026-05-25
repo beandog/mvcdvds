@@ -203,6 +203,11 @@
 				'active' => $this->input->post('active'),
 			);
 
+			if(in_array($arr['collection_id'], array(4, 8, 9)) && strlen($arr['tvdb'])) {
+				$arr_provider = explode('-', $arr['tvdb']);
+				$arr['provider_id'] = intval(current($arr_provider));
+			}
+
 			if($this->input->post('crf'))
 				$arr['crf'] = intval($this->input->post('crf'));
 			else
