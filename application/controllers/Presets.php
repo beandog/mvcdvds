@@ -46,7 +46,6 @@
 				$acodec = $this->input->post('acodec');
 
 				$arr['name'] = $this->input->post('name');
-				$arr['x264_tune'] = $this->input->post('x264_tune');
 				$arr['crf'] = $crf;
 				$arr['acodec'] = $acodec;
 
