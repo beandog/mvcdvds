@@ -27,8 +27,6 @@
 
 		$d_video_quality = $crf;
 
-		$d_fps = $fps;
-
 		if($acodec == 'copy') {
 			$d_audio = "copy";
 			$d_audio_quality = '';
@@ -41,7 +39,6 @@
 			$d_preset,
 			$d_num_series,
 			$d_video_quality,
-			$d_fps,
 			$d_audio
 		);
 
