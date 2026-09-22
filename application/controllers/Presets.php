@@ -57,6 +57,12 @@
 				else
 					$arr['crop_video'] = 1;
 
+				$digital = $this->input->post('digital');
+				if(is_null($digital))
+					$arr['digital'] = 0;
+				else
+					$arr['digital'] = 1;
+
 				$arr['name'] = $this->input->post('name');
 				$arr['crf'] = $crf;
 				$arr['acodec'] = $acodec;
