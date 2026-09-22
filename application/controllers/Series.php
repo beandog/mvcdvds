@@ -207,11 +207,6 @@
 				$arr['provider_id'] = intval(current($arr_provider));
 			}
 
-			if($this->input->post('crf'))
-				$arr['crf'] = intval($this->input->post('crf'));
-			else
-				$arr['crf'] = null;
-
 			if($this->input->post('start_date'))
 				$arr['start_date'] = $this->input->post('start_date');
 			else

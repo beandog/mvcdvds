@@ -5,7 +5,6 @@
 	$tbl_heading = array(
 		'Preset',
 		'# Series',
-		'CRF',
 		'FPS',
 		'Audio codec'
 	);
@@ -25,8 +24,6 @@
 		if(array_key_exists($id, $num_series))
 			$d_num_series = $num_series[$id];
 
-		$d_video_quality = $crf;
-
 		if($acodec == 'copy') {
 			$d_audio = "copy";
 			$d_audio_quality = '';
@@ -38,7 +35,6 @@
 		$tbl_row = array(
 			$d_preset,
 			$d_num_series,
-			$d_video_quality,
 			$d_audio
 		);
 

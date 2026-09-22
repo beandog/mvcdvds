@@ -26,7 +26,6 @@
 	$input_title = form_input('title', $title, "size='50'");
 	$input_tvdb = form_input('tvdb', $tvdb, "size='25'");
 	$input_provider_id = form_input('provider_id', $provider_id, "size=6");
-	$input_crf = form_input('crf', $crf, "size='3'");
 	$input_collection = form_dropdown('collection', $collections, $collection['id']);
 	if(!is_array($preset))
 		$preset = array('id' => 0);

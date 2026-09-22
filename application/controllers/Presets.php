@@ -40,11 +40,6 @@
 
 			if($submit == 'Update') {
 
-				$crf = abs(intval($this->input->post('crf')));
-				if(!$crf)
-					$crf = 22;
-				$acodec = $this->input->post('acodec');
-
 				$ivtc = $this->input->post('ivtc');
 				if(is_null($ivtc))
 					$arr['ivtc'] = 0;
@@ -64,8 +59,6 @@
 					$arr['digital'] = 1;
 
 				$arr['name'] = $this->input->post('name');
-				$arr['crf'] = $crf;
-				$arr['acodec'] = $acodec;
 
 				$this->presets_model->set($arr);
 
