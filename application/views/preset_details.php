@@ -18,10 +18,14 @@
 	$i_name = form_input('name', $name, 'size=45');
 	$i_x264_tune = form_dropdown('x264_tune', $o_x264_tune, $x264_tune);
 	$i_crf = form_input('crf', $crf, 'size=2');
+	$i_ivtc = form_checkbox('ivtc', 'accept', boolval($ivtc));
+	$i_crop_video = form_checkbox('crop_video', 'accept', boolval($crop_video));
 	$i_acodec = form_dropdown('acodec', $o_acodec, $acodec);
 
 	$this->table->add_row(array("Name:", $i_name));
 	$this->table->add_row(array("Encoder:", "$i_x264_tune $i_crf"));
+	$this->table->add_row(array("IVTC:", "$i_ivtc"));
+	$this->table->add_row(array("Crop video:", "$i_crop_video"));
 	// $this->table->add_row(array("Quality:", "cq $i_cq"));
 	$this->table->add_row(array("Audio:", "$i_acodec"));
 

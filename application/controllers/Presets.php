@@ -45,6 +45,18 @@
 					$crf = 22;
 				$acodec = $this->input->post('acodec');
 
+				$ivtc = $this->input->post('ivtc');
+				if(is_null($ivtc))
+					$arr['ivtc'] = 0;
+				else
+					$arr['ivtc'] = 1;
+
+				$crop_video = $this->input->post('crop_video');
+				if(is_null($crop_video))
+					$arr['crop_video'] = 0;
+				else
+					$arr['crop_video'] = 1;
+
 				$arr['name'] = $this->input->post('name');
 				$arr['crf'] = $crf;
 				$arr['acodec'] = $acodec;
