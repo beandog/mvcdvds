@@ -25,9 +25,9 @@
 
 		}
 
-		function preset($str) {
+		function vcodec($str) {
 
-			$data['encodes'] = $this->encodes_model->get_preset($str);
+			$data['encodes'] = $this->encodes_model->get_vcodec($str);
 
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data);

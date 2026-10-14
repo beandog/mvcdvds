@@ -38,15 +38,10 @@
 
 		}
 
-		public function get_preset($q) {
+		public function get_vcodec($q) {
 
 			$this->db->select('*');
-			if($q == 'none')
-				$this->db->where('x264_preset', null);
-			elseif($q == 'medium')
-				$this->db->where('x264_preset', 'medium');
-			else
-				$this->db->where('x264_preset LIKE', "%$q%");
+			$this->db->where('vcodec', $q);
 			$this->db->where('filename NOT LIKE', '%.HD%');
 			$this->db->where('filename NOT LIKE', '%.BD%');
 			$this->db->where('filename NOT LIKE', '%.4K%');

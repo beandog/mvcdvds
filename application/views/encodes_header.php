@@ -8,12 +8,11 @@
 	);
 	$d_app_anchors = implode(' | ', $arr_app_anchors);
 
-	$arr_preset_anchors = array(
-		anchor('encodes/preset/medium', 'medium'),
-		anchor('encodes/preset/slow', 'slow'),
-		anchor('encodes/preset/none', 'none'),
+	$arr_vcodec_anchors = array(
+		anchor('encodes/vcodec/avc', 'avc'),
+		anchor('encodes/vcodec/hevc', 'hevc'),
 	);
-	$d_preset_anchors = implode(' | ', $arr_preset_anchors);
+	$d_vcodec_anchors = implode(' | ', $arr_vcodec_anchors);
 
 	$arr_audio_anchors = array(
 		anchor('encodes/audio/ac3', 'ac3'),
@@ -28,7 +27,7 @@
 	);
 	$d_subs_anchors = implode(' | ', $arr_subs_anchors);
 
-	echo "Apps: $d_app_anchors &nbsp; Presets: $d_preset_anchors &nbsp; Audio: $d_audio_anchors &nbsp; Subtitles: $d_subs_anchors";
+	echo "Apps: $d_app_anchors &nbsp; Video: $d_vcodec_anchors &nbsp; Audio: $d_audio_anchors &nbsp; Subtitles: $d_subs_anchors";
 
 	echo "<p>";
 
