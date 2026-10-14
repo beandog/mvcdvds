@@ -75,7 +75,7 @@
 		} elseif(strstr($application, 'Lavf')) {
 			$app = 'ffmpeg';
 			$a_app = anchor('encodes/app/ffmpeg', 'ffmpeg');
-			$d_application = 'ffmpeg';
+			$d_application = $encode_settings;
 		}
 		if($encoded_date)
 			$d_encoded_date = date('Y-m-d', strtotime($encoded_date));
