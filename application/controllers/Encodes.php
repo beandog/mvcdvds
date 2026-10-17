@@ -68,4 +68,14 @@
 
 		}
 
+		function nsix($str) {
+
+			$data['encodes'] = $this->encodes_model->get_nsix($str);
+
+			$this->load->view('css/style');
+			$this->load->view('html_title', $data);
+			$this->load->view('encodes', $data);
+
+		}
+
 	}

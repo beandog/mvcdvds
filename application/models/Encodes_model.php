@@ -112,4 +112,20 @@
 
 		}
 
+		public function get_nsix($nsix) {
+
+			$nsix = $this->db->escape_str($nsix);
+
+			$sql = "SELECT e.*, ve.series_id, ve.series_title, ve.episode_title, ve.episode_part, ve.episode_season, ve.episode_number FROM encodes e LEFT OUTER JOIN view_episodes ve ON e.episode_id = ve.episode_id WHERE ve.nsix = '$nsix';";
+
+			$arr_assoc = array();
+			$obj = $this->db->query($sql);
+			foreach($obj->result_array() as $arr) {
+				$arr_assoc[] = $arr;
+			}
+
+			return $arr_assoc;
+
+		}
+
 	}
