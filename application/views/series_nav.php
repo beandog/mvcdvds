@@ -26,7 +26,7 @@
  	$a_tracks = anchor("dvds/tracks/$dvd_id", "Tracks");
  	$a_episodes = anchor("dvds/episodes/$dvd_id", "Episodes");
 	$a_details = anchor("dvds/details/$dvd_id", "Disc");
-	$a_videos = anchor("encodes/series/".$series['id'], "Videos");
+	$a_videos = anchor("encodes/nsix/".$series['nsix'], "Encodes");
  	$a_series = anchor("series/details/".$series['id'], "Encoding Settings");
 	$preset_name = '';
 	if(is_array($preset))
