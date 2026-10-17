@@ -23,6 +23,7 @@
 
 	$header = array(
 		'',
+		'NSIX',
 		'Filename',
 		'Application',
 		'Duration',
@@ -44,6 +45,7 @@
 		$collection_id = $arr[0];
 		$series_id = intval($arr[1]);
 		$dvd_id = intval($arr[2]);
+		$nsix = substr($filename, 17, 5);
 
 		$d_application = $application;
 		$d_episode_mbs = number_format($episode_mbs);
@@ -52,6 +54,7 @@
 		$d_duration = seconds_to_hms($duration);
 
 		$d_dvd = "<center>".anchor("dvds/episodes/$dvd_id", $img_dvd)."</center>";
+		$d_nsix = "<center>".anchor("encodes/nsix/$nsix", $nsix)."</center>";
 		$d_filename = anchor("dvds/episodes/$dvd_id", $filename);
 		$d_episode_info = "<center>".anchor("episodes/index/$episode_id", $img_episode)."</center>";
 
@@ -83,6 +86,7 @@
 		$table_row = array(
 
 			$d_dvd,
+			$d_nsix,
 			$d_filename,
 			$d_application,
 			$d_duration,

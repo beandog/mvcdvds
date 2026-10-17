@@ -64,6 +64,7 @@
 
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data);
+			$this->load->view('encodes_header');
 			$this->load->view('encodes', $data);
 
 		}
@@ -74,6 +75,7 @@
 
 			$this->load->view('css/style');
 			$this->load->view('html_title', $data);
+			$this->load->view('encodes_header');
 			$this->load->view('encodes', $data);
 
 		}
