@@ -84,7 +84,7 @@
 
 			$series_id = intval($series_id);
 
-			$sql = "SELECT e.*, ve.series_id, ve.series_title, ve.episode_title, ve.episode_part, ve.episode_season, ve.episode_number FROM encodes e LEFT OUTER JOIN view_episodes ve ON e.episode_id = ve.episode_id WHERE ve.series_id = $series_id;";
+			$sql = "SELECT e.*, ve.series_id, ve.series_title, ve.episode_title, ve.episode_part, ve.episode_season, ve.episode_number FROM encodes e LEFT OUTER JOIN view_episodes ve ON e.episode_id = ve.episode_id WHERE ve.series_id = $series_id ORDER BY ve.episode_filename;";
 
 			$arr_assoc = array();
 			$obj = $this->db->query($sql);
@@ -100,7 +100,7 @@
 
 			$dvd_id = intval($dvd_id);
 
-			$sql = "SELECT e.*, ve.series_id, ve.series_title, ve.episode_title, ve.episode_part, ve.episode_season, ve.episode_number FROM encodes e LEFT OUTER JOIN view_episodes ve ON e.episode_id = ve.episode_id WHERE ve.dvd_id = $dvd_id;";
+			$sql = "SELECT e.*, ve.series_id, ve.series_title, ve.episode_title, ve.episode_part, ve.episode_season, ve.episode_number FROM encodes e LEFT OUTER JOIN view_episodes ve ON e.episode_id = ve.episode_id WHERE ve.dvd_id = $dvd_id ORDER BY ve.episode_filename;";
 
 			$arr_assoc = array();
 			$obj = $this->db->query($sql);
@@ -116,7 +116,7 @@
 
 			$nsix = $this->db->escape_str($nsix);
 
-			$sql = "SELECT e.*, ve.series_id, ve.series_title, ve.episode_title, ve.episode_part, ve.episode_season, ve.episode_number FROM encodes e LEFT OUTER JOIN view_episodes ve ON e.episode_id = ve.episode_id WHERE ve.nsix = '$nsix';";
+			$sql = "SELECT e.*, ve.series_id, ve.series_title, ve.episode_title, ve.episode_part, ve.episode_season, ve.episode_number FROM encodes e LEFT OUTER JOIN view_episodes ve ON e.episode_id = ve.episode_id WHERE ve.nsix = '$nsix' ORDER BY ve.episode_filename;";
 
 			$arr_assoc = array();
 			$obj = $this->db->query($sql);
